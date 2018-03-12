@@ -1,0 +1,218 @@
+<html>
+    <!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	
+
+	<title>几个C++数字转字符串（int转string）函数与其复杂度比较 | akakanch</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+	<link rel="shortcut icon" href="/favicon.ico">	
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/caomei.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+
+    <body>
+        <div class="root">
+            <div class='topnavs container fixed-690'>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            首页
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/categories">
+                            分类
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/archives">
+                            归档
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tags">
+                            标签
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">
+                            关于
+                        </a>
+                    </li>
+                    
+            </ul>
+        </div>
+    </nav>
+</div>
+                <section class="container mainbody fixed-690">
+                    <div class="post">
+    <div class="post-title">
+        <h1>
+            几个C++数字转字符串（int转string）函数与其复杂度比较 
+        </h1>
+
+        
+        <div class="post-title-views">
+            <span id="busuanzi_container_page_pv">
+                本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次
+            </span>
+        </div>
+        
+    </div>
+    <div class="post-content markdown">
+        <p>&nbsp;</p>
+<p>前几天在做一道ACM题的时候，这道题要求我们对输入的2个数字逆序相加，再将它们的和逆序输出。当时我直接调用了itoa函数进行数字到字符串的转换，再用我之前的AddNum函数进行加法运算。结果上传到BNUOJ上后，居然编译错误。提示：</p>
+<pre id="dcontent" class="">error: 'itoa' was not declared in this scope</pre>
+后来无奈只有自己实现这个函数。数字转字符串之前在C语言课上我写过一个。不过，这次我想到了一个特别的方法。下面来详细说说这几个方法吧。
+
+* * *
+
+&nbsp;
+
+## 方法一
+
+首先，先来谈谈我最早在C语言上的方法：
+
+之前我都这样做，每次用这个数去除以小于它的10^n数，再利用C/C++ int类型取整的特性，来得到要转换数字的每个数位。
+
+比如，对于4567这个数字，我先用1000去除，得到第一个数位4；再用100除它，得到的数字X减去之前得到的数字乘以10，就得到第二个数位5；同理，再继续将4567除以10，得到数再减去之前得到的中间数乘以10，就得到第三个数位6，再用同样的方法得到第4个数位。
+
+最后，整个算法是这个样子的：
+<pre class="lang:c++ decode:true ">void itoc(long n,char * num)
+{
+    int len=0, p=n;
+    while(p/=10)
+    {
+        len++;
+    }
+    len++;
+    for(p=0;p&lt;len;p++)
+    {
+        int x=1;
+        for(int t=p+1;t&lt;len;t++)
+        {
+            x*=10;
+        }
+        num[p] = n/x + '0';
+        n -=( num[p] - '0' ) * x;
+    }
+    num[len] = '\0';
+}</pre>
+&nbsp;
+
+## 方法二
+
+其次，我们来谈谈这次我的方法：
+
+原理很简单，我们不做除法，不是完全不做，我们一直做减法就行。比如还是对于4567这个数字，首先，我们知道的是：4567和10求余肯定不为0。所以我们就一直让4567减1，直到4567和10求余余数为0就停止。然后我们再将现在的这个数字，也就是4560除10，得到456，再用同样的方法，依次递减1，直到450为止，从而得到第二个数位6，依次这样做下去，我们就可以得到第3，第4个数位了。
+
+最后，整个算法是这个样子的：
+<pre class="lang:c++ decode:true">inline string inttostr(int num)
+{
+    int buf=num,x=0;
+    string snum="";
+    while(1)
+    {
+        //if(buf==1)
+        if(buf&lt;10)
+        {
+            char ch=buf+'0';
+            snum+=ch;
+            break;
+        }
+        else if(buf%10)
+        {
+            buf--;
+            x++;
+        }
+        else if(!(buf%10) &amp;&amp; buf !=0)
+        {
+            char ch=x+'0';
+            snum+=ch;
+            buf /= 10;
+            x=0;
+        }
+    }
+
+    return snum;
+}
+</pre>
+
+<p>## </p>
+<h2 id="系统的方法"><a href="#系统的方法" class="headerlink" title="系统的方法"></a>系统的方法</h2><p>再看看系统，不对，是某某库的itoa方法：</p>
+<p><a href="http://139.129.6.122/wp-content/uploads/2015/12/itoa_1.jpg" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2015/12/itoa_1.jpg" alt="itoa_1"></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>stdlib.h库里函数的方法用了和方法一原理上相同的方法，只不过，好吧，他这个可以判断正负。写得好简洁。</p>
+<p>&nbsp;</p>
+<hr>
+<p>几种方法的效率分析：</p>
+<p>我们用这三个算法进行50000次int到str的转换，结果如下：</p>
+<p><a href="http://139.129.6.122/wp-content/uploads/2015/12/inttostr.png" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2015/12/inttostr.png" alt="inttostr"></a></p>
+<p>什么鬼这是，我的新方法居然慢了这么多，，，，悲剧了。</p>
+<p>可以看到，传统方法和标准库里面的方法在速度上没太大的区别。新方法呢，，，的确，慢了好多。</p>
+<p>&nbsp;</p>
+ 
+    </div>
+    <div class="post-foot">
+        <div id="disqus_thread"></div>
+    </div>
+</div>
+
+
+                </section>
+                <footer class="container fixed-690 footer">
+    <div>
+        <span>Power by <a href="https://hexo.io">Hexo</a></span>
+    </div>
+    <div>
+        <span>Theme <a href="https://github.com/zhengxiaowai/hexo-theme-lessless">lessless</a></span>
+    </div>
+        
+            
+<div>
+    <span id="hexiangyutest_container_site_pv">
+    PV: <span id="busuanzi_value_site_pv"></span>
+    </span>
+    <span id="busuanzi_container_site_uv">
+    UV: <span id="busuanzi_value_site_uv"></span>
+    </span>
+</div>
+
+        
+</footer>
+        </div>
+        
+<script src="/js/jquery-3.2.1.slim.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+    
+
+    </body>
+</html>

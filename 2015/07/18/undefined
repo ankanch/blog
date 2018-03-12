@@ -1,0 +1,168 @@
+<html>
+    <!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	
+
+	<title>Android Studio在切换Fragment显示不同的内容与NavigationDrawerFragment解析 | akakanch</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+	<link rel="shortcut icon" href="/favicon.ico">	
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/caomei.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+
+    <body>
+        <div class="root">
+            <div class='topnavs container fixed-690'>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            首页
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/categories">
+                            分类
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/archives">
+                            归档
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tags">
+                            标签
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">
+                            关于
+                        </a>
+                    </li>
+                    
+            </ul>
+        </div>
+    </nav>
+</div>
+                <section class="container mainbody fixed-690">
+                    <div class="post">
+    <div class="post-title">
+        <h1>
+            Android Studio在切换Fragment显示不同的内容与NavigationDrawerFragment解析 
+        </h1>
+
+        
+        <div class="post-title-views">
+            <span id="busuanzi_container_page_pv">
+                本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次
+            </span>
+        </div>
+        
+    </div>
+    <div class="post-content markdown">
+        <p>我在做一个app时，使用了Navigation Drawer Fragment，但却在更换显示内容（或者说更换显示的dialog）的时候遇到了问题。</p>
+<p>后来才知道，是不能通过setContentView来设置layout的。必须通过切换（替换）fragment来实现显示内容的改变。</p>
+<h4 id="首先介绍下什么是Fragment："><a href="#首先介绍下什么是Fragment：" class="headerlink" title="首先介绍下什么是Fragment："></a><span style="color: #ff0000;">首先介绍下什么是Fragment：</span></h4><p>Android运行在各种各样的设备中，有小屏幕的手机，超大屏的平板甚至电视。针对屏幕尺寸的差距，很多情况下，都是先针对手机开发一套App，然后拷贝,修改布局以适应其它设备。Fragment的出现就是为了解决这种问题。你可以把Fragment当成Activity的一个界面的一个组成部分，甚至Activity的界面可以完全有不同的Fragment组成，Fragment拥有自己的生命周期和接收、处理用户的事件，这样就不必在Activity写一堆控件的事件处理的代码了。更为重要的是，你可以动态的添加、替换和移除某个Fragment。</p>
+<h4 id="特别说明："><a href="#特别说明：" class="headerlink" title="特别说明："></a><span style="color: #ff0000;"><strong>特别说明：</strong></span></h4><p>Fragment必须放在某个Activity中，但是它在app的所有Activity中是通用的。也就是说你可以把一个Activity中的Fragment加载到其它的Activity中。</p>
+<h1 id="下面开始使用Fragment和在Navigation-Drawer-Fragment中切换Fragment。"><a href="#下面开始使用Fragment和在Navigation-Drawer-Fragment中切换Fragment。" class="headerlink" title="下面开始使用Fragment和在Navigation Drawer Fragment中切换Fragment。"></a><span style="color: #ff0000;">下面开始使用Fragment和在Navigation Drawer Fragment中切换Fragment。</span></h1><p><span style="color: #000000;"> ———————————————–</span></p>
+<h4 id="首先解释下通过向导创建的Navigation-Drawer-Fragment中的一些重要组成和重要代码。"><a href="#首先解释下通过向导创建的Navigation-Drawer-Fragment中的一些重要组成和重要代码。" class="headerlink" title=" 首先解释下通过向导创建的Navigation Drawer Fragment中的一些重要组成和重要代码。"></a><span style="color: #333300;"> <strong>首先解释下通过向导创建的Navigation Drawer Fragment中的一些重要组成和重要代码。</strong></span></h4><p>如果你的文件名称全是默认的话，在layout下，你会得到：</p>
+<p><span style="color: #ff00ff;">_activity_main.xml_</span></p>
+<p><span style="color: #ff00ff;">_ fragment_main.xml_</span></p>
+<p><span style="color: #ff00ff;">_ fragment_navigation_drawer.xml_</span></p>
+<p>这3个布局文件。</p>
+<p><strong><span style="color: #ff00ff;">activity_main.xml</span></strong>是主布局文件（相当于根窗口）后面的2个布局文件都是建立在他之上的。</p>
+<p>所以，我们待会要把一个元素放在这里面。</p>
+<p>第三个<strong><span style="color: #ff00ff;">fragment_navigation_drawer.xml</span></strong>是左侧（默认左侧）划出菜单的布局文件。打开后你会发现里面有ListView元素，当然，你也可以加些其它的控件进去。</p>
+<p>再来看生成的2个Java Class文件：</p>
+<p><em><span style="color: #ff00ff;">MainActivity</span></em></p>
+<p><em><span style="color: #ff00ff;"> NavigationDrawerFragment</span></em></p>
+<p>第一个<strong><span style="color: #ff00ff;">MainActivity</span></strong>对应于activity_main.xml。是实现程序的根本文件。</p>
+<p>打开后，你会找到这个函数： <span style="color: #000000;"><em>public void onNavigationDrawerItemSelected(int position)</em></span></p>
+<p>当用户点击了左侧菜单中的一项时，NavigationDrawerFragment类对象</p>
+<p>会触发<span style="color: #000000;"><em>public static interface NavigationDrawerCallbacks</em></span> 进而调用上面那个函数。</p>
+<p>参数<em>postion</em>则为被点击项在ListView中的索引。（注意：从0开始）</p>
+<p>所以，切换fragment的代码应该在这里（<em><span style="color: #000000;">onNavigationDrawerItemSelected</span></em>）。</p>
+<p>我们用一个switch语句来决定点击项的不同响应（这里是切换成不同的fragment）</p>
+<p>再来看第二个Java Class：<strong><span style="color: #ff00ff;">NavigationDrawerFragment</span></strong></p>
+<p>打开后你会在onCreateView方法中找到初始化左侧菜单（即ListView）项名字的代码。</p>
+<p>再向下看你会看见：<span style="color: #000000;"><em>onOptionsItemSelected</em></span></p>
+<p>这个实现的是app右上角（标题栏）按钮被点击后的事件处理。</p>
+<h4 id="下面贴出代码并解释："><a href="#下面贴出代码并解释：" class="headerlink" title="下面贴出代码并解释："></a><span style="color: #ff0000;"><strong>下面贴出代码并解释：</strong></span></h4><p>首先，创建fragment：</p>
+<p>与创建activity类似，在程序资源目录，点右键菜单，创建layout resouce file</p>
+<p>其次，将这个layout resouce file与Java Class关联（这个Class必须继承自Fragment类，注意：是android.app.Fragment）如图：</p>
+<p><a href="http://139.129.6.122/wp-content/uploads/2015/07/ndf_1.jpg" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2015/07/ndf_1.jpg" alt="ndf_1"></a></p>
+<p>如何关联呢？很简单，打开刚刚创建的layout resouce file在根布局（就是带类似于<em>xmlns:android=”<a href="http://schemas.android.com/apk/res/android&quot;" target="_blank" rel="noopener">http://schemas.android.com/apk/res/android&quot;</a></em>属性的布局）添加一个属性：</p>
+<p><span style="color: #ff00ff;"><strong><em>android：name=“你的类所在的包名”</em></strong></span>（如：com.akakanch.fragmenttest.exampleClass）</p>
+<p>这样就实现了资源文件与类的关联。因为不是创建Activity，所以不必在Manfiest中注册。</p>
+<p>如图：</p>
+<h5 id=""><a href="#" class="headerlink" title=""></a><a href="http://139.129.6.122/wp-content/uploads/2015/07/ndf_2.jpg" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2015/07/ndf_2.jpg" alt="ndf_2"></a></h5><h5 id="接下来修改关联的类文件内容。"><a href="#接下来修改关联的类文件内容。" class="headerlink" title="接下来修改关联的类文件内容。"></a><span style="color: #ff0000;"><strong>接下来修改关联的类文件内容。</strong></span></h5><p>我们要让他继承（extends）自Fragment（再次提醒：是<strong>android.app.Fragment</strong>）</p>
+<p>然后重载onCreateView，这个是用来初始化目标fragment的。</p>
+<p>最后添加构造函数。</p>
+<p>如图：</p>
+<p><a href="http://139.129.6.122/wp-content/uploads/2015/07/ndf_3.jpg" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2015/07/ndf_3.jpg" alt="ndf_3"></a></p>
+<p>（<strong><span style="color: #ff0000;">划红线代码非常重要！</span></strong>）</p>
+<p>到此，要替换的fragment已经实现完成。</p>
+<hr>
+<p>让我们回到MainActivity中的：onNavigationDrawerItemSelected(int position)</p>
+<p><strong>先说一下，替换fragment需要使用FragmentManager，在做完修改后调用commit（）应用修改。</strong></p>
+<p><strong> 我们通过新建要修改的fragment的类对象，再利用FragmentTransaction与FragmentManager修改。</strong></p>
+<p>代码如下：</p>
+<p><pre class="lang:java decode:true "> switch(position)<br>{<br>case 0:<br>android.app.Fragment fgt_s1 = new com.akakanch.csgostatstrack.fragmenttest.layout_s1();<br>FragmentTransaction transaction1 =getFragmentManager().beginTransaction();<br>transaction1.replace(R.id.container,fgt_s1);<br>PlaceholderFragment.newInstance(position + 1);<br>transaction1.commit();<br>break;<br>}</pre><br>&nbsp;</p>
+ 
+    </div>
+    <div class="post-foot">
+        <div id="disqus_thread"></div>
+    </div>
+</div>
+
+
+                </section>
+                <footer class="container fixed-690 footer">
+    <div>
+        <span>Power by <a href="https://hexo.io">Hexo</a></span>
+    </div>
+    <div>
+        <span>Theme <a href="https://github.com/zhengxiaowai/hexo-theme-lessless">lessless</a></span>
+    </div>
+        
+            
+<div>
+    <span id="hexiangyutest_container_site_pv">
+    PV: <span id="busuanzi_value_site_pv"></span>
+    </span>
+    <span id="busuanzi_container_site_uv">
+    UV: <span id="busuanzi_value_site_uv"></span>
+    </span>
+</div>
+
+        
+</footer>
+        </div>
+        
+<script src="/js/jquery-3.2.1.slim.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+    
+
+    </body>
+</html>

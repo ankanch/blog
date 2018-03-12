@@ -1,0 +1,192 @@
+<html>
+    <!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	
+
+	<title>HMMC - How Much Money Do I Cost On Steam | akakanch</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+	<link rel="shortcut icon" href="/favicon.ico">	
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/caomei.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+
+    <body>
+        <div class="root">
+            <div class='topnavs container fixed-690'>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            首页
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/categories">
+                            分类
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/archives">
+                            归档
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tags">
+                            标签
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">
+                            关于
+                        </a>
+                    </li>
+                    
+            </ul>
+        </div>
+    </nav>
+</div>
+                <section class="container mainbody fixed-690">
+                    <div class="post">
+    <div class="post-title">
+        <h1>
+            HMMC - How Much Money Do I Cost On Steam 
+        </h1>
+
+        
+        <div class="post-title-views">
+            <span id="busuanzi_container_page_pv">
+                本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次
+            </span>
+        </div>
+        
+    </div>
+    <div class="post-content markdown">
+        <p>&nbsp;</p>
+<p><pre class="lang:js decode:true ">function hmmc(){</pre></p>
+<pre><code>//currency exchange
+var CUR = [&apos;¥&apos;,&apos;$&apos;,&apos;€&apos;,&apos;£&apos;,&apos;₽&apos;,&apos;CDN$&apos;,&apos;₩&apos;];
+var CUR_RMB = [1.0,6.3,7.7,8.8,0.1,5,0.0059];
+
+//box to show info
+var loading = `&amp;lt;div class=&quot;home_area_spotlight&quot; style=&quot;height:80px;width:100%;display:inline-block;&quot;&amp;gt;
+               &amp;lt;div class=&quot;spotlight_content&quot; style=&quot;width:100%;text-align:center;&quot;&amp;gt;
+                  &amp;lt;h2&amp;gt;Loading the costs in &amp;lt;/h2&amp;gt;
+                  &amp;lt;div class=&quot;spotlight_body&quot;&amp;gt;RMB &amp;lt;/div&amp;gt;
+                  &amp;lt;div class=&quot;spotlight_body spotlight_price price&quot;&amp;gt;
+                     &amp;lt;div class=&quot;discount_block discount_block_spotlight discount_block_large&quot;&amp;gt;
+                        &amp;lt;div class=&quot;discount_pct&quot; id=&quot;spent_money&quot;&amp;gt;wait few seconds...&amp;lt;/div&amp;gt;
+                     &amp;lt;/div&amp;gt;
+                  &amp;lt;/div&amp;gt;
+               &amp;lt;/div&amp;gt;
+               &amp;lt;div class=&quot;ds_options&quot;&amp;gt;
+                  &amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;
+               &amp;lt;/div&amp;gt;
+            &amp;lt;/div&amp;gt;`;
+
+var donestr = `&amp;lt;div class=&quot;home_area_spotlight&quot; style=&quot;height:80px;width:100%;display:inline-block;&quot;&amp;gt;
+               &amp;lt;div class=&quot;spotlight_content&quot; style=&quot;width:100%;text-align:center;&quot;&amp;gt;
+                  &amp;lt;h2&amp;gt;You have spent&amp;lt;/h2&amp;gt;
+                  &amp;lt;div class=&quot;spotlight_body&quot;&amp;gt;RMB &amp;lt;/div&amp;gt;
+                  &amp;lt;div class=&quot;spotlight_body spotlight_price price&quot;&amp;gt;
+                     &amp;lt;div class=&quot;discount_block discount_block_spotlight discount_block_large&quot;&amp;gt;
+                        &amp;lt;div class=&quot;discount_pct&quot; id=&quot;spent_money&quot;&amp;gt;@SPENT@&amp;lt;/div&amp;gt;
+                     &amp;lt;/div&amp;gt;
+                  &amp;lt;/div&amp;gt;
+               &amp;lt;/div&amp;gt;
+               &amp;lt;div class=&quot;ds_options&quot;&amp;gt;
+                  &amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;
+               &amp;lt;/div&amp;gt;
+            &amp;lt;/div&amp;gt;`;
+// target div before our box
+var ppt = document.querySelector(&quot;body &amp;gt; div.page_header_ctn.account_management&quot;);
+ppt.insertAdjacentHTML(&quot;afterend&quot;, loading);
+
+//load all wallet transactions
+
+console.log(&quot;Loading all transactions....&quot;); 
+WalletHistory_LoadMore();
+
+console.log(&quot;done.\r\nWaiting for 8 seconds...&quot;); 
+ setTimeout(function() {
+    //extract all transactions
+    var costRM = [];
+    var cc = document.getElementsByClassName(&apos;wht_wallet_change&apos;);
+    var change = document.getElementsByClassName(&apos;wht_total&apos;);
+    var balance = document.getElementsByClassName(&apos;wht_wallet_balance&apos;);
+    for (var i = 1; i &amp;lt; cc.length; i++) {
+        if(change[i].textContent.length &amp;gt;1){
+            //check if it is expenditure
+            if((cc[i].textContent.length &amp;gt; 3 &amp;amp;&amp;amp; cc[i].textContent[0]==&apos;-&apos;) || (cc[i].textContent.length &amp;lt; 2 &amp;amp;&amp;amp; balance[i].textContent.length &amp;lt; 2)){
+                var vv =  change[i].textContent.replace(/[^\-+.0-9]/g,&apos;&apos;);
+                var oly = change[i].textContent.replace(/[^\-+.0-9฿₵¢₡B₫€ƒ₲Kč₭£₤₥₦₱₨₽$₮₩¥₴₪֏¥]/g,&apos;&apos;);
+                //convert currency to RMB 
+                vv = CUR_RMB[CUR.indexOf(oly[0])]*parseFloat(vv);
+                costRM.push( parseFloat(vv) );
+            }
+        }
+    }
+
+    // compute all cost
+    var X = costRM.reduce(function(a, b) { return a + b; }, 0);
+    console.log(&apos;done.\r\n-\r\n-\r\nYou have cost ¥ &apos; + Number((X).toFixed(2)) + &apos; RMB on Steam so far.\r\n-\r\n-\r\n&apos;);
+    document.querySelector(&quot;body &amp;gt; div.home_area_spotlight&quot;).remove();
+    ppt.insertAdjacentHTML(&quot;afterend&quot;, donestr.replace(&quot;@SPENT@&quot;,Number((X).toFixed(2))));
+ },8888);
+</code></pre><p>}<br>&nbsp;</p>
+ 
+    </div>
+    <div class="post-foot">
+        <div id="disqus_thread"></div>
+    </div>
+</div>
+
+
+                </section>
+                <footer class="container fixed-690 footer">
+    <div>
+        <span>Power by <a href="https://hexo.io">Hexo</a></span>
+    </div>
+    <div>
+        <span>Theme <a href="https://github.com/zhengxiaowai/hexo-theme-lessless">lessless</a></span>
+    </div>
+        
+            
+<div>
+    <span id="hexiangyutest_container_site_pv">
+    PV: <span id="busuanzi_value_site_pv"></span>
+    </span>
+    <span id="busuanzi_container_site_uv">
+    UV: <span id="busuanzi_value_site_uv"></span>
+    </span>
+</div>
+
+        
+</footer>
+        </div>
+        
+<script src="/js/jquery-3.2.1.slim.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+    
+
+    </body>
+</html>

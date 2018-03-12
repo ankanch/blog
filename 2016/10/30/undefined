@@ -1,0 +1,139 @@
+<html>
+    <!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	
+
+	<title>MFC自定义消息传递，实现子线程更新主窗口数据 | akakanch</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+	<link rel="shortcut icon" href="/favicon.ico">	
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/caomei.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+
+    <body>
+        <div class="root">
+            <div class='topnavs container fixed-690'>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            首页
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/categories">
+                            分类
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/archives">
+                            归档
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tags">
+                            标签
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">
+                            关于
+                        </a>
+                    </li>
+                    
+            </ul>
+        </div>
+    </nav>
+</div>
+                <section class="container mainbody fixed-690">
+                    <div class="post">
+    <div class="post-title">
+        <h1>
+            MFC自定义消息传递，实现子线程更新主窗口数据 
+        </h1>
+
+        
+        <div class="post-title-views">
+            <span id="busuanzi_container_page_pv">
+                本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次
+            </span>
+        </div>
+        
+    </div>
+    <div class="post-content markdown">
+        <p>最近在写贴吧分布式爬虫项目的客户端，采用了MFC来写。</p>
+<p>其中需要后台连接服务器更新在线爬虫列表。这里使用多线程是肯定的，但是如何实现在工作线程里操作主对话框里的数据。</p>
+<p>当时想的是在开辟新线程的时候，将主对话框的this指针传递给子线程。</p>
+<p>但事实证明，在VS 2015环境下，这种方法并不行，会引发运行时错误（Assertion Failed）。</p>
+<p>后面在网上查了一翻关于MFC子线程如何操作主对话框数据的资料，了解到，可以通过<a href="http://blog.csdn.net/npu_wy/article/details/28625085" target="_blank" rel="noopener">在子线程里面传递消息来实现</a>。但是原文里面的方法，在消息映射那里并不行。</p>
+<p>后来在MSDN上查了下，终于正确实现子线程传递消息到主对话框，然后，调用相应的函数更新数据。</p>
+<p>首先，我们要自定义一个我们要传递的消息，在对话框类的头文件中声明：</p>
+<p><pre class="lang:c++ decode:true ">#define WM_MY_MESSAGE WM_USER+100</pre><br>然后，我们要声明对应的消息处理函数，即，触发该消息的时候要调用的函数：</p>
+<p><pre class="lang:c++ decode:true">//根据MSDN<br>//函数原型必须如下（对于ON_MESSAGE来说）：<br>afx_msg LRESULT OnMyMessage(WPARAM, LPARAM)<br>{<br>     //在这里添加处理方法<br>}</pre><br>然后，我们当然要实现这个函数，假设读者已经实现了这个函数。</p>
+<p>紧接着，我们需要在相应源文件中的消息映射里面添加对应的消息映射，把我们刚刚自定义的消息映射到那个函数去：</p>
+<p><pre class="lang:c++ decode:true ">BEGIN_MESSAGE_MAP(CLmsTestDlg, CDialog)<br>……………<br>……………<br>ON_MESSAGE(WM_MY_MESSAGE,OnMyMessage)   //这是我们添加的消息映射<br>//消息映射一定要添加到BEGIN_MESSAGE_MAP和END_MESSAGE_MAP之间<br>END_MESSAGE_MAP()</pre><br>关于为什么用ON_MESSAGE,这个宏是可以处理一切消息的。具体请查阅MSDN</p>
+<p>然后，我们在线程函数里面调用PostMessage方法传递消息即可：</p>
+<p><pre class="lang:c++ decode:true ">//线程函数<br>UINT myThreadProc(LPRARM lPram)<br>{<br>…….<br>…….<br>WHAND whand = (WHAND)lPram;     //由于PostMessage第一个参数为窗口句柄，所以我们要得到主窗口句柄<br>::PostMessage(whand,WM_MY_MESSAGE,NULL,NULL);  //传递消息</pre></p>
+<p>}<br>在线程函数里面，我们需要传递一个主窗口句柄给PostMessage函数，所以，在调用AfxBeginThread的时候，我们需要传递主窗口的句柄给它。可以通过以下方法获取主窗口句柄：</p>
+<p><pre class="lang:c++ decode:true ">//在任何位置都可以通过这个方法来取得主窗口句柄<br>AfxGetMainWnd()-&gt;m_hWnd;</pre><br>至此，我们已经成功的实现了在子线程中完成主窗口数据的更新。</p>
+<p>&nbsp;</p>
+<p>参考：</p>
+<p><a href="https://msdn.microsoft.com/zh-cn/library/k35k2bfs.aspx" target="_blank" rel="noopener">MSDN：https://msdn.microsoft.com/zh-cn/library/k35k2bfs.aspx</a></p>
+<p><a href="http://blog.csdn.net/npu_wy/article/details/28625085" target="_blank" rel="noopener">CSDN BLOG：http://blog.csdn.net/npu_wy/article/details/28625085</a></p>
+ 
+    </div>
+    <div class="post-foot">
+        <div id="disqus_thread"></div>
+    </div>
+</div>
+
+
+                </section>
+                <footer class="container fixed-690 footer">
+    <div>
+        <span>Power by <a href="https://hexo.io">Hexo</a></span>
+    </div>
+    <div>
+        <span>Theme <a href="https://github.com/zhengxiaowai/hexo-theme-lessless">lessless</a></span>
+    </div>
+        
+            
+<div>
+    <span id="hexiangyutest_container_site_pv">
+    PV: <span id="busuanzi_value_site_pv"></span>
+    </span>
+    <span id="busuanzi_container_site_uv">
+    UV: <span id="busuanzi_value_site_uv"></span>
+    </span>
+</div>
+
+        
+</footer>
+        </div>
+        
+<script src="/js/jquery-3.2.1.slim.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+    
+
+    </body>
+</html>

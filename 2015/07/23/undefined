@@ -1,0 +1,132 @@
+<html>
+    <!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	
+
+	<title>Android Studio的一个从Web API获取字符串的Java类（转） | akakanch</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+	<link rel="shortcut icon" href="/favicon.ico">	
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/caomei.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+
+    <body>
+        <div class="root">
+            <div class='topnavs container fixed-690'>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            首页
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/categories">
+                            分类
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/archives">
+                            归档
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tags">
+                            标签
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">
+                            关于
+                        </a>
+                    </li>
+                    
+            </ul>
+        </div>
+    </nav>
+</div>
+                <section class="container mainbody fixed-690">
+                    <div class="post">
+    <div class="post-title">
+        <h1>
+            Android Studio的一个从Web API获取字符串的Java类（转） 
+        </h1>
+
+        
+        <div class="post-title-views">
+            <span id="busuanzi_container_page_pv">
+                本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次
+            </span>
+        </div>
+        
+    </div>
+    <div class="post-content markdown">
+        <p>源代码如下：</p>
+<p><pre class="lang:java decode:true">package com.akakanch.toolkit;</pre></p>
+<p>/**</p>
+<ul>
+<li>Created by Administrator on 2015/7/7.</li>
+<li>用来操作从Web API获取数据<br>*/<br>import java.net.URL;<br>import java.net.URLConnection;<br>import java.io.BufferedReader;<br>import java.io.IOException;<br>import java.io.InputStreamReader;</li>
+</ul>
+<p>public class WebClient{</p>
+<p>private static String _newLine = System.getProperty(“line.separator”);<br>public WebClient()<br>{ }<br>public String getContent(String url, String oriEncoding, String targetEncoding) throws IOException<br>{<br>URL u = new URL(url);<br>URLConnection uc = u.openConnection();<br>BufferedReader in;</p>
+<p>if(oriEncoding == null || oriEncoding.length() == 0)<br>{<br>in = new BufferedReader(new InputStreamReader(uc.getInputStream()));<br>}<br>else<br>{<br>in = new BufferedReader(new InputStreamReader(uc.getInputStream(), oriEncoding));<br>}<br>String line;<br>StringBuilder sb = new StringBuilder();<br>while((line = in.readLine()) != null)<br>{<br>sb.append(line); sb.append(_newLine);<br>}<br>if(targetEncoding == null || targetEncoding.length() == 0)<br>{<br>return sb.toString();<br>}<br>return new String(sb.toString().getBytes(), targetEncoding);<br>}<br>}<br><br>使用方法：</p>
+<p><pre class="lang:java decode:true ">WebClient wc = new WebClient();<br>String str = wc.getContent(“<a href="http://api.akakanch.com/?app=1&quot;" target="_blank" rel="noopener">http://api.akakanch.com/?app=1&quot;</a>, “utf-8”, null);</pre><br>&nbsp;</p>
+<p>str里即为Web API返回的字符串</p>
+ 
+    </div>
+    <div class="post-foot">
+        <div id="disqus_thread"></div>
+    </div>
+</div>
+
+
+                </section>
+                <footer class="container fixed-690 footer">
+    <div>
+        <span>Power by <a href="https://hexo.io">Hexo</a></span>
+    </div>
+    <div>
+        <span>Theme <a href="https://github.com/zhengxiaowai/hexo-theme-lessless">lessless</a></span>
+    </div>
+        
+            
+<div>
+    <span id="hexiangyutest_container_site_pv">
+    PV: <span id="busuanzi_value_site_pv"></span>
+    </span>
+    <span id="busuanzi_container_site_uv">
+    UV: <span id="busuanzi_value_site_uv"></span>
+    </span>
+</div>
+
+        
+</footer>
+        </div>
+        
+<script src="/js/jquery-3.2.1.slim.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+    
+
+    </body>
+</html>

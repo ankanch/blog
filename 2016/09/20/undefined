@@ -1,0 +1,151 @@
+<html>
+    <!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	
+
+	<title>关联本地仓库和GitHub仓库 | akakanch</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+	<link rel="shortcut icon" href="/favicon.ico">	
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/caomei.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+
+    <body>
+        <div class="root">
+            <div class='topnavs container fixed-690'>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            首页
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/categories">
+                            分类
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/archives">
+                            归档
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tags">
+                            标签
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">
+                            关于
+                        </a>
+                    </li>
+                    
+            </ul>
+        </div>
+    </nav>
+</div>
+                <section class="container mainbody fixed-690">
+                    <div class="post">
+    <div class="post-title">
+        <h1>
+            关联本地仓库和GitHub仓库 
+        </h1>
+
+        
+        <div class="post-title-views">
+            <span id="busuanzi_container_page_pv">
+                本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次
+            </span>
+        </div>
+        
+    </div>
+    <div class="post-content markdown">
+        <p>本篇文章适用于你已经在本地创建了一个Git仓库，又想在GitHub创建一个Git仓库，并且让这两个仓库进行远程同步。</p>
+<p>首先我们需要一个SSH key，这个SSH key可以帮助GitHub判断是哪个用户推送的信息。</p>
+<pre class="lang:sh decode:true ">$ ssh-keygen -t rsa -C "注册邮箱"
+比如：
+$ ssh-keygen -t rsa -C "kanchisme@gmail.com"</pre>
+然后用户主目录/.ssh/下有两个文件，id_rsa是私钥，id_rsa.pub是公钥
+
+然后我们需要获取刚才生成的SSH key，打开.ssh下的id_rsa.pub文件，里面的内容就是key的内容。
+
+然后我们复制整个文件的内容，粘贴到GitHub的SSH Key页面，如图：
+
+[![qq%e6%88%aa%e5%9b%be20160920185818](http://115.159.197.66/wp-content/uploads/2016/09/QQ截图20160920185818-1024x553.png)](http://115.159.197.66/wp-content/uploads/2016/09/QQ截图20160920185818.png)
+
+保存后，如果我们要从远程仓库克隆一份到本地可以通过git clone：
+<pre class="lang:sh decode:true ">git clone git@github.com:ankanch/xx.git</pre>
+如果要将本地库关联远程库，就需要在本地仓库目录运行命令git remote add origin：
+<pre class="lang:sh decode:true ">git remote add origin git@github.com:ankanch/xx.git</pre>
+推送master分支的所有内容到GitHub：
+<pre class="lang:sh decode:true ">git push -u origin master</pre>
+第一次使用加上了-u参数，是推送内容并关联分支。
+
+推送成功后就可以看到远程和本地的内容一模一样，下次只要本地作了提交，就可以通过命令：
+<pre class="lang:sh decode:true ">git push origin master</pre>
+有了推送更新到GitHub，那必然有拉取远程某个分支更新到本地，使用如下命令即可：
+<pre class="lang:sh decode:true ">git pull origin master</pre>
+
+<hr>
+<p>大家在执行以上命令的时候可能会遇到错误，比如Permission Denied，可能是因为公钥没有复制正确或者SSH Agent未开启的原因。</p>
+<p>不过，我觉得，大多数情况都是SSH Agent未开启的原因。</p>
+<p>要解决这种问题，请运行Git Bash，注意，是Git Bash，而不是Windows的命令行，然后依次执行以下命令即可：</p>
+<p><pre class="lang:sh decode:true ">cd X:\Projects-X\Tieba-zhuaqu<br>eval “$(ssh-agent -s)”<br>ssh-add Q:\SSHkeys\GitHubPull\githubKey<br>git push -u origin master</pre><br>上面的代码首先切换到了本地Git仓库，然后，开启SSH Agent，选择密钥，然后推送更新。</p>
+ 
+    </div>
+    <div class="post-foot">
+        <div id="disqus_thread"></div>
+    </div>
+</div>
+
+
+                </section>
+                <footer class="container fixed-690 footer">
+    <div>
+        <span>Power by <a href="https://hexo.io">Hexo</a></span>
+    </div>
+    <div>
+        <span>Theme <a href="https://github.com/zhengxiaowai/hexo-theme-lessless">lessless</a></span>
+    </div>
+        
+            
+<div>
+    <span id="hexiangyutest_container_site_pv">
+    PV: <span id="busuanzi_value_site_pv"></span>
+    </span>
+    <span id="busuanzi_container_site_uv">
+    UV: <span id="busuanzi_value_site_uv"></span>
+    </span>
+</div>
+
+        
+</footer>
+        </div>
+        
+<script src="/js/jquery-3.2.1.slim.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+    
+
+    </body>
+</html>

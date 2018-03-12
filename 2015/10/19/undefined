@@ -1,0 +1,136 @@
+<html>
+    <!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	
+
+	<title>Windows下C++判断键盘上的方向键是否被按下 | akakanch</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+	<link rel="shortcut icon" href="/favicon.ico">	
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/caomei.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+
+    <body>
+        <div class="root">
+            <div class='topnavs container fixed-690'>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            首页
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/categories">
+                            分类
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/archives">
+                            归档
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tags">
+                            标签
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">
+                            关于
+                        </a>
+                    </li>
+                    
+            </ul>
+        </div>
+    </nav>
+</div>
+                <section class="container mainbody fixed-690">
+                    <div class="post">
+    <div class="post-title">
+        <h1>
+            Windows下C++判断键盘上的方向键是否被按下 
+        </h1>
+
+        
+        <div class="post-title-views">
+            <span id="busuanzi_container_page_pv">
+                本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次
+            </span>
+        </div>
+        
+    </div>
+    <div class="post-content markdown">
+        <p>&nbsp;</p>
+<p>我在使用C++做一个贪吃蛇程序的时候，卡在了如何利用C++判断方向键这里。</p>
+<p>我原本想的是：直接用<span style="color: #ff00ff;">getch()</span>判断按下按键的ASCII码是否为方向键的。可是我在<a href="https://en.wikipedia.org/wiki/ASCII" target="_blank" rel="noopener">维基百科的ASCII页面</a>上并没有找到 <strong>↑ ↓ → ←</strong> 几个按键的ASCII码。<a href="http://bbs.csdn.net/topics/40312175" target="_blank" rel="noopener">在经过一番搜索后得到答案：http://bbs.csdn.net/topics/40312175</a>  答案如下：</p>
+<p><pre class="lang:c++ decode:true ">#define VK_LEFT           0x25  //=37</pre></p>
+<p>#define VK_UP             0x26  //=38</p>
+<p>#define VK_RIGHT          0x27  //=39</p>
+<p>#define VK_DOWN           0x28  //=40<br>然后我在我的程序里用<span style="color: #ff00ff;">switch</span>语句<span style="color: #ff00ff;"> case</span>了 37，38，39，40.然而却发现，在windows下，这样不可用。</p>
+<p>按下相应按键后根本没有反应。</p>
+<p>然后我想到了输出下<span style="color: #ff00ff;">getchar()</span>得到的值，结果令我大吃一惊，输出值如下：</p>
+<p><a href="http://139.129.6.122/wp-content/uploads/2015/10/C-_dectect_dir.png" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2015/10/C-_dectect_dir.png" alt="C++_dectect_dir"></a></p>
+<p>&nbsp;</p>
+<p>我们可以看到，每次按下方向键的时候，实际上是读入了2个数据，比如 <span style="color: #ff00ff;"><em>224n75</em></span>代表的是左方向键（←）。</p>
+<p>所以有了以下这个方法：先判断第一个读入的数据，再用<span style="color: #ff00ff;">getchr()</span>得到一次，这次再用switch语句判断。代码如下：</p>
+<p><pre class="lang:c++ decode:true ">//by Kanch<br>else if(kbdown == 224)<br>        {<br>            //pri-core code here<br>            //determine which action to perform<br>            kbdown = getch();    //due to  up/down/left/right no ASCII code,it print out as 224n75<br>            switch (kbdown)<br>            {<br>            case VK_LEFT:   //← pressed<br>                cout &lt;&lt; “left pressed” &lt;&lt; endl;<br>                break;<br>            case VK_UP:   //↑ pressed<br>                cout &lt;&lt; “up pressed” &lt;&lt; endl;<br>                break;<br>            case VK_RIGHT:   //→ pressed<br>                cout &lt;&lt; “right pressed” &lt;&lt; endl;<br>                break;<br>            case VK_DOWN:   //↓ pressed<br>                cout &lt;&lt; “down pressed” &lt;&lt; endl;<br>                break;<br>            default:<br>                break;<br>            }<br>        }</pre><br>&nbsp;</p>
+<p>这样，我们便用C++实现了判断方向键是否被按下。</p>
+<p><strong>&lt;转载请注明出处&gt;</strong></p>
+ 
+    </div>
+    <div class="post-foot">
+        <div id="disqus_thread"></div>
+    </div>
+</div>
+
+
+                </section>
+                <footer class="container fixed-690 footer">
+    <div>
+        <span>Power by <a href="https://hexo.io">Hexo</a></span>
+    </div>
+    <div>
+        <span>Theme <a href="https://github.com/zhengxiaowai/hexo-theme-lessless">lessless</a></span>
+    </div>
+        
+            
+<div>
+    <span id="hexiangyutest_container_site_pv">
+    PV: <span id="busuanzi_value_site_pv"></span>
+    </span>
+    <span id="busuanzi_container_site_uv">
+    UV: <span id="busuanzi_value_site_uv"></span>
+    </span>
+</div>
+
+        
+</footer>
+        </div>
+        
+<script src="/js/jquery-3.2.1.slim.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+    
+
+    </body>
+</html>

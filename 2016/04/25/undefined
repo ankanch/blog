@@ -1,0 +1,155 @@
+<html>
+    <!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	
+
+	<title>MFC对话框实现地图拖动效果（本文用的画图为例，可以拓展到控件） | akakanch</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+	<link rel="shortcut icon" href="/favicon.ico">	
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/caomei.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+
+    <body>
+        <div class="root">
+            <div class='topnavs container fixed-690'>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            首页
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/categories">
+                            分类
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/archives">
+                            归档
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tags">
+                            标签
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">
+                            关于
+                        </a>
+                    </li>
+                    
+            </ul>
+        </div>
+    </nav>
+</div>
+                <section class="container mainbody fixed-690">
+                    <div class="post">
+    <div class="post-title">
+        <h1>
+            MFC对话框实现地图拖动效果（本文用的画图为例，可以拓展到控件） 
+        </h1>
+
+        
+        <div class="post-title-views">
+            <span id="busuanzi_container_page_pv">
+                本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次
+            </span>
+        </div>
+        
+    </div>
+    <div class="post-content markdown">
+        <p>地图拖动效果就是那种，你往哪拖，内容就跟着你往哪跑的，MFC的实现效果如下，我这里以拖动MFC对话框上的画图来作为示例的，其实我们还可以拓展到控件，在文末给出方法</p>
+<p>实现效果如下图所示：（ <strong>gif不动戳大</strong> :) ）</p>
+<p><a href="http://115.159.197.66/wp-content/uploads/2016/04/ezgif.com-video-to-gif.gif" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/04/ezgif.com-video-to-gif-300x239.gif" alt="ezgif.com-video-to-gif"></a></p>
+<p>在这里我们主要处理3个对话框消息来实现地图的拖动效果。</p>
+<p><strong>WM_LBUTTONUP</strong></p>
+<p><strong>WM_LBUTTONDOWN</strong></p>
+<p><strong>WM_MOUSEMOVE</strong></p>
+<p><strong>基本思路：</strong>当按下鼠标左键的时候标记当前状态为拖动状态，再记录当前鼠标位置用来计算平移的方向向量，然后，在WM_MOUSEMOVE消息函数里面通过判断当前状态来进行平移，最后当鼠标左键抬起时，再将当前状态设置为非拖动状态。</p>
+<p>首先我们需要一个全局变量来储存当前状态（即是否处于拖动状态）</p>
+<p><pre class="lang:c++ decode:true">bool offset = false;    //用来记录当前状态<br>CPoint lbeg;    //用来记录鼠标左键按下后的位置<br>CPoint last;</pre><br>然后，我们处理WM_LBUTTONDOWN消息：</p>
+<p><pre class="lang:c++ decode:true ">void CDTDlg::OnLButtonDown(UINT nFlags, CPoint point)<br>{<br>    // TODO: 在此添加消息处理程序代码和/或调用默认值<br>    offset = true;<br>    lbeg = point;<br>    SetCursor(LoadCursor(NULL, IDC_HAND));   //这行用来将光标设置为手的图标</pre></p>
+<pre><code>CDialogEx::OnLButtonDown(nFlags, point);
+</code></pre><p>}<br>然后，我们再处理WM_LBUTTONUP消息：</p>
+<p><pre class="lang:default decode:true ">void CDTDlg::OnLButtonUp(UINT nFlags, CPoint point)<br>{<br>    // TODO: 在此添加消息处理程序代码和/或调用默认值<br>    offset = false;<br>    lbeg = point;</pre></p>
+<pre><code>CDialogEx::OnLButtonUp(nFlags, point);
+</code></pre><p>}<br><br>平移对话框上的东西（我这里平移的是通过CDC画在对话框上的图案），其实就是不断的改变坐标进行重新绘制，所以，实现平移，我们需要在WM_MOUSEMOVE消息函数中实现坐标的变换，与图案的重绘。</p>
+<p>为了方便，我们定义个函数，用来处理坐标变换，然后在WM_MOUSEMOVE消息中调用它，最后再在WM_MOUSEMOVE消息中实现重绘。</p>
+<p>先贴上MoveMap函数的代码：</p>
+<p><pre class="lang:default decode:true">//地图平移函数，传入要平移的点集地址，平移方向,s是否将平移结果写入新文件，平移完毕后的点集文件路径,函数返回平移是否成功<br>const bool CDTDlg::MoveMap(const CString &amp;psdir,const CPoint &amp;vet, const bool newfile = false, const CString &amp;todir = _T(“movemap.buf”))<br>{<br>    CFile rawf, tof;<br>    CPoint po;<br>    if (!rawf.Open(psdir, CFile::modeReadWrite))<br>    {<br>        MessageBox(psdir + _T(“打开失败！”), _T(“MoveMap调试信息”), NULL);<br>        return false;<br>    }<br>    if (!tof.Open(todir, CFile::modeReadWrite | CFile::modeCreate))<br>    {<br>        MessageBox(todir + _T(“打开失败！”), _T(“MoveMap调试信息”), NULL);<br>        rawf.Close();<br>        return false;<br>    }<br>    CString str;<br>    while (rawf.Read(&amp;po, sizeof(CPoint))&gt;0)<br>    {<br>        po.x += (vet.x<em>-1);<br>        po.y += (vet.y</em>-1);<br>        tof.Write(&amp;po, sizeof(CPoint));<br>    }<br>    if (!newfile)  //如果选择覆盖原文件<br>    {<br>        rawf.SeekToBegin();<br>        tof.SeekToBegin();<br>        while (tof.Read(&amp;po, sizeof(CPoint))&gt;0)<br>        {<br>            rawf.Write(&amp;po, sizeof(CPoint));<br>        }<br>        //tof.SetLength(0); //清空文件<br>    }<br>    rawf.Close();<br>    tof.Close();<br>    return true;<br>}</pre><br>先来说说参数：</p>
+<p>第一个参数为要处理的点集文件。</p>
+<p>第二个参数是方向向量</p>
+<p>第三个是是否用变换后的数据覆盖原数据，默认覆盖</p>
+<p>第三个参数是如果第三个参数选择不覆盖，则第四个参数应传入处理后的数据的存放地址</p>
+<p>上面代码中，我们把mvet.x和mvet.y都乘以-1的原因的，其实很简单，如果不乘以-1的话，拖动方向会和你的实际拖动方向相反。</p>
+<p>下面我们再处理WM_MOUSEMOVE函数：</p>
+<p><pre class="lang:c++ decode:true">void CDTDlg::OnMouseMove(UINT nFlags, CPoint point)<br>{<br>    // TODO: 在此添加消息处理程序代码和/或调用默认值<br>    CPoint mvet,draw,bbeg;<br>    CClientDC dcd(this);<br>    CPen pen(PS_SOLID, 4, RGB(225, 0, 0));<br>    dcd.SelectObject(&amp;pen);<br>    if (offset)  //平移<br>    {<br>        SetCursor(LoadCursor(NULL, IDC_HAND));<br>        mvet.x = lbeg.x - point.x;<br>        mvet.y = lbeg.y - point.y;<br>        //在平移开始之前，首先我们要让off.set文件有内容<br>        f.Open(_T(“off.set”), CFile::modeRead);<br>        if (f.GetLength() &lt;= 0)<br>        {<br>            f.Close();<br>            if (!MoveMap(_T(“draw.draw”), CPoint(0,0), true, _T(“off.set”)))<br>            {<br>                MessageBox(_T(“无法完成地图平移！\n缓存检查失败”) _T(“错误”), NULL);<br>            }<br>        }<br>        else<br>        {<br>            f.Close();<br>        }<br>        //qkong<br>        CRect rect;<br>        GetClientRect(rect);<br>        dcd.FillSolidRect(rect, RGB(200, 200, 200));<br>        //开始平移<br>        if (!MoveMap(_T(“off.set”), mvet))<br>        {<br>            MessageBox(_T(“无法完成地图平移！”) _T(“错误”), NULL);<br>        }<br>        f.Open(_T(“off.set”), CFile::modeRead);<br>        f.Read(&amp;bbeg, sizeof(CPoint));<br>        while (f.Read(&amp;draw, sizeof(CPoint)) &gt; 0)<br>        {<br>            dcd.MoveTo(bbeg);<br>            dcd.LineTo(draw);<br>            bbeg = draw;<br>        }<br>        f.Close();</pre></p>
+<pre><code>    //
+    lbeg = point;
+}
+CDialogEx::OnMouseMove(nFlags, point);
+</code></pre><p>}<br>上面的代码中，我们将变换后的坐标放入off.set文件中然后我们再读取off.set中的数据来实现重绘。</p>
+<p>最后我们把point的值赋给了lbeg，然后下一次WM_MOUSEMOVE函数相应的时候，lbeg的值为上一次WM_MOUSEMOVE相应的时候的point值，这样做是为了计算平移的方向向量。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+ 
+    </div>
+    <div class="post-foot">
+        <div id="disqus_thread"></div>
+    </div>
+</div>
+
+
+                </section>
+                <footer class="container fixed-690 footer">
+    <div>
+        <span>Power by <a href="https://hexo.io">Hexo</a></span>
+    </div>
+    <div>
+        <span>Theme <a href="https://github.com/zhengxiaowai/hexo-theme-lessless">lessless</a></span>
+    </div>
+        
+            
+<div>
+    <span id="hexiangyutest_container_site_pv">
+    PV: <span id="busuanzi_value_site_pv"></span>
+    </span>
+    <span id="busuanzi_container_site_uv">
+    UV: <span id="busuanzi_value_site_uv"></span>
+    </span>
+</div>
+
+        
+</footer>
+        </div>
+        
+<script src="/js/jquery-3.2.1.slim.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+    
+
+    </body>
+</html>

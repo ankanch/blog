@@ -1,0 +1,153 @@
+<html>
+    <!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	
+
+	<title>图像中的字符定位与分割（Python实现） | akakanch</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+	<link rel="shortcut icon" href="/favicon.ico">	
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/caomei.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+
+    <body>
+        <div class="root">
+            <div class='topnavs container fixed-690'>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            首页
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/categories">
+                            分类
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/archives">
+                            归档
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tags">
+                            标签
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">
+                            关于
+                        </a>
+                    </li>
+                    
+            </ul>
+        </div>
+    </nav>
+</div>
+                <section class="container mainbody fixed-690">
+                    <div class="post">
+    <div class="post-title">
+        <h1>
+            图像中的字符定位与分割（Python实现） 
+        </h1>
+
+        
+        <div class="post-title-views">
+            <span id="busuanzi_container_page_pv">
+                本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次
+            </span>
+        </div>
+        
+    </div>
+    <div class="post-content markdown">
+        <p>假设我们有如下图像：</p>
+<p><a href="http://akakanch.com/wp-content/uploads/2017/09/test.jpg"><img src="http://akakanch.com/wp-content/uploads/2017/09/test-300x300.jpg" alt=""></a></p>
+<p>现在我们想要将图片中的数字一个一个分割出来。</p>
+<p>在处理之前，我们首先应该将图像去RGB，即在它对应的灰度图像上进行处理。我们可以使用opencv python库中的</p>
+<p><div></div></p>
+<p><div>cvtColor函数来实现到灰度图像的转换。转换代码以及转换结果（归一化后）如下：</div><br></p>
+<p><div></div></p>
+<p><pre class="lang:python decode:true ">grayscaleimg = cv2.cvtColor(rawimg,cv2.COLOR_BGR2GRAY)</pre><br><a href="http://akakanch.com/wp-content/uploads/2017/09/gsi.jpg"><img src="http://akakanch.com/wp-content/uploads/2017/09/gsi-300x272.jpg" alt=""></a></p>
+<p>然后，我们需要对图片进行归一化，这样可以减少最后分割出的数字中的噪声：</p>
+<p><pre class="lang:python decode:true ">grayscaleimg = grayscaleimg - int(np.mean(grayscaleimg))<br>grayscaleimg[grayscaleimg &lt; 50] = 0</pre><br>这里我们采取了对每个像素减去图像总像素的平均数，并设置阈值50以下的像素归零来实现归一化，归一化后的图像即上图所示。</p>
+<p>接下来，我们需要确定分割边界，由于我们已经将背景的像素值归一化为0，我们只需要对图像分别从x方向（列扫描）和y方向（行扫描）进行扫描，统计每一行/列的0和非0值的个数即可。统计完毕绘图如下（行扫描在左，列扫描在右）：</p>
+<p><a href="http://akakanch.com/wp-content/uploads/2017/09/yyyy.jpg"><img src="http://akakanch.com/wp-content/uploads/2017/09/yyyy-300x235.jpg" alt=""></a><a href="http://akakanch.com/wp-content/uploads/2017/09/xxxx.jpg"><img src="http://akakanch.com/wp-content/uploads/2017/09/xxxx-300x218.jpg" alt=""></a></p>
+<p><br>&nbsp;</p>
+<p>我们可以看到，行扫描结果让我们了解到了数字在y轴方向上的上下限，列扫描帮助我们了解到了每个数字之间的间隔位置（即值为0的地方，右图波谷）。在下图中，上边的左图对应下图红色之间的部分，右图的波谷（值为0的部分）对应下图中的橙色线段。</p>
+<p><a href="http://akakanch.com/wp-content/uploads/2017/09/111.jpg"><img src="http://akakanch.com/wp-content/uploads/2017/09/111-300x296.jpg" alt=""></a></p>
+<p><div>接下来，我们只需要将图像从y方向切割出来，再遍历x方向的所有临界点（即从非零值到零值，或者从零值到非零值的点），即可切分出字符。</div></p>
+<p><div>**如果图像中的问题连着一起的怎么办？</div></p>
+<p><div>设定一定的阈值，当某列的非零值小于该阈值，则认为此列为黏带列，应该从这里分割。</div></p>
+<p><div></div></p>
+<p><div>完整的Python代码如下：</div></p>
+<p><div></div></p>
+<p><pre class="lang:python decode:true ">from matplotlib import pyplot as plt<br>import numpy as np<br>import cv2</pre></p>
+<p>rawimg = cv2.imread(“./test.jpg”)<br>rawimg = rawimg - 246<br>fig = plt.figure()<br>fig.add_subplot(2,3,1)<br>plt.title(“raw image”)<br>plt.imshow(rawimg)</p>
+<p>fig.add_subplot(2,3,2)<br>plt.title(“grey scale image”)<br>grayscaleimg = cv2.cvtColor(rawimg,cv2.COLOR_BGR2GRAY)<br>plt.imshow(grayscaleimg,cmap=’gray’)</p>
+<h1 id="counting-non-zero-value-by-row-axis-y"><a href="#counting-non-zero-value-by-row-axis-y" class="headerlink" title="counting non-zero value by row , axis y"></a>counting non-zero value by row , axis y</h1><p>row_nz = []<br>for row in grayscaleimg.tolist():<br>    row_nz.append(len(row) - row.count(0))<br>fig.add_subplot(2,3,3)<br>plt.title(“non-zero values on y (by row)”)<br>plt.plot(row_nz)</p>
+<h1 id="counting-non-zero-value-by-column-x-axis"><a href="#counting-non-zero-value-by-column-x-axis" class="headerlink" title="counting non-zero value by column, x axis"></a>counting non-zero value by column, x axis</h1><p>col_nz = []<br>for col in grayscaleimg.T.tolist():<br>    col_nz.append(len(col) - col.count(0))<br>fig.add_subplot(2,3,4)<br>plt.title(“non-zero values on y (by col)”)<br>plt.plot(col_nz)</p>
+<h5 id="start-split"><a href="#start-split" class="headerlink" title="start split"></a>start split</h5><h1 id="first-find-upper-and-lower-boundary-of-y-row"><a href="#first-find-upper-and-lower-boundary-of-y-row" class="headerlink" title="first find upper and lower boundary of y (row)"></a>first find upper and lower boundary of y (row)</h1><p>fig.add_subplot(2,3,5)<br>plt.title(“y boudary deleted”)<br>upper_y = 0<br>for i,x in enumerate(row_nz):<br>    if x != 0:<br>        upper_y = i<br>        break<br>lower_y = 0<br>for i,x in enumerate(row_nz[::-1]):<br>    if x!=0:<br>        lower_y = len(row_nz) - i<br>        break<br>sliced_y_img = grayscaleimg[upper_y:lower_y,:]<br>plt.imshow(sliced_y_img)</p>
+<h1 id="then-we-find-left-and-right-boundary-of-every-digital-x-on-column"><a href="#then-we-find-left-and-right-boundary-of-every-digital-x-on-column" class="headerlink" title="then we find left and right boundary of every digital (x, on column)"></a>then we find left and right boundary of every digital (x, on column)</h1><p>fig.add_subplot(2,3,6)<br>plt.title(“x boudary deleted”)<br>column_boundary_list = []<br>record = False<br>for i,x in enumerate(col_nz[:-1]):<br>    if (col_nz[i] == 0 and col_nz[i+1] != 0) or col_nz[i] != 0 and col_nz[i+1] == 0:<br>        column_boundary_list.append(i+1)<br>img_list = []<br>xl = [ column_boundary_list[i:i+2] for i in range(0,len(column_boundary_list),2) ]<br>for x in xl:<br>    img_list.append( sliced_y_img[:,x[0]:x[1]] )</p>
+<h1 id="del-invalid-image"><a href="#del-invalid-image" class="headerlink" title="del invalid image"></a>del invalid image</h1><p>img_list = [ x for x in img_list if x.shape[1] &gt; 5 ]</p>
+<h1 id="show-image"><a href="#show-image" class="headerlink" title="show image"></a>show image</h1><p>fig = plt.figure()<br>for i,img in enumerate(img_list):<br>    fig.add_subplot(3,4,i+1)<br>    plt.imshow(img)<br>    plt.imsave(“./result/%s.jpg”%i,img)<br>plt.show()</p>
+<p><br>&nbsp;</p>
+<p></p>
+<p><div></div><br>&nbsp;</p>
+ 
+    </div>
+    <div class="post-foot">
+        <div id="disqus_thread"></div>
+    </div>
+</div>
+
+
+                </section>
+                <footer class="container fixed-690 footer">
+    <div>
+        <span>Power by <a href="https://hexo.io">Hexo</a></span>
+    </div>
+    <div>
+        <span>Theme <a href="https://github.com/zhengxiaowai/hexo-theme-lessless">lessless</a></span>
+    </div>
+        
+            
+<div>
+    <span id="hexiangyutest_container_site_pv">
+    PV: <span id="busuanzi_value_site_pv"></span>
+    </span>
+    <span id="busuanzi_container_site_uv">
+    UV: <span id="busuanzi_value_site_uv"></span>
+    </span>
+</div>
+
+        
+</footer>
+        </div>
+        
+<script src="/js/jquery-3.2.1.slim.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+    
+
+    </body>
+</html>
