@@ -25,6 +25,8 @@
 
 
 
+  <meta name="google-site-verification" content="GLDT17u1B7TOcMSK8hKPzUrHP1Fnv7ISwbCigDu1VcY" />
+
 
 
 
@@ -53,42 +55,44 @@
 <link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/sites/me.jpg?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/sites/me.jpg?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/sites/me.jpg?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="mask-icon" href="/images/sites/me.jpg?v=5.1.4" color="#222">
 
 
-
-
-
-  <meta name="keywords" content="Hexo, NexT" />
+  <link rel="manifest" href="/images/sites/me.jpg">
 
 
 
 
-
+  <meta name="keywords" content="kanch,C++,machine learning,python,long zhang" />
 
 
 
 
 
-<meta name="description" content="personal blog of Long Zhang (kanchisme@gmail.com)">
+
+
+
+
+
+<meta name="description" content="简单的个人博客">
 <meta property="og:type" content="website">
 <meta property="og:title" content="akakanch">
 <meta property="og:url" content="http://akakanch.com/page/3/index.html">
 <meta property="og:site_name" content="akakanch">
-<meta property="og:description" content="personal blog of Long Zhang (kanchisme@gmail.com)">
+<meta property="og:description" content="简单的个人博客">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="akakanch">
-<meta name="twitter:description" content="personal blog of Long Zhang (kanchisme@gmail.com)">
+<meta name="twitter:description" content="简单的个人博客">
 
 
 
@@ -129,6 +133,15 @@
 
 
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-53245384-2', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
@@ -190,22 +203,42 @@
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -247,7 +280,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -346,47 +379,22 @@
       
         
           
-            <p>Python真是一个牛逼的脚本语言。</p>
-<p>接下来我来谈谈这个小程序，一个不到20行核心代码的小程序，用户输入对应的英文字母，我们返回相应的中文翻译，当然，中文翻译来自有道翻译。</p>
-<p>接下来进入正题。</p>
-<p>简单的讲，获取翻译结果就是将目标网页下载下来，然后进行字符串匹配，从网页源代码中匹配出翻译结果就行。</p>
-<p>如下图所示：</p>
-<p><a href="http://115.159.197.66/wp-content/uploads/2016/09/QQ图片20160906154407-1.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/09/QQ图片20160906154407-1-1024x576.png" alt=""></a></p>
-<p>我们首先打开有道翻译，然后随便翻译点什么，然后，观察url的变化，因为之后我们需要通过这个url来构造我们的翻译查询url：</p>
-<p><pre class="lang:python decode:true">query_url=”<a href="http://fanyi.youdao.com/translate?ue=utf-8&amp;keyfrom=baidu&amp;smartresult=dict&amp;type=EN2ZH_CN&amp;i=&quot;" target="_blank" rel="noopener">http://fanyi.youdao.com/translate?ue=utf-8&amp;keyfrom=baidu&amp;smartresult=dict&amp;type=EN2ZH_CN&amp;i=&quot;</a> + word    #word是要翻译的单词</pre><br>然后，我们再看对应的网页源代码，我们可以看到，有道翻译的翻译结果是直接显示在网页源代码里面的，所以，接下来我们需要做的就是，观察翻译结果周围的字符串，看看有什么特点，这里指的是翻译结果周围的字符串应该足够奇葩，保证，网页源代码里面只有一个。</p>
-<p>比如我可以看到，这串翻译结果，前面的字符串是 “tgt”:” 后面的是”}]],，简直奇葩，可以保证只有一个。</p>
-<p>所以，整个流程应该是：</p>
-<p>构造翻译url -&gt; 下载对应的网页 -&gt; 从对应的网页里匹配出字符串</p>
-<p>下载网页，我们可以通过urllib的urlopen和read实现。</p>
-<p><pre class="lang:python decode:true">page = urllib.request.urlopen(url,timeout=5)<br>html = page.read()<br>html = getHtml(url)<br>html = html.decode(‘utf-8’,’ignore’)   #解码，一定要加上ignore标签，否则可能会出错</pre><br>匹配字符串，我们只需要find对应首尾字符串，然后提取子串即可</p>
-<p><pre class="lang:python decode:true">head = “\”tgt\”:\””<br>tail = “\”}]],”<br>start = html.find(head)<br>end = html.find(tail,start)<br>result1 = html[start+len(head):end]</pre><br>所以最终代码下：</p>
-<p>如果只提取一个中文意思，且不包括其它附加信息的话，核心代码就只有10行。</p>
-<p>所以呢，python简直太6666</p>
-<p><pre class="lang:python decode:true">#coding=utf-8<br>import urllib.request<br>import urllib.parse<br>import re</pre></p>
-<p>query_url=”<a href="http://fanyi.youdao.com/translate?ue=utf-8&amp;keyfrom=baidu&amp;smartresult=dict&amp;type=EN2ZH_CN&amp;i=&quot;" target="_blank" rel="noopener">http://fanyi.youdao.com/translate?ue=utf-8&amp;keyfrom=baidu&amp;smartresult=dict&amp;type=EN2ZH_CN&amp;i=&quot;</a></p>
-<p>def getHtml(url):<br>    page = urllib.request.urlopen(url,timeout=5)<br>    html = page.read()<br>    return html</p>
-<p>def getTranslate(word,query_url):</p>
-<pre><code>#url = query_url + urllib.parse.urlparse(word)
-url = query_url + word
-html = getHtml(url)
-html = html.decode(&apos;utf-8&apos;,&apos;ignore&apos;)
-#寻找翻译结果
-head = &quot;\&quot;tgt\&quot;:\&quot;&quot;
-tail = &quot;\&quot;}]],&quot;
-start = html.find(head)
-end = html.find(tail,start)
-result1 = html[start+len(head):end]
-#寻找附加结果
-head =&quot;[\&quot;\&quot;,\&quot;&quot;
-tail =&quot;\&quot;]}};&quot;
-start = html.find(head)
-end = html.find(tail,start)
-result2 = html[start+len(head):end]
-print(&apos;\r\n\r\n&apos;,word,&apos;\r\n&apos;,result1,&apos;\r\n&apos;,result2,&apos;\r\n\r\n\r\n&apos;)
-</code></pre><p>word = “11111”<br>while(word != “EEXXIITT”):<br>    word = input(“enter a word(ENGLISH -&gt; CHINESE) : <strong><strong><strong><strong>_</strong></strong></strong></strong>\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b”)<br>    getTranslate(word,query_url)<br>运行结果：</p>
-<p><a href="http://115.159.197.66/wp-content/uploads/2016/09/IMG20160918211121.jpg" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/09/IMG20160918211121-1024x458.jpg" alt="img20160918211121"></a></p>
+          Python真是一个牛逼的脚本语言。
+接下来我来谈谈这个小程序，一个不到20行核心代码的小程序，用户输入对应的英文字母，我们返回相应的中文翻译，当然，中文翻译来自有道翻译。
+接下来进入正题。
+简单的讲，获取翻译结果就是将目标网页下载下来，然后进行字符串匹配，从网页源代码中匹配出翻译结果就行。
+如下图所示：
 
-          
+我们首先打开有道翻译，然后随便翻译点什么，然后，观察url的变化，因为之后我们需要通过这个url来构造我们的翻译查询url：
+query_url=”http://fanyi.youdao.com/translate?ue=utf-8&amp;keyfrom=baidu&amp;smartresult=dict&amp;type=EN2ZH_CN&amp;i=&quot; + word    #word是要翻译的单词然后，我们再看对应的网页源代码，我们可以看到，有道翻译的翻译结果是直接显示在网页源代码里面的，所以，接下来我们需要做的就是，观察翻译结果周围的字符串，看看有什么特点，这里指
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/09/28/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -438,7 +446,7 @@ print(&apos;\r\n\r\n&apos;,word,&apos;\r\n&apos;,result1,&apos;\r\n&apos;,result
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -548,32 +556,22 @@ print(&apos;\r\n\r\n&apos;,word,&apos;\r\n&apos;,result1,&apos;\r\n&apos;,result
       
         
           
-            <p>最近在研究C++调用Python脚本，照着网上的教程做了一遍，应为我是ubuntu系统，所以，写完代码后，第一关编译就遇到了困难。</p>
-<p>报错提示如图：</p>
-<p><img src="http://115.159.197.66/wp-content/uploads/2016/09/2016-09-25-14-32-55.png" alt="2016-09-25-14-32-55"></p>
-<p>大概意思是没有找到Python.h文件，WTF？？？？我系统上有python2.6和python3.5，怎么会没有Python.h这个文件呢。后面发现，这样include貌似默认会去Python2.6的目录寻找Python.h，然而我用的Python3.5，所以我吗需要安装Python3.5的dev包，命令如下：</p>
-<p><pre class="lang:c++ decode:true">sudo apt-get install python3-dev</pre><br><a href="http://115.159.197.66/wp-content/uploads/2016/09/2016-09-25-14-35-05.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/09/2016-09-25-14-35-05.png" alt="2016-09-25-14-35-05"></a></p>
-<p>然后我又编译了一次，这次终于找到了Python.h头文件，但是又出现了新的错误，如下图所示，提示：PyString_FromString未声明，在网上查到，在Python3k之后，PyString_FromString全部变成了PyBytes_FromString，所以我们只需要将该函数替换为：PyBytes_FromString即可。</p>
-<p><a href="http://115.159.197.66/wp-content/uploads/2016/09/2016-09-25-14-34-21.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/09/2016-09-25-14-34-21.png" alt="2016-09-25-14-34-21"></a></p>
-<p>接下来，我们使用以下指令编译该源文件，其中，-I参数指定了python include 库的位置，-L指定了python动态链接库的位置。</p>
-<p><pre class="lang:sh decode:true">g++ -o gt cppCallPython.cpp -I/usr/include/python3.5/ -L/u<br>sr/lib/python3.5 -lpython3.5</pre><br><a href="http://115.159.197.66/wp-content/uploads/2016/09/2016-09-25-14-50-37.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/09/2016-09-25-14-50-37.png" alt="2016-09-25-14-50-37"></a></p>
-<p>不幸的是，又报错了，这次错误如上图所示，提示我们ld无法找到lpython这个程序。</p>
-<p>在Google一番后，我发现通过以下命令可以获得更加详细的结果，提示具体哪些文件出问题了：</p>
-<p><pre class="lang:sh decode:true">sudo ld -lpython3.5 –verbose</pre><br><a href="http://115.159.197.66/wp-content/uploads/2016/09/2016-09-25-15-47-48.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/09/2016-09-25-15-47-48.png" alt="2016-09-25-15-47-48"></a></p>
-<p>从上图请我们可以看到，ld无法正确的获取python相关的很多库文件，看到这么多文件，讲真，我也懵逼了，卧槽，这可怎么办，同样的，网上给出的最佳解决方法是一个一个去创建符号链接，卧槽，可是这么多啊！</p>
-<p>无可奈何，我只有用ln -s准备一个一个开始创建符号链接。</p>
-<p>可是我们要在那里去找那些文件的具体路径呢？</p>
-<p>通过以下命令可以获得一个库文件的具体目录：</p>
-<p><pre class="lang:sh decode:true ">locate libpython3.5.so</pre></p>
-<p>sudo ln -s /usr/lib/python3.5/config-3.5m-x86_64-linux-gnu/libpython3.5.so<br><img src="http://115.159.197.66/wp-content/uploads/2016/09/2016-09-25-15-48-27.png" alt="2016-09-25-15-48-27"></p>
-<p>然后，我先对第一个文件创建了符号链接，然后尝试编译了下，发现，卧槽，居然成功了！！！</p>
-<p>居然只创建了一个符号链接就成功了！！</p>
-<p>然后，我们再次进行编译，你会发现，已经可以编译成功了。</p>
-<p><a href="http://115.159.197.66/wp-content/uploads/2016/09/2016-09-25-15-52-50.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/09/2016-09-25-15-52-50.png" alt="2016-09-25-15-52-50"></a></p>
-<p>然后就可以愉快的运行自己的C++调用Python的程序了</p>
-<p>&nbsp;</p>
+          最近在研究C++调用Python脚本，照着网上的教程做了一遍，应为我是ubuntu系统，所以，写完代码后，第一关编译就遇到了困难。
+报错提示如图：
 
-          
+大概意思是没有找到Python.h文件，WTF？？？？我系统上有python2.6和python3.5，怎么会没有Python.h这个文件呢。后面发现，这样include貌似默认会去Python2.6的目录寻找Python.h，然而我用的Python3.5，所以我吗需要安装Python3.5的dev包，命令如下：
+sudo apt-get install python3-dev
+然后我又编译了一次，这次终于找到了Python.h头文件，但是又出现了新的错误，如下图所示，提示：PyString_FromString未声明，在网上查到，在Python3k之后，PyString_FromString全部变成了PyBytes_FromString，所以我们只需要将该函数替换为：PyBytes_FromString即可。
+
+接下来，我们使用以下指令编
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/09/25/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -625,7 +623,7 @@ print(&apos;\r\n\r\n&apos;,word,&apos;\r\n&apos;,result1,&apos;\r\n&apos;,result
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -724,13 +722,19 @@ print(&apos;\r\n\r\n&apos;,word,&apos;\r\n&apos;,result1,&apos;\r\n&apos;,result
       
         
           
-            <p>之前在代码中声明了一个static数组存放一些必要数据，后面需要将软件翻译成英文的时候，发现static类型的对象不能通过getString（）方法从XML文件中加载翻译后的字符串，于是便想到再声明一个相同的static数组，这就需要判断用户当前系统语言，然后设置相应的List Control为某一语言。</p>
-<p>判断方法如下：</p>
-<p><pre class="lang:java decode:true">if(getResources().getConfiguration().locale.getCountry().equals(“CN”))<br>{<br>   //中文，简体，繁体为TW<br>    //在这里加入相应的处理代码<br>}</pre></p>
-<p>getResources().getConfiguration().locale.getCountry().equals(“US”)<br>{<br>    //英文（美国）相应的，英国为UK<br>    //在这里加入相应的处理代码<br>}<br>当然，如果你不知道一些语言的代码，你可以通过以下代码打印出来：</p>
-<p><pre class="lang:java decode:true  ">System.out(getResources().getConfiguration().locale.getCountry());</pre><br>&nbsp;</p>
-
-          
+          之前在代码中声明了一个static数组存放一些必要数据，后面需要将软件翻译成英文的时候，发现static类型的对象不能通过getString（）方法从XML文件中加载翻译后的字符串，于是便想到再声明一个相同的static数组，这就需要判断用户当前系统语言，然后设置相应的List Control为某一语言。
+判断方法如下：
+if(getResources().getConfiguration().locale.getCountry().equals(“CN”)){   //中文，简体，繁体为TW    //在这里加入相应的处理代码}
+getResources().getConfiguration().locale.getCountry().equals(“US”){    //英文（美国）相应的，英国为UK    //在这里加入相应的处理代码}当然，如果你不知道一些语言的代码，你可以通过以下代码打印出来：
+System.out(getResources().getConfiguration
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/09/22/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -782,7 +786,7 @@ print(&apos;\r\n\r\n&apos;,word,&apos;\r\n&apos;,result1,&apos;\r\n&apos;,result
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -881,39 +885,26 @@ print(&apos;\r\n\r\n&apos;,word,&apos;\r\n&apos;,result1,&apos;\r\n&apos;,result
       
         
           
-            <p>本篇文章适用于你已经在本地创建了一个Git仓库，又想在GitHub创建一个Git仓库，并且让这两个仓库进行远程同步。</p>
-<p>首先我们需要一个SSH key，这个SSH key可以帮助GitHub判断是哪个用户推送的信息。</p>
-<pre class="lang:sh decode:true ">$ ssh-keygen -t rsa -C "注册邮箱"
+          本篇文章适用于你已经在本地创建了一个Git仓库，又想在GitHub创建一个Git仓库，并且让这两个仓库进行远程同步。
+首先我们需要一个SSH key，这个SSH key可以帮助GitHub判断是哪个用户推送的信息。
+$ ssh-keygen -t rsa -C "注册邮箱"
 比如：
-$ ssh-keygen -t rsa -C "kanchisme@gmail.com"</pre>
+$ ssh-keygen -t rsa -C "kanchisme@gmail.com"
 然后用户主目录/.ssh/下有两个文件，id_rsa是私钥，id_rsa.pub是公钥
 
 然后我们需要获取刚才生成的SSH key，打开.ssh下的id_rsa.pub文件，里面的内容就是key的内容。
 
 然后我们复制整个文件的内容，粘贴到GitHub的SSH Key页面，如图：
 
-[![qq%e6%88%aa%e5%9b%be20160920185818](http://115.159.197.66/wp-content/uploads/2016/09/QQ截图20160920185818-1024x553.png)](http://115.159.197.66/wp-content/uploads/2016/09/QQ截图20160920185818.png)
-
-保存后，如果我们要从远程仓库克隆一份到本地可以通过git clone：
-<pre class="lang:sh decode:true ">git clone git@github.com:ankanch/xx.git</pre>
-如果要将本地库关联远程库，就需要在本地仓库目录运行命令git remote add origin：
-<pre class="lang:sh decode:true ">git remote add origin git@github.com:ankanch/xx.git</pre>
-推送master分支的所有内容到GitHub：
-<pre class="lang:sh decode:true ">git push -u origin master</pre>
-第一次使用加上了-u参数，是推送内容并关联分支。
-
-推送成功后就可以看到远程和本地的内容一模一样，下次只要本地作了提交，就可以通过命令：
-<pre class="lang:sh decode:true ">git push origin master</pre>
-有了推送更新到GitHub，那必然有拉取远程某个分支更新到本地，使用如下命令即可：
-<pre class="lang:sh decode:true ">git pull origin master</pre>
-
-<hr>
-<p>大家在执行以上命令的时候可能会遇到错误，比如Permission Denied，可能是因为公钥没有复制正确或者SSH Agent未开启的原因。</p>
-<p>不过，我觉得，大多数情况都是SSH Agent未开启的原因。</p>
-<p>要解决这种问题，请运行Git Bash，注意，是Git Bash，而不是Windows的命令行，然后依次执行以下命令即可：</p>
-<p><pre class="lang:sh decode:true ">cd X:\Projects-X\Tieba-zhuaqu<br>eval “$(ssh-agent -s)”<br>ssh-add Q:\SSHkeys\GitHubPull\githubKey<br>git push -u origin master</pre><br>上面的代码首先切换到了本地Git仓库，然后，开启SSH Agent，选择密钥，然后推送更新。</p>
-
-          
+[![qq%e6%88%aa%e5%9b%be20160920185818](http://115.159.197.66/wp-content/uploads/2016/09/QQ截图20160920185818-1024x553.png)]
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/09/20/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -965,7 +956,7 @@ $ ssh-keygen -t rsa -C "kanchisme@gmail.com"</pre>
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1064,16 +1055,23 @@ $ ssh-keygen -t rsa -C "kanchisme@gmail.com"</pre>
       
         
           
-            <p>该问题的情况是：</p>
-<p>一直显示正在连接网络，无论是否有密码，而且不会弹出输入密码的对话框。</p>
-<p>解决方法：</p>
-<p>编辑/etc/modprobe.d/iwlwifi.conf文件即可解决</p>
-<p>首先要打开终端，然后输入：</p>
-<p><pre class="lang:sh decode:true ">sudo vim  /etc/modprobe.d/iwlwifi.conf</pre><br>在文件末尾添加</p>
-<p><pre class="lang:sh decode:true ">options iwlwifi 11n_disable=1</pre><br>然后保存文件，重启系统即可连接上wifi。</p>
-<p>我的系统是 Ubuntu 16.04 LTS</p>
+          该问题的情况是：
+一直显示正在连接网络，无论是否有密码，而且不会弹出输入密码的对话框。
+解决方法：
+编辑/etc/modprobe.d/iwlwifi.conf文件即可解决
+首先要打开终端，然后输入：
+sudo vim  /etc/modprobe.d/iwlwifi.conf在文件末尾添加
+options iwlwifi 11n_disable=1然后保存文件，重启系统即可连接上wifi。
+我的系统是 Ubuntu 16.04 LTS
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/09/19/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1125,7 +1123,7 @@ $ ssh-keygen -t rsa -C "kanchisme@gmail.com"</pre>
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1224,16 +1222,23 @@ $ ssh-keygen -t rsa -C "kanchisme@gmail.com"</pre>
       
         
           
-            <p>大家在访问我博客和其它一些网站的时候会发现，如果你们用的手机版的chrome浏览器，就会发现，即使是在手机端，浏览器标题栏窗口的颜色也会随着网页主题配色改变。而一般手机浏览器工具栏窗口的颜色都是固定的，无法随网页配色改变。</p>
-<p>改变浏览器工具栏颜色的作用只有一个，那就是让配色和网页看起来更加的和谐，美观。</p>
-<p><a href="http://115.159.197.66/wp-content/uploads/2016/09/Screenshot_20160917-140845.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/09/Screenshot_20160917-140845-169x300.png" alt="screenshot_20160917-140845">    </a><a href="http://115.159.197.66/wp-content/uploads/2016/09/Screenshot_20160917-140833-1.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/09/Screenshot_20160917-140833-1-169x300.png" alt="screenshot_20160917-140833"></a></p>
-<p>&nbsp;</p>
-<p>实现方法非常简单，只需要在网站的head标签部分加入如下代码即可实现：</p>
-<p><pre class="lang:css decode:true">&lt;meta name=”theme-color” content=”#cc3333”&gt;</pre><br>在content部分填入自己需要设置的颜色即可。</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+          大家在访问我博客和其它一些网站的时候会发现，如果你们用的手机版的chrome浏览器，就会发现，即使是在手机端，浏览器标题栏窗口的颜色也会随着网页主题配色改变。而一般手机浏览器工具栏窗口的颜色都是固定的，无法随网页配色改变。
+改变浏览器工具栏颜色的作用只有一个，那就是让配色和网页看起来更加的和谐，美观。
+    
+&nbsp;
+实现方法非常简单，只需要在网站的head标签部分加入如下代码即可实现：
+&lt;meta name=”theme-color” content=”#cc3333”&gt;在content部分填入自己需要设置的颜色即可。
+&nbsp;
+&nbsp;
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/09/17/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1285,7 +1290,7 @@ $ ssh-keygen -t rsa -C "kanchisme@gmail.com"</pre>
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1373,18 +1378,24 @@ $ ssh-keygen -t rsa -C "kanchisme@gmail.com"</pre>
       
         
           
-            <p>无法显示中文，大概如下图中顶部的样子：</p>
-<p><a href="http://115.159.197.66/wp-content/uploads/2016/08/figure_1.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/08/figure_1-300x225.png" alt="figure_1"></a></p>
-<p>在网上搜索一番，提到的大多数解决方式都不可用，类似于下面这样：</p>
-<p><pre class="lang:python decode:true ">pyplot.title(u”中文”)<br>pyplot.title(u’\u4e2d\u6587’) #  (unicode编码)<br>pyplot.title(‘\xe4\xb8\xad\xe6\x96\x87’) # (utf-8编码)</pre><br>最后在一个博客上找到了解决方法，添加FontProperties 包，然后指定字体。</p>
-<p>如下：</p>
-<p><pre class="lang:python decode:true ">from matplotlib import pyplot<br>from matplotlib.font_manager import FontProperties<br>font_set = FontProperties(fname=r”c:\windows\fonts\simsun.ttc”, size=15)  </pre></p>
-<p>pyplot.title(u’中文’, fontproperties=font_set)<br>然后就完美解决了无法显示中文的问题。</p>
-<p><a href="http://115.159.197.66/wp-content/uploads/2016/08/figure_1-1.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/08/figure_1-1-300x225.png" alt="figure_1"></a></p>
-<p>&nbsp;</p>
-<p>参考来源：<a href="http://blog.csdn.net/garfielder007/article/details/51405139" target="_blank" rel="noopener">http://blog.csdn.net/garfielder007/article/details/51405139</a></p>
+          无法显示中文，大概如下图中顶部的样子：
 
-          
+在网上搜索一番，提到的大多数解决方式都不可用，类似于下面这样：
+pyplot.title(u”中文”)pyplot.title(u’\u4e2d\u6587’) #  (unicode编码)pyplot.title(‘\xe4\xb8\xad\xe6\x96\x87’) # (utf-8编码)最后在一个博客上找到了解决方法，添加FontProperties 包，然后指定字体。
+如下：
+from matplotlib import pyplotfrom matplotlib.font_manager import FontPropertiesfont_set = FontProperties(fname=r”c:\windows\fonts\simsun.ttc”, size=15)  
+pyplot.title(u’中文’, fontproperties=font_set)然后就完美解决了无法显示中文的问题。
+
+&nbsp;
+参考来源：http:
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/08/31/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1436,7 +1447,7 @@ $ ssh-keygen -t rsa -C "kanchisme@gmail.com"</pre>
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1524,17 +1535,20 @@ $ ssh-keygen -t rsa -C "kanchisme@gmail.com"</pre>
       
         
           
-            <p>在进行数据库编程的过程中，需要把_variant_t类型转换成char<em>尝试了各种方法，最后发现把他转换成CString，再有CString转换成char</em>比较简单。</p>
-<p>这里我们说的利用宏T2A和W2A进行转换。</p>
-<p>顾名思义，T2A是从wchar_t<em>到char</em>的转换；W2A是由宽字符到ANSI字符之间的转换。</p>
-<p>转换方式如下，首先需要声明标识符：USES_CONVERSION，然后我们在利用这2个宏进行数据类型转换</p>
-<p>代码如下：</p>
-<p><pre class="lang:c++ decode:true ">//UNICODE下的CString转char<em><br>        USES_CONVERSION;<br>        strcpy_s(tsc.staname,W2A((LPCTSTR)vname.lVal));<br>        strcpy_s(tsc.parentline, W2A((LPCTSTR)vparent.lVal));</em></pre><br>可以看到在下面这条代码中，我们先把_variant通过LPCTSTR强制类型转换转换成了CString，然后我们再利用 W2A函数将CString转换成char</p>
-<p><pre class="lang:c++ decode:true">W2A((LPCTSTR)vname.lVal);</pre><br>正常的转换方式如下：</p>
-<p><pre class="lang:c++ decode:true ">USES_CONVERSION;  </pre></p>
-<p>   CString cstr = _T(“12345”);<br>   char <em>pbuffer = T2A(cstr);<br>   char </em>pbuf = W2A(cstr);<br>&nbsp;</p>
-
-          
+          在进行数据库编程的过程中，需要把_variant_t类型转换成char尝试了各种方法，最后发现把他转换成CString，再有CString转换成char比较简单。
+这里我们说的利用宏T2A和W2A进行转换。
+顾名思义，T2A是从wchar_t到char的转换；W2A是由宽字符到ANSI字符之间的转换。
+转换方式如下，首先需要声明标识符：USES_CONVERSION，然后我们在利用这2个宏进行数据类型转换
+代码如下：
+//UNICODE下的CString转char        USES_CONVERSION;        strcpy_s(tsc.staname,W2A((LPCTSTR)vname.lVal));        strcpy_s(tsc.parentline, W2A((LPCTSTR)vparent.lVal));可以看到在下面这条代码中，我们先把_variant通过LPCTSTR强制类型转换转换成了CString，然后我们再利用 W2A函数将CString转换成
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/05/11/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1586,7 +1600,7 @@ $ ssh-keygen -t rsa -C "kanchisme@gmail.com"</pre>
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1674,22 +1688,21 @@ $ ssh-keygen -t rsa -C "kanchisme@gmail.com"</pre>
       
         
           
-            <p>我选的工程实践题目要求用数据库。在网上查了查MFC使用数据库，发现大多数都是在VC6.0的情况下使用，用的也是Access2010或者之前的版本。而我的环境是VS2015 + Access 2013。所以写下这篇文章备用。</p>
-<p>我们讨论的是连接到已经存在的Access 2013数据库。</p>
-<p>首先我们需要在MFC对话框的stdafx.h头文件中包含afxdb.h文件，该文件提供了数据库操作</p>
-<p><pre class="lang:c++ decode:true ">//下面这句代码要加在#include &lt;afxcontrolbars.h&gt;     // 功能区和控件条的 MFC 支持之下<br>//添加数据库支持</pre></p>
-<p>#include &lt;afxdb.h&gt; //新加入头文件，用于CDatabase类<br>然后，我们需要导入msado15.dll，该文件与数据库参数有关，未ADO组件，用于连接数据库</p>
-<p><pre class="lang:default decode:true">//msado15.dll我是复制到了项目文件夹下<br>//它的默认路径应该是C:\Program Files\Common Files\System\ado</pre></p>
-<p>#import “msado15.dll”  no_namespace  rename(“EOF”,”adoEOF”)<br>接下来就是连接数据库了。</p>
-<p>我们先声明 2个变量，一个是_ConnectionPtr类型，另外一个是_RecordsetPtr类型。</p>
-<p>_ConnectionPtr是用来connection对象，主要用于数据库的连接，SQL命令执行相关操作</p>
-<p>_RecordsetPtr是用来是用来对返回的记录集进行操作的</p>
-<p><pre class="lang:c++ decode:true">_ConnectionPtr m_pConnection;//连接access数据库的链接对象<br>_RecordsetPtr m_pRecordset;//记录集对象</pre></p>
-<p><pre class="lang:default decode:true">//连接数据库<br>    try<br>    {<br>        CoInitialize(NULL);<br>        m_pConnection = _ConnectionPtr(__uuidof(Connection));<br>        m_pConnection-&gt;ConnectionString = _T(“Provider=Microsoft.ACE.OLEDB.12.0;\<br>Data Source=X:\MetroData\StationData.accdb;”);//这里照着老版的书上写Provider=Microsoft.Jet.OLEDB.4.0;Data<br>                                                //Source= MyAccess.mdb是不对的，这样写只适合2007版以前的access，且路径里面的\必须改成<br>        m_pConnection-&gt;Open(“”, “”, “”, adConnectUnspecified);<br>    }<br>    catch (_com_error e)<br>    {<br>        AfxMessageBox(_T(“数据库连接失败！”));<br>        return FALSE;<br>    }</pre><br>然后运行，我们已经可以正常连接数据库了。</p>
-<h6 id="注意："><a href="#注意：" class="headerlink" title="注意："></a><strong>注意：</strong></h6><p>如果提示 【<em>‘Microsoft.ACE.OLEDB.12.0’提供者未注册】</em> 错误，请<a href="https://www.microsoft.com/en-us/download/details.aspx?id=13255" target="_blank" rel="noopener">下载Microsoft Access Database Engine 2010 Redistributable</a></p>
-<p>如果连接失败，你可能需要在MFC对话框的App类的构造函数CXXX::CXXXApp()中添加AfxOleInit();用于初始化。</p>
-
-          
+          我选的工程实践题目要求用数据库。在网上查了查MFC使用数据库，发现大多数都是在VC6.0的情况下使用，用的也是Access2010或者之前的版本。而我的环境是VS2015 + Access 2013。所以写下这篇文章备用。
+我们讨论的是连接到已经存在的Access 2013数据库。
+首先我们需要在MFC对话框的stdafx.h头文件中包含afxdb.h文件，该文件提供了数据库操作
+//下面这句代码要加在#include &lt;afxcontrolbars.h&gt;     // 功能区和控件条的 MFC 支持之下//添加数据库支持
+#include &lt;afxdb.h&gt; //新加入头文件，用于CDatabase类然后，我们需要导入msado15.dll，该文件与数据库参数有关，未ADO组件，用于连接数据库
+//msado15.dll我是复制到了项目文件夹下//它的默认路径应该是C:\Program Files\Common Files\System\ado
+#import 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/05/05/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1741,7 +1754,7 @@ $ ssh-keygen -t rsa -C "kanchisme@gmail.com"</pre>
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1829,30 +1842,27 @@ $ ssh-keygen -t rsa -C "kanchisme@gmail.com"</pre>
       
         
           
-            <p>这里我们介绍在MFC对话框上实现的简单绘图如下图所示：</p>
-<p>（GIF不动戳大:)）</p>
-<p><a href="http://115.159.197.66/wp-content/uploads/2016/04/ezgif-1760387173.gif" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/04/ezgif-1760387173-300x239.gif" alt="ezgif-1760387173"></a></p>
-<p>我们主要响应MFC对话框的以下3个消息：</p>
-<p>WM_LBUTTONDOWN</p>
-<p>WM_LBUTTONUP</p>
-<p>WM_MOUSEMOVE</p>
-<h5 id="先说说基本思路："><a href="#先说说基本思路：" class="headerlink" title="先说说基本思路："></a>先说说基本思路：</h5><p>当鼠标左键按下的时候，就在WM_MOUSEMOVE消息函数中处理绘图，在鼠标左键抬起后，就停止绘图。所以我们需要一个全局变量来标记当前鼠标的状态，以便在WM_MOUSEMOVE函数中进行是否绘图的判断。</p>
-<p>下面看看WM_LBUTTONDOWN的消息处理函数内容：</p>
-<p><pre class="lang:default decode:true ">void CMDDlg::OnLButtonDown(UINT nFlags, CPoint point)<br>{<br>    // TODO: 在此添加消息处理程序代码和/或调用默认值<br>    draw = true;<br>    lbeg = point;</pre></p>
-<pre><code>CDialogEx::OnLButtonDown(nFlags, point);
-</code></pre><p>}<br>在上面的函数中，我们用draw来标记当前的绘图状态。</p>
-<p>lbeg用来标记第一个点的位置（即鼠标按下的点）</p>
-<p>接下来处理WM_LBUTTONUP消息：</p>
-<p><pre class="lang:default decode:true ">void CMDDlg::OnLButtonUp(UINT nFlags, CPoint point)<br>{<br>    // TODO: 在此添加消息处理程序代码和/或调用默认值<br>    draw = false;<br>    lend = point;</pre></p>
-<pre><code>CDialogEx::OnLButtonUp(nFlags, point);
-</code></pre><p>}<br>当鼠标左键抬起的我们就把当前绘图状态，即draw的值设置为false</p>
-<p>然后是最重要的，WM_MOUSEMOVE：</p>
-<p><pre class="lang:default decode:true">void CI::OnMouseMove(UINT nFlags, CPoint point)<br>{<br>    // TODO: 在此添加消息处理程序代码和/或调用默认值<br>    CClientDC dc(this);<br>    CPen pen(PS_SOLID, HEAD.bound, RGB(HEAD.RGB[0], HEAD.RGB[1], HEAD.RGB[2]));<br>    dc.SelectObject(&amp;pen);<br>    if (draw == true)<br>    {<br>        dc.MoveTo(lbeg);<br>        dc.LineTo(point);<br>        lbeg = point;<br>    }<br>    CDialogEx::OnMouseMove(nFlags, point);<br>}</pre><br>上面的代码中，我们定义了一个<strong><span style="color: #0000ff;"><a href="https://msdn.microsoft.com/en-us/library/h45x9s2c.aspx" target="_blank" rel="noopener">CPen变量</a></span></strong>，这个变量用来设置绘图的画笔的粗细，颜色等等。</p>
-<p>当我们判断到绘制状态为true的时候，我们就不断的用<span style="color: #0000ff;"><a href="https://msdn.microsoft.com/en-us/library/kchtckce.aspx" target="_blank" rel="noopener">MoveTo</a></span>来将画笔移动到起始点（为了绘制连续的曲线，第一次起始点应该为鼠标左键单击的地方，后面的起始点都为上一次的point值）然后用<span style="color: #0000ff;"><a href="https://msdn.microsoft.com/en-us/library/wzc1344s.aspx" target="_blank" rel="noopener">LineTo</a></span>函数绘制从起点到终点的直线。</p>
-<p><strong>*</strong>重要说明**：WM_MOUSEMOVE这个消息不是鼠标一移动就会响应的，它的响应是离散而非连续的。</p>
-<p>&nbsp;</p>
+          这里我们介绍在MFC对话框上实现的简单绘图如下图所示：
+（GIF不动戳大:)）
 
-          
+我们主要响应MFC对话框的以下3个消息：
+WM_LBUTTONDOWN
+WM_LBUTTONUP
+WM_MOUSEMOVE
+先说说基本思路：当鼠标左键按下的时候，就在WM_MOUSEMOVE消息函数中处理绘图，在鼠标左键抬起后，就停止绘图。所以我们需要一个全局变量来标记当前鼠标的状态，以便在WM_MOUSEMOVE函数中进行是否绘图的判断。
+下面看看WM_LBUTTONDOWN的消息处理函数内容：
+void CMDDlg::OnLButtonDown(UINT nFlags, CPoint point){    // TODO: 在此添加消息处理程序代码和/或调用默认值    draw = true;    lbeg = point;
+CDialogEx::OnLButtonDown(nFlags, point);
+}在上面的函数中，我们用draw来标记当前的绘图状态。
+lbeg用来标记第一个点的位置（即鼠
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/04/30/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1925,8 +1935,12 @@ $ ssh-keygen -t rsa -C "kanchisme@gmail.com"</pre>
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/images/sites/me.jpg"
+                alt="Kanch" />
+            
               <p class="site-author-name" itemprop="name">Kanch</p>
-              <p class="site-description motion-element" itemprop="description">personal blog of Long Zhang (kanchisme@gmail.com)</p>
+              <p class="site-description motion-element" itemprop="description">简单的个人博客</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -1946,10 +1960,10 @@ $ ssh-keygen -t rsa -C "kanchisme@gmail.com"</pre>
               
               
               <div class="site-state-item site-state-categories">
-                
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">分类</span>
-                
+                </a>
               </div>
             
 
@@ -1957,10 +1971,10 @@ $ ssh-keygen -t rsa -C "kanchisme@gmail.com"</pre>
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">282</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
@@ -1968,6 +1982,22 @@ $ ssh-keygen -t rsa -C "kanchisme@gmail.com"</pre>
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ankanch" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:kanchisme@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -1995,7 +2025,7 @@ $ ssh-keygen -t rsa -C "kanchisme@gmail.com"</pre>
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

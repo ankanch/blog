@@ -25,6 +25,8 @@
 
 
 
+  <meta name="google-site-verification" content="GLDT17u1B7TOcMSK8hKPzUrHP1Fnv7ISwbCigDu1VcY" />
+
 
 
 
@@ -53,22 +55,24 @@
 <link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/sites/me.jpg?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/sites/me.jpg?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/sites/me.jpg?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="mask-icon" href="/images/sites/me.jpg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/images/sites/me.jpg">
 
 
 
 
-
-  <meta name="keywords" content="C语言,算法优化,C/C++,C语言优化,哥德巴赫猜想,证明哥德巴赫猜想," />
+  <meta name="keywords" content="C语言,C/C++,C语言优化,哥德巴赫猜想,算法优化,证明哥德巴赫猜想," />
 
 
 
@@ -80,7 +84,7 @@
 
 
 <meta name="description" content="&amp;nbsp; 上周，我们C语言老师给我们布置了一道小组作业：用C语言编写程序，证明哥德巴赫猜想在4—1000,000之间成立。最后成绩以各组算法在他机器上运行时间为准。特别注意：只能使用《C语言程序设计》前五章的知识，即不能用指针，不能用数组，不能用自定义函数等等… 我们才学C语言没多久，就布置这样的题目？跪了。不过大体想了想，要证明哥德巴赫猜在4—1000,000之间成立，其实还是简单的，关键是">
-<meta name="keywords" content="C语言,算法优化,C&#x2F;C++,C语言优化,哥德巴赫猜想,证明哥德巴赫猜想">
+<meta name="keywords" content="C语言,C&#x2F;C++,C语言优化,哥德巴赫猜想,算法优化,证明哥德巴赫猜想">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C语言证明哥德巴赫猜想算法以及算法优化相关问题">
 <meta property="og:url" content="http://akakanch.com/2015/11/03/index.html">
@@ -133,6 +137,15 @@
 
 
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-53245384-2', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
@@ -193,22 +206,42 @@
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -250,7 +283,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -438,13 +471,13 @@ return 0;
           
             <a href="/tags/C语言/" rel="tag"># C语言</a>
           
-            <a href="/tags/算法优化/" rel="tag"># 算法优化</a>
-          
             <a href="/tags/C-C/" rel="tag"># C/C++</a>
           
             <a href="/tags/C语言优化/" rel="tag"># C语言优化</a>
           
             <a href="/tags/哥德巴赫猜想/" rel="tag"># 哥德巴赫猜想</a>
+          
+            <a href="/tags/算法优化/" rel="tag"># 算法优化</a>
           
             <a href="/tags/证明哥德巴赫猜想/" rel="tag"># 证明哥德巴赫猜想</a>
           
@@ -537,8 +570,12 @@ return 0;
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/images/sites/me.jpg"
+                alt="Kanch" />
+            
               <p class="site-author-name" itemprop="name">Kanch</p>
-              <p class="site-description motion-element" itemprop="description">personal blog of Long Zhang (kanchisme@gmail.com)</p>
+              <p class="site-description motion-element" itemprop="description">简单的个人博客</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -558,10 +595,10 @@ return 0;
               
               
               <div class="site-state-item site-state-categories">
-                
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">分类</span>
-                
+                </a>
               </div>
             
 
@@ -569,10 +606,10 @@ return 0;
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">282</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
@@ -580,6 +617,22 @@ return 0;
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ankanch" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:kanchisme@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -623,7 +676,7 @@ return 0;
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

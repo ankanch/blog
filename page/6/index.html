@@ -25,6 +25,8 @@
 
 
 
+  <meta name="google-site-verification" content="GLDT17u1B7TOcMSK8hKPzUrHP1Fnv7ISwbCigDu1VcY" />
+
 
 
 
@@ -53,42 +55,44 @@
 <link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/sites/me.jpg?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/sites/me.jpg?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/sites/me.jpg?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="mask-icon" href="/images/sites/me.jpg?v=5.1.4" color="#222">
 
 
-
-
-
-  <meta name="keywords" content="Hexo, NexT" />
+  <link rel="manifest" href="/images/sites/me.jpg">
 
 
 
 
-
+  <meta name="keywords" content="kanch,C++,machine learning,python,long zhang" />
 
 
 
 
 
-<meta name="description" content="personal blog of Long Zhang (kanchisme@gmail.com)">
+
+
+
+
+
+<meta name="description" content="简单的个人博客">
 <meta property="og:type" content="website">
 <meta property="og:title" content="akakanch">
 <meta property="og:url" content="http://akakanch.com/page/6/index.html">
 <meta property="og:site_name" content="akakanch">
-<meta property="og:description" content="personal blog of Long Zhang (kanchisme@gmail.com)">
+<meta property="og:description" content="简单的个人博客">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="akakanch">
-<meta name="twitter:description" content="personal blog of Long Zhang (kanchisme@gmail.com)">
+<meta name="twitter:description" content="简单的个人博客">
 
 
 
@@ -129,6 +133,15 @@
 
 
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-53245384-2', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
@@ -190,22 +203,42 @@
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -247,7 +280,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -335,16 +368,23 @@
       
         
           
-            <p>在android开发中，如果写了一个继承Fragment的类，那么在重载构造函数时，会提</p>
-<p>示“<span style="color: #808000;"><em>Avoid non-default constructors in fragments: use a default constructor plus</em></span></p>
-<p><span style="color: #808000;"><em>Fragment#setArguments(Bundle) instead</em></span>”的错误。</p>
-<p>这时。需要在类的前面加上<span style="color: #ff00ff;"><strong>@SuppressLint(“ValidFragment”)</strong></span>才能解决错误。</p>
-<p>&nbsp;</p>
-<h1 id="SuppressLint说明"><a href="#SuppressLint说明" class="headerlink" title="SuppressLint说明"></a>SuppressLint说明</h1><p>指示编译器（？）应忽略的注释元素（即@SuppressLint（“”））指定的警告。</p>
-<p><a href="http://developer.android.com/intl/zh-cn/reference/android/annotation/SuppressLint.html" target="_blank" rel="noopener">官方文档：点击这里</a></p>
-<p>&nbsp;</p>
+          在android开发中，如果写了一个继承Fragment的类，那么在重载构造函数时，会提
+示“Avoid non-default constructors in fragments: use a default constructor plus
+Fragment#setArguments(Bundle) instead”的错误。
+这时。需要在类的前面加上@SuppressLint(“ValidFragment”)才能解决错误。
+&nbsp;
+SuppressLint说明指示编译器（？）应忽略的注释元素（即@SuppressLint（“”））指定的警告。
+官方文档：点击这里
+&nbsp;
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/09/04/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -396,7 +436,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -484,16 +524,23 @@
       
         
           
-            <p>我在将我一个更新版本的应用发布至Google Play时，遇到了如下问题：</p>
-<p><img src="http://139.129.6.122/wp-content/uploads/2015/09/vercode_3.png" alt="vercode_3"></p>
-<p>因为我之前的应用版本号设置为了1，所以这个应用的版本号不能为1，于是我在manifest.xml中改掉了版本号（如图），再次上传，却仍然是这个问题。</p>
-<p><img src="http://139.129.6.122/wp-content/uploads/2015/09/vercode_1.png" alt="vercode_1"></p>
-<p>众所周知：修改应用程序的版本号要在manifest.xml文件中的节中添加以下2个属性：</p>
-<p><pre>android:versionCode=<br>android:versionName=</pre><br>而我修改后却仍然提示版本为1，在结果一番搜索+查看文件后，发现，在对应Moudle的Gradle文件里面也有版本号，而这里的版本号却没有改变，仍然是1.于是，我讲Gradle文件中的版本号改成和manifest文件中的一样后，问题，果真解决了。</p>
-<p><img src="http://139.129.6.122/wp-content/uploads/2015/09/vercode_2.png" alt="vercode_2"></p>
-<hr>
-<div><br><br>### versionCode和versionName说明：<br><br>（来自官方文档，<a href="http://weibo.com/huangts" target="_blank" rel="noopener">译者: <wbr><wbr>http://weibo.com/huangts</a>）<br><br><span style="color: #ff6600;"><strong>android:versionCode</strong></span> — 整型, 相对于其他种类的版本号而言, 表示应用程序代码的版本. 其值是个整型,因此其他应用程序可以在程序编码中判断它, 例如检查升级或降级关系. 可以对其设置任何值, 然而应当确保每一个后续发布的应用程序使用更大的值. 尽管系统并不强制执行这种规则, 但是每个后续版本使用增加的数字值是标准作法. 典型做法是, 你发布的第一个版本的versionCode为1, 然后以后的每个发布版本单调递增, 而不管这个发布版本是否是一个主要或者次要的发布版本. 这表示 android:versionCode 值没有必要与用户可见的应用程序发布版本号有特别的相似之处. 同时,应用程序和发布平台不应将此版本值呈现给用户.<br><br><span style="color: #ff6600;"><strong>android:versionName</strong></span> — 字符串值,向用户显示的应用程序代码的发布版本号. 此值是一个字符串, 因此可以用.. 的形式描述应用程序版本, 或者以任何其他类型的绝对或相对版本号标识的形式. 相对于 android:versionCode, 除了让应用程序向用户显示它以外, 系统不打算将这个值用于任何内部使用目的. 应用发布平台可能会将 android:versionName 值解析出来显示给用户. 在manifest文件的元素中同时定义这些个版本相关属性.<br><br></div>
-          
+          我在将我一个更新版本的应用发布至Google Play时，遇到了如下问题：
+
+因为我之前的应用版本号设置为了1，所以这个应用的版本号不能为1，于是我在manifest.xml中改掉了版本号（如图），再次上传，却仍然是这个问题。
+
+众所周知：修改应用程序的版本号要在manifest.xml文件中的节中添加以下2个属性：
+android:versionCode=android:versionName=而我修改后却仍然提示版本为1，在结果一番搜索+查看文件后，发现，在对应Moudle的Gradle文件里面也有版本号，而这里的版本号却没有改变，仍然是1.于是，我讲Gradle文件中的版本号改成和manifest文件中的一样后，问题，果真解决了。
+
+
+### versionCode和versionName说明：（来自官方文档，译者: http://weibo.com/huangts）android:versionCode — 整型, 相对于其他种类的版本号而言, 表示应用程序代码的版本. 其值是个
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/09/03/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -545,7 +592,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -633,21 +680,28 @@
       
         
           
-            <p><span style="color: #ff0000;"><strong>注意：该方法只适用于adb端口呗占用导致的无法识别真机！</strong></span></p>
-<hr>
-<p>最近新换了windows10，在调试Android Studio程序时发现：<strong>Android Studio无法识别真机</strong>。</p>
-<p>经过一番搜索，了解到是因为a<strong>db端口被占用</strong>，导致问题发生。</p>
-<p>虽然adb的端口被占用了，但是占用端口的进程是必须启动的，不能被杀死，网上很多办法都说的是杀死占用端口的进程。尝试后发现这个方法并不适用于我。</p>
-<p>所以在此推荐一个新的方法：通过修改adb的默认端口，来防止端口被占用。</p>
-<hr>
-<h2 id="方法如下："><a href="#方法如下：" class="headerlink" title="方法如下："></a><span style="color: #ff00ff;"><strong>方法如下：</strong></span></h2><p><span style="color: #993300;">新建一个环境变量，名字为_<strong>ANDROID_ADB_SERVER_PORT</strong>_，然后它的值设为一个新的端口号码，比如说9999。</span></p>
-<p>再次启动Android Studio调试程序，adb就可以识别真机了。</p>
-<p><a href="http://139.129.6.122/wp-content/uploads/2015/08/adb_set_port.png" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2015/08/adb_set_port.png" alt="adb_set_port"></a></p>
-<p>如下图，现在可以识别真机了。</p>
-<p><span style="line-height: 1.5;"><a href="http://139.129.6.122/wp-content/uploads/2015/08/adb_set_port_nexus5.png" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2015/08/adb_set_port_nexus5.png" alt="adb_set_port_nexus5"></a></span></p>
-<p><span style="line-height: 1.5;">注意：输入</span><span style="color: #993366;"><strong>adb nodaemon server</strong></span><span style="line-height: 1.5;">可以查看</span><span style="line-height: 1.5;">哪个端口被占用了，没有端口呗占用，输入后会无反应。</span></p>
+          注意：该方法只适用于adb端口呗占用导致的无法识别真机！
+
+最近新换了windows10，在调试Android Studio程序时发现：Android Studio无法识别真机。
+经过一番搜索，了解到是因为adb端口被占用，导致问题发生。
+虽然adb的端口被占用了，但是占用端口的进程是必须启动的，不能被杀死，网上很多办法都说的是杀死占用端口的进程。尝试后发现这个方法并不适用于我。
+所以在此推荐一个新的方法：通过修改adb的默认端口，来防止端口被占用。
+
+方法如下：新建一个环境变量，名字为_ANDROID_ADB_SERVER_PORT_，然后它的值设为一个新的端口号码，比如说9999。
+再次启动Android Studio调试程序，adb就可以识别真机了。
+
+如下图，现在可以识别真机了。
+
+注意：输入adb nodaemon server可以查看哪个端口被占用了，没有端口呗占用，输入后会无反应。
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/08/25/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -699,7 +753,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -787,36 +841,43 @@
       
         
           
-            <p>Slidejoy的应用付钱给用户,让他们观看锁屏上的广告。</p>
-<p>这个不得不说太赞了。因为我们几乎人人都要解锁屏幕。</p>
-<p><strong>欺诈检测</strong></p>
-<div class="advertise_subtext" style="color: #333333; font-family: Tahoma, Helvetica, Arial, sans-serif; line-height: 15.8079996109009px;"><br><br>Slidejoy的机器学习算法，精心筛选异常的使用模式<br><br>和惩罚那些解开自己的手机过于频繁的用户<br><br></div>
+          Slidejoy的应用付钱给用户,让他们观看锁屏上的广告。
+这个不得不说太赞了。因为我们几乎人人都要解锁屏幕。
+欺诈检测
+Slidejoy的机器学习算法，精心筛选异常的使用模式和惩罚那些解开自己的手机过于频繁的用户
 
-<p>下面是该软件运行时候的截图：</p>
-<p><img src="http://139.129.6.122/wp-content/uploads/2015/08/sj_4-169x300.png" alt="sj_4"></p>
-<p>这是锁屏界面的广告。(其实不只是广告，还会有YouTube视频推荐，BuzzFeed文章推荐等)</p>
-<p><a href="http://139.129.6.122/wp-content/uploads/2015/08/sj_6.png" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2015/08/sj_6-169x300.png" alt="sj_6"></a>  <a href="http://139.129.6.122/wp-content/uploads/2015/08/sj_7.png" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2015/08/sj_7-169x300.png" alt="sj_7"></a></p>
-<p><strong>向左滑动会打开广告的页面，向右滑动会直接进入主屏。</strong></p>
-<p><strong>这2种方式得到的回报都是一样的。</strong></p>
-<p>软件运行的界面。</p>
-<p>在没有可用广告的时候，它会显示一些精美的图片。</p>
-<p>这是我的账户，你的回报不是及时得到的。</p>
-<p>一般是1个月。也有2个月的。</p>
-<p>回报支付页面，上面的余额是可支付回报。</p>
-<p><img src="http://139.129.6.122/wp-content/uploads/2015/08/sj_5-169x300.png" alt="sj_5"></p>
-<p>我这个月弄的，要下个月才可以转出。</p>
-<p>支持Paypal，Google Play 等，亚马逊礼品卡，但最近更新过后，中国用户就只有paypal了。</p>
-<p><img src="http://139.129.6.122/wp-content/uploads/2015/08/sj_3-169x300.png" alt="sj_3"></p>
-<p>这是我最近获得的$(一般1–2天到账)</p>
-<p><a href="http://139.129.6.122/wp-content/uploads/2015/08/sj_1.jpg" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2015/08/sj_1.jpg" alt="sj_1"></a></p>
-<p>………</p>
-<p><a href="http://139.129.6.122/wp-content/uploads/2015/08/sj_2.jpg" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2015/08/sj_2.jpg" alt="sj_2"></a></p>
-<hr>
-<p>点击这里进行——&gt;<a href="http://www.getslidejoy.com/r/kanchisme.31562" target="_blank" rel="noopener">帐号注册</a></p>
-<p>下载地址：</p>
-<p><a href="https://play.google.com/store/apps/details?id=com.slidejoy" target="_blank" rel="noopener">Google Play</a></p>
+下面是该软件运行时候的截图：
+
+这是锁屏界面的广告。(其实不只是广告，还会有YouTube视频推荐，BuzzFeed文章推荐等)
+  
+向左滑动会打开广告的页面，向右滑动会直接进入主屏。
+这2种方式得到的回报都是一样的。
+软件运行的界面。
+在没有可用广告的时候，它会显示一些精美的图片。
+这是我的账户，你的回报不是及时得到的。
+一般是1个月。也有2个月的。
+回报支付页面，上面的余额是可支付回报。
+
+我这个月弄的，要下个月才可以转出。
+支持Paypal，Google Play 等，亚马逊礼品卡，但最近更新过后，中国用户就只有paypal了。
+
+这是我最近获得的$(一般1–2天到账)
+
+………
+
+
+点击这里进行——&gt;帐号注册
+下载地址：
+Google Play
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/08/09/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -868,7 +929,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -967,20 +1028,23 @@
       
         
           
-            <p>源代码如下：</p>
-<p><pre class="lang:java decode:true">package com.akakanch.toolkit;</pre></p>
-<p>/**</p>
-<ul>
-<li>Created by Administrator on 2015/7/7.</li>
-<li>用来操作从Web API获取数据<br>*/<br>import java.net.URL;<br>import java.net.URLConnection;<br>import java.io.BufferedReader;<br>import java.io.IOException;<br>import java.io.InputStreamReader;</li>
-</ul>
-<p>public class WebClient{</p>
-<p>private static String _newLine = System.getProperty(“line.separator”);<br>public WebClient()<br>{ }<br>public String getContent(String url, String oriEncoding, String targetEncoding) throws IOException<br>{<br>URL u = new URL(url);<br>URLConnection uc = u.openConnection();<br>BufferedReader in;</p>
-<p>if(oriEncoding == null || oriEncoding.length() == 0)<br>{<br>in = new BufferedReader(new InputStreamReader(uc.getInputStream()));<br>}<br>else<br>{<br>in = new BufferedReader(new InputStreamReader(uc.getInputStream(), oriEncoding));<br>}<br>String line;<br>StringBuilder sb = new StringBuilder();<br>while((line = in.readLine()) != null)<br>{<br>sb.append(line); sb.append(_newLine);<br>}<br>if(targetEncoding == null || targetEncoding.length() == 0)<br>{<br>return sb.toString();<br>}<br>return new String(sb.toString().getBytes(), targetEncoding);<br>}<br>}<br><br>使用方法：</p>
-<p><pre class="lang:java decode:true ">WebClient wc = new WebClient();<br>String str = wc.getContent(“<a href="http://api.akakanch.com/?app=1&quot;" target="_blank" rel="noopener">http://api.akakanch.com/?app=1&quot;</a>, “utf-8”, null);</pre><br>&nbsp;</p>
-<p>str里即为Web API返回的字符串</p>
+          源代码如下：
+package com.akakanch.toolkit;
+/**
 
-          
+Created by Administrator on 2015/7/7.
+用来操作从Web API获取数据*/import java.net.URL;import java.net.URLConnection;import java.io.BufferedReader;import java.io.IOException;import java.io.InputStreamReader;
+
+public class WebClient{
+private static String _newLine = System.getProperty(“line.separator”);public WebClient(){ }public String getContent(String url, String oriEncoding, String targetEncoding) throws IOExcept
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/07/23/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1032,7 +1096,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1120,20 +1184,27 @@
       
         
           
-            <p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>目前已知以下两种可能会引起Parser Error Message: Could not load type “…”如下：</p>
-<hr>
-<p>&nbsp;</p>
-<p><span style="color: #993300;"><strong>第一种</strong></span>是由于aspx文件开头的代码：</p>
-<p><pre class="">&lt;%@Page Language=”C#” AutoEventWireup=”true” CodeBehind=”SteamLoginWebPage.aspx.cs” Inherits=”SteamLogin.WebPage” %&gt;</pre><br>上面代码红色加粗部分改为CodeFile即可解决问题</p>
-<hr>
-<p>&nbsp;</p>
-<p><span style="color: #993300;"><strong>第二种</strong></span>则是文件系统的bin文件没有放到服务器根目录导致</p>
-<p>将bin文件夹移到服务器根目录即可解决。</p>
-<p>&nbsp;</p>
+          &nbsp;
+&nbsp;
+目前已知以下两种可能会引起Parser Error Message: Could not load type “…”如下：
+
+&nbsp;
+第一种是由于aspx文件开头的代码：
+&lt;%@Page Language=”C#” AutoEventWireup=”true” CodeBehind=”SteamLoginWebPage.aspx.cs” Inherits=”SteamLogin.WebPage” %&gt;上面代码红色加粗部分改为CodeFile即可解决问题
+
+&nbsp;
+第二种则是文件系统的bin文件没有放到服务器根目录导致
+将bin文件夹移到服务器根目录即可解决。
+&nbsp;
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/07/22/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1185,7 +1256,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1273,71 +1344,21 @@
       
         
           
-            <p>有些时候我们需要将我们的android app的一些数据储存起来，以便下次app快速加载。Android系统为我们提供了2中储存方式：手机自带内存和SD卡。这里介绍如何将数据储存在手机自带内存。</p>
-<p>先说明：储存在手机自带内存，路径是系统内存的<br><em><span style="color: #800000;">data/&lt;your app package name&gt;/&lt;file name&gt;</span></em>下，并且当你的app被卸载后，这里的数据也会被删掉。储存在内部储存的数据只有你的app可以访问，用户也无法通过资源管理器访问（除非手机已经root）</p>
-<p><a href="http://developer.android.com/intl/zh-cn/guide/topics/data/data-storage.html#filesInternal" target="_blank" rel="noopener">通过查阅Android SDK文档</a>可知：</p>
-<p>需要用到openFileOutput()函数来向文件写入，用openFileInput()函数来从文件读取数据。下面来详细介绍：</p>
-<hr>
-<p>&nbsp;</p>
-<h3 id="openFileOutput-与openFileInput"><a href="#openFileOutput-与openFileInput" class="headerlink" title="openFileOutput()与openFileInput()"></a><span style="color: #ff6600;">openFileOutput()与openFileInput()</span></h3><p><span style="color: #ff6600;">原型：<br></span>—————————————————————————<br><span style="color: #ff00ff;">**public abstract FileOutputStream openFileOutput (String name, int mode)</span></p>
-<p>**<span style="color: #0000ff;">第一个参数 指定文件名（没有路径，只有文件名）</span><br><span style="color: #0000ff;">第二个参数 指定输出模式</span>，可以是以下的任意一个：<br><span style="color: #999999;">MODE_APPEND</span>            在原文件末尾追加数据<br><span style="color: #999999;">MODE_PRIVATE</span>           默认模式，覆盖原有数据，并且只有本程序可以访问<br><span style="color: #999999;">MODE_WORLD_READABLE</span>    全局可读取（危险，不建议）<br><span style="color: #999999;">MODE_WORLD_WRITEABLE</span>   全局可写入（危险，不建议）</p>
-<h2 id="该函数返回一个FileOutputStream对象，注意该函数只可在Activity类和继承自Activity相关类中调用，至于如何在非Activity类，如Fragment类中调用，文章后面会给出说明"><a href="#该函数返回一个FileOutputStream对象，注意该函数只可在Activity类和继承自Activity相关类中调用，至于如何在非Activity类，如Fragment类中调用，文章后面会给出说明" class="headerlink" title="该函数返回一个FileOutputStream对象，注意该函数只可在Activity类和继承自Activity相关类中调用，至于如何在非Activity类，如Fragment类中调用，文章后面会给出说明"></a><span style="color: #0000ff;">该函数返回一个FileOutputStream对象，注意该函数只可在Activity类和继承自Activity相关类中调用，至于如何在非Activity类，如Fragment类中调用，文章后面会给出说明</span></h2><p><span style="color: #ff00ff;">**public abstract FileInputStream openFileInput (String name)</span></p>
-<p><strong><span style="color: #0000ff;">参数指定了文件名，同上，没有路径<br>该函数返回一个FileInputStream对象，注意该函数只可在Activity类和继承自Activity相关类中调用，至于如何在非Activity类，如Fragment类中调用，文章后面会给出说明<br><span style="color: #000000;">—————————————————————————
-</span></span></strong>特别说明：**这两个函数都需要处理<em>FileNotFoundException</em>，将其放入try…catch中即可，在catch中捕获<em>FileNotFoundException</em>异常。后文代码会给出例子。</p>
-<hr>
-<h4 id="向文件写入与读取数据："><a href="#向文件写入与读取数据：" class="headerlink" title="向文件写入与读取数据："></a><span style="color: #ff6600;">向文件写入与读取数据：</span></h4><p>利用openFileInput()或者openFileOutput()函数返回的FileInputStream或者FileOutputStream对象调用write()或read()函数进行写入与读取。最后再调用close()关闭文件流。</p>
-<p>由于write()接受的参数是byte类型，所以我们要调用String.getBytes()函数来传递参数。</p>
-<p>向文件写入数据的代码如下：</p>
-<pre class="lang:java decode:true ">EditText et = (EditText) view.findViewById(R.id.editText_layout_file_ops_edit);
-String str = et.getText().toString();
-try {
-    FileOutputStream fout = context.getApplicationContext().openFileOutput("buffer", context.MODE_PRIVATE);
-    fout.write(str.getBytes());
-    fout.close();
-}
-catch (FileNotFoundException e)
-{ e.printStackTrace(); }
-catch(IOException e)
-{ e.printStackTrace(); }</pre>
-&nbsp;
-
-从文件读取数据的代码如下：
-<pre class="lang:java decode:true ">String str = new String();
-try {
-    FileInputStream fin = context.getApplicationContext().openFileInput("buffer");
-    int length = fin.available();
-    byte[] buffer = new byte[length];
-    fin.read(buffer);
-    str = EncodingUtils.getString(buffer, "UTF-8");
-    fin.close();
-    EditText et = (EditText) view.findViewById(R.id.editText_layout_file_ops_edit);
-    et.setText(str);
-} catch (FileNotFoundException e) {
-    e.printStackTrace();
-} catch (IOException e) {
-    e.printStackTrace();
-}</pre>
-&nbsp;
+          有些时候我们需要将我们的android app的一些数据储存起来，以便下次app快速加载。Android系统为我们提供了2中储存方式：手机自带内存和SD卡。这里介绍如何将数据储存在手机自带内存。
+先说明：储存在手机自带内存，路径是系统内存的data/&lt;your app package name&gt;/&lt;file name&gt;下，并且当你的app被卸载后，这里的数据也会被删掉。储存在内部储存的数据只有你的app可以访问，用户也无法通过资源管理器访问（除非手机已经root）
+通过查阅Android SDK文档可知：
+需要用到openFileOutput()函数来向文件写入，用openFileInput()函数来从文件读取数据。下面来详细介绍：
 
 &nbsp;
-
-##### <span style="color: #ff6600;">关于在Fragement等非Activity极其继承类中调用 openFileInput()和openFileOutput()</span>
-
-由于openFileInput()与openFileOutput()是在Context类中，所以需要用context对象调用，但，Context呗定义为了一个抽象类，所以我们无法直接声明它的对象。（因为Activity及其继承类已经有全局的context所以可以直接调用）。因此，如果在Fragment类或者其它类中，我们要通过获得调用该类的Activity的Context来调用openFileInput()与openFileOutput()函数。
-
-如何获得调用Activity的Context呢？
-
-在要使用openFileInput()与openFileOutput()的类中声明一个新的构造函数，唯一的参数为Context类型，再在类中声明一个Context类型的全局变量用来存放调用Activity的context。代码如下：
-
-[![file_op_1](http://139.129.6.122/wp-content/uploads/2015/07/file_op_1.jpg)](http://139.129.6.122/wp-content/uploads/2015/07/file_op_1.jpg)
-
-&nbsp;
-
-最后，在调用的Activity中，向构造函数传递自己的Context
-
-利用以下函数获得Context
-<pre>getApplicationContext()</pre>
-          
+openFileOutput()与openFileInput()原型：—————————————————————————**public abstract FileOutputStream openFileOutput
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/07/21/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1389,7 +1410,7 @@ try {
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1477,15 +1498,22 @@ try {
       
         
           
-            <p>在使用TextView的过程中，有时候会遇到文字过多，显示不全的问题。</p>
-<p>下面的几行代码，可以给TextView加上滚动条。</p>
-<p>首先，打开layout文件，在TextView标记中添加2个属性：</p>
-<p><pre>android:singleLine=”false” //取消单行<br>android:scrollbars=”vertical” //设置垂直滚动条</pre><br>然后打开layout对应的Java Class文件。</p>
-<p>利用TextView对象设置样式</p>
-<p><pre>TextView textview=(TextView)findViewById(R.id.textview);<br>textview.setMovementMethod(ScrollingMovementMethod.getInstance());</pre><br><strong>注意：ScrollingMovementMethod在android.text.method里</strong></p>
-<p>&nbsp;</p>
+          在使用TextView的过程中，有时候会遇到文字过多，显示不全的问题。
+下面的几行代码，可以给TextView加上滚动条。
+首先，打开layout文件，在TextView标记中添加2个属性：
+android:singleLine=”false” //取消单行android:scrollbars=”vertical” //设置垂直滚动条然后打开layout对应的Java Class文件。
+利用TextView对象设置样式
+TextView textview=(TextView)findViewById(R.id.textview);textview.setMovementMethod(ScrollingMovementMethod.getInstance());注意：ScrollingMovementMethod在android.text.method里
+&nbsp;
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/07/21/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1537,7 +1565,7 @@ try {
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1625,56 +1653,18 @@ try {
       
         
           
-            <p>我在做一个app时，使用了Navigation Drawer Fragment，但却在更换显示内容（或者说更换显示的dialog）的时候遇到了问题。</p>
-<p>后来才知道，是不能通过setContentView来设置layout的。必须通过切换（替换）fragment来实现显示内容的改变。</p>
-<h4 id="首先介绍下什么是Fragment："><a href="#首先介绍下什么是Fragment：" class="headerlink" title="首先介绍下什么是Fragment："></a><span style="color: #ff0000;">首先介绍下什么是Fragment：</span></h4><p>Android运行在各种各样的设备中，有小屏幕的手机，超大屏的平板甚至电视。针对屏幕尺寸的差距，很多情况下，都是先针对手机开发一套App，然后拷贝,修改布局以适应其它设备。Fragment的出现就是为了解决这种问题。你可以把Fragment当成Activity的一个界面的一个组成部分，甚至Activity的界面可以完全有不同的Fragment组成，Fragment拥有自己的生命周期和接收、处理用户的事件，这样就不必在Activity写一堆控件的事件处理的代码了。更为重要的是，你可以动态的添加、替换和移除某个Fragment。</p>
-<h4 id="特别说明："><a href="#特别说明：" class="headerlink" title="特别说明："></a><span style="color: #ff0000;"><strong>特别说明：</strong></span></h4><p>Fragment必须放在某个Activity中，但是它在app的所有Activity中是通用的。也就是说你可以把一个Activity中的Fragment加载到其它的Activity中。</p>
-<h1 id="下面开始使用Fragment和在Navigation-Drawer-Fragment中切换Fragment。"><a href="#下面开始使用Fragment和在Navigation-Drawer-Fragment中切换Fragment。" class="headerlink" title="下面开始使用Fragment和在Navigation Drawer Fragment中切换Fragment。"></a><span style="color: #ff0000;">下面开始使用Fragment和在Navigation Drawer Fragment中切换Fragment。</span></h1><p><span style="color: #000000;"> ———————————————–</span></p>
-<h4 id="首先解释下通过向导创建的Navigation-Drawer-Fragment中的一些重要组成和重要代码。"><a href="#首先解释下通过向导创建的Navigation-Drawer-Fragment中的一些重要组成和重要代码。" class="headerlink" title=" 首先解释下通过向导创建的Navigation Drawer Fragment中的一些重要组成和重要代码。"></a><span style="color: #333300;"> <strong>首先解释下通过向导创建的Navigation Drawer Fragment中的一些重要组成和重要代码。</strong></span></h4><p>如果你的文件名称全是默认的话，在layout下，你会得到：</p>
-<p><span style="color: #ff00ff;">_activity_main.xml_</span></p>
-<p><span style="color: #ff00ff;">_ fragment_main.xml_</span></p>
-<p><span style="color: #ff00ff;">_ fragment_navigation_drawer.xml_</span></p>
-<p>这3个布局文件。</p>
-<p><strong><span style="color: #ff00ff;">activity_main.xml</span></strong>是主布局文件（相当于根窗口）后面的2个布局文件都是建立在他之上的。</p>
-<p>所以，我们待会要把一个元素放在这里面。</p>
-<p>第三个<strong><span style="color: #ff00ff;">fragment_navigation_drawer.xml</span></strong>是左侧（默认左侧）划出菜单的布局文件。打开后你会发现里面有ListView元素，当然，你也可以加些其它的控件进去。</p>
-<p>再来看生成的2个Java Class文件：</p>
-<p><em><span style="color: #ff00ff;">MainActivity</span></em></p>
-<p><em><span style="color: #ff00ff;"> NavigationDrawerFragment</span></em></p>
-<p>第一个<strong><span style="color: #ff00ff;">MainActivity</span></strong>对应于activity_main.xml。是实现程序的根本文件。</p>
-<p>打开后，你会找到这个函数： <span style="color: #000000;"><em>public void onNavigationDrawerItemSelected(int position)</em></span></p>
-<p>当用户点击了左侧菜单中的一项时，NavigationDrawerFragment类对象</p>
-<p>会触发<span style="color: #000000;"><em>public static interface NavigationDrawerCallbacks</em></span> 进而调用上面那个函数。</p>
-<p>参数<em>postion</em>则为被点击项在ListView中的索引。（注意：从0开始）</p>
-<p>所以，切换fragment的代码应该在这里（<em><span style="color: #000000;">onNavigationDrawerItemSelected</span></em>）。</p>
-<p>我们用一个switch语句来决定点击项的不同响应（这里是切换成不同的fragment）</p>
-<p>再来看第二个Java Class：<strong><span style="color: #ff00ff;">NavigationDrawerFragment</span></strong></p>
-<p>打开后你会在onCreateView方法中找到初始化左侧菜单（即ListView）项名字的代码。</p>
-<p>再向下看你会看见：<span style="color: #000000;"><em>onOptionsItemSelected</em></span></p>
-<p>这个实现的是app右上角（标题栏）按钮被点击后的事件处理。</p>
-<h4 id="下面贴出代码并解释："><a href="#下面贴出代码并解释：" class="headerlink" title="下面贴出代码并解释："></a><span style="color: #ff0000;"><strong>下面贴出代码并解释：</strong></span></h4><p>首先，创建fragment：</p>
-<p>与创建activity类似，在程序资源目录，点右键菜单，创建layout resouce file</p>
-<p>其次，将这个layout resouce file与Java Class关联（这个Class必须继承自Fragment类，注意：是android.app.Fragment）如图：</p>
-<p><a href="http://139.129.6.122/wp-content/uploads/2015/07/ndf_1.jpg" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2015/07/ndf_1.jpg" alt="ndf_1"></a></p>
-<p>如何关联呢？很简单，打开刚刚创建的layout resouce file在根布局（就是带类似于<em>xmlns:android=”<a href="http://schemas.android.com/apk/res/android&quot;" target="_blank" rel="noopener">http://schemas.android.com/apk/res/android&quot;</a></em>属性的布局）添加一个属性：</p>
-<p><span style="color: #ff00ff;"><strong><em>android：name=“你的类所在的包名”</em></strong></span>（如：com.akakanch.fragmenttest.exampleClass）</p>
-<p>这样就实现了资源文件与类的关联。因为不是创建Activity，所以不必在Manfiest中注册。</p>
-<p>如图：</p>
-<h5 id=""><a href="#" class="headerlink" title=""></a><a href="http://139.129.6.122/wp-content/uploads/2015/07/ndf_2.jpg" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2015/07/ndf_2.jpg" alt="ndf_2"></a></h5><h5 id="接下来修改关联的类文件内容。"><a href="#接下来修改关联的类文件内容。" class="headerlink" title="接下来修改关联的类文件内容。"></a><span style="color: #ff0000;"><strong>接下来修改关联的类文件内容。</strong></span></h5><p>我们要让他继承（extends）自Fragment（再次提醒：是<strong>android.app.Fragment</strong>）</p>
-<p>然后重载onCreateView，这个是用来初始化目标fragment的。</p>
-<p>最后添加构造函数。</p>
-<p>如图：</p>
-<p><a href="http://139.129.6.122/wp-content/uploads/2015/07/ndf_3.jpg" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2015/07/ndf_3.jpg" alt="ndf_3"></a></p>
-<p>（<strong><span style="color: #ff0000;">划红线代码非常重要！</span></strong>）</p>
-<p>到此，要替换的fragment已经实现完成。</p>
-<hr>
-<p>让我们回到MainActivity中的：onNavigationDrawerItemSelected(int position)</p>
-<p><strong>先说一下，替换fragment需要使用FragmentManager，在做完修改后调用commit（）应用修改。</strong></p>
-<p><strong> 我们通过新建要修改的fragment的类对象，再利用FragmentTransaction与FragmentManager修改。</strong></p>
-<p>代码如下：</p>
-<p><pre class="lang:java decode:true "> switch(position)<br>{<br>case 0:<br>android.app.Fragment fgt_s1 = new com.akakanch.csgostatstrack.fragmenttest.layout_s1();<br>FragmentTransaction transaction1 =getFragmentManager().beginTransaction();<br>transaction1.replace(R.id.container,fgt_s1);<br>PlaceholderFragment.newInstance(position + 1);<br>transaction1.commit();<br>break;<br>}</pre><br>&nbsp;</p>
-
-          
+          我在做一个app时，使用了Navigation Drawer Fragment，但却在更换显示内容（或者说更换显示的dialog）的时候遇到了问题。
+后来才知道，是不能通过setContentView来设置layout的。必须通过切换（替换）fragment来实现显示内容的改变。
+首先介绍下什么是Fragment：Android运行在各种各样的设备中，有小屏幕的手机，超大屏的平板甚至电视。针对屏幕尺寸的差距，很多情况下，都是先针对手机开发一套App，然后拷贝,修改布局以适应其它设备。Fragment的出现就是为了解决这种问题。你可以把Fragment当成Activity的一个界面的一个组成部分，甚至Activity的界面可以完全有不同的Fragment组成，Fragment拥有自己的生命周期和接收、处理用户的事件，这样就不必在Activity写一堆控件的事件处理的代码了。更为重要的是，你可以动态的添加、替换和移除某个Fragment。
+特别说明：Fragment必须放在某个Activit
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/07/18/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1726,7 +1716,7 @@ try {
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1814,9 +1804,9 @@ try {
       
         
           
-            <h2 id="本文介绍了在纯C-与VC下的获得当前可执行文件的路径方法。"><a href="#本文介绍了在纯C-与VC下的获得当前可执行文件的路径方法。" class="headerlink" title="本文介绍了在纯C++与VC下的获得当前可执行文件的路径方法。"></a>本文介绍了在纯C++与VC下的获得当前可执行文件的路径方法。</h2><p>&nbsp;</p>
-<h2 id="首先，纯C-方式："><a href="#首先，纯C-方式：" class="headerlink" title="首先，纯C++方式："></a><span style="text-decoration: underline;"><span style="color: #ff0000;"><strong>首先，纯C++方式：</strong></span></span></h2><p>函数原型: <strong><span style="color: #ff00ff;">char <em>getcwd(char </em>dir,int len)</span></strong><br>函数功能: 得到当前路径名称<br>函数返回: 指向dir的指针<br>参数说明: <strong>len</strong>是路径最大长度.<strong>dir</strong>是路径字符串.<br>所属文件: dir.h    (<em>这个头文件可能被命名为 direct.h 或者其他</em>)<br><span style="font-family: monospace, serif;"><span style="font-size: 15px;">示例代码：</span></span></p>
-<pre class="lang:c++ decode:true">#include 
+          本文介绍了在纯C++与VC下的获得当前可执行文件的路径方法。&nbsp;
+首先，纯C++方式：函数原型: char getcwd(char dir,int len)函数功能: 得到当前路径名称函数返回: 指向dir的指针参数说明: len是路径最大长度.dir是路径字符串.所属文件: dir.h    (这个头文件可能被命名为 direct.h 或者其他)示例代码：
+#include 
 #include 
 int main()
 {
@@ -1824,20 +1814,19 @@ char buffer[MAXPATH];
 getcwd(buffer, MAXPATH);
 printf("The current directory is: %s", buffer);
 return 0;
-}</pre>
+}
 
-<h2 id="Visual-C-方式："><a href="#Visual-C-方式：" class="headerlink" title="Visual C++方式："></a><span style="text-decoration: underline;"><span style="color: #ff0000;"><strong>Visual C++方式：</strong></span></span></h2><ul>
-<li><strong>函数：</strong><br>DWORD WINAPI GetModuleFileName(_In_opt_ HMODULE hModule,<em>Out</em> LPTSTR lpFilename,_In_ DWORD nSize);</li>
-<li><p><strong>功能：</strong><br>获取当前进程已加载模块的文件的完整路径，该模块必须由当前进程加载。</p>
-<div class="para">   如果想要获取另一个已加载模块的文件路径，可以使用GetModuleFileNameEx函数。</div>
-</li>
-<li><p><strong>参数说明</strong><br><strong>hModule Long</strong><br>一个模块的句柄。可以是一个DLL模块，或者是一个应用程序的实例句柄。如果该参数为NULL，该函数返回该应用程序全路径。<br><strong>lpFileName String</strong><br>指定一个字串缓冲区，要在其中容纳文件的用NULL字符中止的路径名，hModule模块就是从这个文件装载进来的<br><strong>nSize Long</strong><br>装载到缓冲区lpFileName的最大字符数量<br>示例代码：<br><pre class="lang:c++ decode:true ">#include<br>#include<br>BOOL CreateSampleService()<br>{<br>TCHAR szPath[MAX_PATH];<br>if( !GetModuleFileName( NULL, szPath, MAX_PATH ) )<br>{<br>printf(“GetModuleFileName failed (%d)n”, GetLastError());<br>return FALSE;<br>}<br>return TRUE;<br>}<br>/<em><br>如果想获得某个正在运行的EXE或者DLL的全路径可以这样写代码<br>GetModuleFileNameEx(hProcess,hInst,lpFile,MAX_PATH);//注意下缓冲区就行了。
-</em>/<br></pre><br>&nbsp;</p>
-</li>
-</ul>
-<p>详情查阅MSDN<br><a href="https://msdn.microsoft.com/zh-tw/office/ms683197(v=vs.100" target="_blank" rel="noopener">https://msdn.microsoft.com/zh-tw/office/ms683197(v=vs.100)</a>)</p>
-
-          
+Visual C++方式：
+函数：DWORD WINAPI GetModuleFileName(_In_opt_ HMODULE hModule,Out LPTSTR lpFilename,_In_ DWORD nSize);
+功能：获取当前进程已
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/06/22/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1910,8 +1899,12 @@ return 0;
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/images/sites/me.jpg"
+                alt="Kanch" />
+            
               <p class="site-author-name" itemprop="name">Kanch</p>
-              <p class="site-description motion-element" itemprop="description">personal blog of Long Zhang (kanchisme@gmail.com)</p>
+              <p class="site-description motion-element" itemprop="description">简单的个人博客</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -1931,10 +1924,10 @@ return 0;
               
               
               <div class="site-state-item site-state-categories">
-                
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">分类</span>
-                
+                </a>
               </div>
             
 
@@ -1942,10 +1935,10 @@ return 0;
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">282</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
@@ -1953,6 +1946,22 @@ return 0;
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ankanch" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:kanchisme@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -1980,7 +1989,7 @@ return 0;
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

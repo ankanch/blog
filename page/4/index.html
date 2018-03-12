@@ -25,6 +25,8 @@
 
 
 
+  <meta name="google-site-verification" content="GLDT17u1B7TOcMSK8hKPzUrHP1Fnv7ISwbCigDu1VcY" />
+
 
 
 
@@ -53,42 +55,44 @@
 <link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/sites/me.jpg?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/sites/me.jpg?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/sites/me.jpg?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="mask-icon" href="/images/sites/me.jpg?v=5.1.4" color="#222">
 
 
-
-
-
-  <meta name="keywords" content="Hexo, NexT" />
+  <link rel="manifest" href="/images/sites/me.jpg">
 
 
 
 
-
+  <meta name="keywords" content="kanch,C++,machine learning,python,long zhang" />
 
 
 
 
 
-<meta name="description" content="personal blog of Long Zhang (kanchisme@gmail.com)">
+
+
+
+
+
+<meta name="description" content="简单的个人博客">
 <meta property="og:type" content="website">
 <meta property="og:title" content="akakanch">
 <meta property="og:url" content="http://akakanch.com/page/4/index.html">
 <meta property="og:site_name" content="akakanch">
-<meta property="og:description" content="personal blog of Long Zhang (kanchisme@gmail.com)">
+<meta property="og:description" content="简单的个人博客">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="akakanch">
-<meta name="twitter:description" content="personal blog of Long Zhang (kanchisme@gmail.com)">
+<meta name="twitter:description" content="简单的个人博客">
 
 
 
@@ -129,6 +133,15 @@
 
 
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-53245384-2', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
@@ -190,22 +203,42 @@
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -247,7 +280,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -335,43 +368,25 @@
       
         
           
-            <p>地图拖动效果就是那种，你往哪拖，内容就跟着你往哪跑的，MFC的实现效果如下，我这里以拖动MFC对话框上的画图来作为示例的，其实我们还可以拓展到控件，在文末给出方法</p>
-<p>实现效果如下图所示：（ <strong>gif不动戳大</strong> :) ）</p>
-<p><a href="http://115.159.197.66/wp-content/uploads/2016/04/ezgif.com-video-to-gif.gif" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/04/ezgif.com-video-to-gif-300x239.gif" alt="ezgif.com-video-to-gif"></a></p>
-<p>在这里我们主要处理3个对话框消息来实现地图的拖动效果。</p>
-<p><strong>WM_LBUTTONUP</strong></p>
-<p><strong>WM_LBUTTONDOWN</strong></p>
-<p><strong>WM_MOUSEMOVE</strong></p>
-<p><strong>基本思路：</strong>当按下鼠标左键的时候标记当前状态为拖动状态，再记录当前鼠标位置用来计算平移的方向向量，然后，在WM_MOUSEMOVE消息函数里面通过判断当前状态来进行平移，最后当鼠标左键抬起时，再将当前状态设置为非拖动状态。</p>
-<p>首先我们需要一个全局变量来储存当前状态（即是否处于拖动状态）</p>
-<p><pre class="lang:c++ decode:true">bool offset = false;    //用来记录当前状态<br>CPoint lbeg;    //用来记录鼠标左键按下后的位置<br>CPoint last;</pre><br>然后，我们处理WM_LBUTTONDOWN消息：</p>
-<p><pre class="lang:c++ decode:true ">void CDTDlg::OnLButtonDown(UINT nFlags, CPoint point)<br>{<br>    // TODO: 在此添加消息处理程序代码和/或调用默认值<br>    offset = true;<br>    lbeg = point;<br>    SetCursor(LoadCursor(NULL, IDC_HAND));   //这行用来将光标设置为手的图标</pre></p>
-<pre><code>CDialogEx::OnLButtonDown(nFlags, point);
-</code></pre><p>}<br>然后，我们再处理WM_LBUTTONUP消息：</p>
-<p><pre class="lang:default decode:true ">void CDTDlg::OnLButtonUp(UINT nFlags, CPoint point)<br>{<br>    // TODO: 在此添加消息处理程序代码和/或调用默认值<br>    offset = false;<br>    lbeg = point;</pre></p>
-<pre><code>CDialogEx::OnLButtonUp(nFlags, point);
-</code></pre><p>}<br><br>平移对话框上的东西（我这里平移的是通过CDC画在对话框上的图案），其实就是不断的改变坐标进行重新绘制，所以，实现平移，我们需要在WM_MOUSEMOVE消息函数中实现坐标的变换，与图案的重绘。</p>
-<p>为了方便，我们定义个函数，用来处理坐标变换，然后在WM_MOUSEMOVE消息中调用它，最后再在WM_MOUSEMOVE消息中实现重绘。</p>
-<p>先贴上MoveMap函数的代码：</p>
-<p><pre class="lang:default decode:true">//地图平移函数，传入要平移的点集地址，平移方向,s是否将平移结果写入新文件，平移完毕后的点集文件路径,函数返回平移是否成功<br>const bool CDTDlg::MoveMap(const CString &amp;psdir,const CPoint &amp;vet, const bool newfile = false, const CString &amp;todir = _T(“movemap.buf”))<br>{<br>    CFile rawf, tof;<br>    CPoint po;<br>    if (!rawf.Open(psdir, CFile::modeReadWrite))<br>    {<br>        MessageBox(psdir + _T(“打开失败！”), _T(“MoveMap调试信息”), NULL);<br>        return false;<br>    }<br>    if (!tof.Open(todir, CFile::modeReadWrite | CFile::modeCreate))<br>    {<br>        MessageBox(todir + _T(“打开失败！”), _T(“MoveMap调试信息”), NULL);<br>        rawf.Close();<br>        return false;<br>    }<br>    CString str;<br>    while (rawf.Read(&amp;po, sizeof(CPoint))&gt;0)<br>    {<br>        po.x += (vet.x<em>-1);<br>        po.y += (vet.y</em>-1);<br>        tof.Write(&amp;po, sizeof(CPoint));<br>    }<br>    if (!newfile)  //如果选择覆盖原文件<br>    {<br>        rawf.SeekToBegin();<br>        tof.SeekToBegin();<br>        while (tof.Read(&amp;po, sizeof(CPoint))&gt;0)<br>        {<br>            rawf.Write(&amp;po, sizeof(CPoint));<br>        }<br>        //tof.SetLength(0); //清空文件<br>    }<br>    rawf.Close();<br>    tof.Close();<br>    return true;<br>}</pre><br>先来说说参数：</p>
-<p>第一个参数为要处理的点集文件。</p>
-<p>第二个参数是方向向量</p>
-<p>第三个是是否用变换后的数据覆盖原数据，默认覆盖</p>
-<p>第三个参数是如果第三个参数选择不覆盖，则第四个参数应传入处理后的数据的存放地址</p>
-<p>上面代码中，我们把mvet.x和mvet.y都乘以-1的原因的，其实很简单，如果不乘以-1的话，拖动方向会和你的实际拖动方向相反。</p>
-<p>下面我们再处理WM_MOUSEMOVE函数：</p>
-<p><pre class="lang:c++ decode:true">void CDTDlg::OnMouseMove(UINT nFlags, CPoint point)<br>{<br>    // TODO: 在此添加消息处理程序代码和/或调用默认值<br>    CPoint mvet,draw,bbeg;<br>    CClientDC dcd(this);<br>    CPen pen(PS_SOLID, 4, RGB(225, 0, 0));<br>    dcd.SelectObject(&amp;pen);<br>    if (offset)  //平移<br>    {<br>        SetCursor(LoadCursor(NULL, IDC_HAND));<br>        mvet.x = lbeg.x - point.x;<br>        mvet.y = lbeg.y - point.y;<br>        //在平移开始之前，首先我们要让off.set文件有内容<br>        f.Open(_T(“off.set”), CFile::modeRead);<br>        if (f.GetLength() &lt;= 0)<br>        {<br>            f.Close();<br>            if (!MoveMap(_T(“draw.draw”), CPoint(0,0), true, _T(“off.set”)))<br>            {<br>                MessageBox(_T(“无法完成地图平移！\n缓存检查失败”) _T(“错误”), NULL);<br>            }<br>        }<br>        else<br>        {<br>            f.Close();<br>        }<br>        //qkong<br>        CRect rect;<br>        GetClientRect(rect);<br>        dcd.FillSolidRect(rect, RGB(200, 200, 200));<br>        //开始平移<br>        if (!MoveMap(_T(“off.set”), mvet))<br>        {<br>            MessageBox(_T(“无法完成地图平移！”) _T(“错误”), NULL);<br>        }<br>        f.Open(_T(“off.set”), CFile::modeRead);<br>        f.Read(&amp;bbeg, sizeof(CPoint));<br>        while (f.Read(&amp;draw, sizeof(CPoint)) &gt; 0)<br>        {<br>            dcd.MoveTo(bbeg);<br>            dcd.LineTo(draw);<br>            bbeg = draw;<br>        }<br>        f.Close();</pre></p>
-<pre><code>    //
-    lbeg = point;
-}
-CDialogEx::OnMouseMove(nFlags, point);
-</code></pre><p>}<br>上面的代码中，我们将变换后的坐标放入off.set文件中然后我们再读取off.set中的数据来实现重绘。</p>
-<p>最后我们把point的值赋给了lbeg，然后下一次WM_MOUSEMOVE函数相应的时候，lbeg的值为上一次WM_MOUSEMOVE相应的时候的point值，这样做是为了计算平移的方向向量。</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+          地图拖动效果就是那种，你往哪拖，内容就跟着你往哪跑的，MFC的实现效果如下，我这里以拖动MFC对话框上的画图来作为示例的，其实我们还可以拓展到控件，在文末给出方法
+实现效果如下图所示：（ gif不动戳大 :) ）
 
-          
+在这里我们主要处理3个对话框消息来实现地图的拖动效果。
+WM_LBUTTONUP
+WM_LBUTTONDOWN
+WM_MOUSEMOVE
+基本思路：当按下鼠标左键的时候标记当前状态为拖动状态，再记录当前鼠标位置用来计算平移的方向向量，然后，在WM_MOUSEMOVE消息函数里面通过判断当前状态来进行平移，最后当鼠标左键抬起时，再将当前状态设置为非拖动状态。
+首先我们需要一个全局变量来储存当前状态（即是否处于拖动状态）
+bool offset = false;    //用来记录当前状态CPoint lbeg;    //用来记录鼠标左键按下后的位置CPoint last;然后，我们处理WM_LBUTTONDOWN消息：
+void CDTDlg::OnLButtonDown(U
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/04/25/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -423,7 +438,7 @@ CDialogEx::OnMouseMove(nFlags, point);
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -511,36 +526,31 @@ CDialogEx::OnMouseMove(nFlags, point);
       
         
           
-            <p>利用C语言实现复制任意文件的方法主要有3种：</p>
-<p>1.利用文件操作函数以二进制读入，再写入到目标位置</p>
-<p>2.调用操作系统的文件复制函数。</p>
-<p>3.调用操作系统的copy命令</p>
-<p>我们这里主要说明第一种。</p>
-<p>首先我们可以确定对于一个正常的文件，它的比特大小一定是8的整数倍。所以我们用C语言里面的unsigned char类型来作为读写缓存。</p>
-<p>接下来，我们需要做的就是<strong>以二进制方式分别打开2个文件</strong>（待复制和目标文件）再利用 <strong><a href="http://baike.baidu.com/view/656689.htm" target="_blank" rel="noopener">fread()</a></strong> 与 <strong><a href="http://baike.baidu.com/view/656700.htm" target="_blank" rel="noopener">fwrite()</a></strong>进行循环读写来实现文件复制。</p>
-<pre class="lang:c decode:true ">size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)</pre>
+          利用C语言实现复制任意文件的方法主要有3种：
+1.利用文件操作函数以二进制读入，再写入到目标位置
+2.调用操作系统的文件复制函数。
+3.调用操作系统的copy命令
+我们这里主要说明第一种。
+首先我们可以确定对于一个正常的文件，它的比特大小一定是8的整数倍。所以我们用C语言里面的unsigned char类型来作为读写缓存。
+接下来，我们需要做的就是以二进制方式分别打开2个文件（待复制和目标文件）再利用 fread() 与 fwrite()进行循环读写来实现文件复制。
+size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)
 
-<p>ptr是读出数据的存放地址</p>
-<p>size是要读出单字节数</p>
-<p>nmemb是要读出多少个size大小的数据</p>
-<p>stream为文件指针</p>
-<pre class="lang:c decode:true ">size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream)</pre>
+ptr是读出数据的存放地址
+size是要读出单字节数
+nmemb是要读出多少个size大小的数据
+stream为文件指针
+size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream)
 
-<p>ptr是要写入的数据</p>
-<p>size是要写入内容的单字节数</p>
-<p>nmemb是要写入多少个size大小的数据</p>
-<p>stream为文件指针</p>
-<p>*除此之外，我们还要考虑文件操作异常的问题。包括，文件打开出错，文件读写出错。</p>
-<p>完整源代码如下：</p>
-<p><pre class="lang:c decode:true ">#include&lt;stdio.h&gt;</pre></p>
-<p>#include&lt;stdlib.h&gt;</p>
-<p>#include&lt;string.h&gt;</p>
-<p>int main(int argc,char*<em>argv)<br>{<br>    FILE </em>fp,*tp;<br>    char dirfrom[33]={‘\0’},dirto[33]={‘\0’};<br>    unsigned char c=0;<br>    int flen=0;<br>    //get directory<br>    if( argc !=3 )<br>    {<br>        printf(“    usage: P764  sourceFilename  destinationFilename\n”);<br>        return 1;<br>    }<br>    strcpy(dirfrom,argv[1]);<br>    strcpy(dirto,argv[2]);<br>    //io FAILED<br>    fp = fopen(dirfrom,”rb”);<br>    if( !fp )<br>    {<br>        printf(“    source File (%s) Open Error!\n”,dirfrom);<br>        return 2;<br>    }<br>    tp = fopen(dirto,”wb”);<br>    if( !tp )<br>    {<br>        printf(“    destination File (%s) Create Error!\n”,dirto);<br>        fclose(fp);<br>        return 3;<br>    }<br>    //START COPY<br>    while( !feof(fp) )<br>    {<br>        fread(&amp;c,sizeof(c),1,fp);<br>        if(ferror(fp))<br>        {<br>            printf(“    writing destination File (%s) Error!\n”,dirto);<br>            fclose(fp);<br>            fclose(tp);<br>            return 4;<br>        }<br>        if( !feof(fp) )<br>        {<br>            fwrite(&amp;c,sizeof(c),1,tp);<br>            if(ferror(tp))<br>            {<br>                printf(“    writing destination File (%s) Error!\n”,dirto);<br>                fclose(fp);<br>                fclose(tp);<br>                return 4;<br>            }<br>            c=0;<br>        }<br>    }<br>    fclose(fp);<br>    fclose(tp);<br>    printf(“    copy %s to %s successed!\n”,dirfrom,dirto);<br>    return 0;<br>}<br><br>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-
-          
+ptr是要写入的数据
+siz
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/04/16/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -592,7 +602,7 @@ CDialogEx::OnMouseMove(nFlags, point);
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -691,86 +701,26 @@ CDialogEx::OnMouseMove(nFlags, point);
       
         
           
-            <p>&nbsp;</p>
-<p>这是老师布置的一道小组作业,前前后后一共布置了3次（根据C语言的学习进度，限制代码的使用）：证明10W内，1亿内，10亿内。</p>
-<p>第一次请参见：<a href="http://115.159.197.66/archives/201" target="_blank" rel="noopener">C语言证明哥德巴赫猜想算法以及算法优化相关问题</a></p>
-<p>第二次：暂未贴出</p>
-<h2 id="这里来说说10亿内的证明。"><a href="#这里来说说10亿内的证明。" class="headerlink" title="这里来说说10亿内的证明。"></a>这里来说说10亿内的证明。</h2><p>这里我们用的<strong><a href="http://baike.baidu.com/view/2722688.htm" target="_blank" rel="noopener">筛选法</a></strong></p>
-<p>要是还是用数组来储存质数的话，恐怕申请不到那么大的空间，所以这里就涉及到位操作。我用了unsigned long作为容器，有些同学用的是char作为容器。</p>
-<p>用unsigend long作为容器，我们由于要对其每一位操作，所以我用一个数组来储存每次只有1个位为1的情况：（第一个全为0，是为了在后面的循环中表示方便）</p>
-<pre class="lang:c decode:true">unsigned long bits[33]={0x0,0x1
+          &nbsp;
+这是老师布置的一道小组作业,前前后后一共布置了3次（根据C语言的学习进度，限制代码的使用）：证明10W内，1亿内，10亿内。
+第一次请参见：C语言证明哥德巴赫猜想算法以及算法优化相关问题
+第二次：暂未贴出
+这里来说说10亿内的证明。这里我们用的筛选法
+要是还是用数组来储存质数的话，恐怕申请不到那么大的空间，所以这里就涉及到位操作。我用了unsigned long作为容器，有些同学用的是char作为容器。
+用unsigend long作为容器，我们由于要对其每一位操作，所以我用一个数组来储存每次只有1个位为1的情况：（第一个全为0，是为了在后面的循环中表示方便）
+unsigned long bits[33]={0x0,0x1
                 ,0x2,0x4,0x8,0x10
                 ,0x20,0x40,0x80,0x100
                 ,0x200,0x400,0x800,0x1000
-                ,0x2000,0x4000,0x8000,0x1000
-                ,0x20000,0x40000,0x80000,0x10000
-                ,0x200000,0x400000,0x800000,0x100000
-                ,0x2000000,0x4000000,0x8000000,0x1000000
-                ,0x20000000,0x40000000,0x80000000};</pre>
-
-<h2 id="生成偶数表"><a href="#生成偶数表" class="headerlink" title="生成偶数表"></a>生成偶数表</h2><p>（其实完全不用生成偶数表的，我们可以直接在证明循环里循环偶数来证明。但我们老师要求生成偶数表）</p>
-<p>这里我们只需要把偶数数组（利用<strong><a href="http://www.tutorialspoint.com/c_standard_library/c_function_calloc.htm" target="_blank" rel="noopener">calloc()</a></strong>生成）里面的每一个元素与 0xAAAAAAAA 做或运算即可</p>
-<p>因为0xAAAAAAAA的每一个偶数位都为1</p>
-<p><a href="http://115.159.197.66/wp-content/uploads/2016/04/QQ截图20160413225330.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/04/QQ截图20160413225330-300x154.png" alt="QQ截图20160413225330"></a></p>
-<p>接下来开始利用筛选法筛选出素数</p>
-<p>首先我们要排除所有偶数，同上，我们把待筛选数组的每一个元素赋值0x55555555即可</p>
-<p>0x55555555的每个奇数位都是1：</p>
-<p><a href="http://115.159.197.66/wp-content/uploads/2016/04/QQ截图20160413225411.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/04/QQ截图20160413225411-300x106.png" alt="QQ截图20160413225411"></a></p>
-<p>最后别忘了，我们还要挖掉1，把待筛选数组的第一个元素和bits[1]做异或运算，另外，2是最小的质数，所以我们还要把2加进去，再把待筛选数组的第一个元素和bits[2]做或运算即可。</p>
-<h2 id="接下来就是不断筛选其它素数。"><a href="#接下来就是不断筛选其它素数。" class="headerlink" title="接下来就是不断筛选其它素数。"></a>接下来就是不断筛选其它素数。</h2><p>我们只需要依次取出待筛选数组里面的每个数字，然后把他在1—-10亿以内的倍数都挖掉即可。</p>
-<p>这里由于是位操作，就涉及到计算数字值的问题，因为我们是用的unsigned long所以我们要处理的数字应该是（待筛选数组为pary，i为该数组中第i个元素的下标，j为该数字在第i个元素所在的第j个位）：</p>
-<p><strong><span style="color: #3366ff;">long number = i <em> sizeof(unsigned long) </em> 8 + j;</span></strong></p>
-<p>注意sizeof得到的大小是字节，所以我们还要乘以8.</p>
-<p>然后在main函数的证明中，我们同样需要定位该数字在pary数组中的位置，以确定其是否为质数。</p>
-<p>(ii为pary中的第ii个元素位置，jj为在第ii个元素中第jj个位)</p>
-<p><strong><span style="color: #3366ff;">ii = number/(sizeof(unsigned long)*8);</span></strong></p>
-<p><strong><span style="color: #3366ff;">jj = number%(sizeof(unsigned long)*8);</span></strong></p>
-<p>由于我们在筛选中，把是素数的都标记为1，非素数都标记为0，故通过以上简单的定位计算，即可确定（在筛选完成后）当前数字是否为质数。</p>
-<h2 id="完整代码："><a href="#完整代码：" class="headerlink" title="完整代码："></a>完整代码：</h2><p>&nbsp;</p>
-<p><pre class="lang:default decode:true">#include&lt;stdio.h&gt;</pre></p>
-<p>#include&lt;time.h&gt;</p>
-<p>#include&lt;stdlib.h&gt;</p>
-<p>#define MAX 15625000*2<br>//#define MAX 100</p>
-<p>#define SIZE (sizeof(unsigned long)*8)</p>
-<p>//#define DEBUG     //输出A+B=C<br>//#define DEBUG_A   //输出素数表<br>/*<br>哥德巴赫猜想之3<br>检查4 - 1,000,000,000所有偶数是否满足.</p>
-<h2 id="基于哥德巴赫猜想之2（completed-2015-11-22）修改"><a href="#基于哥德巴赫猜想之2（completed-2015-11-22）修改" class="headerlink" title="基于哥德巴赫猜想之2（completed@2015-11-22）修改"></a>基于哥德巴赫猜想之2（completed@2015-11-22）修改</h2><p>用double数组存放：1,000,000,000/(32<em>2) = 1562500 unsigned long(8) = 12500,000 byte = 12,207.04 kb = 12.21 MB<br>也就是说我们需要 1562500</em>2个unsigned long变量(之前以为我的电脑是8字节的long，结果是4字节的，故所需要2倍)<br>注意：unsigend long在我电脑上是32位的<br>*/</p>
-<p>unsigned long <em>pnum;  //save the d-num<br>unsigned long </em>parrary; //save the prime numbers</p>
-<p>unsigned long bits[33]={0x0,0x1<br>                ,0x2,0x4,0x8,0x10<br>                ,0x20,0x40,0x80,0x100<br>                ,0x200,0x400,0x800,0x1000<br>                ,0x2000,0x4000,0x8000,0x1000<br>                ,0x20000,0x40000,0x80000,0x10000<br>                ,0x200000,0x400000,0x800000,0x100000<br>                ,0x2000000,0x4000000,0x8000000,0x1000000<br>                ,0x20000000,0x40000000,0x80000000};</p>
-<p>const unsigned long dbits=0xAAAAAAAA;<br>const unsigned long delodd = 0x55555555;   //奇数位为1<br>float InvSqrt(float x);<br>int isPrimeA(int num);     //a very simple version of is prime<br>unsigned long<em> numGen(int max);   //生成偶数<br>unsigned long</em> primeGenA(int max);   //get all prime between 1–max</p>
-<p>//struct nx{char x[64]}p;</p>
-<p>int main()<br>{<br>    clock_t s, f;<br>    unsigned int m, n, t = 2,T = 0;<br>    register int x = 6;<br>    int loops = MAX; //store how many loops do we need to demonstrate<br>    unsigned long tlp=0,tt=0,txx=0,sxx=0,pn=0;<br>    s = clock();<br>    /////////////////////////////////////////////////////<br>    numGen(MAX);//generate d-numbers between min to max<br>    primeGenA(MAX);  //generate prime<br>    for (x = 0; x &lt; loops; x++)<br>    {<br>        for(t=1;t&lt;=SIZE;t++)<br>        {<br>            if( <em>(pnum+x) &amp; bits[t] )   //是偶数<br>            {<br>                if(x==0 &amp;&amp; t&lt;3)   //从4开始证明<br>                {<br>                    continue;<br>                }<br>                tlp = x </em> SIZE + t;   //当前正在进行判断的偶数<br>                for ( tt = 0; tt &lt; tlp; ++tt,++m)<br>                {<br>                    txx = tt/SIZE;   //第几个long<br>                    sxx = tt%SIZE;   //第几位5<br>                    if (  <em>(parrary+txx) &amp;  bits[sxx]  )   //找到第一个质数<br>                    {<br>                        pn = txx </em> SIZE + sxx;   //第一个质数的值<br>                        n = tlp - pn;       //得到下一个质数的值及其位置<br>                        txx = n/SIZE;<br>                        sxx = n%SIZE;<br>                        if ( *(parrary+txx) &amp; bits[sxx] )<br>                        {</p>
-<pre><code>                        #ifdef DEBUG
-                        printf(&quot;%d+%d=%d\t&quot;, pn, n, tlp);
-                        #endif
-                        break;
-                    }
-                }
-            }
-        }
-    }
-}
-//////////////////////////////////////////////////////
-///////////////////////////这里的代码用来测试生成的素数表是否正确///////////////////////
-</code></pre><p>#ifdef DEBUG_A<br>    for(x=0;x&lt;MAX;x++)<br>    {<br>        for(t=1;t&lt;=SIZE;t++)<br>        {<br>            if( parrary[x] &amp; bits[t] )<br>            {<br>                printf(“%ld\t”,x*SIZE +  t);<br>                //getchar();<br>            }<br>        }<br>    }</p>
-<p>#endif<br>    //////////////////////////////////////////////////<br>    f = clock();<br>    free(pnum);<br>    free(parrary);<br>    printf(“%.6lf seconds\n”, (double)(f - s) / CLOCKS_PER_SEC);<br>    getchar();<br>    return 0;<br>}</p>
-<p>float InvSqrt(float x)<br>{<br>    float xhalf = 0.5f<em>x;<br>    int i = </em>(int<em>)&amp;x; // get bits for floating VALUE<br>    i = 0x5f375a86 - (i &gt;&gt; 1); // gives initial guess y0<br>    x = </em>(float<em>)&amp;i; // convert bits BACK to float<br>    x = x</em>(1.5f - xhalf<em>x</em>x); // Newton step, repeating increases accuracy<br>    return 1 / x;<br>}</p>
-<p>unsigned long<em> numGen(int max)    //标记偶数=1.COMP<br>{<br>    int i = 0;<br>    int a = 0,b=0,c=1;<br>    pnum = (unsigned long</em>)calloc(max,sizeof(unsigned long));<br>    for (i = 0; i &lt; max; i++)<br>    {<br>        pnum[i] = pnum[i] | dbits;<br>    }<br>    return pnum;<br>}</p>
-<p>unsigned long<em> primeGenA(int max)   //标记质数=1<br>{<br>    int   i, j;<br>    unsigned long ltp=0,temp=0,ii=0,jj=0,TOOOP=0;<br>    //T = InvSqrt(MAX);<br>    parrary = (unsigned long</em>)calloc(max+1,sizeof(unsigned long));<br>    //把所有位设置为1<br>    for(i=0;i&lt;=max;i++)<br>    {<br>        <em>(parrary+i) = delodd;   //首先就排除了偶数<br>    }<br>//printf(“bf=%ld\n”,</em>parrary);<br>    <em>parrary ^= bits[1];//然后我们挖掉1
-    </em>parrary |= bits[2];  //然后我们加入2<br>//printf(“af=%ld\n”,<em>parrary);<br>    //筛选法找出质数<br>    TOOOP = InvSqrt(max</em>SIZE);<br>    for (i = 0; i&lt;= max; i++)<br>    {<br>        for(j=1;j&lt;=SIZE;j++)<br>        {<br>           //printf(“<em>(parrary+i) &amp; bits[j] = %ld , i=%d,j=%d,</em>(parrary+i)=%d,bits[j]=%d\n”,<em>(parrary+i) &amp; bits[j],i,j,</em>(parrary+i),bits[j]);<br>            if ((  <em>(parrary+i) &amp; bits[j] ))<br>            {<br>                ltp = SIZE </em> i + j;<br>                temp = 2 <em> ltp;<br>                //printf(“–ltp=%ld,temp=%ld\n”,ltp,temp);<br>                //TOOOP = InvSqrt(max</em>SIZE);<br>                while (temp &lt;= TOOOP &amp;&amp; ltp!=1)<br>                {<br>                    ii = temp/SIZE;<br>                    jj = temp%SIZE;<br>                    if( <em>(parrary+ii) &amp; bits[jj] )<br>                    {
-                        </em>(parrary+ii) ^= bits[jj] ;<br>                    }</p>
-<pre><code>              // printf(&quot;------ii=%d,jj=%d,temp=%ld\t*(parrary+ii)=%d,bits[jj]=%d\n&quot;,ii,jj,temp,*(parrary+ii),bits[jj]);
-                //getchar();
-
-                temp += ltp;
-            }
-        }
-    }
-
-}
-return parrary;
-</code></pre><p>}<br><br>&nbsp;</p>
-
-          
+             
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/04/10/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -822,7 +772,7 @@ return parrary;
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -921,29 +871,27 @@ return parrary;
       
         
           
-            <p>&nbsp;</p>
-<p>shadowsocks就不容我多介绍了吧，对于我这种重度google用户来说，装了Ubuntu后也要保持一直翻墙。</p>
-<p>在我在Ubuntu上安装了shadowsocks后发现，卧槽，这尼玛算半成品吧，只有全局代理。。。。</p>
-<p>和windows，Mac，手机上的客户端相差太远了吧。</p>
-<p><a href="https://shadowsocks.com/client.html" target="_blank" rel="noopener">shadowsocks各平台客户端下载请点击我</a></p>
-<p>下面进入正题。</p>
-<p>首先我们要安装Genepac，它可以用来生成我们自己的PAC文件，同时它还支持获取gfwlist的时候设置代理。</p>
-<p>（安装Genepac之前，请务必确认你已经安装了pip，如果没没有安装，文章末尾有说明）</p>
-<p>然后我们用下面这个命令安装Genepac：</p>
-<p><pre class="lang:sh decode:true">sudo pip install genpac</pre><br>为了方便管理生成的pac文件，我们在/home/目录下新建一个文件夹，命名为shadowsocks</p>
-<p><pre class="lang:default decode:true ">mkdir ~/shadowsocks<br>cd shadowsocks</pre><br>然后我们在刚刚建立的shadowsocks文件夹里面打开终端</p>
-<p>用以下命令生成pac文件</p>
-<p><pre class="lang:sh decode:true ">genpac –proxy=”SOCKS5 127.0.0.1:1080” –gfwlist-proxy=”SOCKS5 127.0.0.1:1080” -o autoproxy.pac –gfwlist-url=”<a href="https://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt&quot;" target="_blank" rel="noopener">https://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt&quot;</a><br></pre><br>生成pac文件后，我们打开系统设置-&gt;网络-&gt;代理，如图：</p>
-<p><a href="http://115.159.197.66/wp-content/uploads/2016/01/pac_set.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/01/pac_set.png" alt="pac_set"></a></p>
-<p>设置代理为自动，然后配置URL填入我们刚刚生成的那个pac文件的路径即可。</p>
-<hr>
-<p>pip的安装</p>
-<p>（内容来自：<a href="http://www.saltycrane.com/blog/2010/02/how-install-pip-ubuntu/" target="_blank" rel="noopener">How to install pip on Ubuntu-saltycrane.com</a>）</p>
-<p>对于Ubuntu12.10以上的版本，依次输出以下命令即可：</p>
-<p><pre class="lang:sh decode:true">$ sudo apt-get install python-pip python-dev build-essential<br>$ sudo pip install –upgrade pip<br>$ sudo pip install –upgrade virtualenv</pre><br>对于12.10之前的版本，请参考我上面贴出的网站</p>
-<p>&nbsp;</p>
+          &nbsp;
+shadowsocks就不容我多介绍了吧，对于我这种重度google用户来说，装了Ubuntu后也要保持一直翻墙。
+在我在Ubuntu上安装了shadowsocks后发现，卧槽，这尼玛算半成品吧，只有全局代理。。。。
+和windows，Mac，手机上的客户端相差太远了吧。
+shadowsocks各平台客户端下载请点击我
+下面进入正题。
+首先我们要安装Genepac，它可以用来生成我们自己的PAC文件，同时它还支持获取gfwlist的时候设置代理。
+（安装Genepac之前，请务必确认你已经安装了pip，如果没没有安装，文章末尾有说明）
+然后我们用下面这个命令安装Genepac：
+sudo pip install genpac为了方便管理生成的pac文件，我们在/home/目录下新建一个文件夹，命名为shadowsocks
+mkdir ~/shadowsockscd shadowsocks然后我们在刚刚建立的shadowsocks文件夹里面打开终端
+用以下命令生成pac文件
 
-          
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/01/21/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -995,7 +943,7 @@ return parrary;
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1094,29 +1042,36 @@ return parrary;
       
         
           
-            <p>&nbsp;</p>
-<p>在Ubuntu下用codeblocks编译C++程序并运行后可能会遇到不支持中文的情况</p>
-<p>具体地说，运行后的界面会是下图这个样子：</p>
-<p><img src="http://115.159.197.66/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-4.png" alt="CB_TERMINAL_PROBLEM (4)"></p>
-<p>简单地说就是对中文支持不完整，看起来怪怪的</p>
-<p>这是由于codeblocks默认的启动终端的问题</p>
-<p>打开codeblocks的General Settings 菜单</p>
-<p>找到 Terminal to launch console program</p>
-<p>如下图示：</p>
-<p><img src="http://115.159.197.66/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-3.png" alt="CB_TERMINAL_PROBLEM (3)"></p>
-<p>把默认的<span style="color: #000000;">xterm -T $TITLE -e</span>修改掉</p>
-<p>改为：<strong><span style="color: #ff00ff;">gnome-terminal -t $TITLE -x</span></strong></p>
-<p>如下图所示：</p>
-<p><a href="http://115.159.197.66/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-1.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-1.png" alt="CB_TERMINAL_PROBLEM (1)"></a></p>
-<p>然后我们再次编译程序并运行</p>
-<p>现在可以正常显示了</p>
-<p><a href="http://115.159.197.66/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-2.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-2.png" alt="CB_TERMINAL_PROBLEM (2)"></a></p>
-<p>另外，这个貌似只适用于Ubuntu12.04以上的版本</p>
-<p>我的是Ubuntu15.10</p>
-<p><a href="http://115.159.197.66/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-3.png" target="_blank" rel="noopener">
-</a></p>
+          &nbsp;
+在Ubuntu下用codeblocks编译C++程序并运行后可能会遇到不支持中文的情况
+具体地说，运行后的界面会是下图这个样子：
+
+简单地说就是对中文支持不完整，看起来怪怪的
+这是由于codeblocks默认的启动终端的问题
+打开codeblocks的General Settings 菜单
+找到 Terminal to launch console program
+如下图示：
+
+把默认的xterm -T $TITLE -e修改掉
+改为：gnome-terminal -t $TITLE -x
+如下图所示：
+
+然后我们再次编译程序并运行
+现在可以正常显示了
+
+另外，这个貌似只适用于Ubuntu12.04以上的版本
+我的是Ubuntu15.10
+
+
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/01/21/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1168,7 +1123,7 @@ return parrary;
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1256,70 +1211,25 @@ return parrary;
       
         
           
-            <p>前段时间突然想起安装Ubuntu与Windows双系统，于是果断利用U盘安装了</p>
-<p>结果，结果安装完毕后，悲剧的事情发生了：进不去Windows10了</p>
-<p>然后网上各种方法试，都不管用，在无奈之下，只有备份硬盘数据，然后，把整个硬盘格式化了哈哈</p>
-<p>今天突然又想安装Ubuntu与Widnwos双系统，不过幸好这次没手贱，安装成功了。当然，除了中间的一点小差错之外。</p>
-<p>下面进入正题：</p>
-<p>先说一下，我的电脑是 戴尔灵越7447（Dell Inspiron 14 7447）</p>
-<p>首先我们要有一个U盘，4GB足以，然后呢，就是Ubuntu镜像了，建议14.10或者15，不要选14.04.1 LTS版本，会出错的。</p>
-<p>接下里，我们把Ubuntu 14.10写入U盘中，具体教程请参考：</p>
-<p><a href="http://www.ubuntu.com/download/desktop/create-a-usb-stick-on-windows" target="_blank" rel="noopener">如何在Windows下创建Ubuntu的启动U盘</a></p>
-<p>如果你是Windows8/8.1/10的话，在开始正式安装之前，我们首先要关闭快速启动</p>
-<p>控制面板-&gt;硬件和声音-&gt;电源选项 选择左边栏的【选择电源按钮功能】，然后关闭快速启动。</p>
-<p><a href="http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-0.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-0.png" alt="Ubuntu-0"></a></p>
-<p>再利用Windows的磁盘管理分个分区出来，空闲分区，不！要！格！式!化!分区教程请参考：</p>
-<p><a href="https://support.microsoft.com/zh-cn/kb/944248" target="_blank" rel="noopener">如何在 Windows 中对硬盘进行分区</a></p>
-<p>然后，我们重新启动电脑，进入BIOS，设置从U盘启动。</p>
-<p>注意：先<strong>关闭Secure Boot</strong>，再从U盘启动！其它的什么UEFI什么什么的都别管！这里我们只需要关闭Secure Boot即可！</p>
-<p><img src="http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-33.png" alt="Ubuntu-33"></p>
-<p>然后我们从U盘启动，你会看到这个画面：</p>
-<p><img src="http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-12.png" alt="Ubuntu-12"></p>
-<p>选择第一项，<span style="color: #ff00ff;">Try Ubuntu without Installing</span>，<em>好吧，其实选第二个也是可以的。</em></p>
-<p>选择第一项后，看到的是如下画面，我们已经进入到ubuntu系统：</p>
-<p><img src="http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-13.png" alt="Ubuntu-13"></p>
-<p>接着，我们双击桌面上的 <span style="color: #ff00ff;">Install Ubuntu 14.10</span></p>
-<p>在稍微的等待之后弹出以下窗口：当然，选择中文</p>
-<p><img src="http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-14.png" alt="Ubuntu-14"></p>
-<p>然后我们继续，接下来，你看到的画面可能是这样的：</p>
-<p><span style="color: #ff00ff;"><strong>注意第一项</strong></span>，如果是<span style="color: #ff00ff;">安装Ubuntu，与其它系统共存</span>，恭喜你，请接着按照本教程做。</p>
-<p><a href="http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-2.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-2.png" alt="Ubuntu-2"></a></p>
-<p>或者是这样的：</p>
-<p>好吧，如果是下图所示的话，你还是选择其它选项吧，这个教程不适合你，你需要自己分区。。。。</p>
-<p><a href="http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-10.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-10.png" alt="Ubuntu-10"></a></p>
-<p>后面的你就懂了吧，一直下一步，直到安装完成提示重新启动，好的，我们重新启动计算机。</p>
-<hr>
-<p>&nbsp;</p>
-<h6 id="如果你发现，你重新启动后直接进入了Windows，请继续向下阅读"><a href="#如果你发现，你重新启动后直接进入了Windows，请继续向下阅读" class="headerlink" title="如果你发现，你重新启动后直接进入了Windows，请继续向下阅读"></a>如果你发现，你重新启动后直接进入了Windows，请继续向下阅读</h6><p>这里就有一个小插曲了，原以为安装完成后重新启动就会弹出系统选单，看来，真的是我想多了</p>
-<p>卧槽，直接进入了Windows，然而我们通过磁盘管理工具查看之前我们分出来的分区却发现，分区已经有数据了。</p>
-<p>说明我们安装成功，但是，系统引导是个问题。</p>
-<p>这里我也尝试了网上说的说明用EasyBCD自己添加grub的entry，我试过后不行，grub2也试过</p>
-<p>sda0到sda11每个分区都挂了一遍，都不行。</p>
-<p>不过好在后面琢磨出了方法：</p>
-<p>接下来，我们重新启动系统，进入BIOS，别忘了拔出U盘</p>
-<p><img src="http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-38.png" alt="Ubuntu-38"></p>
-<p>上面是我修改后的BIOS设置，注意<span style="color: #ff00ff;">Secure Boot</span>是关闭的！</p>
-<p>接下来，我们选择<span style="color: #ff00ff;">File Browser Add Boot Option</span>，会弹出下面这个东西，那是我的硬盘</p>
-<p><img src="http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-34.png" alt="Ubuntu-34"></p>
-<p>我们选择硬盘，接下来你会看到有个<span style="color: #ff00ff;">EFI</span>文件夹，我们进入这个文件夹</p>
-<p><a href="http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-35.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-35.png" alt="Ubuntu-35"></a></p>
-<p>接着，我们选择<span style="color: #ff00ff;">ubuntu</span>这个文件夹</p>
-<p><a href="http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-36.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-36.png" alt="Ubuntu-36"></a></p>
-<p>选择第二个，<span style="color: #ff00ff;">grubx64.efi</span>，选择它后,BIOS应该会弹出个框框让你输入名字，你顺便输入个容易辨别的名字就行，比如grub</p>
-<p><a href="http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-37.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-37.png" alt="Ubuntu-37"></a>接着，我们需要做的就是，把刚刚添加进去的那个东西设置为第一启动项，也就是如下图所示，把Grub移动到<span style="color: #ff00ff;">Boot Option #1</span>即可</p>
-<p><img src="http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-38.png" alt="Ubuntu-38"></p>
-<p>接下来我们保存对BIOS的修改，然后重新启动系统，卧槽，看见什么了——&gt;</p>
-<p>Grub引导，反正我觉得比Windows Boot Manager好看。我们选择第一项，Ubuntu，看看可不可以进入系统</p>
-<p><img src="http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-30.png" alt="Ubuntu-30"></p>
-<p>果然进去了，好吧。让我们再重新启动，又回到上一张图片，如果你要切换回Windows的话，可以选择第三项，Windows Boot Manager，然后，你会得到最后一张图所示内容，</p>
-<p><img src="http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-31.png" alt="Ubuntu-31"></p>
-<p>这个就够熟悉了吧，我就不多说了。</p>
-<p><img src="http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-11.png" alt="Ubuntu-11"></p>
-<p>双系统，在我看来，我现在还没有解决掉的<strong>缺点</strong>：在Ubuntu下，它把我Windows的所有分区，包括EFI分区，恢复分区都挂载上去了，目前我还没找到如何解决的方法。网上提到说，修改etc/fstab，我看别人的fstab里面的内容都有一大堆，我的fstab里面就3行，3行恰好包含完我给Ubuntu分的分区。。。。。</p>
-<p>&nbsp;</p>
-<p><strong>&lt;转载请注明来源&gt;</strong></p>
-
-          
+          前段时间突然想起安装Ubuntu与Windows双系统，于是果断利用U盘安装了
+结果，结果安装完毕后，悲剧的事情发生了：进不去Windows10了
+然后网上各种方法试，都不管用，在无奈之下，只有备份硬盘数据，然后，把整个硬盘格式化了哈哈
+今天突然又想安装Ubuntu与Widnwos双系统，不过幸好这次没手贱，安装成功了。当然，除了中间的一点小差错之外。
+下面进入正题：
+先说一下，我的电脑是 戴尔灵越7447（Dell Inspiron 14 7447）
+首先我们要有一个U盘，4GB足以，然后呢，就是Ubuntu镜像了，建议14.10或者15，不要选14.04.1 LTS版本，会出错的。
+接下里，我们把Ubuntu 14.10写入U盘中，具体教程请参考：
+如何在Windows下创建Ubuntu的启动U盘
+如果你是Windows8/8.1/10的话，在开始正式安装之前，我们首先要关闭快速启动
+控制面板-&gt;硬件和声音-&gt;电源选项 选择左边栏的【选择电源按钮功能】，然后关闭快速启动。
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/01/18/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1371,7 +1281,7 @@ return parrary;
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1470,107 +1380,24 @@ return parrary;
       
         
           
-            <p>先说下我的服务器配置，Ubuntu14.04，单核1G内存。我这个博客就是从GoDaddy的托管服务器上转过来，转到阿里ECS服务器的，不过，说实话，配置真麻烦。</p>
-<p>接着我们进入正题，如何搭建。</p>
-<h2 id="首先要安装相关支持软件"><a href="#首先要安装相关支持软件" class="headerlink" title="首先要安装相关支持软件"></a>首先要安装相关支持软件</h2><p>更新一下所有软件包，用下面这个命令：</p>
-<pre class="lang:sh decode:true">apt-get update
-apt-get upgrade</pre>
+          先说下我的服务器配置，Ubuntu14.04，单核1G内存。我这个博客就是从GoDaddy的托管服务器上转过来，转到阿里ECS服务器的，不过，说实话，配置真麻烦。
+接着我们进入正题，如何搭建。
+首先要安装相关支持软件更新一下所有软件包，用下面这个命令：
+apt-get update
+apt-get upgrade
 接着，我们安装我们搭建WordPress所需要的一些必须软件包：
-<pre class="lang:sh decode:true">apt-get install nginx postfix php5-fpm mariadb-server memcached
+apt-get install nginx postfix php5-fpm mariadb-server memcached
 apt-get install php-pear php5-mysql php5-curl php5-gd php5-mcrypt php5-memcache
-apt-get install python make screen git wget zip unzip iftop vim curl htop iptraf nethogs</pre>
-上面这些命令主要安装了以下软件包， Web 服务器，SMTP 服务器，类 MySQL 数据库以及PHP相关的东西。
-
-## 接下来安装WordPress
-
-先新建一个普通用户，然后切换到该用户：
-<pre class="lang:sh decode:true">adduser wordpress
-su wordpress
-cd ~</pre>
-接着我们用以下命令下载WordPress，注意命令中给出的WordPress版本为_简中4.4.1_（更新时间2016-1-11）。
-
-你们可以到这里找到最新版本的WordPress：[https://cn.wordpress.org/](https://cn.wordpress.org/)
-<pre class="lang:sh decode:true">wget https://cn.wordpress.org/wordpress-4.4.1-zh_CN.tar.gz</pre>
-接着我们解压刚刚下载好的文件：
-<pre class="lang:sh decode:true">unzip wordpress-*.zip</pre>
-然后设置该文件权限：
-<pre class="lang:sh decode:true">chmod -R 750 wordpress</pre>
-然后呢，这里有一个可选步骤，删除安装包，看你们咯，觉得占用空间的话，你们就删除吧：
-<pre class="lang:sh decode:true">rm wordpress-*.zip</pre>
-然后我们再用exit命令回到root：
-<pre class="lang:sh decode:true">exit</pre>
-接着，我们来配置 PHP-FPM
-
-先为 WordPress 创建一个进程池：
-<pre class="lang:sh decode:true">vi /etc/php5/fpm/pool.d/wordpress.conf</pre>
-在新文件里面写入以下内容：
-<pre class="lang:default decode:true ">[wordpress]
-
-user = wordpress
-group = wordpress
-
-listen = /home/wordpress/phpfpm.sock
-
-listen.owner = wordpress
-listen.group = wordpress
-listen.mode = 0660
-
-pm = dynamic
-pm.max_children = 10
-pm.min_spare_servers = 3
-pm.max_spare_servers = 5
-
-slowlog = /home/wordpress/phpfpm.slowlog
-request_slowlog_timeout = 5s
-request_terminate_timeout = 15s
-
-php_admin_value[error_log] = /home/wordpress/phpfpm_error.log
-php_admin_flag[log_errors] = On</pre>
-然后我们来配置 Nginx
-
-先删掉 Nginx 的默认站点：
-<pre class="lang:sh decode:true">rm /etc/nginx/sites-enabled/default
-</pre>
-再新建一个站点：
-<pre class="lang:sh decode:true">vi /etc/nginx/sites-enabled/wordpress</pre>
-写入以下内容（这份配置文件已将请求重写到 index.php, 可以直接在 WordPress 中使用「固定链接」功能：）：
-<pre class="lang:default decode:true ">server {
-  listen 80;
-  server_name jysperm.me;
-
-  root /home/wordpress/wordpress;
-  index index.html index.php;
-  autoindex off;
-
-  location / {
-    try_files $uri $uri/ /index.php;
-  } 
-
-  location ~ \.php$ { 
-    fastcgi_pass unix:///home/wordpress/phpfpm.sock;
-    include fastcgi_params;
-    fastcgi_index index.php;
-  }
-}</pre>
-然后我们需要修正 Nginx 和 PHP-FPM 配合的一个 Bug:
-
-先打开以下文件
-<pre class="lang:sh decode:true">vi /etc/nginx/fastcgi_params</pre>
-然后将文件中fastcgi_param SCRIPT_FILENAME 开头的行改为：
-<pre class="lang:default decode:true ">fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</pre>
-接着，我们为 Nginx 添加读取 WordPress 文件的权限：
-<pre class="lang:sh decode:true">usermod -G wordpress -a www-data</pre>
-
-<h2 id="最后，我们来配置MySQL"><a href="#最后，我们来配置MySQL" class="headerlink" title="最后，我们来配置MySQL"></a>最后，我们来配置MySQL</h2><p>先用以下命令进入MySQL控制台：</p>
-<p><pre class="lang:sh decode:true">mysql -p</pre><br>注意，这里需要输入你的 MySQL root 密码</p>
-<p>完毕后我们创建数据库：</p>
-<p><pre class="lang:default decode:true">CREATE DATABASE <code>wordpress</code>;</pre><br>然后为WordPress新建用户</p>
-<p><pre class="lang:default decode:true">CREATE USER ‘wordpress‘@’localhost’ IDENTIFIED BY ‘password’;</pre><br>授予相应的权限</p>
-<p><pre class="lang:default decode:true">GRANT ALL PRIVILEGES ON <code>wordpress</code> . * TO ‘wordpress‘@’localhost’;</pre><br>退出</p>
-<p><pre class="lang:default decode:true">QUIT</pre><br>现在我们重启服务器。</p>
-<p><pre class="lang:default decode:true ">reboot</pre><br>重启完毕后，我们直接访问你服务器的IP，就会自动进入WordPress的配置界面，配置完成后，就可以正常使用了。</p>
-
-          
+apt-get install python make screen git wget zip unzip iftop vim curl htop iptraf nethogs
+上面这些命令主要安装了以下软件包， Web 服务器，
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/01/12/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1622,7 +1449,7 @@ php_admin_flag[log_errors] = On</pre>
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1710,35 +1537,27 @@ php_admin_flag[log_errors] = On</pre>
       
         
           
-            <p>今天在整理Google Keep的时候发现了一个很早之前的笔记，是关于Windows下列举指定目录下的文件的。</p>
-<p>后面找了找相应的项目，还好我没有删掉 ^_^</p>
-<p>我这个程序是用来批量修改指定目录下文本文件，准确的说，ASCII码文件内容的。</p>
-<p>不过呢，大家可以把这个扩展成批量修改指定目录下所有文件名，实现linux里面rename的效果。</p>
-<p>关于列举目录呢，我们主要用到下面这个命令行：</p>
-<p><pre class="lang:asm decode:true">dir /s /b /a:-d</pre><br>关于上面各个参数，我们可以在控制台中输入 dir /? 查看。各参数释义如下：</p>
-<p>&nbsp;</p>
-<p><span style="color: #ff00ff;"><strong>/s</strong></span>：显示指定目录和所有子目录中的文件</p>
-<p><span style="color: #ff00ff;"><strong>/b</strong></span>：使用空格式，即没有标题信息或摘要。因为我们要的是指定目录下所有文件及其路径，所以这个非    常重要！</p>
-<p><span style="color: #ff00ff;"><strong>/a</strong></span>：显示具有指定属性的文件，其中-表示否，即不显示-之后的指定类型。</p>
-<p>/a中分别用d,r,h,a,s,i,l表示目录，只读文件，隐藏文件，准备存档的文件，系统文件，无内容    索引文件，解析点</p>
-<p>&nbsp;</p>
-<p>不过呢，上面我们的确列出了指定目录下的所有文件及其路径，但是我们要处理这些数据的话</p>
-<p>首先得让程序得到这些数据，所以我们需要把控制台的输出流重新定向到文件或者我们的程序。</p>
-<p>命令如下：</p>
-<p><pre class="lang:default decode:true">dir /s /b /a:-d &gt;&gt; g:\TreeResult.txt</pre><br>&gt;&gt;这个表示输出流，上面的意思是将dir的列举结果输出到G盘下的TreeResult.txt文件中。</p>
-<p>接下来我们的程序只需要处理TreeResult.txt文件内容即可。</p>
-<p>最后呢，我们就得到了一个可以列举任意指定目录下文件的控制台命令集</p>
-<p><pre class="lang:default decode:true">#下面这行用来指定盘符<br>g:</pre></p>
-<p>#指定文件夹，即父目录<br>cd \sc</p>
-<p>#枚举并输出到文件<br>dir /s /b /a:-d &gt;&gt; g:\TreeResult.txt<br><br>&nbsp;</p>
-<p>然后，在我之前的那个程序里面，每次要进行替换的时候，我通过在程序目录下创建一个bat文件</p>
-<p>将上面那几行命令写入bat，然后运行bat文件，等待清单建立。代码如下：</p>
-<p>（下面是MFC实现）</p>
-<p>&nbsp;</p>
-<p><pre class="lang:c++ decode:true"><br>                //得到可执行文件路径<br>        TCHAR szFilePath[MAX_PATH + 1] = { 0 };<br>        GetModuleFileName(NULL, szFilePath, MAX_PATH);<br>        (_tcsrchr(szFilePath, _T(‘\‘)))[1] = 0;//删除文件名，只获得路径字串<br>        CString exePath = szFilePath;<br>        ListDir.Open( exePath + _T(“//list.bat”),CFile::modeCreate|CFile::modeReadWrite);<br>        ListDir.WriteString( dir.Left( dir.Find( _T( “:” ) ) +1 ) + _T(“\r\n”));      //指定盘符<br>        ListDir.WriteString( _T(“cd “) + dir.Right(dir.GetLength() - dir.Find(_T(“:”)) - 1) + _T(“\r\n”));      //指定文件夹路径<br>        ListDir.WriteString(_T(“dir /s /b /a:-d &gt;&gt; c:\TreeResult.txt\r\n”) );       //执行枚举<br>        ListDir.Close();<br></pre><br>&nbsp;</p>
-<p>&nbsp;</p>
-
-          
+          今天在整理Google Keep的时候发现了一个很早之前的笔记，是关于Windows下列举指定目录下的文件的。
+后面找了找相应的项目，还好我没有删掉 ^_^
+我这个程序是用来批量修改指定目录下文本文件，准确的说，ASCII码文件内容的。
+不过呢，大家可以把这个扩展成批量修改指定目录下所有文件名，实现linux里面rename的效果。
+关于列举目录呢，我们主要用到下面这个命令行：
+dir /s /b /a:-d关于上面各个参数，我们可以在控制台中输入 dir /? 查看。各参数释义如下：
+&nbsp;
+/s：显示指定目录和所有子目录中的文件
+/b：使用空格式，即没有标题信息或摘要。因为我们要的是指定目录下所有文件及其路径，所以这个非    常重要！
+/a：显示具有指定属性的文件，其中-表示否，即不显示-之后的指定类型。
+/a中分别用d,r,h,a,s,i,l表示目录，只读文件，隐藏文件，准备存档的文件，系统文件，无内容    索引文件，解析点
+&nbsp;
+不过呢，上面我们的确列出了指定目
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/01/07/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1790,7 +1609,7 @@ php_admin_flag[log_errors] = On</pre>
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1878,30 +1697,28 @@ php_admin_flag[log_errors] = On</pre>
       
         
           
-            <p>没事下了Sonar X2玩玩，卧槽，17GB啊，好大。。。。</p>
-<p>在使用中遇到了一点小问题，刚开始的时候发现<strong>整个软件都没有声音</strong>，而且又不是声卡的问题，后面在网上一番搜索后发现是由于驱动问题。安装了ASIO4ALL并将驱动模式设置为ASIO或者是MME后即可解决。如图。</p>
-<p><img src="http://139.129.6.122/wp-content/uploads/2016/01/sonar_1.png" alt="sonar_1"></p>
-<p>但是，后来又遇到了一个问题：我打开钢琴卷帘后，发现<strong>钢琴卷帘没有声音</strong>。这个问题困扰了我好久，在网上查了很多资料，什么MIDI反馈没打开，什么要设置软音源等等。</p>
-<p>不幸的是，这些我试过后全部都不行。后面自己一直琢磨。</p>
-<p>当然，对照之前网上给出的答案来琢磨，找到了解决方案。</p>
-<p>首先呢，我们打开Sonar X2的设置界面，找到MIDI中的设备一项，把输出设备里面你的设备勾上，我这里以前是没有打钩的。</p>
-<p>&nbsp;</p>
-<p><a href="http://139.129.6.122/wp-content/uploads/2016/01/sonar_2.png" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2016/01/sonar_2.png" alt="sonar_2"></a></p>
-<p>&nbsp;</p>
-<p>接下来，到Sonar X2的右边侧栏的Synth这里来，点加号，在弹出菜单中选中软音源，这里我们选择Cakewalk TTS-1。</p>
-<p><a href="http://139.129.6.122/wp-content/uploads/2016/01/sonar_3.png" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2016/01/sonar_3.png" alt="sonar_3"></a></p>
-<p>&nbsp;</p>
-<p>在插入那个软音源后，我们可以看到会多出条音轨，我们选中它，然后到左边侧栏的ProCh这里来，选择下图我圈出这里，在弹出菜单里面选择 第一项，也就是TTS-1那个。</p>
-<p><a href="http://139.129.6.122/wp-content/uploads/2016/01/sonar_4.png" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2016/01/sonar_4.png" alt="sonar_4"></a></p>
-<p>然后回到刚刚多出来的那条音轨这里来，在Input（即下图圈出那个选择框）这里选择刚刚添加的软音源Cakewalk TTS -1 1，然后弹出菜单中选择全通道。</p>
-<p><a href="http://139.129.6.122/wp-content/uploads/2016/01/sonar_5.png" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2016/01/sonar_5.png" alt="sonar_5"></a></p>
-<p>最后，我们再把Output这一栏设置为我们之前在MIDI设备设置里面勾上的设备就行。</p>
-<p><a href="http://139.129.6.122/wp-content/uploads/2016/01/sonar_6.png" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2016/01/sonar_6.png" alt="sonar_6"></a></p>
-<p>现在，再打开钢琴卷帘，是不是有声音啦哈哈。</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+          没事下了Sonar X2玩玩，卧槽，17GB啊，好大。。。。
+在使用中遇到了一点小问题，刚开始的时候发现整个软件都没有声音，而且又不是声卡的问题，后面在网上一番搜索后发现是由于驱动问题。安装了ASIO4ALL并将驱动模式设置为ASIO或者是MME后即可解决。如图。
 
-          
+但是，后来又遇到了一个问题：我打开钢琴卷帘后，发现钢琴卷帘没有声音。这个问题困扰了我好久，在网上查了很多资料，什么MIDI反馈没打开，什么要设置软音源等等。
+不幸的是，这些我试过后全部都不行。后面自己一直琢磨。
+当然，对照之前网上给出的答案来琢磨，找到了解决方案。
+首先呢，我们打开Sonar X2的设置界面，找到MIDI中的设备一项，把输出设备里面你的设备勾上，我这里以前是没有打钩的。
+&nbsp;
+
+&nbsp;
+接下来，到Sonar X2的右边侧栏的Synth这里来，点加号，在弹出菜单中选中软音源，这里我们选择Cakewalk TTS-1。
+
+&nbsp;
+在插入那个软音源后，我们可以看到会多出条音轨，我们选中它，然后到
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/01/06/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1953,7 +1770,7 @@ php_admin_flag[log_errors] = On</pre>
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -2052,9 +1869,9 @@ php_admin_flag[log_errors] = On</pre>
       
         
           
-            <p>&nbsp;</p>
-<p>前几天在做一道ACM题的时候，这道题要求我们对输入的2个数字逆序相加，再将它们的和逆序输出。当时我直接调用了itoa函数进行数字到字符串的转换，再用我之前的AddNum函数进行加法运算。结果上传到BNUOJ上后，居然编译错误。提示：</p>
-<pre id="dcontent" class="">error: 'itoa' was not declared in this scope</pre>
+          &nbsp;
+前几天在做一道ACM题的时候，这道题要求我们对输入的2个数字逆序相加，再将它们的和逆序输出。当时我直接调用了itoa函数进行数字到字符串的转换，再用我之前的AddNum函数进行加法运算。结果上传到BNUOJ上后，居然编译错误。提示：
+error: 'itoa' was not declared in this scope
 后来无奈只有自己实现这个函数。数字转字符串之前在C语言课上我写过一个。不过，这次我想到了一个特别的方法。下面来详细说说这几个方法吧。
 
 * * *
@@ -2067,91 +1884,15 @@ php_admin_flag[log_errors] = On</pre>
 
 之前我都这样做，每次用这个数去除以小于它的10^n数，再利用C/C++ int类型取整的特性，来得到要转换数字的每个数位。
 
-比如，对于4567这个数字，我先用1000去除，得到第一个数位4；再用100除它，得到的数字X减去之前得到的数字乘以10，就得到第二个数位5；同理，再继续将4567除以10，得到数再减去之前得到的中间数乘以10，就得到第三个数位6，再用同样的方法得到第4个数位。
-
-最后，整个算法是这个样子的：
-<pre class="lang:c++ decode:true ">void itoc(long n,char * num)
-{
-    int len=0, p=n;
-    while(p/=10)
-    {
-        len++;
-    }
-    len++;
-    for(p=0;p&lt;len;p++)
-    {
-        int x=1;
-        for(int t=p+1;t&lt;len;t++)
-        {
-            x*=10;
-        }
-        num[p] = n/x + '0';
-        n -=( num[p] - '0' ) * x;
-    }
-    num[len] = '\0';
-}</pre>
-&nbsp;
-
-## 方法二
-
-其次，我们来谈谈这次我的方法：
-
-原理很简单，我们不做除法，不是完全不做，我们一直做减法就行。比如还是对于4567这个数字，首先，我们知道的是：4567和10求余肯定不为0。所以我们就一直让4567减1，直到4567和10求余余数为0就停止。然后我们再将现在的这个数字，也就是4560除10，得到456，再用同样的方法，依次递减1，直到450为止，从而得到第二个数位6，依次这样做下去，我们就可以得到第3，第4个数位了。
-
-最后，整个算法是这个样子的：
-<pre class="lang:c++ decode:true">inline string inttostr(int num)
-{
-    int buf=num,x=0;
-    string snum="";
-    while(1)
-    {
-        //if(buf==1)
-        if(buf&lt;10)
-        {
-            char ch=buf+'0';
-            snum+=ch;
-            break;
-        }
-        else if(buf%10)
-        {
-            buf--;
-            x++;
-        }
-        else if(!(buf%10) &amp;&amp; buf !=0)
-        {
-            char ch=x+'0';
-            snum+=ch;
-            buf /= 10;
-            x=0;
-        }
-    }
-
-    return snum;
-}
-</pre>
-
-<p>## </p>
-<h2 id="系统的方法"><a href="#系统的方法" class="headerlink" title="系统的方法"></a>系统的方法</h2><p>再看看系统，不对，是某某库的itoa方法：</p>
-<p><a href="http://139.129.6.122/wp-content/uploads/2015/12/itoa_1.jpg" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2015/12/itoa_1.jpg" alt="itoa_1"></a></p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>stdlib.h库里函数的方法用了和方法一原理上相同的方法，只不过，好吧，他这个可以判断正负。写得好简洁。</p>
-<p>&nbsp;</p>
-<hr>
-<p>几种方法的效率分析：</p>
-<p>我们用这三个算法进行50000次int到str的转换，结果如下：</p>
-<p><a href="http://139.129.6.122/wp-content/uploads/2015/12/inttostr.png" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2015/12/inttostr.png" alt="inttostr"></a></p>
-<p>什么鬼这是，我的新方法居然慢了这么多，，，，悲剧了。</p>
-<p>可以看到，传统方法和标准库里面的方法在速度上没太大的区别。新方法呢，，，的确，慢了好多。</p>
-<p>&nbsp;</p>
-
-          
+比如，对于4567这个数字，我先用1000去除，得到第一个数位4；再用100除它，得到的数字X减去之前得到的数字乘以10，就得到第二个数位5；同理，再继续将4567除以10，得到数再减去之前得到的中间数乘以10，
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/12/29/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2224,8 +1965,12 @@ php_admin_flag[log_errors] = On</pre>
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/images/sites/me.jpg"
+                alt="Kanch" />
+            
               <p class="site-author-name" itemprop="name">Kanch</p>
-              <p class="site-description motion-element" itemprop="description">personal blog of Long Zhang (kanchisme@gmail.com)</p>
+              <p class="site-description motion-element" itemprop="description">简单的个人博客</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -2245,10 +1990,10 @@ php_admin_flag[log_errors] = On</pre>
               
               
               <div class="site-state-item site-state-categories">
-                
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">分类</span>
-                
+                </a>
               </div>
             
 
@@ -2256,10 +2001,10 @@ php_admin_flag[log_errors] = On</pre>
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">282</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
@@ -2267,6 +2012,22 @@ php_admin_flag[log_errors] = On</pre>
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ankanch" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:kanchisme@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -2294,7 +2055,7 @@ php_admin_flag[log_errors] = On</pre>
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

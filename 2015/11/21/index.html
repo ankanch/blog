@@ -25,6 +25,8 @@
 
 
 
+  <meta name="google-site-verification" content="GLDT17u1B7TOcMSK8hKPzUrHP1Fnv7ISwbCigDu1VcY" />
+
 
 
 
@@ -53,22 +55,24 @@
 <link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/sites/me.jpg?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/sites/me.jpg?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/sites/me.jpg?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="mask-icon" href="/images/sites/me.jpg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/images/sites/me.jpg">
 
 
 
 
-
-  <meta name="keywords" content="C语言,10进制,16进制,16进制转10进制,优化,算法优化,进制转换," />
+  <meta name="keywords" content="C语言,算法优化,10进制,16进制,16进制转10进制,优化,进制转换," />
 
 
 
@@ -80,7 +84,7 @@
 
 
 <meta name="description" content="好吧，这个其实是某某书上的一道习题，刚开始看的时候我还以为可以直接输入0xFFF的形式同时赋值给int类型来进行转换，结果，结果发现我想多了。所以，我决定来写篇文章谈谈这个算法。好吧，下面进入正题。 首先说说我们的转换原理，当然是基于除K取余法的逆运算。 比如，我们现有16进制数据 0xFFF  （16进制：1,2,….A,B…F，其中A=10，F=15） 按照除K取余法的逆运算，我们有： 0xF">
-<meta name="keywords" content="C语言,10进制,16进制,16进制转10进制,优化,算法优化,进制转换">
+<meta name="keywords" content="C语言,算法优化,10进制,16进制,16进制转10进制,优化,进制转换">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C语言实现给定16进制转换成10进制以及相关细节优化">
 <meta property="og:url" content="http://akakanch.com/2015/11/21/index.html">
@@ -133,6 +137,15 @@
 
 
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-53245384-2', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
@@ -193,22 +206,42 @@
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -250,7 +283,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanch">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/sites/me.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -393,6 +426,8 @@
           
             <a href="/tags/C语言/" rel="tag"># C语言</a>
           
+            <a href="/tags/算法优化/" rel="tag"># 算法优化</a>
+          
             <a href="/tags/10进制/" rel="tag"># 10进制</a>
           
             <a href="/tags/16进制/" rel="tag"># 16进制</a>
@@ -400,8 +435,6 @@
             <a href="/tags/16进制转10进制/" rel="tag"># 16进制转10进制</a>
           
             <a href="/tags/优化/" rel="tag"># 优化</a>
-          
-            <a href="/tags/算法优化/" rel="tag"># 算法优化</a>
           
             <a href="/tags/进制转换/" rel="tag"># 进制转换</a>
           
@@ -485,8 +518,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/images/sites/me.jpg"
+                alt="Kanch" />
+            
               <p class="site-author-name" itemprop="name">Kanch</p>
-              <p class="site-description motion-element" itemprop="description">personal blog of Long Zhang (kanchisme@gmail.com)</p>
+              <p class="site-description motion-element" itemprop="description">简单的个人博客</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -506,10 +543,10 @@
               
               
               <div class="site-state-item site-state-categories">
-                
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">分类</span>
-                
+                </a>
               </div>
             
 
@@ -517,10 +554,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">282</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
@@ -528,6 +565,22 @@
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ankanch" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:kanchisme@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -555,7 +608,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
