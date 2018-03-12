@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="android studio,Android开发,android,Gradle,加快Gradle,加快Gradle构建," />
+  <meta name="keywords" content="android,Android开发,android studio,Gradle,加快Gradle,加快Gradle构建," />
 
 
 
@@ -84,7 +84,7 @@
 
 
 <meta name="description" content="在利用Android Studio做项目时，发现随着项目内资源的逐渐增多（或者项目创建时间太过久远，而又未经常打开），Android Studio的build速度也越来越慢。（P.S.在做我的CSGO StatTrak的时候，基本要12分钟，才能build完成，在此期间，一直显示Gradle运行中….） 在互联网上一番搜索后，发现通过以下方法可以加快Gradle的构建速度。 在以下Gradle目录">
-<meta name="keywords" content="android studio,Android开发,android,Gradle,加快Gradle,加快Gradle构建">
+<meta name="keywords" content="android,Android开发,android studio,Gradle,加快Gradle,加快Gradle构建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="加速Android Studio的Gradle构建速度">
 <meta property="og:url" content="http://akakanch.com/2015/09/06/index.html">
@@ -108,7 +108,7 @@
     root: '/',
     scheme: 'Pisces',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -315,7 +315,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-12T16:53:42+08:00">
+                2018-03-12
+              </time>
             
           </span>
 
@@ -344,6 +356,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/09/06/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2015/09/06/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -415,11 +438,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/android-studio/" rel="tag"># android studio</a>
+            <a href="/tags/android/" rel="tag"># android</a>
           
             <a href="/tags/Android开发/" rel="tag"># Android开发</a>
           
-            <a href="/tags/android/" rel="tag"># android</a>
+            <a href="/tags/android-studio/" rel="tag"># android studio</a>
           
             <a href="/tags/Gradle/" rel="tag"># Gradle</a>
           
@@ -478,6 +501,16 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
 
   
 
@@ -656,6 +689,8 @@
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
         
+          <span id="scrollpercent"><span>0</span>%</span>
+        
       </div>
     
 
@@ -760,6 +795,26 @@
 
   
 
+    
+      <script id="dsq-count-scr" src="https://kanchs-blog.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://akakanch.com/2015/09/06/';
+          this.page.identifier = '2015/09/06/';
+          this.page.title = '加速Android Studio的Gradle构建速度';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://kanchs-blog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
 
 
 
@@ -772,10 +827,6 @@
   
 
 
-
-
-
-  
 
 
 

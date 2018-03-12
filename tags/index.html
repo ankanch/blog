@@ -85,14 +85,14 @@
 
 <meta name="description" content="简单的个人博客">
 <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
+<meta property="og:title" content="标签云">
 <meta property="og:url" content="http://akakanch.com/tags/index.html">
 <meta property="og:site_name" content="akakanch">
 <meta property="og:description" content="简单的个人博客">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-12T11:55:12.060Z">
+<meta property="og:updated_time" content="2018-03-12T13:30:47.111Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="标签云">
 <meta name="twitter:description" content="简单的个人博客">
 
 
@@ -103,7 +103,7 @@
     root: '/',
     scheme: 'Pisces',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -129,7 +129,7 @@
 
 
 
-  <title>tags | akakanch</title>
+  <title>标签云 | akakanch</title>
   
 
 
@@ -268,7 +268,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
+	<h1 class="post-title" itemprop="name headline">标签云</h1>
 
 
 
@@ -305,6 +305,16 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
 
   
 
@@ -483,6 +493,8 @@
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
         
+          <span id="scrollpercent"><span>0</span>%</span>
+        
       </div>
     
 
@@ -587,6 +599,26 @@
 
   
 
+    
+      <script id="dsq-count-scr" src="https://kanchs-blog.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://akakanch.com/tags/index.html';
+          this.page.identifier = 'tags/index.html';
+          this.page.title = '标签云';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://kanchs-blog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
 
 
 
@@ -599,10 +631,6 @@
   
 
 
-
-
-
-  
 
 
 

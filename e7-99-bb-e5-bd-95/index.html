@@ -103,7 +103,7 @@
     root: '/',
     scheme: 'Pisces',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -304,6 +304,16 @@ writeLoginPanel({domainlist:"akakanch.com", mode:"vertical"});
           
 
   
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
 
 
 
@@ -480,6 +490,8 @@ writeLoginPanel({domainlist:"akakanch.com", mode:"vertical"});
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
         
+          <span id="scrollpercent"><span>0</span>%</span>
+        
       </div>
     
 
@@ -584,6 +596,26 @@ writeLoginPanel({domainlist:"akakanch.com", mode:"vertical"});
 
   
 
+    
+      <script id="dsq-count-scr" src="https://kanchs-blog.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://akakanch.com/e7-99-bb-e5-bd-95/index.html';
+          this.page.identifier = 'e7-99-bb-e5-bd-95/index.html';
+          this.page.title = '登录';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://kanchs-blog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
 
 
 
@@ -596,10 +628,6 @@ writeLoginPanel({domainlist:"akakanch.com", mode:"vertical"});
   
 
 
-
-
-
-  
 
 
 

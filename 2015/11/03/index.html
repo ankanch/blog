@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="C语言,C/C++,C语言优化,哥德巴赫猜想,算法优化,证明哥德巴赫猜想," />
+  <meta name="keywords" content="C语言,算法优化,C/C++,C语言优化,哥德巴赫猜想,证明哥德巴赫猜想," />
 
 
 
@@ -84,7 +84,7 @@
 
 
 <meta name="description" content="&amp;nbsp; 上周，我们C语言老师给我们布置了一道小组作业：用C语言编写程序，证明哥德巴赫猜想在4—1000,000之间成立。最后成绩以各组算法在他机器上运行时间为准。特别注意：只能使用《C语言程序设计》前五章的知识，即不能用指针，不能用数组，不能用自定义函数等等… 我们才学C语言没多久，就布置这样的题目？跪了。不过大体想了想，要证明哥德巴赫猜在4—1000,000之间成立，其实还是简单的，关键是">
-<meta name="keywords" content="C语言,C&#x2F;C++,C语言优化,哥德巴赫猜想,算法优化,证明哥德巴赫猜想">
+<meta name="keywords" content="C语言,算法优化,C&#x2F;C++,C语言优化,哥德巴赫猜想,证明哥德巴赫猜想">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C语言证明哥德巴赫猜想算法以及算法优化相关问题">
 <meta property="og:url" content="http://akakanch.com/2015/11/03/index.html">
@@ -106,7 +106,7 @@
     root: '/',
     scheme: 'Pisces',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -313,7 +313,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-12T16:53:42+08:00">
+                2018-03-12
+              </time>
             
           </span>
 
@@ -353,6 +365,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/11/03/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2015/11/03/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -476,13 +499,13 @@ return 0;
           
             <a href="/tags/C语言/" rel="tag"># C语言</a>
           
+            <a href="/tags/算法优化/" rel="tag"># 算法优化</a>
+          
             <a href="/tags/C-C/" rel="tag"># C/C++</a>
           
             <a href="/tags/C语言优化/" rel="tag"># C语言优化</a>
           
             <a href="/tags/哥德巴赫猜想/" rel="tag"># 哥德巴赫猜想</a>
-          
-            <a href="/tags/算法优化/" rel="tag"># 算法优化</a>
           
             <a href="/tags/证明哥德巴赫猜想/" rel="tag"># 证明哥德巴赫猜想</a>
           
@@ -537,6 +560,16 @@ return 0;
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
 
   
 
@@ -740,6 +773,8 @@ return 0;
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
         
+          <span id="scrollpercent"><span>0</span>%</span>
+        
       </div>
     
 
@@ -844,6 +879,26 @@ return 0;
 
   
 
+    
+      <script id="dsq-count-scr" src="https://kanchs-blog.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://akakanch.com/2015/11/03/';
+          this.page.identifier = '2015/11/03/';
+          this.page.title = 'C语言证明哥德巴赫猜想算法以及算法优化相关问题';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://kanchs-blog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
 
 
 
@@ -856,10 +911,6 @@ return 0;
   
 
 
-
-
-
-  
 
 
 
