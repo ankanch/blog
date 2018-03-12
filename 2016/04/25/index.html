@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -86,6 +86,7 @@
 <meta property="og:url" content="http://akakanch.com/2016/04/25/index.html">
 <meta property="og:site_name" content="akakanch">
 <meta property="og:description" content="地图拖动效果就是那种，你往哪拖，内容就跟着你往哪跑的，MFC的实现效果如下，我这里以拖动MFC对话框上的画图来作为示例的，其实我们还可以拓展到控件，在文末给出方法 实现效果如下图所示：（ gif不动戳大 :) ）  在这里我们主要处理3个对话框消息来实现地图的拖动效果。 WM_LBUTTONUP WM_LBUTTONDOWN WM_MOUSEMOVE 基本思路：当按下鼠标左键的时候标记当前状态为拖">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://115.159.197.66/wp-content/uploads/2016/04/ezgif.com-video-to-gif-300x239.gif">
 <meta property="og:updated_time" content="2018-03-12T08:53:42.220Z">
 <meta name="twitter:card" content="summary">
@@ -107,7 +108,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -139,7 +140,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -187,7 +188,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            首页
           </a>
         </li>
       
@@ -197,7 +198,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            About
+            关于
           </a>
         </li>
       
@@ -207,7 +208,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            归档
           </a>
         </li>
       
@@ -271,9 +272,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-04-25T15:00:06+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-25T15:00:06+08:00">
                 2016-04-25
               </time>
             
@@ -292,7 +293,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -488,8 +489,8 @@ CDialogEx::OnMouseMove(nFlags, point);
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">75</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
@@ -500,7 +501,7 @@ CDialogEx::OnMouseMove(nFlags, point);
               <div class="site-state-item site-state-categories">
                 
                   <span class="site-state-item-count">25</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">分类</span>
                 
               </div>
             
@@ -511,7 +512,7 @@ CDialogEx::OnMouseMove(nFlags, point);
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">282</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-name">标签</span>
                 
               </div>
             
@@ -557,7 +558,7 @@ CDialogEx::OnMouseMove(nFlags, point);
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -565,7 +566,7 @@ CDialogEx::OnMouseMove(nFlags, point);
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
 
 
 

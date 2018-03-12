@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -85,6 +85,7 @@
 <meta property="og:url" content="http://akakanch.com/page/2/index.html">
 <meta property="og:site_name" content="akakanch">
 <meta property="og:description" content="personal blog of Long Zhang (kanchisme@gmail.com)">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="akakanch">
 <meta name="twitter:description" content="personal blog of Long Zhang (kanchisme@gmail.com)">
@@ -103,7 +104,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -135,7 +136,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -184,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            首页
           </a>
         </li>
       
@@ -194,7 +195,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            About
+            关于
           </a>
         </li>
       
@@ -204,7 +205,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            归档
           </a>
         </li>
       
@@ -227,165 +228,6 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://akakanch.com/2016/11/30/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kanch">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="akakanch">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/11/30/" itemprop="url">Windows下python2和python3共存且随时切换</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-30T22:50:23+08:00">
-                2016-11-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>最近在使用Google App Engine，然后自己准备部署个python爬虫部署在GAE上面，然后开始跟着谷歌的教程创建hello world程序。完毕后，想到，自己只需要稍微修改下谷歌的代码，然后在默认的main.py里面添加路由，调用自己的函数即可。</p>
-<p>当然要修改代码，必须得先下载代码才行，但是谷歌给出的脚本为python2的脚本，并没有python3的脚本。虽然我们已经知道通过<a href="https://wiki.python.org/moin/3to2" target="_blank" rel="noopener">3to2</a>可以转换python3代码到python2。但是这是不得已才会使用的方法，所以最好的办法仍然是使用python2来运行。</p>
-<p>那么，就需要python2和python3在windows上共存了。</p>
-<p>（修改exe程序名字是可以实现的，但是这样的话，pip就会出错。）</p>
-<p>不过，后面在python官网上找到了解决方案</p>
-<p>实现，我们需要安装python2（安装完毕后不要加入到PATH里面。）</p>
-<p>然后python3内置了py.exe 通过这个程序，我们可以选择使用哪个python版本来运行脚本</p>
-<p>下面的代码展示了分别用python2和python3运行脚本：</p>
-<p><pre class="lang:python decode:true">#使用python2运行h.py<br>py -2 k.py</pre></p>
-<p>#使用python3运行h.py<br>py -3 k.py<br><br>如果觉得这样太麻烦，可以通过在源代码文件第一行添加：</p>
-<p><pre class="lang:python decode:true ">#! python3</pre><br>或者</p>
-<p><pre class="lang:python decode:true ">#! python2</pre><br>来指明使用哪个版本的python运行脚本</p>
-<p>然后我们只需要：</p>
-<p><pre class="lang:sh decode:true ">py h.py</pre><br>py.exe就会自动根据我们在文件第一行指明版本的python解释器来运行h.py</p>
-<p>关于不同版本之间pip的使用：</p>
-<p>使用如下命令即可运行指定版本的pip：</p>
-<p><pre class="lang:sh decode:true">py -2 -m pip install XXX</pre></p>
-<p>py -3 -m pip install XXX<br>&nbsp;</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
     
       
 
@@ -429,9 +271,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-27T16:15:02+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-27T16:15:02+08:00">
                 2016-11-27
               </time>
             
@@ -450,7 +292,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -589,9 +431,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-14T18:32:47+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-14T18:32:47+08:00">
                 2016-11-14
               </time>
             
@@ -610,7 +452,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -770,9 +612,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-10T11:47:26+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-10T11:47:26+08:00">
                 2016-11-10
               </time>
             
@@ -791,7 +633,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -928,9 +770,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-03T10:25:12+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-03T10:25:12+08:00">
                 2016-11-03
               </time>
             
@@ -949,7 +791,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1075,9 +917,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-30T11:50:27+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-30T11:50:27+08:00">
                 2016-10-30
               </time>
             
@@ -1096,7 +938,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1235,9 +1077,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-29T14:45:07+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-29T14:45:07+08:00">
                 2016-10-29
               </time>
             
@@ -1256,7 +1098,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1412,9 +1254,9 @@ $(document).ready(function() {
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-27T20:33:19+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-27T20:33:19+08:00">
                 2016-10-27
               </time>
             
@@ -1433,7 +1275,7 @@ $(document).ready(function() {
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1444,7 +1286,7 @@ $(document).ready(function() {
 
                 
                 
-                  , 
+                  ， 
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1455,7 +1297,7 @@ $(document).ready(function() {
 
                 
                 
-                  , 
+                  ， 
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1583,9 +1425,9 @@ $(document).ready(function() {
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-22T23:32:07+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-22T23:32:07+08:00">
                 2016-10-22
               </time>
             
@@ -1604,7 +1446,7 @@ $(document).ready(function() {
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1615,7 +1457,7 @@ $(document).ready(function() {
 
                 
                 
-                  , 
+                  ， 
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1743,9 +1585,9 @@ $(document).ready(function() {
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-21T14:43:00+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-21T14:43:00+08:00">
                 2016-10-21
               </time>
             
@@ -1764,7 +1606,7 @@ $(document).ready(function() {
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1775,7 +1617,7 @@ $(document).ready(function() {
 
                 
                 
-                  , 
+                  ， 
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1786,7 +1628,7 @@ $(document).ready(function() {
 
                 
                 
-                  , 
+                  ， 
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1876,6 +1718,187 @@ $(document).ready(function() {
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://akakanch.com/2016/10/09/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kanch">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="akakanch">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/10/09/" itemprop="url">Android WebView屏蔽网页内的广告</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-09T19:56:03+08:00">
+                2016-10-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android开发-Android-Studio/" itemprop="url" rel="index">
+                    <span itemprop="name">Android开发 / Android Studio</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近在做一个新闻聚合应用，类似与RSS。聚合新闻标题，当用户点击后，在应用内（或应用外）打开新闻。</p>
+<p>然后，就发现有些站点居然广告掺不忍睹。。。。</p>
+<p><a href="http://115.159.197.66/wp-content/uploads/2016/10/Screenshot_20161009-202650.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/10/Screenshot_20161009-202650-169x300.png" alt="screenshot_20161009-202650"></a><a href="http://115.159.197.66/wp-content/uploads/2016/10/Screenshot_20161009-202659.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/10/Screenshot_20161009-202659-169x300.png" alt="screenshot_20161009-202659"></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>所以，开始研究如何屏蔽广告，这样才可以让应用更加的美观。</p>
+<p>在网上查了一番后，发现可以通过注入Java Script代码，来实现对指定元素的过滤（隐藏或者删除，分别讲这两种，接下来）</p>
+<h6 id="法1：通过seletor来隐藏标签。"><a href="#法1：通过seletor来隐藏标签。" class="headerlink" title="法1：通过seletor来隐藏标签。"></a>法1：通过seletor来隐藏标签。</h6><p>首先，我们需要获取指定元素的seletor，获取方法如下图（右键新窗口打开，查看大图）：</p>
+<p>Chrome浏览器中F12打开开发者工具，然后右键菜单，copy，copy seletor就可以获得一个唯一的seletor</p>
+<p><a href="http://115.159.197.66/wp-content/uploads/2016/10/222.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/10/222-1024x576.png" alt="222"></a></p>
+<p>获取到seletor后，我们对WebView重写onPageFinished函数，加入以下代码：</p>
+<p>下面的代码将Java Script注入到webView中，然后，通过这个seletor去寻找相应的元素，并处理。</p>
+<p><pre class="lang:java decode:true ">wv.setWebViewClient(new WebViewClient(){</pre></p>
+<pre><code>    @Override
+    public void onPageFinished(WebView view, String url) {
+            //屏蔽百度嵌入广告
+            view.loadUrl(&quot;javascript:function setTop(){document.querySelector(&apos;#BAIDU_SSP__wrapper_u2578965_0&apos;).style.display=\&quot;none\&quot;;}setTop();&quot;);
+    }
+});&lt;/pre&gt;
+</code></pre><p>然后，我们再打开网页，就会发现，在网页加载完成后，广告就会自动去掉。</p>
+<h6 id="法2：直接删除标签"><a href="#法2：直接删除标签" class="headerlink" title="法2：直接删除标签"></a>法2：直接删除标签</h6><p>通过以下代码，并传入HTML元素的ID值，即可实现直接删除标签：</p>
+<p><pre class="lang:java decode:true ">view.loadUrl(“javascript:var con = document.getElementById(‘gamesliderwrap’); con.parentNode.removeChild(con); “);</pre><br>最后，删除广告后我们的页面，就清爽多了。如下图：</p>
+<p><a href="http://115.159.197.66/wp-content/uploads/2016/10/Screenshot_20161009-202817.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/10/Screenshot_20161009-202817-169x300.png" alt="screenshot_20161009-202817"></a> <a href="http://115.159.197.66/wp-content/uploads/2016/10/Screenshot_20161009-202822.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/10/Screenshot_20161009-202822-169x300.png" alt="screenshot_20161009-202822"></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h5 id="写在最后："><a href="#写在最后：" class="headerlink" title="写在最后："></a>写在最后：</h5><p>由于上面的方法都是在页面加载完成后再注入Java Script代码，再进行广告屏蔽的。</p>
+<p>这样，用户还是会先看到广告，所以，我建议在页面加载完成前，显示另外一个fregment提示正在加载，或者直接隐藏WebView，等到页面加载完成后再显示。如下图：</p>
+<p><a href="http://115.159.197.66/wp-content/uploads/2016/10/Screenshot_20161009-210540.png" target="_blank" rel="noopener"><img src="http://115.159.197.66/wp-content/uploads/2016/10/Screenshot_20161009-210540-169x300.png" alt="screenshot_20161009-210540"></a></p>
+<p>也可以在onPageStart中写While循环，来循环执行Java Script注入代码。这样HTML元素一显示，就会被处理掉。</p>
+<p>&nbsp;</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1926,8 +1949,8 @@ $(document).ready(function() {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">75</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
@@ -1938,7 +1961,7 @@ $(document).ready(function() {
               <div class="site-state-item site-state-categories">
                 
                   <span class="site-state-item-count">25</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">分类</span>
                 
               </div>
             
@@ -1949,7 +1972,7 @@ $(document).ready(function() {
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">282</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-name">标签</span>
                 
               </div>
             
@@ -1995,7 +2018,7 @@ $(document).ready(function() {
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -2003,7 +2026,7 @@ $(document).ready(function() {
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
 
 
 

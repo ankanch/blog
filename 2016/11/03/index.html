@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="C++,CStdioFile,locale,MFC,setlocale,中文乱码,本地化," />
+  <meta name="keywords" content="C++,MFC,CStdioFile,locale,setlocale,中文乱码,本地化," />
 
 
 
@@ -80,12 +80,13 @@
 
 
 <meta name="description" content="在MFC对话框工程中，如果选择了多字节工程，会导致CStdioFile读取文件内容的时候中文字符显示为乱码。而相同情况下CFile则不存在该问题。 在经过一番搜索后发现可以通过C++的本地化（MSDN:setlocale）来解决。方法如下： 在进行文件操作前先执行以下代码修改locale设置为中文： char* old_locale = _strdup( setlocale(LC_CTYPE,NU">
-<meta name="keywords" content="C++,CStdioFile,locale,MFC,setlocale,中文乱码,本地化">
+<meta name="keywords" content="C++,MFC,CStdioFile,locale,setlocale,中文乱码,本地化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MFC 多字节环境下CStdioFile读取中文显示为乱码解决办法">
 <meta property="og:url" content="http://akakanch.com/2016/11/03/index.html">
 <meta property="og:site_name" content="akakanch">
 <meta property="og:description" content="在MFC对话框工程中，如果选择了多字节工程，会导致CStdioFile读取文件内容的时候中文字符显示为乱码。而相同情况下CFile则不存在该问题。 在经过一番搜索后发现可以通过C++的本地化（MSDN:setlocale）来解决。方法如下： 在进行文件操作前先执行以下代码修改locale设置为中文： char* old_locale = _strdup( setlocale(LC_CTYPE,NU">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-03-12T08:53:42.221Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MFC 多字节环境下CStdioFile读取中文显示为乱码解决办法">
@@ -105,7 +106,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -137,7 +138,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -185,7 +186,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            首页
           </a>
         </li>
       
@@ -195,7 +196,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            About
+            关于
           </a>
         </li>
       
@@ -205,7 +206,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            归档
           </a>
         </li>
       
@@ -269,9 +270,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-03T10:25:12+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-03T10:25:12+08:00">
                 2016-11-03
               </time>
             
@@ -290,7 +291,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -356,11 +357,11 @@
           
             <a href="/tags/C/" rel="tag"># C++</a>
           
+            <a href="/tags/MFC/" rel="tag"># MFC</a>
+          
             <a href="/tags/CStdioFile/" rel="tag"># CStdioFile</a>
           
             <a href="/tags/locale/" rel="tag"># locale</a>
-          
-            <a href="/tags/MFC/" rel="tag"># MFC</a>
           
             <a href="/tags/setlocale/" rel="tag"># setlocale</a>
           
@@ -459,8 +460,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">75</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
@@ -471,7 +472,7 @@
               <div class="site-state-item site-state-categories">
                 
                   <span class="site-state-item-count">25</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">分类</span>
                 
               </div>
             
@@ -482,7 +483,7 @@
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">282</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-name">标签</span>
                 
               </div>
             
@@ -528,7 +529,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -536,7 +537,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
 
 
 

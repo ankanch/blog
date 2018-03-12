@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -85,6 +85,7 @@
 <meta property="og:url" content="http://akakanch.com/page/7/index.html">
 <meta property="og:site_name" content="akakanch">
 <meta property="og:description" content="personal blog of Long Zhang (kanchisme@gmail.com)">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="akakanch">
 <meta name="twitter:description" content="personal blog of Long Zhang (kanchisme@gmail.com)">
@@ -103,7 +104,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -135,7 +136,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -184,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            首页
           </a>
         </li>
       
@@ -194,7 +195,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            About
+            关于
           </a>
         </li>
       
@@ -204,7 +205,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            归档
           </a>
         </li>
       
@@ -227,169 +228,6 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://akakanch.com/2015/06/22/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kanch">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="akakanch">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/06/22/" itemprop="url">C++获得可执行程序目录</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-22T16:30:22+08:00">
-                2015-06-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C-Visual-C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++ / Visual C++</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="本文介绍了在纯C-与VC下的获得当前可执行文件的路径方法。"><a href="#本文介绍了在纯C-与VC下的获得当前可执行文件的路径方法。" class="headerlink" title="本文介绍了在纯C++与VC下的获得当前可执行文件的路径方法。"></a>本文介绍了在纯C++与VC下的获得当前可执行文件的路径方法。</h2><p>&nbsp;</p>
-<h2 id="首先，纯C-方式："><a href="#首先，纯C-方式：" class="headerlink" title="首先，纯C++方式："></a><span style="text-decoration: underline;"><span style="color: #ff0000;"><strong>首先，纯C++方式：</strong></span></span></h2><p>函数原型: <strong><span style="color: #ff00ff;">char <em>getcwd(char </em>dir,int len)</span></strong><br>函数功能: 得到当前路径名称<br>函数返回: 指向dir的指针<br>参数说明: <strong>len</strong>是路径最大长度.<strong>dir</strong>是路径字符串.<br>所属文件: dir.h    (<em>这个头文件可能被命名为 direct.h 或者其他</em>)<br><span style="font-family: monospace, serif;"><span style="font-size: 15px;">示例代码：</span></span></p>
-<pre class="lang:c++ decode:true">#include 
-#include 
-int main()
-{
-char buffer[MAXPATH];
-getcwd(buffer, MAXPATH);
-printf("The current directory is: %s", buffer);
-return 0;
-}</pre>
-
-<h2 id="Visual-C-方式："><a href="#Visual-C-方式：" class="headerlink" title="Visual C++方式："></a><span style="text-decoration: underline;"><span style="color: #ff0000;"><strong>Visual C++方式：</strong></span></span></h2><ul>
-<li><strong>函数：</strong><br>DWORD WINAPI GetModuleFileName(_In_opt_ HMODULE hModule,<em>Out</em> LPTSTR lpFilename,_In_ DWORD nSize);</li>
-<li><p><strong>功能：</strong><br>获取当前进程已加载模块的文件的完整路径，该模块必须由当前进程加载。</p>
-<div class="para">   如果想要获取另一个已加载模块的文件路径，可以使用GetModuleFileNameEx函数。</div>
-</li>
-<li><p><strong>参数说明</strong><br><strong>hModule Long</strong><br>一个模块的句柄。可以是一个DLL模块，或者是一个应用程序的实例句柄。如果该参数为NULL，该函数返回该应用程序全路径。<br><strong>lpFileName String</strong><br>指定一个字串缓冲区，要在其中容纳文件的用NULL字符中止的路径名，hModule模块就是从这个文件装载进来的<br><strong>nSize Long</strong><br>装载到缓冲区lpFileName的最大字符数量<br>示例代码：<br><pre class="lang:c++ decode:true ">#include<br>#include<br>BOOL CreateSampleService()<br>{<br>TCHAR szPath[MAX_PATH];<br>if( !GetModuleFileName( NULL, szPath, MAX_PATH ) )<br>{<br>printf(“GetModuleFileName failed (%d)n”, GetLastError());<br>return FALSE;<br>}<br>return TRUE;<br>}<br>/<em><br>如果想获得某个正在运行的EXE或者DLL的全路径可以这样写代码<br>GetModuleFileNameEx(hProcess,hInst,lpFile,MAX_PATH);//注意下缓冲区就行了。
-</em>/<br></pre><br>&nbsp;</p>
-</li>
-</ul>
-<p>详情查阅MSDN<br><a href="https://msdn.microsoft.com/zh-tw/office/ms683197(v=vs.100" target="_blank" rel="noopener">https://msdn.microsoft.com/zh-tw/office/ms683197(v=vs.100)</a>)</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
     
       
 
@@ -433,9 +271,9 @@ return 0;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-21T23:09:00+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-21T23:09:00+08:00">
                 2015-06-21
               </time>
             
@@ -454,7 +292,7 @@ return 0;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -583,9 +421,9 @@ return 0;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-21T15:44:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-21T15:44:29+08:00">
                 2015-06-21
               </time>
             
@@ -604,7 +442,7 @@ return 0;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -733,9 +571,9 @@ return 0;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-20T17:17:52+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-20T17:17:52+08:00">
                 2015-06-20
               </time>
             
@@ -754,7 +592,7 @@ return 0;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -886,9 +724,9 @@ return 0;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-20T13:19:28+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-20T13:19:28+08:00">
                 2015-06-20
               </time>
             
@@ -907,7 +745,7 @@ return 0;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -918,7 +756,7 @@ return 0;
 
                 
                 
-                  , 
+                  ， 
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1044,9 +882,9 @@ return 0;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-19T17:53:12+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-19T17:53:12+08:00">
                 2015-06-19
               </time>
             
@@ -1065,7 +903,7 @@ return 0;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1215,9 +1053,9 @@ return 0;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-19T11:50:47+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-19T11:50:47+08:00">
                 2015-06-19
               </time>
             
@@ -1236,7 +1074,7 @@ return 0;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1362,9 +1200,9 @@ return 0;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-18T13:22:00+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-18T13:22:00+08:00">
                 2015-06-18
               </time>
             
@@ -1383,7 +1221,7 @@ return 0;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1511,9 +1349,9 @@ return 0;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-17T21:09:02+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-17T21:09:02+08:00">
                 2015-06-17
               </time>
             
@@ -1532,7 +1370,7 @@ return 0;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1684,9 +1522,9 @@ return 0;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-06-16T22:25:45+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-16T22:25:45+08:00">
                 2015-06-16
               </time>
             
@@ -1705,7 +1543,7 @@ return 0;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1751,6 +1589,159 @@ return 0;
             <p>当遇到突然停电，电脑的文档还没有保存，怎么办?</p>
 <p>其实在你编辑的时候，系统会将编辑中的文档暂时放在“<span style="color: #ff00ff;">C:\Documents and settingsAdministratorApplication DataMicrosoftWord</span>“当中，（<strong>其中Administrator是指你的用户名</strong>），你只要将那些扩展名为<span style="color: #ff00ff;">.asd</span>的文件用Word逐一打开，就能够找到刚才写的文档了。</p>
 <p>同时你也可以将Word文档的自动保存时间缩短，打开“Word选项”，将“保存自动回复信息时间间隔”改为很短的时间,比如1分钟，这样能够将损失降到最小。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://akakanch.com/2015/06/14/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kanch">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="akakanch">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/06/14/" itemprop="url">红杏出墙：简单易用的科学上网服务</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-14T19:12:14+08:00">
+                2015-06-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/翻墙相关-VPN/" itemprop="url" rel="index">
+                    <span itemprop="name">翻墙相关 / VPN</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>    翻越防火长城，你可以到达世界上的每一个角落。（Across the Great Firewall, you can reach every corner in the world.）</strong></p>
+<p>官网下载:<a href="http://honx.in/i/VKPXAn8mTisucC2m" target="_blank" rel="noopener">http://honx.in/i/VKPXAn8mTisucC2m</a></p>
+<p><strong>1**</strong>、下载离线安装包**</p>
+<p>_               <a href="http://pan.baidu.com/s/1gdkUAaf" target="_blank" rel="noopener">百度网盘下载</a>_</p>
+<p>_               <a href="http://honx.in/i/U6AzioKo11MpOaOt#/10/1" target="_blank" rel="noopener">红杏官网下载</a>_</p>
+<p><strong>2**</strong>、打开谷歌浏览器插件列表**</p>
+<p><a href="http://139.129.6.122/wp-content/uploads/2015/06/FQ_HX_1.png" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2015/06/FQ_HX_1.png" alt="FQ_HX_1"></a></p>
+<h2 id="3、把离线安装包拖入页面，Mac用户可能需要先拖到桌面，再拖回列表。另外，您可能需要打开调试模式才可以从应用商店外安装插件！"><a href="#3、把离线安装包拖入页面，Mac用户可能需要先拖到桌面，再拖回列表。另外，您可能需要打开调试模式才可以从应用商店外安装插件！" class="headerlink" title=" 3、把离线安装包拖入页面，Mac用户可能需要先拖到桌面，再拖回列表。另外，您可能需要打开调试模式才可以从应用商店外安装插件！"></a><strong> 3、把离线安装包拖入页面，Mac用户可能需要先拖到桌面，再拖回列表。另外，您可能需要打开调试模式才可以从应用商店外安装插件！</strong></h2><p><img src="http://maybecode.com/wp-content/uploads/2015/01/FQ_HX_3.png" alt="FQ_HX_3"></p>
+<p><a href="http://139.129.6.122/wp-content/uploads/2015/06/FQ_HX_2.png" target="_blank" rel="noopener"><img src="http://139.129.6.122/wp-content/uploads/2015/06/FQ_HX_2.png" alt="FQ_HX_2"></a></p>
+<h2 id="4-安装完后，打开红杏出墙，需要帐号，您可以注册一个帐号，免费帐号除了不能自己添加网站列表外，从速度上说和VIP无差别。升级VIP后可以编辑网站列表。"><a href="#4-安装完后，打开红杏出墙，需要帐号，您可以注册一个帐号，免费帐号除了不能自己添加网站列表外，从速度上说和VIP无差别。升级VIP后可以编辑网站列表。" class="headerlink" title="4.安装完后，打开红杏出墙，需要帐号，您可以注册一个帐号，免费帐号除了不能自己添加网站列表外，从速度上说和VIP无差别。升级VIP后可以编辑网站列表。"></a><strong>4.安装完后，打开红杏出墙，需要帐号，您可以注册一个帐号，免费帐号除了不能自己添加网站列表外，从速度上说和VIP无差别。升级VIP后可以编辑网站列表。</strong></h2><p><strong>免费帐号可用网站：</strong></p>
+<p><img src="http://139.129.6.122/wp-content/uploads/2015/06/FQ_HX_4.png" alt="FQ_HX_4"></p>
+<h2 id=""><a href="#" class="headerlink" title="                 "></a><strong>                 </strong></h2><h2 id="大功告成"><a href="#大功告成" class="headerlink" title="    大功告成"></a><strong>    大功告成</strong></h2><p><strong>   由于是官方安装包，所以自带自动升级功能</strong></p>
 
           
         
@@ -1836,8 +1827,8 @@ return 0;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">75</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
@@ -1848,7 +1839,7 @@ return 0;
               <div class="site-state-item site-state-categories">
                 
                   <span class="site-state-item-count">25</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">分类</span>
                 
               </div>
             
@@ -1859,7 +1850,7 @@ return 0;
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">282</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-name">标签</span>
                 
               </div>
             
@@ -1905,7 +1896,7 @@ return 0;
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -1913,7 +1904,7 @@ return 0;
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
 
 
 
