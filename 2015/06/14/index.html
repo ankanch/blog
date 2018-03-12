@@ -1,0 +1,144 @@
+<html>
+    <!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	
+
+	<title>C++字符统计算法 | akakanch</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+	<link rel="shortcut icon" href="/favicon.ico">	
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/caomei.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+
+    <body>
+        <div class="root">
+            <div class='topnavs container fixed-690'>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            首页
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/categories">
+                            分类
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/archives">
+                            归档
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tags">
+                            标签
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">
+                            关于
+                        </a>
+                    </li>
+                    
+            </ul>
+        </div>
+    </nav>
+</div>
+                <section class="container mainbody fixed-690">
+                    <div class="post">
+    <div class="post-title">
+        <h1>
+            C++字符统计算法 
+        </h1>
+
+        
+        <div class="post-title-views">
+            <span id="busuanzi_container_page_pv">
+                本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次
+            </span>
+        </div>
+        
+    </div>
+    <div class="post-content markdown">
+        <p>首先说说思路:假设我们有一个待统计字符串<strong>ibuf</strong>.现在要统计其中每个字符出现的次数.</p>
+<p>首先我们需要确定的是这个字符串有多少个不同的字符.以便建立统计缓存.</p>
+<p>所以我们遍历整个<strong>ibuf</strong>(假设其长度为<strong>ilen</strong>),将其中的字符无重复的放入临时字符串<strong>differList</strong>(假设其长度为<strong>llen</strong>).</p>
+<p>根据<strong>differList</strong>字符串的长度建立相应的统计缓存数组.统计缓存数组如下:</p>
+<ul>
+<li>int *count = new int[llen];<br>再经过第二次遍历,统计<strong>ibuf</strong>中的所有字符出现次数.</li>
+</ul>
+<p>最后,输出结果…..</p>
+<p>————————————————–</p>
+<p>本文章源代码如下:</p>
+<p><code></code></p>
+<p><pre class="lang:c++ decode:true ">/<em>/<br>字符统计算法.<br>该算法可以用来统计在一个字符串中各个字符的出现次数.<br>by Kanch @2015-2-6
+</em>/</pre></p>
+<p>#include</p>
+<p>#include</p>
+<p>#include</p>
+<p>using namespace std;</p>
+<p>int main(int argc, char argv[])<br>{<br>string ibuf = “”, obuf = “”,differList=””;<br>int ilen = 0,*count,llen;</p>
+<p>cout &lt;&lt; “请输入数据,程序将会统计字符出现次数!-输入 EXIT 退出程序.” &lt;&lt; endl; cin &gt;&gt; ibuf;<br>while (ibuf != “EXIT” &amp;&amp; ibuf != “exit”)<br>{<br>//开始统计<br>if (ibuf.length()&lt;=0)<br>{<br>cout &lt;&lt; “没有检测到任何数据请重新输入!-输入 EXIT 退出程序.” &lt;&lt; endl; continue; } else if (ibuf.length() &gt; 0)<br>{<br>ilen = ibuf.length();<br>for (int i = 0; i &lt; ilen; i++) //这个循环用来统计有多少个不同的字符<br>{<br>if (differList.find(ibuf[i]) &lt; 0 || differList.find(ibuf[i]) &gt;= differList.length())<br>{<br>differList += ibuf[i];<br>}<br>}<br>llen = differList.length(); //这里来确定需要循环多少次.有多少个不同的字符就循环多少次<br>count = new int[llen]; //为每个待统计字符分配统计空间.顺序与differList里面的一样.<br>for (int e = 0; e &lt; llen; e++)<br>{<br>count[e] = 0;<br>}</p>
+<p>//下面开始统计<br>/*法一<br>for (int i = 0; i &lt; len; i++) //这是最笨的方法<br>{</p>
+<p>for (int t = 0; t &lt; ibuf.GetLength(); t++) //这个用来逐个统计每个字符出现的次数;<br>{<br>if (differList[i] == ibuf[t])<br>{<br>count[i] += 1;<br>}<br>}<br>}<br><em>/<br>/</em>法二*/<br>for (int i = 0; i &lt; ilen; i++) //个人比较喜欢这个方法.<br>{<br>count[differList.find(ibuf[i])] += 1;<br>}</p>
+<p>//算法结束,下面输出结果<br>cout &lt;&lt; “===========================结果=============================” &lt;&lt; endl<br>&lt;&lt; “共”&lt;&lt; ilen &lt;&lt; “个字符.” &lt;&lt; “其中有” &lt;&lt; llen &lt;&lt; “不相同字符.” &lt; for (int i = 0; i &lt; llen; i++)<br>{<br>cout &lt;&lt; “ “ &lt;&lt; differList[i] &lt;&lt; “t “ &lt;&lt; count[i] &lt;&lt;endl;<br>}<br>}<br>cin.clear();<br>differList = “”;<br>cout &lt;&lt; “请输入数据,程序将会统计字符出现次数!-输入 EXIT 退出程序.” &lt;&lt; endl; cin &gt;&gt; ibuf;<br>delete [] count;</p>
+<p>}</p>
+<p>return 0;<br>}<br>&nbsp;</p>
+ 
+    </div>
+    <div class="post-foot">
+        <div id="disqus_thread"></div>
+    </div>
+</div>
+
+
+                </section>
+                <footer class="container fixed-690 footer">
+    <div>
+        <span>Power by <a href="https://hexo.io">Hexo</a></span>
+    </div>
+    <div>
+        <span>Theme <a href="https://github.com/zhengxiaowai/hexo-theme-lessless">lessless</a></span>
+    </div>
+        
+            
+<div>
+    <span id="hexiangyutest_container_site_pv">
+    PV: <span id="busuanzi_value_site_pv"></span>
+    </span>
+    <span id="busuanzi_container_site_uv">
+    UV: <span id="busuanzi_value_site_uv"></span>
+    </span>
+</div>
+
+        
+</footer>
+        </div>
+        
+<script src="/js/jquery-3.2.1.slim.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+    
+
+    </body>
+</html>

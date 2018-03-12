@@ -1,0 +1,137 @@
+<html>
+    <!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	
+
+	<title>Python Tkinter的Entry获取值的问题：有时可以获得，有时却无法获得。 | akakanch</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+	<link rel="shortcut icon" href="/favicon.ico">	
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/caomei.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+
+    <body>
+        <div class="root">
+            <div class='topnavs container fixed-690'>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            首页
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/categories">
+                            分类
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/archives">
+                            归档
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tags">
+                            标签
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">
+                            关于
+                        </a>
+                    </li>
+                    
+            </ul>
+        </div>
+    </nav>
+</div>
+                <section class="container mainbody fixed-690">
+                    <div class="post">
+    <div class="post-title">
+        <h1>
+            Python Tkinter的Entry获取值的问题：有时可以获得，有时却无法获得。 
+        </h1>
+
+        
+        <div class="post-title-views">
+            <span id="busuanzi_container_page_pv">
+                本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次
+            </span>
+        </div>
+        
+    </div>
+    <div class="post-content markdown">
+        <p>最近再写一个数据分析模块，由于命令行界面太难看，所以需要GUI，于是采用了Python自带的<a href="https://wiki.python.org/moin/TkInter/" target="_blank" rel="noopener">Tkinter（官方文档）</a>。界面上的话，还是挺好看的，而且可移植性强。</p>
+<p>由于这个模块需要输入，故我们需要一个编辑框，上网查了下，Tkinter中的编辑框叫做Entry。</p>
+<p><a href="http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Entry.html" target="_blank" rel="noopener">Entry简要说明：http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Entry.html</a></p>
+<p>现在有了Entry，接下来，我们就是要获取Entry里面的数据了。</p>
+<p>简单的在网上查了下，大家可以发现，几乎全都是一个方法：</p>
+<p>关联一个StringVar，然后通过这个StringVar来获取/修改值。</p>
+<p>如下：</p>
+<p><pre class="lang:python decode:true ">def btnclick():<br>    root.update()<br>    word = data.get() #获取Entry的值</pre></p>
+<p>data = StringVar(root)<br>Label(root,text=”请输入要分析的词语（仅一个）:”,width=25,height=2).pack()<br>Entry(root,text=”请输入内容”,width=25,textvariable=data).pack(ipadx=4,ipady=4)<br>Button(root, text=”获取edit内容”, width=15,relief=GROOVE,command=btnclick).pack(pady=16,ipadx=8,ipady=8)<br>当时发现居然这么简单，然后赶紧就照着网上的代码做了。做了之后发现，这个代码，有些时候可以正确获得值，有些时候又不能正确获得，StringVar的get返回空字符串。</p>
+<p>这个问题，，，简直 -_- ….想在网上查都不知道应该搜索什么。迷醉。</p>
+<p>不过在经过我大力的搜索，与排查问题后，还是找到了解决方案，如下：</p>
+<p>简单地讲，就是直接调用Entry的get方法，而不是通过与entry关联的StringVar()来获取值。</p>
+<p>如下：</p>
+<p><pre class="lang:python decode:true ">def btnclick():<br>    root.update()<br>    word = wordentry.get()  #调用Entry的get方法获得数据</pre></p>
+<p>Label(root,text=”KCC数据分析模块 - 基本分析套件\n该模块用于显示指定词语的时间频率关系图”,width=35,height=5).pack()<br>Label(root,text=”请输入要分析的词语（仅一个）:”,width=25,height=2).pack()<br>wordentry = Entry(root,text=”请输入内容”,width=25,textvariable=data) #给entry来个名字<br>wordentry.pack(ipadx=4,ipady=4)<br>Button(root, text=”获取edit内容”, width=15,relief=GROOVE,command=btnclick).pack(pady=16,ipadx=8,ipady=8)<br>通过调用Entry的get方法来获取变量，经过测试：这种方法每一次均可正确获得。</p>
+<p><a href="http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/index.html" target="_blank" rel="noopener">参考资料：NMT Tkinter教程 http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/index.html</a></p>
+<p><a href="http://stackoverflow.com/questions/10727131/why-is-tkinter-entrys-get-function-returning-nothing" target="_blank" rel="noopener">参考2：StackOverFlow</a></p>
+ 
+    </div>
+    <div class="post-foot">
+        <div id="disqus_thread"></div>
+    </div>
+</div>
+
+
+                </section>
+                <footer class="container fixed-690 footer">
+    <div>
+        <span>Power by <a href="https://hexo.io">Hexo</a></span>
+    </div>
+    <div>
+        <span>Theme <a href="https://github.com/zhengxiaowai/hexo-theme-lessless">lessless</a></span>
+    </div>
+        
+            
+<div>
+    <span id="hexiangyutest_container_site_pv">
+    PV: <span id="busuanzi_value_site_pv"></span>
+    </span>
+    <span id="busuanzi_container_site_uv">
+    UV: <span id="busuanzi_value_site_uv"></span>
+    </span>
+</div>
+
+        
+</footer>
+        </div>
+        
+<script src="/js/jquery-3.2.1.slim.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+    
+
+    </body>
+</html>

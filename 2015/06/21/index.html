@@ -1,0 +1,129 @@
+<html>
+    <!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	
+
+	<title>C++调用cmd命令，并等待cmd命令执行完后继续运行 | akakanch</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+	<link rel="shortcut icon" href="/favicon.ico">	
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/caomei.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+
+    <body>
+        <div class="root">
+            <div class='topnavs container fixed-690'>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            首页
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/categories">
+                            分类
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/archives">
+                            归档
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tags">
+                            标签
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">
+                            关于
+                        </a>
+                    </li>
+                    
+            </ul>
+        </div>
+    </nav>
+</div>
+                <section class="container mainbody fixed-690">
+                    <div class="post">
+    <div class="post-title">
+        <h1>
+            C++调用cmd命令，并等待cmd命令执行完后继续运行 
+        </h1>
+
+        
+        <div class="post-title-views">
+            <span id="busuanzi_container_page_pv">
+                本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次
+            </span>
+        </div>
+        
+    </div>
+    <div class="post-content markdown">
+        <p>在利用C++执行cmd命令的时候，有些时候会因为命令类型不同，所需要的时间也不同（如用dir命令枚举C盘下的所有文件就非常耗时）。</p>
+<p>因此，我们通常希望让程序在执行完cmd命令后再继续运行。下面有一个小技巧可以帮助我们完成。</p>
+<p><strong>基本思路：</strong></p>
+<p><span style="color: #ff00ff;"><strong>首先建立要执行的cmd命令</strong></span></p>
+<p><span style="color: #ff00ff;"><strong>然后新建线程去执行该cmd命令</strong></span></p>
+<p><span style="color: #ff00ff;"><strong>等待cmd执行结束（线程挂起）</strong></span></p>
+<p>下面是源代码：</p>
+<p><pre class="lang:c++ decode:true ">CString cmd;<br>STARTUPINFO si={sizeof(si)};<br>PROCESS_INFORMATION pi;<br>//要执行的完整CMD命令，一般是一个字符串<br>cmd = “dir”; //枚举文件</pre></p>
+<p>//创建线程，执行cmd命令,并等待其结束<br>BOOL fRet1=CreateProcess(NULL,cmd.GetBuffer(),NULL,NULL,FALSE,NORMAL_PRIORITY_CLASS,NULL,NULL,&amp;si,&amp;pi);<br>if(fRect== TRUE)<br>{<br>WaitForSingleObject(pi.hThread,INFINITE);<br>CloseHandle(pi.hThread);<br>CloseHandle(pi.hProcess);<br>}<br>&nbsp;</p>
+ 
+    </div>
+    <div class="post-foot">
+        <div id="disqus_thread"></div>
+    </div>
+</div>
+
+
+                </section>
+                <footer class="container fixed-690 footer">
+    <div>
+        <span>Power by <a href="https://hexo.io">Hexo</a></span>
+    </div>
+    <div>
+        <span>Theme <a href="https://github.com/zhengxiaowai/hexo-theme-lessless">lessless</a></span>
+    </div>
+        
+            
+<div>
+    <span id="hexiangyutest_container_site_pv">
+    PV: <span id="busuanzi_value_site_pv"></span>
+    </span>
+    <span id="busuanzi_container_site_uv">
+    UV: <span id="busuanzi_value_site_uv"></span>
+    </span>
+</div>
+
+        
+</footer>
+        </div>
+        
+<script src="/js/jquery-3.2.1.slim.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+    
+
+    </body>
+</html>
