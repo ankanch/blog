@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="C++,MFC,CStdioFile,locale,setlocale,中文乱码,本地化," />
+  <meta name="keywords" content="C++,CStdioFile,locale,MFC,setlocale,中文乱码,本地化," />
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="在MFC对话框工程中，如果选择了多字节工程，会导致CStdioFile读取文件内容的时候中文字符显示为乱码。而相同情况下CFile则不存在该问题。 在经过一番搜索后发现可以通过C++的本地化（MSDN:setlocale）来解决。方法如下： 在进行文件操作前先执行以下代码修改locale设置为中文： char* old_locale = _strdup( setlocale(LC_CTYPE,NU">
-<meta name="keywords" content="C++,MFC,CStdioFile,locale,setlocale,中文乱码,本地化">
+<meta name="keywords" content="C++,CStdioFile,locale,MFC,setlocale,中文乱码,本地化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MFC 多字节环境下CStdioFile读取中文显示为乱码解决办法">
 <meta property="og:url" content="http://akakanch.com/2016/11/03/index.html">
@@ -186,6 +186,16 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            Über
           </a>
         </li>
       
@@ -346,11 +356,11 @@
           
             <a href="/tags/C/" rel="tag"># C++</a>
           
-            <a href="/tags/MFC/" rel="tag"># MFC</a>
-          
             <a href="/tags/CStdioFile/" rel="tag"># CStdioFile</a>
           
             <a href="/tags/locale/" rel="tag"># locale</a>
+          
+            <a href="/tags/MFC/" rel="tag"># MFC</a>
           
             <a href="/tags/setlocale/" rel="tag"># setlocale</a>
           
