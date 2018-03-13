@@ -485,8 +485,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-12T16:53:42+08:00">
-                2018-03-12
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-13T11:38:52+08:00">
+                2018-03-13
               </time>
             
           </span>
@@ -575,19 +575,9 @@
 
       
         
-          
-          假设我们有如下图像：
-
-现在我们想要将图片中的数字一个一个分割出来。
-在处理之前，我们首先应该将图像去RGB，即在它对应的灰度图像上进行处理。我们可以使用opencv python库中的
-
-cvtColor函数来实现到灰度图像的转换。转换代码以及转换结果（归一化后）如下：
-
-grayscaleimg = cv2.cvtColor(rawimg,cv2.COLOR_BGR2GRAY)
-然后，我们需要对图片进行归一化，这样可以减少最后分割出的数字中的噪声：
-grayscaleimg = grayscaleimg - int(np.mean(grayscaleimg))grayscaleimg[grayscaleimg &lt; 50] = 0这里我们采取了对每个像素减去图像总像素的平均数，并设置阈值50以下的像素归零来实现归一化，归一化后的图像即上图所示。
-接下来，我们需要确定分割边界，由于我们已经将背景的像素值归一化为0，我们只需要对图像分别从x方向（列扫描）和y方向（行扫描）进行扫描，统
-          ...
+          <h3 id="pre"><a href="#pre" class="headerlink" title="pre"></a>pre</h3><p>假设我们有如下图像：</p>
+<img src="/images/pyimagesplit1.jpg" width="320" height="240">
+<p>现在我们想要将图片中的数字一个一个分割出来。得到一系列的如下图象：<br><img src="/images/pyimagesplit3.png" width="320" height="240"><br>本文同时使用Python和C++实现了以上图像分割。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/09/27/#more" rel="contents">
