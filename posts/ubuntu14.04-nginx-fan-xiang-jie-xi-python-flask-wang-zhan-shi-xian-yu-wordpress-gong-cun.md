@@ -1,0 +1,45 @@
+---
+title: Ubuntu14.04 Nginx反向解析Python Flask网站，实现与wordpress共存
+tags:
+  - Nginx
+  - Python Flask
+  - Ubuntu
+  - wordpress
+  - 反向代理
+  - 反向解析
+id: 568
+categories:
+  - Linux / Unix /虚拟主机 / VPS
+  - Python
+  - 网站制作相关
+date: '2016-10-21T14:43:00.000Z'
+---
+
+# Ubuntu14.04 Nginx反向解析Python Flask网站，实现与wordpress共存
+
+我最近用Python Flask做了一个我们学校的老师评分系统（成都信息工程大学：[http://trs.akakanch.com/](http://trs.akakanch.com/)），但是问题来了，因为我在这个服务器上托管了Wordpress博客，导致默认的80端口是wordpress，flask网站为5000端口，而且二级域名解析是不认端口的，所以我需要想办法把80端口该为flask网站的流量转发给flask的服务器。
+
+在经过一番搜索后，找到了答案（[http://stackoverflow.com/questions/23649444/redirect-subdomain-to-port-nginx-flask](http://stackoverflow.com/questions/23649444/redirect-subdomain-to-port-nginx-flask)）。通过Nginx的Virtual Server监听80端口，然后把属于flask的流量转发到5000端口。
+
+我们wordpress的域名为：akakanch.com
+
+给flask站点分配deep域名为：trs.akakanch.com
+
+首先我们要打开Nginx的配置文件：
+
+```
+sudo vi /etc/nginx/sites-available/default
+```
+
+server { listen 80; server\_name trs.akakanch.com;
+
+```text
+location / {
+    proxy_pass http://localhost:5000;
+}   
+```
+
+}&lt;/pre&gt; \*大家打开文件的时候可能会注意到已经存在server{....}块了，请不要在原有server块上修改。添加新的server块。每一个server块都相当于一个Virtual Server。
+
+这样我们便成功的实现了反向代理flask站点。
+
