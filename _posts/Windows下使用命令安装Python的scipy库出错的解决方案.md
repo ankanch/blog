@@ -20,7 +20,7 @@ date: 2017-01-14 15:39:37
 
 错误如下图：
 
-[![QQ截图20170114112205](http://akakanch.com/wp-content/uploads/2017/01/QQ截图20170114112205.jpg)](http://akakanch.com/wp-content/uploads/2017/01/QQ截图20170114112205.jpg)
+[![QQ截图20170114112205](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2017/01/QQ截图20170114112205.jpg)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2017/01/QQ截图20170114112205.jpg)
 
 最开始以为是以为我python2和python3共存的缘故导致安装失败，可后面发现貌似并不是这样的。
 

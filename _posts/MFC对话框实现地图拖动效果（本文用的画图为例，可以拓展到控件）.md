@@ -17,7 +17,7 @@ date: 2016-04-25 15:00:06
 
 实现效果如下图所示：（ **gif不动戳大** :) ）
 
-[![ezgif.com-video-to-gif](http://115.159.197.66/wp-content/uploads/2016/04/ezgif.com-video-to-gif-300x239.gif)](http://115.159.197.66/wp-content/uploads/2016/04/ezgif.com-video-to-gif.gif)
+[![ezgif.com-video-to-gif](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/04/ezgif.com-video-to-gif-300x239.gif)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/04/ezgif.com-video-to-gif.gif)
 
 在这里我们主要处理3个对话框消息来实现地图的拖动效果。
 

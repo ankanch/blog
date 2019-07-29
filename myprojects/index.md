@@ -12,7 +12,7 @@ date: 2017-09-14 15:19:06
 
 </div>
 <div class="card-deck" style="margin: 0 auto;">
-<div class="card ">![DoMo-Pred logo](http://akakanch.com/wp-content/uploads/2017/09/download.png)
+<div class="card ">![DoMo-Pred logo](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2017/09/download.png)
 <div class="card-body">
 
 #### Web Interface for DoMo-Pred
@@ -22,7 +22,7 @@ The aim of this project is is to develop a web interface for DoMo-Pred which can
 </div>
 <div class="card-footer">[获取代码](https://github.com/ankanch/GSoC2017-projects)</div>
 </div>
-<div class="card ">![qcloud logo](http://akakanch.com/wp-content/uploads/2016/10/commuity_icon_b_512x512.png)
+<div class="card ">![qcloud logo](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/commuity_icon_b_512x512.png)
 <div class="card-body">
 
 #### 腾讯云管家
@@ -38,7 +38,7 @@ The aim of this project is is to develop a web interface for DoMo-Pred which can
 </div>
 </div>
 <div class="card-deck" style="margin: 0 auto; margin-top: 25px;">
-<div class="card ">![myblog logo](http://akakanch.com/wp-content/uploads/2017/09/myblog_logo.png)
+<div class="card ">![myblog logo](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2017/09/myblog_logo.png)
 <div class="card-body">
 
 #### myblog
@@ -48,7 +48,7 @@ The aim of this project is is to develop a web interface for DoMo-Pred which can
 </div>
 <div class="card-footer">[获取代码](https://github.com/ankanch/myblog)</div>
 </div>
-<div class="card">![buddyrun logo](http://akakanch.com/wp-content/uploads/2016/06/HIGH_RESOLUTION_ICON.png)
+<div class="card">![buddyrun logo](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/06/HIGH_RESOLUTION_ICON.png)
 <div class="card-body">
 
 #### BuddyRun

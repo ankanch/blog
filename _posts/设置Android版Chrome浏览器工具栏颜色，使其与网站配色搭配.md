@@ -17,7 +17,7 @@ date: 2016-09-17 14:17:40
 
 改变浏览器工具栏颜色的作用只有一个，那就是让配色和网页看起来更加的和谐，美观。
 
-[![screenshot_20160917-140845](http://115.159.197.66/wp-content/uploads/2016/09/Screenshot_20160917-140845-169x300.png)    ](http://115.159.197.66/wp-content/uploads/2016/09/Screenshot_20160917-140845.png)[![screenshot_20160917-140833](http://115.159.197.66/wp-content/uploads/2016/09/Screenshot_20160917-140833-1-169x300.png)](http://115.159.197.66/wp-content/uploads/2016/09/Screenshot_20160917-140833-1.png)
+[![screenshot_20160917-140845](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/09/Screenshot_20160917-140845-169x300.png)    ](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/09/Screenshot_20160917-140845.png)[![screenshot_20160917-140833](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/09/Screenshot_20160917-140833-1-169x300.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/09/Screenshot_20160917-140833-1.png)
 
 &nbsp;
 

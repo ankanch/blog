@@ -10,9 +10,9 @@ date: 2016-06-16 16:42:46
 ## 一个非常简单的躲避障碍物游戏。试试跑到1000m？
 同时操作上下两个小人，跳过障碍物
 
-[![HIGH_RESOLUTION_ICON](http://115.159.197.66/wp-content/uploads/2016/06/HIGH_RESOLUTION_ICON-300x300.png)](http://115.159.197.66/wp-content/uploads/2016/06/HIGH_RESOLUTION_ICON.png)
+[![HIGH_RESOLUTION_ICON](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/06/HIGH_RESOLUTION_ICON-300x300.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/06/HIGH_RESOLUTION_ICON.png)
 
-[![D90D94331E54D2005CC8CEE352FF98ECF639](http://115.159.197.66/wp-content/uploads/2016/06/D90D94331E54D2005CC8CEE352FF98ECF639-300x89.png)](https://play.google.com/store/apps/details?id=com.kanchsproject.buddyRun)
+[![D90D94331E54D2005CC8CEE352FF98ECF639](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/06/D90D94331E54D2005CC8CEE352FF98ECF639-300x89.png)](https://play.google.com/store/apps/details?id=com.kanchsproject.buddyRun)
 
 <span style="color: #ff6600;">_如果无法使用Google Play，请使用页面底部的下载地址~~~_</span>
 
@@ -30,7 +30,7 @@ date: 2016-06-16 16:42:46
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/9YWlwcrq7d4?list=PL1zsL8YBoHe6waGe6f9Og4Sc-AYjhtE06" frameborder="0" allowfullscreen="allowfullscreen" class="aligncenter"></iframe>
 
-[![D90D94331E54D2005CC8CEE352FF98ECF639](http://115.159.197.66/wp-content/uploads/2016/06/D90D94331E54D2005CC8CEE352FF98ECF639-300x89.png)](https://play.google.com/store/apps/details?id=com.kanchsproject.buddyRun)
+[![D90D94331E54D2005CC8CEE352FF98ECF639](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/06/D90D94331E54D2005CC8CEE352FF98ECF639-300x89.png)](https://play.google.com/store/apps/details?id=com.kanchsproject.buddyRun)
 
 * * *
 

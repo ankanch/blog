@@ -37,9 +37,9 @@ Template Name: myblog_theme
 &lt;div id="primary" class="site-content-fullwidth" style="background:white;"&gt;
   &lt;div id="content" role="main" style="background:white;"&gt;
 &lt;div id="myblog_style_page" style="margin-left:45px;margin-right:45px;"&gt;
-&lt;link rel='stylesheet'  href='http://akakanch.com/wp-content/themes/nisarg/css/bootstrap4alpha.css' type='text/css' /&gt;
-&lt;script type='text/javascript' src='http://akakanch.com/wp-content/themes/nisarg/js/jquery-3.2.1.min.js'&gt;&lt;/script&gt;
-&lt;link rel='stylesheet'  href='http://akakanch.com/wp-content/themes/nisarg/css/xstyle.css' type='text/css' /&gt;
+&lt;link rel='stylesheet'  href='https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/themes/nisarg/css/bootstrap4alpha.css' type='text/css' /&gt;
+&lt;script type='text/javascript' src='https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/themes/nisarg/js/jquery-3.2.1.min.js'&gt;&lt;/script&gt;
+&lt;link rel='stylesheet'  href='https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/themes/nisarg/css/xstyle.css' type='text/css' /&gt;
 &lt;div class="container"&gt;
 &lt;?php /* Start the Loop */ ?&gt;
 &lt;?php while(have_posts()) : the_post(); ?&gt;
@@ -76,9 +76,9 @@ Template Name: myblog_theme
 &lt;?php endwhile; ?&gt;</pre>
 我们将上面那段代码放进了一个div里，如下面的代码所示：
 <pre class="lang:php decode:true">&lt;div id="myblog_style_page" style="margin-left:45px;margin-right:45px;"&gt;
-&lt;link rel='stylesheet'  href='http://akakanch.com/wp-content/themes/nisarg/css/bootstrap4alpha.css' type='text/css' /&gt;
-&lt;script type='text/javascript' src='http://akakanch.com/wp-content/themes/nisarg/js/jquery-3.2.1.min.js'&gt;&lt;/script&gt;
-&lt;link rel='stylesheet'  href='http://akakanch.com/wp-content/themes/nisarg/css/xstyle.css' type='text/css' /&gt;
+&lt;link rel='stylesheet'  href='https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/themes/nisarg/css/bootstrap4alpha.css' type='text/css' /&gt;
+&lt;script type='text/javascript' src='https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/themes/nisarg/js/jquery-3.2.1.min.js'&gt;&lt;/script&gt;
+&lt;link rel='stylesheet'  href='https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/themes/nisarg/css/xstyle.css' type='text/css' /&gt;
 
 &lt;div class="container"&gt;
 
@@ -109,7 +109,7 @@ Template Name: myblog_theme
 
     });
 &lt;/script&gt;</pre>
-resizeIframe(obj)函数用来将iframe的高度设置为和页面高度一致。 在$(document).ready()函数中，我们获取了id为myblog_style_page的div的内部HTML然后将其复制到iframe里面，再清空myblog_style_page的值。到这里，页面应该已经可以正常显示原有样式了（参照本站的[关于页面](http://akakanch.com/about/)和我的[项目页面](http://akakanch.com/myprojects/)）。
+resizeIframe(obj)函数用来将iframe的高度设置为和页面高度一致。 在$(document).ready()函数中，我们获取了id为myblog_style_page的div的内部HTML然后将其复制到iframe里面，再清空myblog_style_page的值。到这里，页面应该已经可以正常显示原有样式了（参照本站的[关于页面](https://raw.githubusercontent.com/ankanch/blog/master/images/about/)和我的[项目页面](https://raw.githubusercontent.com/ankanch/blog/master/images/myprojects/)）。
 
 &nbsp;
 
@@ -121,7 +121,7 @@ resizeIframe(obj)函数用来将iframe的高度设置为和页面高度一致。
 
 &nbsp;
 
-[![](http://akakanch.com/wp-content/uploads/2017/09/addasdasda-300x160.png)](http://akakanch.com/wp-content/uploads/2017/09/addasdasda.png)
+[![](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2017/09/addasdasda-300x160.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2017/09/addasdasda.png)
 
 接下来，我们只需要将相应的css，js和刚刚创建的模板上传到相应的文件夹即可。最后创建页面，在右侧选择相应的页面模板，编辑完页面内容后发布页面，就可以正常显示了。
 

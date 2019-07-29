@@ -35,7 +35,7 @@ date: 2016-01-18 20:41:12
 
 控制面板-&gt;硬件和声音-&gt;电源选项 选择左边栏的【选择电源按钮功能】，然后关闭快速启动。
 
-[![Ubuntu-0](http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-0.png)](http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-0.png)
+[![Ubuntu-0](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-0.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-0.png)
 
 再利用Windows的磁盘管理分个分区出来，空闲分区，不！要！格！式!化!分区教程请参考：
 
@@ -45,35 +45,35 @@ date: 2016-01-18 20:41:12
 
 注意：先**关闭Secure Boot**，再从U盘启动！其它的什么UEFI什么什么的都别管！这里我们只需要关闭Secure Boot即可！
 
-![Ubuntu-33](http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-33.png)
+![Ubuntu-33](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-33.png)
 
 然后我们从U盘启动，你会看到这个画面：
 
-![Ubuntu-12](http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-12.png)
+![Ubuntu-12](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-12.png)
 
 选择第一项，<span style="color: #ff00ff;">Try Ubuntu without Installing</span>，_好吧，其实选第二个也是可以的。_
 
 选择第一项后，看到的是如下画面，我们已经进入到ubuntu系统：
 
-![Ubuntu-13](http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-13.png)
+![Ubuntu-13](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-13.png)
 
 接着，我们双击桌面上的 <span style="color: #ff00ff;">Install Ubuntu 14.10</span>
 
 在稍微的等待之后弹出以下窗口：当然，选择中文
 
-![Ubuntu-14](http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-14.png)
+![Ubuntu-14](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-14.png)
 
 然后我们继续，接下来，你看到的画面可能是这样的：
 
 <span style="color: #ff00ff;">**注意第一项**</span>，如果是<span style="color: #ff00ff;">安装Ubuntu，与其它系统共存</span>，恭喜你，请接着按照本教程做。
 
-[![Ubuntu-2](http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-2.png)](http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-2.png)
+[![Ubuntu-2](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-2.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-2.png)
 
 或者是这样的：
 
 好吧，如果是下图所示的话，你还是选择其它选项吧，这个教程不适合你，你需要自己分区。。。。
 
-[![Ubuntu-10](http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-10.png)](http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-10.png)
+[![Ubuntu-10](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-10.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-10.png)
 
 后面的你就懂了吧，一直下一步，直到安装完成提示重新启动，好的，我们重新启动计算机。
 
@@ -97,41 +97,41 @@ sda0到sda11每个分区都挂了一遍，都不行。
 
 接下来，我们重新启动系统，进入BIOS，别忘了拔出U盘
 
-![Ubuntu-38](http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-38.png)
+![Ubuntu-38](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-38.png)
 
 上面是我修改后的BIOS设置，注意<span style="color: #ff00ff;">Secure Boot</span>是关闭的！
 
 接下来，我们选择<span style="color: #ff00ff;">File Browser Add Boot Option</span>，会弹出下面这个东西，那是我的硬盘
 
-![Ubuntu-34](http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-34.png)
+![Ubuntu-34](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-34.png)
 
 我们选择硬盘，接下来你会看到有个<span style="color: #ff00ff;">EFI</span>文件夹，我们进入这个文件夹
 
-[![Ubuntu-35](http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-35.png)](http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-35.png)
+[![Ubuntu-35](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-35.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-35.png)
 
 接着，我们选择<span style="color: #ff00ff;">ubuntu</span>这个文件夹
 
-[![Ubuntu-36](http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-36.png)](http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-36.png)
+[![Ubuntu-36](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-36.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-36.png)
 
 选择第二个，<span style="color: #ff00ff;">grubx64.efi</span>，选择它后,BIOS应该会弹出个框框让你输入名字，你顺便输入个容易辨别的名字就行，比如grub
 
-[![Ubuntu-37](http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-37.png)](http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-37.png)接着，我们需要做的就是，把刚刚添加进去的那个东西设置为第一启动项，也就是如下图所示，把Grub移动到<span style="color: #ff00ff;">Boot Option #1</span>即可
+[![Ubuntu-37](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-37.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-37.png)接着，我们需要做的就是，把刚刚添加进去的那个东西设置为第一启动项，也就是如下图所示，把Grub移动到<span style="color: #ff00ff;">Boot Option #1</span>即可
 
-![Ubuntu-38](http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-38.png)
+![Ubuntu-38](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-38.png)
 
 接下来我们保存对BIOS的修改，然后重新启动系统，卧槽，看见什么了------&gt;
 
 Grub引导，反正我觉得比Windows Boot Manager好看。我们选择第一项，Ubuntu，看看可不可以进入系统
 
-![Ubuntu-30](http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-30.png)
+![Ubuntu-30](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-30.png)
 
 果然进去了，好吧。让我们再重新启动，又回到上一张图片，如果你要切换回Windows的话，可以选择第三项，Windows Boot Manager，然后，你会得到最后一张图所示内容，
 
-![Ubuntu-31](http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-31.png)
+![Ubuntu-31](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-31.png)
 
 这个就够熟悉了吧，我就不多说了。
 
-![Ubuntu-11](http://115.159.197.66/wp-content/uploads/2016/01/Ubuntu-11.png)
+![Ubuntu-11](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-11.png)
 
 双系统，在我看来，我现在还没有解决掉的**缺点**：在Ubuntu下，它把我Windows的所有分区，包括EFI分区，恢复分区都挂载上去了，目前我还没找到如何解决的方法。网上提到说，修改etc/fstab，我看别人的fstab里面的内容都有一大堆，我的fstab里面就3行，3行恰好包含完我给Ubuntu分的分区。。。。。
 

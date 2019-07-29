@@ -44,7 +44,7 @@ cd shadowsocks</pre>
 </pre>
 生成pac文件后，我们打开系统设置-&gt;网络-&gt;代理，如图：
 
-[![pac_set](http://115.159.197.66/wp-content/uploads/2016/01/pac_set.png)](http://115.159.197.66/wp-content/uploads/2016/01/pac_set.png)
+[![pac_set](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/pac_set.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/pac_set.png)
 
 设置代理为自动，然后配置URL填入我们刚刚生成的那个pac文件的路径即可。
 

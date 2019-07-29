@@ -25,7 +25,7 @@ Python真是一个牛逼的脚本语言。
 
 如下图所示：
 
-[![](http://115.159.197.66/wp-content/uploads/2016/09/QQ图片20160906154407-1-1024x576.png)](http://115.159.197.66/wp-content/uploads/2016/09/QQ图片20160906154407-1.png)
+[![](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/09/QQ图片20160906154407-1-1024x576.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/09/QQ图片20160906154407-1.png)
 
 我们首先打开有道翻译，然后随便翻译点什么，然后，观察url的变化，因为之后我们需要通过这个url来构造我们的翻译查询url：
 <pre class="lang:python decode:true">query_url="http://fanyi.youdao.com/translate?ue=utf-8&amp;keyfrom=baidu&amp;smartresult=dict&amp;type=EN2ZH_CN&amp;i=" + word    #word是要翻译的单词</pre>
@@ -90,4 +90,4 @@ while(word != "EEXXIITT"):
     getTranslate(word,query_url)</pre>
 运行结果：
 
-[![img20160918211121](http://115.159.197.66/wp-content/uploads/2016/09/IMG20160918211121-1024x458.jpg)](http://115.159.197.66/wp-content/uploads/2016/09/IMG20160918211121.jpg)
+[![img20160918211121](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/09/IMG20160918211121-1024x458.jpg)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/09/IMG20160918211121.jpg)

@@ -20,7 +20,7 @@ date: 2016-11-27 16:15:02
 
 还是之前那个[tieba-zhuaqu](https://github.com/ankanch/tieba-zhuaqu)项目，在使用matplotlib绘制饼状图（pie）的时候，发现不能显示中文。
 
-[![1480233742985screencapture](http://akakanch.com/wp-content/uploads/2016/11/1480233742985screencapture.png)](http://akakanch.com/wp-content/uploads/2016/11/1480233742985screencapture.png)
+[![1480233742985screencapture](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/11/1480233742985screencapture.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/11/1480233742985screencapture.png)
 
 （[图片源地址：https://my.oschina.net/Kanonpy/blog/617535?p=1](https://my.oschina.net/Kanonpy/blog/617535?p=1)）
 
@@ -45,7 +45,7 @@ PATH_SUFFIX+="\\userX\\"   #插件根目录</pre>
 
 这样，我们便可以正常显示中文字体了。
 
-[![用户维度数据分析-互动密切用户（异常）](http://akakanch.com/wp-content/uploads/2016/11/用户维度数据分析-互动密切用户（异常）.png)](http://akakanch.com/wp-content/uploads/2016/11/用户维度数据分析-互动密切用户（异常）.png)
+[![用户维度数据分析-互动密切用户（异常）](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/11/用户维度数据分析-互动密切用户（异常）.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/11/用户维度数据分析-互动密切用户（异常）.png)
 
 关于在哪里寻找字体：
 

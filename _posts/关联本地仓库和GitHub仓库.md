@@ -26,7 +26,7 @@ $ ssh-keygen -t rsa -C "kanchisme@gmail.com"</pre>
 
 然后我们复制整个文件的内容，粘贴到GitHub的SSH Key页面，如图：
 
-[![qq%e6%88%aa%e5%9b%be20160920185818](http://115.159.197.66/wp-content/uploads/2016/09/QQ截图20160920185818-1024x553.png)](http://115.159.197.66/wp-content/uploads/2016/09/QQ截图20160920185818.png)
+[![qq%e6%88%aa%e5%9b%be20160920185818](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/09/QQ截图20160920185818-1024x553.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/09/QQ截图20160920185818.png)
 
 保存后，如果我们要从远程仓库克隆一份到本地可以通过git clone：
 <pre class="lang:sh decode:true ">git clone git@github.com:ankanch/xx.git</pre>

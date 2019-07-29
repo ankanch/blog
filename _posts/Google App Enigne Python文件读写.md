@@ -52,7 +52,7 @@ python3 3to2.py -w [file]
 
 **GoogleAppEngineCloudStorageClient**
 
-接下来就简单了，直接pip安装，不过还要[结合之前那篇文章的方法](http://akakanch.com/archives/634)，将那货安装到应用的lib目录，否则，部署到GAE后会提示找不到module！
+接下来就简单了，直接pip安装，不过还要[结合之前那篇文章的方法](https://raw.githubusercontent.com/ankanch/blog/master/images/archives/634)，将那货安装到应用的lib目录，否则，部署到GAE后会提示找不到module！
 <pre class="lang:sh decode:true ">#
 #假设该命令运行目录为你应用的根目录（即可见lib文件夹的目录）
 

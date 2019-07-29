@@ -19,7 +19,7 @@ date: 2016-10-09 19:56:03
 
 然后，就发现有些站点居然广告掺不忍睹。。。。
 
-[![screenshot_20161009-202650](http://115.159.197.66/wp-content/uploads/2016/10/Screenshot_20161009-202650-169x300.png)](http://115.159.197.66/wp-content/uploads/2016/10/Screenshot_20161009-202650.png)[![screenshot_20161009-202659](http://115.159.197.66/wp-content/uploads/2016/10/Screenshot_20161009-202659-169x300.png)](http://115.159.197.66/wp-content/uploads/2016/10/Screenshot_20161009-202659.png)
+[![screenshot_20161009-202650](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202650-169x300.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202650.png)[![screenshot_20161009-202659](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202659-169x300.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202659.png)
 
 &nbsp;
 
@@ -45,7 +45,7 @@ date: 2016-10-09 19:56:03
 
 Chrome浏览器中F12打开开发者工具，然后右键菜单，copy，copy seletor就可以获得一个唯一的seletor
 
-[![222](http://115.159.197.66/wp-content/uploads/2016/10/222-1024x576.png)](http://115.159.197.66/wp-content/uploads/2016/10/222.png)
+[![222](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/222-1024x576.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/222.png)
 
 获取到seletor后，我们对WebView重写onPageFinished函数，加入以下代码：
 
@@ -66,7 +66,7 @@ Chrome浏览器中F12打开开发者工具，然后右键菜单，copy，copy se
 <pre class="lang:java decode:true ">view.loadUrl("javascript:var con = document.getElementById('gamesliderwrap'); con.parentNode.removeChild(con); ");</pre>
 最后，删除广告后我们的页面，就清爽多了。如下图：
 
-[![screenshot_20161009-202817](http://115.159.197.66/wp-content/uploads/2016/10/Screenshot_20161009-202817-169x300.png)](http://115.159.197.66/wp-content/uploads/2016/10/Screenshot_20161009-202817.png) [![screenshot_20161009-202822](http://115.159.197.66/wp-content/uploads/2016/10/Screenshot_20161009-202822-169x300.png)](http://115.159.197.66/wp-content/uploads/2016/10/Screenshot_20161009-202822.png)
+[![screenshot_20161009-202817](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202817-169x300.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202817.png) [![screenshot_20161009-202822](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202822-169x300.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202822.png)
 
 &nbsp;
 
@@ -88,7 +88,7 @@ Chrome浏览器中F12打开开发者工具，然后右键菜单，copy，copy se
 
 这样，用户还是会先看到广告，所以，我建议在页面加载完成前，显示另外一个fregment提示正在加载，或者直接隐藏WebView，等到页面加载完成后再显示。如下图：
 
-[![screenshot_20161009-210540](http://115.159.197.66/wp-content/uploads/2016/10/Screenshot_20161009-210540-169x300.png)](http://115.159.197.66/wp-content/uploads/2016/10/Screenshot_20161009-210540.png)
+[![screenshot_20161009-210540](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-210540-169x300.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-210540.png)
 
 也可以在onPageStart中写While循环，来循环执行Java Script注入代码。这样HTML元素一显示，就会被处理掉。
 

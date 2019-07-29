@@ -16,7 +16,7 @@ date: 2016-10-22 23:32:07
 
 当用户在输入的时候，根据用户输入内容，自动补全可能内容。效果如下图：
 
-[![111](http://akakanch.com/wp-content/uploads/2016/10/111.png)](http://akakanch.com/wp-content/uploads/2016/10/111.png)
+[![111](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/111.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/111.png)
 
 主要通过JavaScript来获取服务器更新，然后通过JavaScript向input对应的一个&lt;datalist&gt;&lt;/datalist&gt;添加&lt;options&gt;&lt;/options&gt;元素实现。（需要input响应oninput），input以及对应的datalist代码如下：
 <pre class="lang:xhtml decode:true ">&lt;input class="form-control" id="focusedInput_name" type="text" onkeydown="javascript:keydown();" oninput="javascript:showautofill()" list="word"&gt;

@@ -18,7 +18,7 @@ date: 2016-04-30 09:23:41
 
 （GIF不动戳大:)）
 
-[![ezgif-1760387173](http://115.159.197.66/wp-content/uploads/2016/04/ezgif-1760387173-300x239.gif)](http://115.159.197.66/wp-content/uploads/2016/04/ezgif-1760387173.gif)
+[![ezgif-1760387173](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/04/ezgif-1760387173-300x239.gif)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/04/ezgif-1760387173.gif)
 
 我们主要响应MFC对话框的以下3个消息：
 

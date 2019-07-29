@@ -11,7 +11,7 @@ categories:
 date: 2016-10-29 14:45:07
 ---
 
-实现效果如图[![QQ截图20161029143852](http://akakanch.com/wp-content/uploads/2016/10/QQ截图20161029143852.png)](http://akakanch.com/wp-content/uploads/2016/10/QQ截图20161029143852.png)
+实现效果如图[![QQ截图20161029143852](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/QQ截图20161029143852.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/QQ截图20161029143852.png)
 
 当网页滚动到底部的时候，自动加载更多评论。
 

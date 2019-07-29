@@ -20,7 +20,7 @@ date: 2016-01-21 11:36:51
 
 具体地说，运行后的界面会是下图这个样子：
 
-![CB_TERMINAL_PROBLEM (4)](http://115.159.197.66/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-4.png)
+![CB_TERMINAL_PROBLEM (4)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-4.png)
 
 简单地说就是对中文支持不完整，看起来怪怪的
 
@@ -32,7 +32,7 @@ date: 2016-01-21 11:36:51
 
 如下图示：
 
-![CB_TERMINAL_PROBLEM (3)](http://115.159.197.66/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-3.png)
+![CB_TERMINAL_PROBLEM (3)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-3.png)
 
 把默认的<span style="color: #000000;">xterm -T $TITLE -e</span>修改掉
 
@@ -40,17 +40,17 @@ date: 2016-01-21 11:36:51
 
 如下图所示：
 
-[![CB_TERMINAL_PROBLEM (1)](http://115.159.197.66/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-1.png)](http://115.159.197.66/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-1.png)
+[![CB_TERMINAL_PROBLEM (1)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-1.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-1.png)
 
 然后我们再次编译程序并运行
 
 现在可以正常显示了
 
-[![CB_TERMINAL_PROBLEM (2)](http://115.159.197.66/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-2.png)](http://115.159.197.66/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-2.png)
+[![CB_TERMINAL_PROBLEM (2)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-2.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-2.png)
 
 另外，这个貌似只适用于Ubuntu12.04以上的版本
 
 我的是Ubuntu15.10
 
 [
-](http://115.159.197.66/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-3.png)
+](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-3.png)

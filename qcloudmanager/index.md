@@ -5,7 +5,7 @@ comment: false
 date: 2016-10-09 10:32:46
 ---
 
-## [![](http://akakanch.com/wp-content/uploads/2016/10/commuity_icon_b_512x512-300x300.png)](http://akakanch.com/wp-content/uploads/2016/10/commuity_icon_b_512x512.png)
+## [![](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/commuity_icon_b_512x512-300x300.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/commuity_icon_b_512x512.png)
 
 【本应用非腾讯官方应用，与腾讯无任何关系】
 本应用可以在手机上实现对腾讯云资源的管理。目前支持：
@@ -21,7 +21,7 @@ date: 2016-10-09 10:32:46
 * * *
 
 #### [
-![D90D94331E54D2005CC8CEE352FF98ECF639](http://115.159.197.66/wp-content/uploads/2016/06/D90D94331E54D2005CC8CEE352FF98ECF639-300x89.png)](https://play.google.com/store/apps/details?id=com.akakanch.qcloudmanager2)
+![D90D94331E54D2005CC8CEE352FF98ECF639](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/06/D90D94331E54D2005CC8CEE352FF98ECF639-300x89.png)](https://play.google.com/store/apps/details?id=com.akakanch.qcloudmanager2)
 
 &nbsp;
 
@@ -35,4 +35,4 @@ date: 2016-10-09 10:32:46
 
 欢迎支持：
 
-[![捐赠](http://akakanch.com/wp-content/uploads/2016/10/捐赠-300x300.png)](http://akakanch.com/wp-content/uploads/2016/10/捐赠.png)
+[![捐赠](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/捐赠-300x300.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/捐赠.png)
