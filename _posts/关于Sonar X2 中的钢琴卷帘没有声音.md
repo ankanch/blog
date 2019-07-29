@@ -1,0 +1,57 @@
+---
+title: 关于Sonar X2 中的钢琴卷帘没有声音
+tags:
+  - MIDI
+  - Sonar X2
+  - TTS
+  - 软音源
+  - 钢琴卷帘
+id: 324
+categories:
+  - C++ / Visual C++
+date: 2016-01-06 14:53:06
+---
+
+没事下了Sonar X2玩玩，卧槽，17GB啊，好大。。。。
+
+在使用中遇到了一点小问题，刚开始的时候发现**整个软件都没有声音**，而且又不是声卡的问题，后面在网上一番搜索后发现是由于驱动问题。安装了ASIO4ALL并将驱动模式设置为ASIO或者是MME后即可解决。如图。
+
+![sonar_1](http://139.129.6.122/wp-content/uploads/2016/01/sonar_1.png)
+
+但是，后来又遇到了一个问题：我打开钢琴卷帘后，发现**钢琴卷帘没有声音**。这个问题困扰了我好久，在网上查了很多资料，什么MIDI反馈没打开，什么要设置软音源等等。
+
+不幸的是，这些我试过后全部都不行。后面自己一直琢磨。
+
+当然，对照之前网上给出的答案来琢磨，找到了解决方案。
+
+首先呢，我们打开Sonar X2的设置界面，找到MIDI中的设备一项，把输出设备里面你的设备勾上，我这里以前是没有打钩的。
+
+&nbsp;
+
+[![sonar_2](http://139.129.6.122/wp-content/uploads/2016/01/sonar_2.png)](http://139.129.6.122/wp-content/uploads/2016/01/sonar_2.png)
+
+&nbsp;
+
+接下来，到Sonar X2的右边侧栏的Synth这里来，点加号，在弹出菜单中选中软音源，这里我们选择Cakewalk TTS-1。
+
+[![sonar_3](http://139.129.6.122/wp-content/uploads/2016/01/sonar_3.png)](http://139.129.6.122/wp-content/uploads/2016/01/sonar_3.png)
+
+&nbsp;
+
+在插入那个软音源后，我们可以看到会多出条音轨，我们选中它，然后到左边侧栏的ProCh这里来，选择下图我圈出这里，在弹出菜单里面选择 第一项，也就是TTS-1那个。
+
+[![sonar_4](http://139.129.6.122/wp-content/uploads/2016/01/sonar_4.png)](http://139.129.6.122/wp-content/uploads/2016/01/sonar_4.png)
+
+然后回到刚刚多出来的那条音轨这里来，在Input（即下图圈出那个选择框）这里选择刚刚添加的软音源Cakewalk TTS -1 1，然后弹出菜单中选择全通道。
+
+[![sonar_5](http://139.129.6.122/wp-content/uploads/2016/01/sonar_5.png)](http://139.129.6.122/wp-content/uploads/2016/01/sonar_5.png)
+
+最后，我们再把Output这一栏设置为我们之前在MIDI设备设置里面勾上的设备就行。
+
+[![sonar_6](http://139.129.6.122/wp-content/uploads/2016/01/sonar_6.png)](http://139.129.6.122/wp-content/uploads/2016/01/sonar_6.png)
+
+现在，再打开钢琴卷帘，是不是有声音啦哈哈。
+
+&nbsp;
+
+&nbsp;

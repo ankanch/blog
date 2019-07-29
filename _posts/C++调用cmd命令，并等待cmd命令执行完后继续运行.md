@@ -1,0 +1,41 @@
+---
+title: C++调用cmd命令，并等待cmd命令执行完后继续运行
+tags:
+  - C++
+  - cmd命令
+  - 多线程
+  - 等待cmd命令结束
+id: 72
+categories:
+  - C++ / Visual C++
+date: 2015-06-21 15:44:29
+---
+
+在利用C++执行cmd命令的时候，有些时候会因为命令类型不同，所需要的时间也不同（如用dir命令枚举C盘下的所有文件就非常耗时）。
+
+因此，我们通常希望让程序在执行完cmd命令后再继续运行。下面有一个小技巧可以帮助我们完成。
+
+**基本思路：**
+
+<span style="color: #ff00ff;">**首先建立要执行的cmd命令**</span>
+
+<span style="color: #ff00ff;">**然后新建线程去执行该cmd命令**</span>
+
+<span style="color: #ff00ff;">**等待cmd执行结束（线程挂起）**</span>
+
+下面是源代码：
+<pre class="lang:c++ decode:true ">CString cmd;
+STARTUPINFO si={sizeof(si)};
+PROCESS_INFORMATION pi;
+//要执行的完整CMD命令，一般是一个字符串
+cmd = "dir"; //枚举文件
+
+//创建线程，执行cmd命令,并等待其结束
+BOOL fRet1=CreateProcess(NULL,cmd.GetBuffer(),NULL,NULL,FALSE,NORMAL_PRIORITY_CLASS,NULL,NULL,&amp;si,&amp;pi);
+if(fRect== TRUE)
+{
+WaitForSingleObject(pi.hThread,INFINITE);
+CloseHandle(pi.hThread);
+CloseHandle(pi.hProcess);
+}</pre>
+&nbsp;
