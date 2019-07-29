@@ -46,15 +46,15 @@ _所有代码均为C#，.NetFramework4.0_
 
 &lt;这个是在我的网站上得到的结果&gt;
 
-[![asp_get_ip_1](http://139.129.6.122/wp-content/uploads/2015/11/asp_get_ip_1.jpg)](http://139.129.6.122/wp-content/uploads/2015/11/asp_get_ip_1.jpg)
+[![asp_get_ip_1](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/11/asp_get_ip_1.jpg)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/11/asp_get_ip_1.jpg)
 
 &lt;这个是在腾讯IP分享计划网站上得到的结果&gt;
 
-[![asp_get_ip_3](http://139.129.6.122/wp-content/uploads/2015/11/asp_get_ip_3.jpg)](http://139.129.6.122/wp-content/uploads/2015/11/asp_get_ip_1.jpg)
+[![asp_get_ip_3](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/11/asp_get_ip_3.jpg)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/11/asp_get_ip_1.jpg)
 
 &lt;这个是在GetMyIP网站上得到的结果&gt;
 
-[![asp_get_ip_2](http://139.129.6.122/wp-content/uploads/2015/11/asp_get_ip_2.jpg)](http://139.129.6.122/wp-content/uploads/2015/11/asp_get_ip_2.jpg)
+[![asp_get_ip_2](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/11/asp_get_ip_2.jpg)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/11/asp_get_ip_2.jpg)
 
 下面来讲讲这个版本：
 
@@ -110,7 +110,7 @@ _<span style="color: #003300;">因为当使用者通过代理服务器时，REMO
 
 但是我们的确获得了真实IP：
 
-[![asp_get_ip_4](http://139.129.6.122/wp-content/uploads/2015/11/asp_get_ip_41.jpg)](http://139.129.6.122/wp-content/uploads/2015/11/asp_get_ip_41.jpg)
+[![asp_get_ip_4](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/11/asp_get_ip_41.jpg)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/11/asp_get_ip_41.jpg)
 
 P.S.写这篇文章的时候我正在成都读书-_-
 

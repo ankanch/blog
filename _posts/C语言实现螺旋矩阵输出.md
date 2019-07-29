@@ -15,7 +15,7 @@ date: 2015-11-16 22:57:20
 
 一个5*5的螺旋矩阵：
 
-[![sm_print_1](http://139.129.6.122/wp-content/uploads/2015/11/sm_print_1.png)](http://139.129.6.122/wp-content/uploads/2015/11/sm_print_1.png)
+[![sm_print_1](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/11/sm_print_1.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/11/sm_print_1.png)
 
 <span style="color: #ff6600;">这里的讨论的矩阵比较特殊，因为是n*n的而不是n*j的</span>。初看这个题觉得挺简单的，但实际上做的时候还是费了些时间。
 
@@ -35,7 +35,7 @@ date: 2015-11-16 22:57:20
 
 （左侧为n=4，右侧为n=5）
 
-[![sm_print_2](http://139.129.6.122/wp-content/uploads/2015/11/sm_print_2.png)](http://139.129.6.122/wp-content/uploads/2015/11/sm_print_2.png)[![sm_print_1](http://139.129.6.122/wp-content/uploads/2015/11/sm_print_1.png)](http://139.129.6.122/wp-content/uploads/2015/11/sm_print_1.png)
+[![sm_print_2](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/11/sm_print_2.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/11/sm_print_2.png)[![sm_print_1](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/11/sm_print_1.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/11/sm_print_1.png)
 
 &nbsp;
 

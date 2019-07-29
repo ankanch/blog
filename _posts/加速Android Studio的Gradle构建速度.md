@@ -25,7 +25,7 @@ date: 2015-09-06 20:43:24
 org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
 org.gradle.parallel=true
 org.gradle.configureondemand=true</pre>
-![speedup_gradle_3](http://139.129.6.122/wp-content/uploads/2015/09/speedup_gradle_3.png)
+![speedup_gradle_3](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/09/speedup_gradle_3.png)
 
 注意，因为这样配置是对于此计算机的Android Studio用户，所以对于所有项目都有效。
 
@@ -35,7 +35,7 @@ org.gradle.configureondemand=true</pre>
 
 把 Offline Work打上勾。
 
-[![speedup_gradle_1](http://139.129.6.122/wp-content/uploads/2015/09/speedup_gradle_1.png)](http://139.129.6.122/wp-content/uploads/2015/09/speedup_gradle_1.png)
+[![speedup_gradle_1](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/09/speedup_gradle_1.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/09/speedup_gradle_1.png)
 
 &nbsp;
 
@@ -49,7 +49,7 @@ org.gradle.configureondemand=true</pre>
 
 把下图黄色箭头指出的选项弄成一样
 
-[![speedup_gradle_2](http://139.129.6.122/wp-content/uploads/2015/09/speedup_gradle_2.png)](http://139.129.6.122/wp-content/uploads/2015/09/speedup_gradle_2.png)
+[![speedup_gradle_2](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/09/speedup_gradle_2.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/09/speedup_gradle_2.png)
 
 最后，保存，并重新打开Android Studio.
 

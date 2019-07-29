@@ -132,7 +132,7 @@ shadowsocks支持windows、Mac OS X、Linux、Android、iOS等多个平台。
 
 项，就是默认的1080）、密码、加密方式等参数，启动就可以了。
 
-<span style="line-height: 1.5;">[![SSsetsd](http://139.129.6.122/wp-content/uploads/2015/10/SSsetsd.png)](http://139.129.6.122/wp-content/uploads/2015/10/SSsetsd.png)</span>
+<span style="line-height: 1.5;">[![SSsetsd](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/10/SSsetsd.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/10/SSsetsd.png)</span>
 
 <span style="line-height: 1.5;">客户端支持全局代理和PAC代理两种方式，后者会使用一个脚本来自动检查一个网站是否在需要代理的网</span>
 

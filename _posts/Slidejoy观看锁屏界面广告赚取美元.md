@@ -25,11 +25,11 @@ Slidejoy的机器学习算法，精心筛选异常的使用模式
 
 下面是该软件运行时候的截图：
 
-![sj_4](http://139.129.6.122/wp-content/uploads/2015/08/sj_4-169x300.png)
+![sj_4](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/sj_4-169x300.png)
 
 这是锁屏界面的广告。(其实不只是广告，还会有YouTube视频推荐，BuzzFeed文章推荐等)
 
-[![sj_6](http://139.129.6.122/wp-content/uploads/2015/08/sj_6-169x300.png)](http://139.129.6.122/wp-content/uploads/2015/08/sj_6.png)  [![sj_7](http://139.129.6.122/wp-content/uploads/2015/08/sj_7-169x300.png)](http://139.129.6.122/wp-content/uploads/2015/08/sj_7.png)
+[![sj_6](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/sj_6-169x300.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/sj_6.png)  [![sj_7](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/sj_7-169x300.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/sj_7.png)
 
 **向左滑动会打开广告的页面，向右滑动会直接进入主屏。**
 
@@ -45,21 +45,21 @@ Slidejoy的机器学习算法，精心筛选异常的使用模式
 
 回报支付页面，上面的余额是可支付回报。
 
-![sj_5](http://139.129.6.122/wp-content/uploads/2015/08/sj_5-169x300.png)
+![sj_5](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/sj_5-169x300.png)
 
 我这个月弄的，要下个月才可以转出。
 
 支持Paypal，Google Play 等，亚马逊礼品卡，但最近更新过后，中国用户就只有paypal了。
 
-![sj_3](http://139.129.6.122/wp-content/uploads/2015/08/sj_3-169x300.png)
+![sj_3](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/sj_3-169x300.png)
 
 这是我最近获得的$(一般1--2天到账)
 
-[![sj_1](http://139.129.6.122/wp-content/uploads/2015/08/sj_1.jpg)](http://139.129.6.122/wp-content/uploads/2015/08/sj_1.jpg)
+[![sj_1](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/sj_1.jpg)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/sj_1.jpg)
 
 .........
 
-[![sj_2](http://139.129.6.122/wp-content/uploads/2015/08/sj_2.jpg)](http://139.129.6.122/wp-content/uploads/2015/08/sj_2.jpg)
+[![sj_2](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/sj_2.jpg)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/sj_2.jpg)
 
 * * *
 

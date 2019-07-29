@@ -40,7 +40,7 @@ date: 2015-06-17 21:09:02
 
 下面是对G:/sc文件夹进行枚举的结果：
 
-[![0150617210104](http://139.129.6.122/wp-content/uploads/2015/06/0150617210104.jpg)](http://139.129.6.122/wp-content/uploads/2015/06/0150617210104.jpg)
+[![0150617210104](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/06/0150617210104.jpg)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/06/0150617210104.jpg)
 
 最后，如果你要进行编程处理这些文件，你需要获得命令行输出，我们通过流重定向，来控制控制台输出枚举结果至文件如下：
 

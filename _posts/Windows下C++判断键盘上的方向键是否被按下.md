@@ -26,7 +26,7 @@ date: 2015-10-19 23:56:56
 
 然后我想到了输出下<span style="color: #ff00ff;">getchar()</span>得到的值，结果令我大吃一惊，输出值如下：
 
-[![C++_dectect_dir](http://139.129.6.122/wp-content/uploads/2015/10/C-_dectect_dir.png)](http://139.129.6.122/wp-content/uploads/2015/10/C-_dectect_dir.png)
+[![C++_dectect_dir](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/10/C-_dectect_dir.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/10/C-_dectect_dir.png)
 
 &nbsp;
 

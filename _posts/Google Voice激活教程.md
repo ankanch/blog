@@ -21,7 +21,7 @@ date: 2015-06-14 19:08:49
 
 在那个编辑框填写你的邮箱,你将会收到邮件,点击邮件里的地址进行注册.
 
-![getonsip](http://139.129.6.122/wp-content/uploads/2015/06/getonsip.jpg)
+![getonsip](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/06/getonsip.jpg)
 
 注册完毕后,登录,你将会看到这个界面.
 
@@ -31,11 +31,11 @@ date: 2015-06-14 19:08:49
 
 详情请点击它,里面有教程.推荐使用 **Jitsi**
 
-![getonsip1](http://139.129.6.122/wp-content/uploads/2015/06/getonsip1.jpg)
+![getonsip1](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/06/getonsip1.jpg)
 
 这些信息非常重要.待会会用到.
 
-![getonsip4](http://139.129.6.122/wp-content/uploads/2015/06/getonsip4.jpg)
+![getonsip4](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/06/getonsip4.jpg)
 
 再到这个网站来:[http://phone.ipkall.com/](http://phone.ipkall.com/)
 
@@ -47,27 +47,27 @@ date: 2015-06-14 19:08:49
 
 填写好后点击Submit.
 
-[![ipkall6](http://139.129.6.122/wp-content/uploads/2015/06/ipkall6-1024x578.jpg)](http://139.129.6.122/wp-content/uploads/2015/06/ipkall6.jpg)
+[![ipkall6](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/06/ipkall6-1024x578.jpg)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/06/ipkall6.jpg)
 
 稍后你会收到邮件.内容如下,,,,,里面有你的电话号码.记住它,
 
 下面开始申请Google Voice.
 
-![ipkall7](http://139.129.6.122/wp-content/uploads/2015/06/ipkall7-1024x570.jpg)
+![ipkall7](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/06/ipkall7-1024x570.jpg)
 
 进入[Google Voice的官网](https://accounts.google.com/ServiceLogin?service=grandcentral&amp;passive=1209600&amp;continue=https%3A%2F%2Fwww.google.com%2Fvoice&amp;followup=https%3A%2F%2Fwww.google.com%2Fvoice&amp;ltmpl=open),登录你的Google账号.
 
 继续.
 
-![GoogleVoiceRegister](http://139.129.6.122/wp-content/uploads/2015/06/GoogleVoiceRegister-1024x555.jpg)
+![GoogleVoiceRegister](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/06/GoogleVoiceRegister-1024x555.jpg)
 
 选择我要一个新的号码.
 
-![GoogleVoiceRegister1](http://139.129.6.122/wp-content/uploads/2015/06/GoogleVoiceRegister1.jpg)
+![GoogleVoiceRegister1](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/06/GoogleVoiceRegister1.jpg)
 
 电话号码哪里写上你刚刚在邮箱里得到的 ipKall电话号码.
 
-[![GoogleVoiceRegister2](http://139.129.6.122/wp-content/uploads/2015/06/GoogleVoiceRegister2.jpg)](http://139.129.6.122/wp-content/uploads/2015/06/GoogleVoiceRegister2.jpg)
+[![GoogleVoiceRegister2](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/06/GoogleVoiceRegister2.jpg)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/06/GoogleVoiceRegister2.jpg)
 
 &nbsp;
 

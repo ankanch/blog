@@ -106,7 +106,7 @@ date: 2015-10-18 23:29:56
 
 关于读取出来的二进制顺序，是这样的：
 
-[![C++_binary_read](http://139.129.6.122/wp-content/uploads/2015/10/C-_binary_read.png)](http://139.129.6.122/wp-content/uploads/2015/10/C-_binary_read.png)
+[![C++_binary_read](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/10/C-_binary_read.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/10/C-_binary_read.png)
 
 * * *
 
@@ -120,9 +120,9 @@ date: 2015-10-18 23:29:56
 
 <span style="color: #808080;">_我用了fread()函数后，效率提高了好多，<wbr />内存占用量也少了好多。我用fread()<wbr />每次将数据从文件中读入一个12000字节的char缓冲区。输出的时间以毫秒为单位，以5.<wbr />47MB的jpg文件作为测试文件：之前的方法用了59s，内存峰值70+MB；改用fread()后用时16s，内存峰值8MB。_</span>
 
-[![C++_binary_2](http://139.129.6.122/wp-content/uploads/2015/10/C-_binary_2.png)](http://139.129.6.122/wp-content/uploads/2015/10/C-_binary_2.png)
+[![C++_binary_2](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/10/C-_binary_2.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/10/C-_binary_2.png)
 
-[![C++_binary_1](http://139.129.6.122/wp-content/uploads/2015/10/C-_binary_1.png)](http://139.129.6.122/wp-content/uploads/2015/10/C-_binary_1.png)
+[![C++_binary_1](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/10/C-_binary_1.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/10/C-_binary_1.png)
 
 &nbsp;
 

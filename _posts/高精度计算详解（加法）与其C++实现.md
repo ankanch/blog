@@ -28,7 +28,7 @@ date: 2015-12-09 01:07:45
 
 先来从一张图看看高精度计算中的加法：
 
-[![highdef_com](http://139.129.6.122/wp-content/uploads/2015/12/highdef_com.png)](http://139.129.6.122/wp-content/uploads/2015/12/highdef_com.png)
+[![highdef_com](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/12/highdef_com.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/12/highdef_com.png)
 
 所以，要实现高精度计算，我指的是加法，我们只需要实现以下2点：
 
@@ -36,7 +36,7 @@ date: 2015-12-09 01:07:45
 2.  对数字的每一位相加，手工进位
 再来讲讲如何单独储存数字的每一位。有2种方法，第一种当然是按照正常的顺序，
 
-[![highdef_com_1](http://139.129.6.122/wp-content/uploads/2015/12/highdef_com_11.jpg)](http://139.129.6.122/wp-content/uploads/2015/12/highdef_com_11.jpg)
+[![highdef_com_1](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/12/highdef_com_11.jpg)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/12/highdef_com_11.jpg)
 
 &nbsp;
 

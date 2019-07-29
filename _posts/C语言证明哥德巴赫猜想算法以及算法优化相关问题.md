@@ -215,7 +215,7 @@ int main()
 
 &lt;2015-11-5日更新，这里再补上一张算法解释图&gt;
 
-[![gdbh](http://139.129.6.122/wp-content/uploads/2015/11/gdbh.png)](http://139.129.6.122/wp-content/uploads/2015/11/gdbh.png)
+[![gdbh](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/11/gdbh.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/11/gdbh.png)
 
 &nbsp;
 

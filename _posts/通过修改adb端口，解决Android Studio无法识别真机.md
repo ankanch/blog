@@ -31,10 +31,10 @@ date: 2015-08-25 21:34:25
 
 再次启动Android Studio调试程序，adb就可以识别真机了。
 
-[![adb_set_port](http://139.129.6.122/wp-content/uploads/2015/08/adb_set_port.png)](http://139.129.6.122/wp-content/uploads/2015/08/adb_set_port.png)
+[![adb_set_port](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/adb_set_port.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/adb_set_port.png)
 
 如下图，现在可以识别真机了。
 
-<span style="line-height: 1.5;">[![adb_set_port_nexus5](http://139.129.6.122/wp-content/uploads/2015/08/adb_set_port_nexus5.png)](http://139.129.6.122/wp-content/uploads/2015/08/adb_set_port_nexus5.png)</span>
+<span style="line-height: 1.5;">[![adb_set_port_nexus5](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/adb_set_port_nexus5.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/adb_set_port_nexus5.png)</span>
 
 <span style="line-height: 1.5;">注意：输入</span><span style="color: #993366;">**adb nodaemon server**</span><span style="line-height: 1.5;">可以查看</span><span style="line-height: 1.5;">哪个端口被占用了，没有端口呗占用，输入后会无反应。</span>

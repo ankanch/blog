@@ -99,7 +99,7 @@ date: 2015-12-29 13:06:53
 
 再看看系统，不对，是某某库的itoa方法：
 
-[![itoa_1](http://139.129.6.122/wp-content/uploads/2015/12/itoa_1.jpg)](http://139.129.6.122/wp-content/uploads/2015/12/itoa_1.jpg)
+[![itoa_1](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/12/itoa_1.jpg)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/12/itoa_1.jpg)
 
 &nbsp;
 
@@ -127,7 +127,7 @@ stdlib.h库里函数的方法用了和方法一原理上相同的方法，只不
 
 我们用这三个算法进行50000次int到str的转换，结果如下：
 
-[![inttostr](http://139.129.6.122/wp-content/uploads/2015/12/inttostr.png)](http://139.129.6.122/wp-content/uploads/2015/12/inttostr.png)
+[![inttostr](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/12/inttostr.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/12/inttostr.png)
 
 什么鬼这是，我的新方法居然慢了这么多，，，，悲剧了。
 

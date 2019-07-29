@@ -16,7 +16,7 @@ date: 2016-01-06 14:53:06
 
 在使用中遇到了一点小问题，刚开始的时候发现**整个软件都没有声音**，而且又不是声卡的问题，后面在网上一番搜索后发现是由于驱动问题。安装了ASIO4ALL并将驱动模式设置为ASIO或者是MME后即可解决。如图。
 
-![sonar_1](http://139.129.6.122/wp-content/uploads/2016/01/sonar_1.png)
+![sonar_1](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/sonar_1.png)
 
 但是，后来又遇到了一个问题：我打开钢琴卷帘后，发现**钢琴卷帘没有声音**。这个问题困扰了我好久，在网上查了很多资料，什么MIDI反馈没打开，什么要设置软音源等等。
 
@@ -28,27 +28,27 @@ date: 2016-01-06 14:53:06
 
 &nbsp;
 
-[![sonar_2](http://139.129.6.122/wp-content/uploads/2016/01/sonar_2.png)](http://139.129.6.122/wp-content/uploads/2016/01/sonar_2.png)
+[![sonar_2](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/sonar_2.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/sonar_2.png)
 
 &nbsp;
 
 接下来，到Sonar X2的右边侧栏的Synth这里来，点加号，在弹出菜单中选中软音源，这里我们选择Cakewalk TTS-1。
 
-[![sonar_3](http://139.129.6.122/wp-content/uploads/2016/01/sonar_3.png)](http://139.129.6.122/wp-content/uploads/2016/01/sonar_3.png)
+[![sonar_3](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/sonar_3.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/sonar_3.png)
 
 &nbsp;
 
 在插入那个软音源后，我们可以看到会多出条音轨，我们选中它，然后到左边侧栏的ProCh这里来，选择下图我圈出这里，在弹出菜单里面选择 第一项，也就是TTS-1那个。
 
-[![sonar_4](http://139.129.6.122/wp-content/uploads/2016/01/sonar_4.png)](http://139.129.6.122/wp-content/uploads/2016/01/sonar_4.png)
+[![sonar_4](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/sonar_4.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/sonar_4.png)
 
 然后回到刚刚多出来的那条音轨这里来，在Input（即下图圈出那个选择框）这里选择刚刚添加的软音源Cakewalk TTS -1 1，然后弹出菜单中选择全通道。
 
-[![sonar_5](http://139.129.6.122/wp-content/uploads/2016/01/sonar_5.png)](http://139.129.6.122/wp-content/uploads/2016/01/sonar_5.png)
+[![sonar_5](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/sonar_5.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/sonar_5.png)
 
 最后，我们再把Output这一栏设置为我们之前在MIDI设备设置里面勾上的设备就行。
 
-[![sonar_6](http://139.129.6.122/wp-content/uploads/2016/01/sonar_6.png)](http://139.129.6.122/wp-content/uploads/2016/01/sonar_6.png)
+[![sonar_6](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/sonar_6.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/sonar_6.png)
 
 现在，再打开钢琴卷帘，是不是有声音啦哈哈。
 
