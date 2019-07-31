@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Kanch.blog
 date: '2018-03-12T17:12:39.000Z'
 ---
@@ -22,8 +21,7 @@ _最近我将我的博客从腾讯云迁移到了Github Pages,正在慢慢打理
 
 `Last Modified: Jul. 31 2019`
 
-### Posts
-
+### [Posts List](/SUMMARY)
 　　　　{% for post in site.posts %}
 
 　　　　　　[{{ post.date | date_to_string }} - {{ post.title }}]({{ site.baseurl }}{{ post.url }})
