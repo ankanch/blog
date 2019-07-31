@@ -25,15 +25,6 @@
 
 <h3 id="posts">Posts</h3>
 
-　　<ul>
-
-　　　　{% for post in site.posts %}
-
-　　　　　　<li>{{ post.date | date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-
-　　　　{% endfor %}
 <iframe src="/SUMMARY">
     <p>Your browser does not support iframes.</p>
   </iframe>
-
-　　</ul>
