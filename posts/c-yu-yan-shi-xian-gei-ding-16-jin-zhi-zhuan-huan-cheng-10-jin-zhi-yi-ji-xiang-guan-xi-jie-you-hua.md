@@ -1,0 +1,72 @@
+---
+title: C语言实现给定16进制转换成10进制以及相关细节优化
+tags:
+  - 10进制
+  - 16进制
+  - 16进制转10进制
+  - C语言
+  - 优化
+  - 算法优化
+  - 进制转换
+id: 237
+categories:
+  - C++ / Visual C++
+  - 算法、
+date: '2015-11-21T19:21:52.000Z'
+---
+
+# C语言实现给定16进制转换成10进制以及相关细节优化
+
+好吧，这个其实是某某书上的一道习题，刚开始看的时候我还以为可以直接输入0xFFF的形式同时赋值给int类型来进行转换，结果，结果发现我想多了。所以，我决定来写篇文章谈谈这个算法。好吧，下面进入正题。
+
+首先说说我们的转换原理，当然是[基于除K取余法](https://www.google.com.hk/search?q=%E9%99%A4K%E5%8F%96%E4%BD%99%E6%B3%95&amp;oq=%E9%99%A4K%E5%8F%96%E4%BD%99%E6%B3%95&amp;gs_l=serp.3..35i39.1950.3477.0.3661.3.3.0.0.0.0.357.357.3-1.1.0....0...1c.1.64.serp..2.1.356.j45CD7vYAcw)的逆运算。
+
+比如，我们现有16进制数据 0xFFF _（16进制：1,2,....A,B...F，其中A=10，F=15）_
+
+按照除K取余法的逆运算，我们有：
+
+**0xFFF** = 15_\(16^2\) + 15_\(16^1\) + 15\*\(16^0\) = 4095
+
+**0x12A** = 1_\(16^2\) + 2_\(16^1\) + 10\*\(16^0\) = 298
+
+程序的具体实现：
+
+我在文章开头提到，我之前想的是~~直接用scanf\(\)输入一个16进制数字，再赋值给int即可~~，后来，我试了直接输入FFF或者是输入0xFFF发现都不行，最后突然想到，原来自己忘记了scanf的%d只接受数字，所以。
+
+我们要自己写函数转换，就需要接受一个字符串型的16进制数据。然后再用循环依次处理字符串中的每一个字符。
+
+在写的过程中了，最早想的是针对每一个字符我用if块或switch-case来实现判断不同的字符和分别对它们进行不同的处理。不过后来又想了想，这种方法难免会让代码很长。
+
+所以，后来查[ASCII表](https://en.wikipedia.org/wiki/ASCII)的，想到，我可以利用加减法来判断是那个字符。方法如下：
+
+我们要分2种情况：字符属于‘0’---‘9’和字符属于‘A’---‘F’或‘a’---‘f’的情况。
+
+然后，查[ASCII表](https://en.wikipedia.org/wiki/ASCII)知：‘A’=65，‘a’=97，‘0’=48
+
+所以，接下来我们要判断当前处理字符是哪个就会变得非常简单，不用if块或switch-case哦。
+
+```
+ if ((hex[i]>='A' && hex[i]<='F') || (hex[i]>='a'&&hex[i]<='f')) { if (hex[i] >= 'A' && hex[i] <= 'F') //A=65, { for (p = 1; p < len; p++) { buf *= 16; } dec += (ch-55)*buf; /// //看懂了吧 } else //a=97, { for (p = 1; p < len; p++) { buf *= 16; } dec += (ch - 87)*buf; //看懂了吧 } }
+dec += (ch-55)*buf;
+```
+
+当然，这里的不用if块指的是判断单个字符上，但是我们仍然需要用if保证当前处理字符在16进制中合法。
+
+下面是完整代码：
+
+\#include&lt;stdio.h&gt;
+
+## include&lt;string.h&gt;
+
+int Hex2Dec\(char _hex\) { int dec = 0, i = 0, len = 0, buf = 0, p = 0; char ch = 0; while \(hex\[len\]\) { len++; } while \(hex\[i\]\) { ch = hex\[i\]; buf = 1; if \(\(hex\[i\]&gt;='A' && hex\[i\]&lt;='F'\) \|\| \(hex\[i\]&gt;='a'&&hex\[i\]&lt;='f'\)\) { if \(hex\[i\] &gt;= 'A' && hex\[i\] &lt;= 'F'\) //A=65, { for \(p = 1; p &lt; len; p++\) { buf_ = 16; } dec += \(ch-55\)_buf; } else if\(hex\[i\] &gt;= 'a'&&hex\[i\] &lt;= 'f'\) //a=97, { for \(p = 1; p &lt; len; p++\) { buf_ = 16; } dec += \(ch - 87\)_buf; } } else if\(hex\[i\] &gt;='0' && hex\[i\]&lt;='9'\) //0=48, { for \(p = 1; p &lt; len; p++\) { buf_ = 16; } dec += \(ch - 48\)\*buf; } else { printf\("nninvaild data input!nn"\); return 0; } i++; len--; }
+
+```text
+return dec;
+```
+
+}
+
+int main\(\) { char hex\[99\] = { 0 }; printf\("please enter a Hex number:"\); gets\(hex\); printf\("its equal to %dnn", Hex2Dec\(hex\)\); return 0; } &lt;/pre&gt; 运行结果：和计算器算出来的一模一样
+
+[![16\_c\_2](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/11/16_c_2.jpg)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/11/16_c_2.jpg)
+
