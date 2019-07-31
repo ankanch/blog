@@ -1,0 +1,36 @@
+　　---
+　　layout: default
+　　title: kanch.blog
+　　---
+
+<h1 id="about-myself">About Kanch.blog</h1>
+
+<ul>
+  <li>Name: Long Zhang</li>
+  <li>Location: Chengdu China</li>
+  <li>Email: kanchisme@gmail.com</li>
+  <li>Github:<a href="https://github.com/ankanch">https://github.com/ankanch</a></li>
+  <li><a href="http://d.akakanch.com/BlogResourceShare/Resume%20of%20Long%20Zhang%20March%202018%20-formal-reversion%201.pdf">Resume Download</a></li>
+</ul>
+
+<p>Computer Science Major 2015 @ Chengdu University of Information Technology : Graduated</p>
+
+<p>Feel free to contact me if you have any ideas.</p>
+
+<h2 id="site-updates">Site Updates:</h2>
+
+<p><em>最近我将我的博客从腾讯云迁移到了Github Pages,正在慢慢打理中。</em></p>
+
+<p><code class="highlighter-rouge">Last Modified: Jul. 31 2019</code></p>
+
+<h3 id="posts">Posts</h3>
+
+　　<ul>
+
+　　　　{% for post in site.posts %}
+
+　　　　　　<li>{{ post.date | date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+
+　　　　{% endfor %}
+
+　　</ul>
