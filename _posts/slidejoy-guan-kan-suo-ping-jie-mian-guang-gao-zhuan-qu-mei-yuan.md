@@ -1,0 +1,65 @@
+---
+title: Slidejoy观看锁屏界面广告赚取美元
+tags:
+  - Slidejoy
+  - 免费赚钱
+id: 111
+categories:
+  - C++ / Visual C++
+date: '2015-08-09T15:59:39.000Z'
+---
+
+# Slidejoy观看锁屏界面广告赚取美元
+
+Slidejoy的应用付钱给用户,让他们观看锁屏上的广告。
+
+这个不得不说太赞了。因为我们几乎人人都要解锁屏幕。
+
+**欺诈检测**
+
+ Slidejoy的机器学习算法，精心筛选异常的使用模式 和惩罚那些解开自己的手机过于频繁的用户
+
+下面是该软件运行时候的截图：
+
+![sj\_4](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/sj_4-169x300.png)
+
+这是锁屏界面的广告。\(其实不只是广告，还会有YouTube视频推荐，BuzzFeed文章推荐等\)
+
+[![sj\_6](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/sj_6-169x300.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/sj_6.png) [![sj\_7](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/sj_7-169x300.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/sj_7.png)
+
+**向左滑动会打开广告的页面，向右滑动会直接进入主屏。**
+
+**这2种方式得到的回报都是一样的。**
+
+软件运行的界面。
+
+在没有可用广告的时候，它会显示一些精美的图片。
+
+这是我的账户，你的回报不是及时得到的。
+
+一般是1个月。也有2个月的。
+
+回报支付页面，上面的余额是可支付回报。
+
+![sj\_5](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/sj_5-169x300.png)
+
+我这个月弄的，要下个月才可以转出。
+
+支持Paypal，Google Play 等，亚马逊礼品卡，但最近更新过后，中国用户就只有paypal了。
+
+![sj\_3](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/sj_3-169x300.png)
+
+这是我最近获得的$\(一般1--2天到账\)
+
+[![sj\_1](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/sj_1.jpg)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/sj_1.jpg)
+
+.........
+
+[![sj\_2](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/sj_2.jpg)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/sj_2.jpg)
+
+点击这里进行------&gt;[帐号注册](http://www.getslidejoy.com/r/kanchisme.31562)
+
+下载地址：
+
+[Google Play](https://play.google.com/store/apps/details?id=com.slidejoy)
+
