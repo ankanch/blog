@@ -7,7 +7,7 @@ for f in os.listdir(fpath):
             line = f.readline()
             btitle = True
             bdate = True
-            while line or btitle or bdate:
+            while len(line)>0 or btitle or bdate:
                 if line.find("title:") > -1 and btitle:
                     title = line.replace("title: ","").replace("\n","").replace("'","").replace(":","").replace(",","").replace("。","").replace("\"","").replace("*","").replace("@","")
                     btitle = False

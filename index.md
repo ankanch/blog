@@ -23,7 +23,5 @@ _最近我将我的博客从腾讯云迁移到了Github Pages,正在慢慢打理
 
 ### [Posts List](/SUMMARY)
 　　　　{% for post in site.posts %}
-
 　　　　　　[{{ post.date | date_to_string }} - {{ post.title }}]({{ site.baseurl }}{{ post.url }})
-
 　　　　{% endfor %}
