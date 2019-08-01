@@ -3,7 +3,7 @@ title: Kanch.blog
 date: '2018-03-12T17:12:39.000Z'
 ---
 
-# About Myself
+# About Kanch.blog
 
 * Name: Long Zhang
 * Location: Chengdu China
