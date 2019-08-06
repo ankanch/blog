@@ -19,9 +19,9 @@ Feel free to contact me if you have any ideas.
 
 _最近我将我的博客从腾讯云迁移到了Github Pages,正在慢慢打理中。_
 
-`Last Modified: Aug. 1 2019`
+`Last Modified: Aug. 6 2019`
 
-### [Posts List](/SUMMARY)
+### Posts List
 　　　　{% for post in site.posts %}
 　　　　　　[{{ post.date | date_to_string }} - {{ post.title }}]({{ site.baseurl }}{{ post.url }})
 
