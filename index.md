@@ -1,6 +1,7 @@
 ---
 title: Kanch.blog
 date: '2018-03-12T17:12:39.000Z'
+layout: global
 ---
 
 # About Kanch.blog
