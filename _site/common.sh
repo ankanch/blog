@@ -1,1 +1,0 @@
-export JEKYLL_VERSION=3.8
