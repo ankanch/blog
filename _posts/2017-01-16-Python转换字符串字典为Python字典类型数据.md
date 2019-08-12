@@ -38,3 +38,7 @@ literal\_eval\(node\_or\_string\) Safely evaluate an expression node or a string
 >>> eval("shutil.rmtree('mongo')") Traceback (most recent call last): File "<stdin>", line 1, in <module> File "<string>", line 1, in <module> File "/opt/Python-2.6.1/lib/python2.6/shutil.py", line 208, in rmtree onerror(os.listdir, path, sys.exc_info()) File "/opt/Python-2.6.1/lib/python2.6/shutil.py", line 206, in rmtree names = os.listdir(path) OSError: [Errno 2] No such file or directory: 'mongo' >>> ast.literal_eval("shutil.rmtree('mongo')") Traceback (most recent call last): File "<stdin>", line 1, in <module> File "/opt/Python-2.6.1/lib/python2.6/ast.py", line 68, in literal_eval return _convert(node_or_string) File "/opt/Python-2.6.1/lib/python2.6/ast.py", line 67, in _convert raise ValueError('malformed string') ValueError: malformed string
 ```
 
+
+
+`© kanch` → [zl AT kanchz DOT com](kanchisme@gmail.com) → _posted at {{page.date}}_
+_last updated on 2019-08-12 16:02:21.020573_

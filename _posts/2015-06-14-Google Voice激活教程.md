@@ -77,3 +77,7 @@ Google会要求验证电话号码.让它拨打电话,输入验证码即可.
 
 大功告成.
 
+
+
+`© kanch` → [zl AT kanchz DOT com](kanchisme@gmail.com) → _posted at {{page.date}}_
+_last updated on 2019-08-12 16:02:21.020573_

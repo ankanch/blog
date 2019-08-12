@@ -72,3 +72,7 @@ strings ‘/usr/sbin/pppd’ \|grep -i mppe \| wc –lines
 **如果显示错误：** iptables: Saving firewall rules to /etc/sysconfig/iptables: /etc/init.d/iptables: line 268: restorecon: command not found 解决方法：yum install policycoreutils
 
 **3.如果端口没有开启则开启下面相关端口：** iptables -I INPUT -p tcp –dport 1723 -j ACCEPT iptables -I INPUT -p tcp –dport 47 -j ACCEPT iptables -I INPUT -p gre -j ACCEPT
+
+
+`© kanch` → [zl AT kanchz DOT com](kanchisme@gmail.com) → _posted at {{page.date}}_
+_last updated on 2019-08-12 16:02:21.020573_

@@ -32,3 +32,7 @@ date: '2016-10-22T23:32:07.000Z'
 
 注意，这里的提示数据是由我服务器直接返回的一大串 &lt;options&gt;&lt;/options&gt;数据。然后直接插入到word div标签的。
 
+
+
+`© kanch` → [zl AT kanchz DOT com](kanchisme@gmail.com) → _posted at {{page.date}}_
+_last updated on 2019-08-12 16:02:21.020573_

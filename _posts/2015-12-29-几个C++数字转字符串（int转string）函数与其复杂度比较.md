@@ -99,3 +99,7 @@ stdlib.h库里函数的方法用了和方法一原理上相同的方法，只不
 
 可以看到，传统方法和标准库里面的方法在速度上没太大的区别。新方法呢，，，的确，慢了好多。
 
+
+
+`© kanch` → [zl AT kanchz DOT com](kanchisme@gmail.com) → _posted at {{page.date}}_
+_last updated on 2019-08-12 16:02:21.020573_

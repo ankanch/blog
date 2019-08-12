@@ -57,3 +57,7 @@ py -2 -m pip install XXX
 
 py -3 -m pip install XXX&lt;/pre&gt;  
 
+
+
+`© kanch` → [zl AT kanchz DOT com](kanchisme@gmail.com) → _posted at {{page.date}}_
+_last updated on 2019-08-12 16:02:21.020573_

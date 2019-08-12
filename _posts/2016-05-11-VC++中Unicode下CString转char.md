@@ -34,3 +34,7 @@ USES\_CONVERSION;
 CString cstr = \_T\("12345"\); char _pbuffer = T2A\(cstr\);  
 char_ pbuf = W2A\(cstr\);&lt;/pre&gt;  
 
+
+
+`© kanch` → [zl AT kanchz DOT com](kanchisme@gmail.com) → _posted at {{page.date}}_
+_last updated on 2019-08-12 16:02:21.020573_

@@ -55,3 +55,7 @@ Ubuntu下字体路径：
 
 **/usr/share/fonts**
 
+
+
+`© kanch` → [zl AT kanchz DOT com](kanchisme@gmail.com) → _posted at {{page.date}}_
+_last updated on 2019-08-12 16:02:21.020573_
