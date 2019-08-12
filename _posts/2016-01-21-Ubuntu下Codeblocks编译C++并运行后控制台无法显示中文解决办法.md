@@ -58,7 +58,4 @@ date: '2016-01-21T11:36:51.000Z'
 
 
 
----
-`© kanch` → [zl AT kanchz DOT com](kanchisme@gmail.com) → _posted at {{page.date}}_
-
-_last updated on 2019-08-12 16:12:03.805005_
+{% include post_footer.md %}

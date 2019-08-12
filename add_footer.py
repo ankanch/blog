@@ -2,20 +2,19 @@
 import os
 import datetime
 fpath = "_posts"
-old_footer = """---
-`© kanch` → [zl AT kanchz DOT com](kanchisme@gmail.com) → _posted at {{page.date}}_
-
-_last updated on 2019-08-12 16:12:03.805005_"""
-footer = """---
-`© kanch` → [zl AT kanchz DOT com](kanchisme@gmail.com) → _posted at {{page.date}}_
-
-_last updated on @KTIME@_""".replace("@KTIME@",str(datetime.datetime.now()))
+footer = """{% include post_footer.md %}"""
+fd = ""
+with open("_includes/post_footer.md","r",encoding="utf-8",errors="ignore") as f:
+    fd = f.read ()
+with open("_includes/post_footer.md","w",encoding="utf-8",errors="ignore") as f:
+    f.truncate()
+    fd = fd.replace("@KTIME@",str(datetime.datetime.now()))
+    f.write(fd)
 for f in os.listdir(fpath):
-    fd = ""
     with open(fpath + "/" + f,encoding="utf-8",errors="ignore") as f:
         fd = f.read()
-        if fd.find(old_footer) > -1:
-            fd = fd.replace(old_footer,footer)
+        if fd.find(footer) > -1:
+            pass
         else:
             fd += "\r\n\r\n" + footer
     with open( f.name,"w",encoding="utf-8",errors="ignore") as f:

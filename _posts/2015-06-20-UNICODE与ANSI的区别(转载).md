@@ -30,7 +30,4 @@ ANSI字符只占用一个字节，UNICODE会自动在ANSI值后加入一个值�
 
 
 
----
-`© kanch` → [zl AT kanchz DOT com](kanchisme@gmail.com) → _posted at {{page.date}}_
-
-_last updated on 2019-08-12 16:12:03.805005_
+{% include post_footer.md %}
