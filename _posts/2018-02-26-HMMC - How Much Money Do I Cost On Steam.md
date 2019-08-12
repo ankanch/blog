@@ -5,7 +5,6 @@ categories:
   - JavaScript / Steam
 date: '2018-02-26T15:18:27.000Z'
 tags: null
-layout: postings
 ---
 
 # HMMC - How Much Money Do I Cost On Steam
@@ -96,7 +95,11 @@ function hmmc(){
 }
 ```
 
-
-
+
+
+
+
+---
 `© kanch` → [zl AT kanchz DOT com](kanchisme@gmail.com) → _posted at {{page.date}}_
-_last updated on 2019-08-12 16:02:21.020573_
+
+_last updated on 2019-08-12 16:12:03.805005_

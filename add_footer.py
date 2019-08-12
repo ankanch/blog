@@ -2,9 +2,13 @@
 import os
 import datetime
 fpath = "_posts"
-old_footer = """"`© kanch` → [zl AT kanchz DOT com](kanchisme@gmail.com) → _posted at {{page.date}}_
-_last updated on"""
-footer = """`© kanch` → [zl AT kanchz DOT com](kanchisme@gmail.com) → _posted at {{page.date}}_
+old_footer = """---
+`© kanch` → [zl AT kanchz DOT com](kanchisme@gmail.com) → _posted at {{page.date}}_
+
+_last updated on 2019-08-12 16:12:03.805005_"""
+footer = """---
+`© kanch` → [zl AT kanchz DOT com](kanchisme@gmail.com) → _posted at {{page.date}}_
+
 _last updated on @KTIME@_""".replace("@KTIME@",str(datetime.datetime.now()))
 for f in os.listdir(fpath):
     fd = ""

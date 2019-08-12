@@ -28,7 +28,11 @@ setlocale( LC_CTYPE, old_locale ); free( old_locale );
 locale.h
 ```
 
-
-
+
+
+
+
+---
 `© kanch` → [zl AT kanchz DOT com](kanchisme@gmail.com) → _posted at {{page.date}}_
-_last updated on 2019-08-12 16:02:21.020573_
+
+_last updated on 2019-08-12 16:12:03.805005_

@@ -32,7 +32,11 @@ options iwlwifi 11n_disable=1
 
 我的系统是 Ubuntu 16.04 LTS
 
-
-
+
+
+
+
+---
 `© kanch` → [zl AT kanchz DOT com](kanchisme@gmail.com) → _posted at {{page.date}}_
-_last updated on 2019-08-12 16:02:21.020573_
+
+_last updated on 2019-08-12 16:12:03.805005_

@@ -35,7 +35,11 @@ date: '2015-08-25T21:34:25.000Z'
 
 注意：输入**adb nodaemon server**可以查看哪个端口被占用了，没有端口呗占用，输入后会无反应。
 
-
-
+
+
+
+
+---
 `© kanch` → [zl AT kanchz DOT com](kanchisme@gmail.com) → _posted at {{page.date}}_
-_last updated on 2019-08-12 16:02:21.020573_
+
+_last updated on 2019-08-12 16:12:03.805005_

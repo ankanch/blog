@@ -57,7 +57,11 @@ date: '2015-09-06T20:43:24.000Z'
 
 我在怎样修改后，每次Gradle构建，只要40秒左右，比以前的12分钟，快多了。
 
-
-
+
+
+
+
+---
 `© kanch` → [zl AT kanchz DOT com](kanchisme@gmail.com) → _posted at {{page.date}}_
-_last updated on 2019-08-12 16:02:21.020573_
+
+_last updated on 2019-08-12 16:12:03.805005_
