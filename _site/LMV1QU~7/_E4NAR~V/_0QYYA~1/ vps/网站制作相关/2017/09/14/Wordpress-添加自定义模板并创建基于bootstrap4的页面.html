@@ -1,0 +1,72 @@
+<h1 id="wordpress-添加自定义模板并创建基于bootstrap4的页面">Wordpress 添加自定义模板并创建基于bootstrap4的页面</h1>
+
+<p>最近我写了一个博客系统（<a href="https://github.com/ankanch/myblog">myblog</a>），原本打算替换掉wordpress的，但是后面发现wordpress可以自定义模板，故将myblog的部分样式应用到自定义页面模板上，本来以为只需要简单的创建模板，然后导入css和js即可，结果发现导入后界面完全乱了，甚至还影响了属于wordpress的部分（footer和header）。</p>
+
+<p>由于我的myblog需要bootstrap 4的支持，所以需要额外导入bootstrap 4的样式表，但是由于我使用的主题使用了低版本的样式表，如果直接在模板页面导入会照成我导入的覆盖掉主题默认使用的，导致界面混乱。在经过一番搜索后，找到了如下几个解决方案：</p>
+
+<ol>
+  <li>使用iframe</li>
+  <li>手动添加 容器ID来限定每个样式的作用域</li>
+  <li>
+    <p>使用第三方插件如：<a href="https://github.com/thingsinjars/jQuery-Scoped-CSS-plugin">Simon Madine’s jQuery Scoped CSS plugin</a>.</p>
+
+    <p>我首先尝试了方法二，写了个python脚本帮助实现，但是对于 @media之类的，就无能为力了，故放弃。</p>
+  </li>
+</ol>
+
+<p>然后尝试方法一，有效的方法。如下：</p>
+
+<p>首先我们要创建一个自定义模板，以myblog_theme_page.php为例，其代码如下：</p>
+
+<p>myblog_theme_page.php:</p>
+
+<p>&lt;?php / <em>Template Name: myblog_theme</em> / get_header(); ?&gt;</p>
+
+<p>&lt;div id=”primary” class=”site-content-fullwidth” style=”background:white;”&gt; &lt;div id=”content” role=”main” style=”background:white;”&gt; &lt;div id=”myblog_style_page” style=”margin-left:45px;margin-right:45px;”&gt; &lt;link rel=’stylesheet’ href=’<a href="https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/themes/nisarg/css/bootstrap4alpha.css">https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/themes/nisarg/css/bootstrap4alpha.css</a>’ type=’text/css’ /&gt; &lt;script type=’text/javascript’ src=’<a href="https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/themes/nisarg/js/jquery-3.2.1.min.js'&gt;&lt;/script&amp;gt">https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/themes/nisarg/js/jquery-3.2.1.min.js’&gt;&lt;/script&amp;gt</a>; &lt;link rel=’stylesheet’ href=’<a href="https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/themes/nisarg/css/xstyle.css">https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/themes/nisarg/css/xstyle.css</a>’ type=’text/css’ /&gt; &lt;div class=”container”&gt; &lt;?php / <em>Start the Loop</em> / ?&gt; &lt;?php while(have_posts()) : the_post(); ?&gt; &lt;?php the_content();?&gt; &lt;?php endwhile; ?&gt;</p>
+
+<p>&lt;/div&gt; &lt;/div&gt; &lt;iframe id=”result” frameBorder=”0” style=”overflow:hidden;”&gt; &lt;/iframe&gt; &lt;/div&gt;&lt;!– #content –&gt; &lt;/div&gt;&lt;!– #primary –&gt; &lt;script&gt; function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + ‘px’; } $(document).ready(function () { var iframe = document.getElementById(‘result’), iframedoc = iframe.contentDocument || iframe.contentWindow.document; var father = document.getElementById(‘myblog_style_page’); iframedoc.body.innerHTML = iframedoc.body.innerHTML + father.innerHTML ; resizeIframe(iframe); father.innerHTML = “”;</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>});
+</code></pre></div></div>
+
+<p>&lt;/script&gt; &lt;?php get_footer(); ?&gt;&lt;/pre&gt; 关于模板的详细说明，请参照 wordpress官方文档（<a href="https://codex.wordpress.org/zh-cn:页面">中文</a>，<a href="https://developer.wordpress.org/themes/template-files-section/page-template-files/">英文</a>）。这里我只说明重要的部分：</p>
+
+<p>下面这段代码是用来加载用户在wordpress编辑器中输入的内容的，也就是新建页面，套用我们上面那个模板，用户在wordpress编辑器中输入的内容将会由以下代码段获取：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span> <span class="cm">/* Start the Loop */</span> <span class="cp">?&gt;</span> <span class="cp">&lt;?php</span> <span class="k">while</span><span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span> <span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">();</span><span class="cp">?&gt;</span> <span class="cp">&lt;?php</span> <span class="k">endwhile</span><span class="p">;</span> <span class="cp">?&gt;</span>
+</code></pre></div></div>
+
+<p>&lt;div id=”myblog_style_page” style=”margin-left:45px;margin-right:45px;”&gt; &lt;link rel=’stylesheet’ href=’<a href="https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/themes/nisarg/css/bootstrap4alpha.css">https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/themes/nisarg/css/bootstrap4alpha.css</a>’ type=’text/css’ /&gt; &lt;script type=’text/javascript’ src=’<a href="https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/themes/nisarg/js/jquery-3.2.1.min.js'&gt;&lt;/script&amp;gt">https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/themes/nisarg/js/jquery-3.2.1.min.js’&gt;&lt;/script&amp;gt</a>; &lt;link rel=’stylesheet’ href=’<a href="https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/themes/nisarg/css/xstyle.css">https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/themes/nisarg/css/xstyle.css</a>’ type=’text/css’ /&gt;</p>
+
+<p>&lt;div class=”container”&gt;</p>
+
+<p>&lt;?php / <em>Start the Loop</em> / ?&gt; &lt;?php while(have_posts()) : the_post(); ?&gt; &lt;?php the_content();?&gt; &lt;?php endwhile; ?&gt;</p>
+
+<p>&lt;/div&gt; &lt;/div&gt;&lt;/pre&gt; 在class为container的div里，我们将会加载用户输入的页面内容，然后在外层div我们会引入我们需要的样式表文件和jquery文件。外层div是有id属性的，因为待会我们需要获取这个div里面的内容。</p>
+
+<p>接下来，我们在紧接着上面的代码定义了一个iframe，并设置没有边框和隐藏滚动条。这样它看起来会更像页面的一部分。iframe代码如下：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;iframe id="result" frameBorder="0" style="overflow:hidden;"&gt; &lt;/iframe&gt;
+</code></pre></div></div>
+
+<p>&lt;script&gt; function resizeIframe(obj) { obj.style.height = obj.contentWindow.document.body.scrollHeight + ‘px’; } $(document).ready(function () { var iframe = document.getElementById(‘result’), iframedoc = iframe.contentDocument || iframe.contentWindow.document; var father = document.getElementById(‘myblog_style_page’); iframedoc.body.innerHTML = iframedoc.body.innerHTML + father.innerHTML ; resizeIframe(iframe); father.innerHTML = “”;</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>});
+</code></pre></div></div>
+
+<p>&lt;/script&gt;&lt;/pre&gt; resizeIframe(obj)函数用来将iframe的高度设置为和页面高度一致。 在$(document).ready()函数中，我们获取了id为myblog_style_page的div的内部HTML然后将其复制到iframe里面，再清空myblog_style_page的值。到这里，页面应该已经可以正常显示原有样式了（参照本站的<a href="https://raw.githubusercontent.com/ankanch/blog/master/images/about/">关于页面</a>和我的<a href="https://raw.githubusercontent.com/ankanch/blog/master/images/myprojects/">项目页面</a>）。</p>
+
+<p>接下来我们要上传这个模板和相应的css，js文件到相应的位置。</p>
+
+<p>首先要找到你正在使用的wordpress主题，wordpress主题目录如下：</p>
+
+<blockquote>
+  <p>/usr/share/nginx/html/wp-content/themes 我使用的nisarg，相应的目录为/usr/share/nginx/html/wp-content/themes/nisarg，打开上面目录后我们可以看到下图中的文件：</p>
+</blockquote>
+
+<p><a href="https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2017/09/addasdasda.png"><img src="https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2017/09/addasdasda-300x160.png" alt="" /></a></p>
+
+<p>接下来，我们只需要将相应的css，js和刚刚创建的模板上传到相应的文件夹即可。最后创建页面，在右侧选择相应的页面模板，编辑完页面内容后发布页面，就可以正常显示了。</p>
+
+<p><em>**已知缺点：由于我们直接把模板文件和样式表放在主题目录里面的，在更新主题后，这些东西将会消失！</em></p>
+

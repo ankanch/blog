@@ -1,0 +1,40 @@
+<h1 id="ubuntu下codeblocks编译c并运行后控制台无法显示中文解决办法">Ubuntu下Codeblocks编译C++并运行后控制台无法显示中文解决办法</h1>
+
+<p>在Ubuntu下用codeblocks编译C++程序并运行后可能会遇到不支持中文的情况</p>
+
+<p>具体地说，运行后的界面会是下图这个样子：</p>
+
+<p><img src="https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-4.png" alt="CB_TERMINAL_PROBLEM (4)" /></p>
+
+<p>简单地说就是对中文支持不完整，看起来怪怪的</p>
+
+<p>这是由于codeblocks默认的启动终端的问题</p>
+
+<p>打开codeblocks的General Settings 菜单</p>
+
+<p>找到 Terminal to launch console program</p>
+
+<p>如下图示：</p>
+
+<p><img src="https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-3.png" alt="CB_TERMINAL_PROBLEM (3)" /></p>
+
+<p>把默认的xterm -T $TITLE -e修改掉</p>
+
+<p>改为：<strong>gnome-terminal -t</strong> <strong>$TITLE -x</strong></p>
+
+<p>如下图所示：</p>
+
+<p><a href="https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-1.png"><img src="https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-1.png" alt="CB_TERMINAL_PROBLEM (1)" /></a></p>
+
+<p>然后我们再次编译程序并运行</p>
+
+<p>现在可以正常显示了</p>
+
+<p><a href="https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-2.png"><img src="https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-2.png" alt="CB_TERMINAL_PROBLEM (2)" /></a></p>
+
+<p>另外，这个貌似只适用于Ubuntu12.04以上的版本</p>
+
+<p>我的是Ubuntu15.10</p>
+
+<p><a href="https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-3.png"> </a></p>
+

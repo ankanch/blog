@@ -1,0 +1,33 @@
+<h1 id="windows下c判断键盘上的方向键是否被按下">Windows下C++判断键盘上的方向键是否被按下</h1>
+
+<p>我在使用C++做一个贪吃蛇程序的时候，卡在了如何利用C++判断方向键这里。</p>
+
+<p>我原本想的是：直接用getch()判断按下按键的ASCII码是否为方向键的。可是我在<a href="https://en.wikipedia.org/wiki/ASCII">维基百科的ASCII页面</a>上并没有找到 <strong>↑ ↓ → ←</strong> 几个按键的ASCII码。<a href="http://bbs.csdn.net/topics/40312175">在经过一番搜索后得到答案：http://bbs.csdn.net/topics/40312175</a> 答案如下：</p>
+
+<p>#define VK_LEFT 0x25 //=37</p>
+
+<h2 id="define-vk_up-------------0x26--38">define VK_UP             0x26  //=38</h2>
+
+<h2 id="define-vk_right----------0x27--39">define VK_RIGHT          0x27  //=39</h2>
+
+<h2 id="define-vk_down-----------0x28--40pre">define VK_DOWN           0x28  //=40&lt;/pre&gt;</h2>
+
+<p>然后我在我的程序里用switch语句 case了 37，38，39，40.然而却发现，在windows下，这样不可用。</p>
+
+<p>按下相应按键后根本没有反应。</p>
+
+<p>然后我想到了输出下getchar()得到的值，结果令我大吃一惊，输出值如下：</p>
+
+<p><a href="https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/10/C-_dectect_dir.png"><img src="https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/10/C-_dectect_dir.png" alt="C++_dectect_dir" /></a></p>
+
+<p>我们可以看到，每次按下方向键的时候，实际上是读入了2个数据，比如 _224n75_代表的是左方向键（←）。</p>
+
+<p>所以有了以下这个方法：先判断第一个读入的数据，再用getchr()得到一次，这次再用switch语句判断。代码如下：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//by Kanch else if(kbdown == 224) { //pri-core code here //determine which action to perform kbdown = getch(); //due to up/down/left/right no ASCII code,it print out as 224n75 switch (kbdown) { case VK_LEFT: //← pressed cout &lt;&lt; "left pressed" &lt;&lt; endl; break; case VK_UP: //↑ pressed cout &lt;&lt; "up pressed" &lt;&lt; endl; break; case VK_RIGHT: //→ pressed cout &lt;&lt; "right pressed" &lt;&lt; endl; break; case VK_DOWN: //↓ pressed cout &lt;&lt; "down pressed" &lt;&lt; endl; break; default: break; } }
+</code></pre></div></div>
+
+<p>这样，我们便用C++实现了判断方向键是否被按下。</p>
+
+<p><strong>&lt;转载请注明出处&gt;</strong></p>
+

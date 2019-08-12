@@ -1,0 +1,87 @@
+<h1 id="hmmc---how-much-money-do-i-cost-on-steam">HMMC - How Much Money Do I Cost On Steam</h1>
+
+<p>下面这个JavaScript函数可以用来帮助你计算你在Steam上一共消费了多少钱。它可以算出你在商店/游戏内购/社区市场里面所有的消费总额（零售key激活/礼物/代购的无法计算）。也就是说，你的实际消费总量肯定比脚本算出来的多。</p>
+
+<p>使用前需要打开Steam账户的历史钱包消费记录页面:<a href="https://store.steampowered.com/account/history/">https://store.steampowered.com/account/history/</a></p>
+
+<p>然后打开浏览器控制台，调用该函数即可。</p>
+
+<p>当然你也可以通过GreasyFork将其安装在Tampermonkey中。<a href="https://greasyfork.org/en/scripts/38914-hmmc-how-much-money-do-i-cost-on-steam">脚本GreasyFork页面</a></p>
+
+<p>脚本会在页面顶部显示花费总额，如下图： <img src="https://raw.githubusercontent.com/ankanch/kanch.blog/master/images/hmmc.PNG" alt="/images/hmmc" /></p>
+
+<p>函数代码如下：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">hmmc</span><span class="p">(){</span>
+    <span class="c1">//currency exchange</span>
+    <span class="kd">var</span> <span class="nx">CUR</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">¥</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">$</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">€</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">£</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">₽</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">CDN$</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">₩</span><span class="dl">'</span><span class="p">];</span>
+    <span class="kd">var</span> <span class="nx">CUR_RMB</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">6.3</span><span class="p">,</span><span class="mf">7.7</span><span class="p">,</span><span class="mf">8.8</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.0059</span><span class="p">];</span>
+
+    <span class="c1">//box to show info</span>
+    <span class="kd">var</span> <span class="nx">loading</span> <span class="o">=</span> <span class="s2">`&lt;div class="home_area_spotlight" style="height:80px;width:100%;display:inline-block;"&gt;
+                   &lt;div class="spotlight_content" style="width:100%;text-align:center;"&gt;
+                      &lt;h2&gt;Loading the costs in &lt;/h2&gt;
+                      &lt;div class="spotlight_body"&gt;RMB &lt;/div&gt;
+                      &lt;div class="spotlight_body spotlight_price price"&gt;
+                         &lt;div class="discount_block discount_block_spotlight discount_block_large"&gt;
+                            &lt;div class="discount_pct" id="spent_money"&gt;wait few seconds...&lt;/div&gt;
+                         &lt;/div&gt;
+                      &lt;/div&gt;
+                   &lt;/div&gt;
+                   &lt;div class="ds_options"&gt;
+                      &lt;div&gt;&lt;/div&gt;
+                   &lt;/div&gt;
+                &lt;/div&gt;`</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">donestr</span> <span class="o">=</span> <span class="s2">`&lt;div class="home_area_spotlight" style="height:80px;width:100%;display:inline-block;"&gt;
+                   &lt;div class="spotlight_content" style="width:100%;text-align:center;"&gt;
+                      &lt;h2&gt;You have spent&lt;/h2&gt;
+                      &lt;div class="spotlight_body"&gt;RMB &lt;/div&gt;
+                      &lt;div class="spotlight_body spotlight_price price"&gt;
+                         &lt;div class="discount_block discount_block_spotlight discount_block_large"&gt;
+                            &lt;div class="discount_pct" id="spent_money"&gt;@SPENT@&lt;/div&gt;
+                         &lt;/div&gt;
+                      &lt;/div&gt;
+                   &lt;/div&gt;
+                   &lt;div class="ds_options"&gt;
+                      &lt;div&gt;&lt;/div&gt;
+                   &lt;/div&gt;
+                &lt;/div&gt;`</span><span class="p">;</span>
+    <span class="c1">// target div before our box</span>
+    <span class="kd">var</span> <span class="nx">ppt</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">body &gt; div.page_header_ctn.account_management</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">ppt</span><span class="p">.</span><span class="nx">insertAdjacentHTML</span><span class="p">(</span><span class="dl">"</span><span class="s2">afterend</span><span class="dl">"</span><span class="p">,</span> <span class="nx">loading</span><span class="p">);</span>
+
+    <span class="c1">//load all wallet transactions</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Loading all transactions....</span><span class="dl">"</span><span class="p">);</span> 
+    <span class="nx">WalletHistory_LoadMore</span><span class="p">();</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">done.</span><span class="se">\r\n</span><span class="s2">Waiting for 8 seconds...</span><span class="dl">"</span><span class="p">);</span> 
+     <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">//extract all transactions</span>
+        <span class="kd">var</span> <span class="nx">costRM</span> <span class="o">=</span> <span class="p">[];</span>
+        <span class="kd">var</span> <span class="nx">cc</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="dl">'</span><span class="s1">wht_wallet_change</span><span class="dl">'</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">change</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="dl">'</span><span class="s1">wht_total</span><span class="dl">'</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">balance</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="dl">'</span><span class="s1">wht_wallet_balance</span><span class="dl">'</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">cc</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">change</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">textContent</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span><span class="mi">1</span><span class="p">){</span>
+                <span class="c1">//check if it is expenditure</span>
+                <span class="k">if</span><span class="p">((</span><span class="nx">cc</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">textContent</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="nx">cc</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">textContent</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="dl">'</span><span class="s1">-</span><span class="dl">'</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="nx">cc</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">textContent</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="nx">balance</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">textContent</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)){</span>
+                    <span class="kd">var</span> <span class="nx">vv</span> <span class="o">=</span>  <span class="nx">change</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">textContent</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">[^\-</span><span class="sr">+.0-9</span><span class="se">]</span><span class="sr">/g</span><span class="p">,</span><span class="dl">''</span><span class="p">);</span>
+                    <span class="kd">var</span> <span class="nx">oly</span> <span class="o">=</span> <span class="nx">change</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">textContent</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">[^\-</span><span class="sr">+.0-9฿₵¢₡B₫€ƒ₲Kč₭£₤₥₦₱₨₽$₮₩¥₴₪֏¥</span><span class="se">]</span><span class="sr">/g</span><span class="p">,</span><span class="dl">''</span><span class="p">);</span>
+                    <span class="c1">//convert currency to RMB </span>
+                    <span class="nx">vv</span> <span class="o">=</span> <span class="nx">CUR_RMB</span><span class="p">[</span><span class="nx">CUR</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">oly</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span><span class="o">*</span><span class="nb">parseFloat</span><span class="p">(</span><span class="nx">vv</span><span class="p">);</span>
+                    <span class="nx">costRM</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">vv</span><span class="p">)</span> <span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// compute all cost</span>
+        <span class="kd">var</span> <span class="nx">X</span> <span class="o">=</span> <span class="nx">costRM</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span> <span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">done.</span><span class="se">\r\n</span><span class="s1">-</span><span class="se">\r\n</span><span class="s1">-</span><span class="se">\r\n</span><span class="s1">You have cost ¥ </span><span class="dl">'</span> <span class="o">+</span> <span class="nb">Number</span><span class="p">((</span><span class="nx">X</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> RMB on Steam so far.</span><span class="se">\r\n</span><span class="s1">-</span><span class="se">\r\n</span><span class="s1">-</span><span class="se">\r\n</span><span class="dl">'</span><span class="p">);</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">body &gt; div.home_area_spotlight</span><span class="dl">"</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
+        <span class="nx">ppt</span><span class="p">.</span><span class="nx">insertAdjacentHTML</span><span class="p">(</span><span class="dl">"</span><span class="s2">afterend</span><span class="dl">"</span><span class="p">,</span> <span class="nx">donestr</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="dl">"</span><span class="s2">@SPENT@</span><span class="dl">"</span><span class="p">,</span><span class="nb">Number</span><span class="p">((</span><span class="nx">X</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">))));</span>
+     <span class="p">},</span><span class="mi">8888</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+

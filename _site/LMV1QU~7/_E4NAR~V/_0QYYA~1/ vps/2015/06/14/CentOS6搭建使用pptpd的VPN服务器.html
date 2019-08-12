@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>CentOS6搭建使用pptpd的VPN服务器 | akakanch - kanch.blog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">kanch.blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/posts">postings <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/projects">projects</a>
+            </li>
+          </ul>
+          <span class="navbar-text">
+            &copy; zl@kanchz.com 
+          </span>
+        </div>
+      </nav>
+    <div class="container px-3 my-5">
+        <div class="markdown-body">
+<h1 id="我的安装环境centos-6">我的安装环境:CentOS 6</h1>
+
+<p><strong>首先,检测是否可以安装pptp</strong> cat /dev/ppp cat: /dev/ppp: No such device or address cat /dev/net/tun cat: /dev/net/tun: File descriptor in bad state</p>
+
+<p><strong>centos7.x 如果使用iptables要先卸载firewalld：</strong> systemctl stop firewalld systemctl disable firewalld yum -y remove firewalld</p>
+
+<p><strong>1.安装ppp服务及相关组件</strong></p>
+
+<p>yum install -y ppp iptables 注：centos7.x 还需要 yum -y install iptables-services</p>
+
+<p><strong>2.下载pptpd最新版本的rpm包</strong> （pptpd最新安装包地址<a href="http://poptop.sourceforge.net/yum/stable/packages/）">http://poptop.sourceforge.net/yum/stable/packages/）</a> <strong>centos5.x</strong> 32位： wget -c <a href="http://poptop.sourceforge.net/yum/stable/packages/pptpd-1.4.0-1.rhel5.i386.rpm">http://poptop.sourceforge.net/yum/stable/packages/pptpd-1.4.0-1.rhel5.i386.rpm</a></p>
+
+<p>64位： wget -c <a href="http://poptop.sourceforge.net/yum/stable/packages/pptpd-1.4.0-1.rhel5.x86_64.rpm">http://poptop.sourceforge.net/yum/stable/packages/pptpd-1.4.0-1.rhel5.x86_64.rpm</a></p>
+
+<p><strong>centos6.x</strong> x86: <a href="http://poptop.sourceforge.net/yum/stable/packages/pptpd-1.4.0-1.el6.i686.rpm">http://poptop.sourceforge.net/yum/stable/packages/pptpd-1.4.0-1.el6.i686.rpm</a> x64: <a href="http://poptop.sourceforge.net/yum/stable/packages/pptpd-1.4.0-1.el6.x86_64.rpm">http://poptop.sourceforge.net/yum/stable/packages/pptpd-1.4.0-1.el6.x86_64.rpm</a></p>
+
+<p><strong>centos7.x</strong> x64: <a href="http://dl.fedoraproject.org/pub/epel/7/x86_64/p/pptpd-1.4.0-2.el7.x86_64.rpm">http://dl.fedoraproject.org/pub/epel/7/x86_64/p/pptpd-1.4.0-2.el7.x86_64.rpm</a> 或者直接安装 yum -y install pptpd</p>
+
+<p><strong>3.安装下载好的相应rpm包</strong> 例如32bit的centos5.x： rpm -ivh pptpd-1.4.0-1.rhel5.i386.rpm</p>
+
+<p><strong>4.设置pptpd解析用的dns</strong></p>
+
+<p>vi /etc/ppp/options.pptpd ms-dns 8.8.8.8 ms-dns 8.8.4.4</p>
+
+<p><strong>5.设置拨号时候用的：用户名、拨号方式、用户密码、来源ip地址</strong>（用户名和密码可以随便设置，拨号方式只能填pptpd，来源ip用*号代表不限制）</p>
+
+<p>vi /etc/ppp/chap-secrets myusername pptpd mypassword *</p>
+
+<p><strong>6.设置本地ip和远端ip</strong>（本地ip就是建立拨号后分配给你的，远端ip是分配给服务器的）</p>
+
+<p>vi /etc/pptpd.conf localip 192.168.8.1 remoteip 192.168.8.11-30</p>
+
+<p><strong>7.设置ip转发状态为生效，然后立即载入</strong>（和第9步的NAT转发有关）</p>
+
+<p>vi /etc/sysctl.conf net.ipv4.ip_forward = 1 /sbin/sysctl -p</p>
+
+<p><strong>8.启动pptpd服务，并且设置为开机启动</strong></p>
+
+<p>/sbin/service pptpd start chkconfig pptpd on</p>
+
+<p><strong>9.启动iptables规则，设置NAT转发，然后保存</strong>（iptables本身就是开机启动的，不需要再用chkconfig iptables on了）</p>
+
+<p>/sbin/service iptables restart /sbin/iptables -t nat -A POSTROUTING -s 192.168.8.0/24 -o venet0 -j MASQUERADE (vps用venet0,否则用eth0)</p>
+
+<p>service iptables save —————————— 避免造成一些网页无法显示，MSN无法登陆的解决办法： 添加下面的iptables规则，设置 session MTU 为 1356，然后保存。</p>
+
+<p>iptables -I FORWARD -p tcp –syn -s 192.168.8.0/24 -j TCPMSS –set-mss 1356</p>
+
+<p>service iptables save ——————————- 执行 /sbin/iptables -t nat -A POSTROUTING -s 192.168.8.0/24 -o venet0 -j MASQUERADE 命令， 如果返回iptables: Unknown error 4294967295，表明系统还不支持，需要联系客服开通iptables_nat模块支持。 或者使用：</p>
+
+<p>/sbin/iptables -t nat -A POSTROUTING -o venet0 -s 192.168.8.0/24 -j SNAT –to-source xxx.xxx.xxx.xxx</p>
+
+<p>——————————— <strong>1.检查PPP是否支持MPPE</strong></p>
+
+<p>strings ‘/usr/sbin/pppd’ |grep -i mppe | wc –lines</p>
+
+<p>如果以上命令输出为“0”则表示不支持；输出为“30”或更大的数字就表示支持。 <strong>2.以下命令检查内核MPPE补丁是否安装成功，MPPE module可否载如：</strong> modprobe ppp-compress-18 &amp;&amp; echo success</p>
+
+<p><strong>如果显示错误：</strong> iptables: Saving firewall rules to /etc/sysconfig/iptables: /etc/init.d/iptables: line 268: restorecon: command not found 解决方法：yum install policycoreutils</p>
+
+<p><strong>3.如果端口没有开启则开启下面相关端口：</strong> iptables -I INPUT -p tcp –dport 1723 -j ACCEPT iptables -I INPUT -p tcp –dport 47 -j ACCEPT iptables -I INPUT -p gre -j ACCEPT</p>
+
+
+</div>
+    </div>
+
+    <div class="navbar " 
+    style="text-align:center;width: 100%;display: inline-block;background-color:#5555f6;color:seashell;text-shadow:1px 1px 0 #444">
+        &copy; kanch <br/>
+        last updated on Aug 5 2019
+    </div>
+</body>
+
+</html>

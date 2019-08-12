@@ -1,0 +1,20 @@
+<h1 id="给wordpress博客添加favicon图标">给WordPress博客添加favicon图标</h1>
+
+<p>首先解释下什么是favicon（<a href="https://zh.wikipedia.org/wiki/Favicon">来自维基百科</a>） <strong>Favicon</strong>是_favorites icon_的缩写，亦被称为<strong>website icon</strong>（网页图标）、<strong>page icon</strong>（页面图标）或<strong>urlicon</strong>（<a href="https://zh.wikipedia.org/wiki/URL">URL</a>图标）。Favicon是与某个<a href="https://zh.wikipedia.org/wiki/%E7%BD%91%E7%AB%99">网站</a>或<a href="https://zh.wikipedia.org/wiki/%E7%BD%91%E9%A1%B5">网页</a>相关联的<a href="https://zh.wikipedia.org/wiki/%E5%9B%BE%E6%A0%87">图标</a>。网站设计者可以多种方式创建这种图标，而目前也有很多<a href="https://zh.wikipedia.org/wiki/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%99%A8">网页浏览器</a>支持此功能。浏览器可以将favicon显示于浏览器的地址栏中，也可置于书签列表的网站名前，还可以放在标签式浏览界面中的页标题前。 因此，你需要现拥有一个favicon文件。</p>
+
+<p>你可以自己制作图标文件可以利用 <a href="http://icon-works.com/">Icon Works</a></p>
+
+<p>也可以将自己已有的图片在线转换成ico图标文件，推荐这个工具 <a href="http://www.bitbug.net/">在线制作ico图标</a></p>
+
+<p>然后，将你做好的favicon.ico<strong>放入你web服务器的根目录</strong>。（当然也可以使其他目录，我们需要记住路径）</p>
+
+<p>进入wordpress管理后台，打开 <strong>外观-&gt;编辑</strong></p>
+
+<p>选择文件目录中的 <strong>顶部（header.php）</strong>，并打开它。</p>
+
+<p>在&lt;head&gt;&lt;/head&gt;间加入以下代码：</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\*\*<span class="ni">&amp;lt;</span>link rel="shortcuticon"href="[http://example.com/favicon.ico](http://example.com/favicon.ico)"type="image/vnd.microsoft.icon"<span class="ni">&amp;gt;&amp;lt;</span>/span<span class="ni">&amp;gt;</span> ****<span class="ni">&amp;lt;</span>link rel="icon" href="[http://example.com/favicon.ico](http://example.com/favicon.ico)" type="image/vnd.microsoft.icon\*\*"<span class="ni">&amp;lt;</span>/span<span class="ni">&amp;gt;&amp;gt;&amp;lt;</span>/span<span class="ni">&amp;gt;&amp;lt;</span>/span<span class="ni">&amp;gt;</span>
+</code></pre></div></div>
+
+<p>如果你将favicon.ico放在了网站根目录，则把加粗部分换成你的域名即可。</p>
+
