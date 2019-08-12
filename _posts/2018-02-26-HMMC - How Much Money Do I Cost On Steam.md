@@ -5,6 +5,7 @@ categories:
   - JavaScript / Steam
 date: '2018-02-26T15:18:27.000Z'
 tags: null
+layout: postings
 ---
 
 # HMMC - How Much Money Do I Cost On Steam
