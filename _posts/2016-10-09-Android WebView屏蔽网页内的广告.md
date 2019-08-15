@@ -72,3 +72,6 @@ view.loadUrl("javascript:var con = document.getElementById('gamesliderwrap'); co
 
 也可以在onPageStart中写While循环，来循环执行Java Script注入代码。这样HTML元素一显示，就会被处理掉。
 
+
+
+{% include post_footer.md %}

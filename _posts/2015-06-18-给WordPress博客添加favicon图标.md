@@ -28,3 +28,6 @@ date: '2015-06-18T13:22:00.000Z'
 
 如果你将favicon.ico放在了网站根目录，则把加粗部分换成你的域名即可。
 
+
+
+{% include post_footer.md %}

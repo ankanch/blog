@@ -26,3 +26,6 @@ ANSI本来是美国的国家标准，后来渐渐通行于世。**标准的ANSI�
 
 ANSI字符只占用一个字节，UNICODE会自动在ANSI值后加入一个值为0的字节。 简单的来说，通常Unicode使用两个字节表示每个字符，即每个字符为16位二进制长度。而ANSI编码使用一个字节表示每个字符，即8个二进制位。 **在Windows的API函数中，每一个涉及到了字符串传递的函数，如最基本的MessageBox（用来显示一个消息框），都有两个版本**,MessageBoxA和MessageBoxW，前者是ANSI版本，后者是宽字符版本，通常就是UNICODE。 **C++中的char是对应ANSI字符的，C++中还有一个基本类型wchar\_t就是对应UNICODE字符的。** 编程的时候应该首先决定使用更加通用的宽字符UNICODE，还是占用空间较少的ANSI，个人认为应用软件可以使用UNICODE好一些。
 
+
+
+{% include post_footer.md %}

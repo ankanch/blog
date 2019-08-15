@@ -72,3 +72,6 @@ strings ‘/usr/sbin/pppd’ \|grep -i mppe \| wc –lines
 
 **3.如果端口没有开启则开启下面相关端口：** iptables -I INPUT -p tcp –dport 1723 -j ACCEPT iptables -I INPUT -p tcp –dport 47 -j ACCEPT iptables -I INPUT -p gre -j ACCEPT
 
+
+
+{% include post_footer.md %}

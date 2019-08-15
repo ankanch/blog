@@ -27,3 +27,6 @@ date: '2016-09-17T14:17:40.000Z'
 <meta name="theme-color" content="#cc3333">
 ```
 
+
+
+{% include post_footer.md %}

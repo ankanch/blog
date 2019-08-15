@@ -91,3 +91,6 @@ shadowsocks支持windows、Mac OS X、Linux、Android、iOS等多个平台。
 
 PAC列表可以在线更新（地址：[https://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt](https://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt)）
 
+
+
+{% include post_footer.md %}

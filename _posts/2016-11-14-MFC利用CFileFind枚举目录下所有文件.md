@@ -77,3 +77,6 @@ while (bWorking) { bWorking = finder.FindNextFile(); if (finder.IsDots()) contin
 
 参考：[MSDN CFileFind类：https://msdn.microsoft.com/library/9990068c-b023-4114-9580-a50182d15240.aspx\#cfilefind\_\_findfile](https://msdn.microsoft.com/library/9990068c-b023-4114-9580-a50182d15240.aspx#cfilefind__findfile)
 
+
+
+{% include post_footer.md %}

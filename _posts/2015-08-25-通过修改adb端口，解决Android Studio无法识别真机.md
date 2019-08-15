@@ -35,3 +35,6 @@ date: '2015-08-25T21:34:25.000Z'
 
 注意：输入**adb nodaemon server**可以查看哪个端口被占用了，没有端口呗占用，输入后会无反应。
 
+
+
+{% include post_footer.md %}

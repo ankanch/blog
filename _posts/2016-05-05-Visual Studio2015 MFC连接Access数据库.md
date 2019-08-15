@@ -52,3 +52,6 @@ _ConnectionPtr m_pConnection;//连接access数据库的链接对象 _RecordsetPt
 
 如果连接失败，你可能需要在MFC对话框的App类的构造函数CXXX::CXXXApp\(\)中添加AfxOleInit\(\);用于初始化。
 
+
+
+{% include post_footer.md %}

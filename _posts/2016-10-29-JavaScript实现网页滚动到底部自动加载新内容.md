@@ -60,3 +60,6 @@ var p = 1; var page\_num = 2;
 
 一个可能的解决办法是，再加一个按钮，来实现手动加载。
 
+
+
+{% include post_footer.md %}

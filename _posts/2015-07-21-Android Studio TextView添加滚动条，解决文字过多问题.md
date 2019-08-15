@@ -29,3 +29,6 @@ android:singleLine="false" //取消单行 android:scrollbars="vertical" //设置
 TextView textview=(TextView)findViewById(R.id.textview); textview.setMovementMethod(ScrollingMovementMethod.getInstance());
 ```
 
+
+
+{% include post_footer.md %}

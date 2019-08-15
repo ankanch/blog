@@ -45,3 +45,6 @@ return result;
 char * CKCCDlg::UnicodeToUTF8(const wchar_t *str) { char * result; int textlen = 0; // wide char to multi char textlen = WideCharToMultiByte(CP_UTF8, 0, str, -1, NULL, 0, NULL, NULL); result = (char *)malloc((textlen + 1) * sizeof(char)); memset(result, 0, sizeof(char) * (textlen + 1)); WideCharToMultiByte(CP_UTF8, 0, str, -1, result, textlen, NULL, NULL); return result; }
 ```
 
+
+
+{% include post_footer.md %}

@@ -28,3 +28,6 @@ _Fragment\#setArguments\(Bundle\) instead_”的错误。
 
 [官方文档：点击这里](http://developer.android.com/intl/zh-cn/reference/android/annotation/SuppressLint.html)
 
+
+
+{% include post_footer.md %}

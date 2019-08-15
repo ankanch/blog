@@ -28,3 +28,6 @@ setlocale( LC_CTYPE, old_locale ); free( old_locale );
 locale.h
 ```
 
+
+
+{% include post_footer.md %}

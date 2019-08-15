@@ -84,3 +84,6 @@ myblog\_theme\_page.php:
 
 _\*\*已知缺点：由于我们直接把模板文件和样式表放在主题目录里面的，在更新主题后，这些东西将会消失！_
 
+
+
+{% include post_footer.md %}

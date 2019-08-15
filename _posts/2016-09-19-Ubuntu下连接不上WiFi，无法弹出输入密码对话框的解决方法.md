@@ -32,3 +32,6 @@ options iwlwifi 11n_disable=1
 
 我的系统是 Ubuntu 16.04 LTS
 
+
+
+{% include post_footer.md %}
