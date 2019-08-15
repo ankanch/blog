@@ -14,6 +14,7 @@ categories:
   - Python
   - 网站制作相关
 date: '2016-12-04T11:05:43.000Z'
+layout: posting
 ---
 
 # Google App Enigne Python文件读写

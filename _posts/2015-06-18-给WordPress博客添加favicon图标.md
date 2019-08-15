@@ -8,6 +8,7 @@ id: 52
 categories:
   - 网站制作相关
 date: '2015-06-18T13:22:00.000Z'
+layout: posting
 ---
 
 # 给WordPress博客添加favicon图标

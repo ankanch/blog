@@ -11,6 +11,7 @@ id: 138
 categories:
   - Android开发 / Android Studio
 date: '2015-09-06T20:43:24.000Z'
+layout: posting
 ---
 
 # 加速Android Studio的Gradle构建速度

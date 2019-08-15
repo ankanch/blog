@@ -10,6 +10,7 @@ categories:
   - Linux / Unix /虚拟主机 / VPS
   - 网站制作相关
 date: '2016-10-22T23:32:07.000Z'
+layout: posting
 ---
 
 # JavaScript实现HTML Input标签的智能提示框

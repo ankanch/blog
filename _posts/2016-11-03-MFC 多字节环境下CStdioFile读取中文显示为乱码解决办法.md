@@ -12,6 +12,7 @@ id: 593
 categories:
   - C++ / Visual C++
 date: '2016-11-03T10:25:12.000Z'
+layout: posting
 ---
 
 # MFC 多字节环境下CStdioFile读取中文显示为乱码解决办法

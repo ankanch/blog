@@ -14,6 +14,7 @@ categories:
   - Linux / Unix /虚拟主机 / VPS
   - 翻墙相关 / VPN
 date: '2016-01-21T17:38:25.000Z'
+layout: posting
 ---
 
 # Ubuntu下设置Shadowsocks的非全局代理（PAC自动代理）

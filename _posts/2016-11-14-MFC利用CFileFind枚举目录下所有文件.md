@@ -11,6 +11,7 @@ id: 606
 categories:
   - C++ / Visual C++
 date: '2016-11-14T18:32:47.000Z'
+layout: posting
 ---
 
 # MFC利用CFileFind枚举目录下所有文件

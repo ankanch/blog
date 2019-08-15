@@ -11,6 +11,7 @@ id: 348
 categories:
   - Linux / Unix /虚拟主机 / VPS
 date: '2016-01-18T20:41:12.000Z'
+layout: posting
 ---
 
 # Windows10下安装Ubuntu双系统之最简单的方法与部分引导修复

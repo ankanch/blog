@@ -12,6 +12,7 @@ id: 655
 categories:
   - Python
 date: '2017-01-16T22:48:25.000Z'
+layout: posting
 ---
 
 # Python转换字符串字典为Python字典类型数据

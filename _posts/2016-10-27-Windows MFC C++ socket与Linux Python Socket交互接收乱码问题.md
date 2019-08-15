@@ -16,6 +16,7 @@ categories:
   - Linux / Unix /虚拟主机 / VPS
   - Python
 date: '2016-10-27T20:33:19.000Z'
+layout: posting
 ---
 
 # Windows MFC C++ socket与Linux Python Socket交互接收乱码问题

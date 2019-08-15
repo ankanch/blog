@@ -12,6 +12,7 @@ categories:
   - Linux / Unix /虚拟主机 / VPS
   - 网站制作相关
 date: '2017-09-14T23:03:05.000Z'
+layout: posting
 ---
 
 # Wordpress 添加自定义模板并创建基于bootstrap4的页面

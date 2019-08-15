@@ -16,6 +16,7 @@ categories:
   - Python
   - 网站制作相关
 date: '2016-12-06T10:32:35.000Z'
+layout: posting
 ---
 
 # Python Flask Google App Engine允许Access-Control-Allow-Origin跨域访问

@@ -9,6 +9,7 @@ id: 121
 categories:
   - Android开发 / Android Studio
 date: '2015-08-25T21:34:25.000Z'
+layout: posting
 ---
 
 # 通过修改adb端口，解决Android Studio无法识别真机

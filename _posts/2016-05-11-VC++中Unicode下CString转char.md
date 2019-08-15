@@ -10,6 +10,7 @@ id: 423
 categories:
   - C++ / Visual C++
 date: '2016-05-11T22:12:46.000Z'
+layout: posting
 ---
 
 # VC++中Unicode下CString转char

@@ -11,6 +11,7 @@ categories:
   - Linux / Unix /虚拟主机 / VPS
   - 转载
 date: '2016-09-19T13:13:21.000Z'
+layout: posting
 ---
 
 # Ubuntu下连接不上WiFi，无法弹出输入密码对话框的解决方法

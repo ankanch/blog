@@ -12,6 +12,7 @@ categories:
   - C++ / Visual C++
   - Linux / Unix /虚拟主机 / VPS
 date: '2016-01-21T11:36:51.000Z'
+layout: posting
 ---
 
 # Ubuntu下Codeblocks编译C++并运行后控制台无法显示中文解决办法

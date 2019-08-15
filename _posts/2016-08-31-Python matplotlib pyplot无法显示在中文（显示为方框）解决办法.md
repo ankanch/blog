@@ -10,6 +10,7 @@ id: 487
 categories:
   - Python
 date: '2016-08-31T15:27:05.000Z'
+layout: posting
 ---
 
 # Python matplotlib pyplot无法显示在中文（显示为方框）解决办法

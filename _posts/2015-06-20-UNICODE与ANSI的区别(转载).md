@@ -10,6 +10,7 @@ categories:
   - C++ / Visual C++
   - 转载
 date: '2015-06-20T13:19:28.000Z'
+layout: posting
 ---
 
 # UNICODE与ANSI的区别\(转载\)

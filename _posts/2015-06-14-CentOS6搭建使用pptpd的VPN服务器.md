@@ -8,6 +8,7 @@ id: 16
 categories:
   - Linux / Unix /虚拟主机 / VPS
 date: '2015-06-14T18:55:01.000Z'
+layout: posting
 ---
 
 我的安装环境: *CentOS 6*

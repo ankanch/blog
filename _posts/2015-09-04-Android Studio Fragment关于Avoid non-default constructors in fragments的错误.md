@@ -10,6 +10,7 @@ id: 135
 categories:
   - Android开发 / Android Studio
 date: '2015-09-04T17:52:47.000Z'
+layout: posting
 ---
 
 # Android Studio Fragment关于Avoid non-default constructors in fragments的错误

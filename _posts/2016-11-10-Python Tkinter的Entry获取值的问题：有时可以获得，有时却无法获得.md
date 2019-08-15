@@ -11,6 +11,7 @@ id: 599
 categories:
   - Python
 date: '2016-11-10T11:47:26.000Z'
+layout: posting
 ---
 
 # Python Tkinter的Entry获取值的问题：有时可以获得，有时却无法获得

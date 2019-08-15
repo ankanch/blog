@@ -16,6 +16,7 @@ id: 623
 categories:
   - Python
 date: '2016-11-27T16:15:02.000Z'
+layout: posting
 ---
 
 # matplotlib饼状图\(pie\)不能正确显示中文的解决办法

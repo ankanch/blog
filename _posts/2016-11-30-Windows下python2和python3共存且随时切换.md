@@ -12,6 +12,7 @@ id: 634
 categories:
   - Python
 date: '2016-11-30T22:50:23.000Z'
+layout: posting
 ---
 
 # Windows下python2和python3共存且随时切换

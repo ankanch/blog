@@ -11,6 +11,7 @@ categories:
   - 翻墙相关 / VPN
   - 转载
 date: '2015-10-04T17:42:02.000Z'
+layout: posting
 ---
 
 # 利用VPS搭建shadowsocks服务器（转）

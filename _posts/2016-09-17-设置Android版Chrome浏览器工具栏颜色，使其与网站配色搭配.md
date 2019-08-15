@@ -11,6 +11,7 @@ categories:
   - Linux / Unix /虚拟主机 / VPS
   - 网站制作相关
 date: '2016-09-17T14:17:40.000Z'
+layout: posting
 ---
 
 # 设置Android版Chrome浏览器工具栏颜色，使其与网站配色搭配

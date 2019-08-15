@@ -9,6 +9,7 @@ id: 95
 categories:
   - Android开发 / Android Studio
 date: '2015-07-21T17:43:26.000Z'
+layout: posting
 ---
 
 # Android Studio TextView添加滚动条，解决文字过多问题

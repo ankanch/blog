@@ -12,6 +12,7 @@ categories:
   - C++ / Visual C++
   - 算法、
 date: '2015-12-29T13:06:53.000Z'
+layout: posting
 ---
 
 # 几个C++数字转字符串（int转string）函数与其复杂度比较

@@ -12,6 +12,7 @@ categories:
   - Linux / Unix /虚拟主机 / VPS
   - 网站制作相关
 date: '2016-01-12T00:04:57.000Z'
+layout: posting
 ---
 
 # 在Ubuntu 14上搭建 WordPress

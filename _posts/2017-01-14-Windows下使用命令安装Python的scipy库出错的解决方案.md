@@ -8,6 +8,7 @@ id: 653
 categories:
   - Python
 date: '2017-01-14T15:39:37.000Z'
+layout: posting
 ---
 
 # Windows下使用命令安装Python的scipy库出错的解决方案

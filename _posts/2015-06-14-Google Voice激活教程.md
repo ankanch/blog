@@ -7,6 +7,7 @@ id: 18
 categories:
   - C++ / Visual C++
 date: '2015-06-14T19:08:49.000Z'
+layout: posting
 ---
 
 # 首先,什么是Google Voice

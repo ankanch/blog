@@ -13,6 +13,7 @@ id: 416
 categories:
   - C++ / Visual C++
 date: '2016-05-05T23:25:02.000Z'
+layout: posting
 ---
 
 # Visual Studio2015 MFC连接Access数据库
