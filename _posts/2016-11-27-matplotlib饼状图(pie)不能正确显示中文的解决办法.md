@@ -55,8 +55,3 @@ Ubuntu下字体路径：
 
 **/usr/share/fonts**
 
-
-
-
-
-{% include post_footer.md %}

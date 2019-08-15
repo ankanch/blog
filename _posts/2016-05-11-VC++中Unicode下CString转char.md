@@ -34,8 +34,3 @@ USES\_CONVERSION;
 CString cstr = \_T\("12345"\); char _pbuffer = T2A\(cstr\);  
 char_ pbuf = W2A\(cstr\);&lt;/pre&gt;  
 
-
-
-
-
-{% include post_footer.md %}

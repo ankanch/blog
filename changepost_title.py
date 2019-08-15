@@ -1,9 +1,10 @@
+#encoding:utf-8
 import os
-fpath = "C:\\Users\\kanch\\OneDrive\\My Blog at GitBook from GitHub\\blog\\_posts"
+fpath = "_posts/"
 for f in os.listdir(fpath):
     title = ""
     date = ""
-    with open(fpath + "\\" + f,encoding="utf-8",errors="ignore") as f:
+    with open(fpath + f,encoding="utf-8",errors="ignore") as f:
             line = f.readline()
             btitle = True
             bdate = True
@@ -20,4 +21,4 @@ for f in os.listdir(fpath):
                     break
                 line = f.readline()
     print(f.name,type(f),title,type(title))
-    os.rename( f.name, fpath + "\\" + date  + "-"  + title + '.md')
+    os.rename( f.name, fpath + date  + "-"  + title + '.md')

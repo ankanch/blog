@@ -57,8 +57,3 @@ py -2 -m pip install XXX
 
 py -3 -m pip install XXX&lt;/pre&gt;  
 
-
-
-
-
-{% include post_footer.md %}

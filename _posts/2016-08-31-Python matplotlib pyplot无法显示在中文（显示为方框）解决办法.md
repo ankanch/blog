@@ -36,8 +36,3 @@ pyplot.title\(u'中文', fontproperties=font\_set\)&lt;/pre&gt; 然后就完美�
 
 参考来源：[http://blog.csdn.net/garfielder007/article/details/51405139](http://blog.csdn.net/garfielder007/article/details/51405139)
 
-
-
-
-
-{% include post_footer.md %}

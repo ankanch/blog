@@ -17,7 +17,7 @@ tags: null
 
 当然你也可以通过GreasyFork将其安装在Tampermonkey中。[脚本GreasyFork页面](https://greasyfork.org/en/scripts/38914-hmmc-how-much-money-do-i-cost-on-steam)
 
-脚本会在页面顶部显示花费总额，如下图： ![/images/hmmc](https://raw.githubusercontent.com/ankanch/kanch.blog/master/images/hmmc.PNG)
+脚本会在页面顶部显示花费总额，如下图： ![/images/hmmc](../.gitbook/assets/hmmc.PNG)
 
 函数代码如下：
 
@@ -95,8 +95,3 @@ function hmmc(){
 }
 ```
 
-
-
-
-
-{% include post_footer.md %}

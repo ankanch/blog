@@ -49,8 +49,3 @@ Label\(root,text="KCC数据分析模块 - 基本分析套件\n该模块用于显
 
 [参考2：StackOverFlow](http://stackoverflow.com/questions/10727131/why-is-tkinter-entrys-get-function-returning-nothing)
 
-
-
-
-
-{% include post_footer.md %}

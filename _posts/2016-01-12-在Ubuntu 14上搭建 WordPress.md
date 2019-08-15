@@ -177,8 +177,3 @@ mysql -p
     QUIT
     reboot
 
-
-
-
-
-{% include post_footer.md %}

@@ -24,15 +24,7 @@ date: '2015-06-18T13:22:00.000Z'
 
 选择文件目录中的 **顶部（header.php）**，并打开它。
 
-在&lt;head&gt;&lt;/head&gt;间加入以下代码： 
-```html
-\*\*&lt;link rel="shortcuticon"href="[http://example.com/favicon.ico](http://example.com/favicon.ico)"type="image/vnd.microsoft.icon"&gt;&lt;/span&gt; ****&lt;link rel="icon" href="[http://example.com/favicon.ico](http://example.com/favicon.ico)" type="image/vnd.microsoft.icon\*\*"&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;
-```
+在&lt;head&gt;&lt;/head&gt;间加入以下代码： \*\*&lt;link rel="shortcuticon"href="[http://example.com/favicon.ico](http://example.com/favicon.ico)"type="image/vnd.microsoft.icon"&gt;&lt;/span&gt; ****&lt;link rel="icon" href="[http://example.com/favicon.ico](http://example.com/favicon.ico)" type="image/vnd.microsoft.icon\*\*"&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;
 
 如果你将favicon.ico放在了网站根目录，则把加粗部分换成你的域名即可。
 
-
-
-
-
-{% include post_footer.md %}

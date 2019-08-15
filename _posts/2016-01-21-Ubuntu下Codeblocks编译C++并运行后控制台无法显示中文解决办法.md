@@ -54,8 +54,3 @@ date: '2016-01-21T11:36:51.000Z'
 
 [ ](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-3.png)
 
-
-
-
-
-{% include post_footer.md %}
