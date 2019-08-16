@@ -17,9 +17,9 @@ date: '2016-10-09T10:32:46.000Z'
 
 ***域名管理：**增加，修改，删除域名解析记录
 
-## \[
+## [
 
-![D90D94331E54D2005CC8CEE352FF98ECF639\](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/06/D90D94331E54D2005CC8CEE352FF98ECF639-300x89.png)](https://play.google.com/store/apps/details?id=com.akakanch.qcloudmanager2)
+![D90D94331E54D2005CC8CEE352FF98ECF639](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/06/D90D94331E54D2005CC8CEE352FF98ECF639-300x89.png)](https://play.google.com/store/apps/details?id=com.akakanch.qcloudmanager2)
 
 如果你无法使用Google Play，请到这里来下载：[http://www.coolapk.com/apk/com.akakanch.qcloudmanager2](http://www.coolapk.com/apk/com.akakanch.qcloudmanager2)
 

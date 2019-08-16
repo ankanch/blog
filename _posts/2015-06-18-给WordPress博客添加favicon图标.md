@@ -25,7 +25,11 @@ layout: posting
 
 选择文件目录中的 **顶部（header.php）**，并打开它。
 
-在<head></head>间加入以下代码： **<link rel="shortcuticon"href="[http://example.com/favicon.ico](http://example.com/favicon.ico)"type="image/vnd.microsoft.icon"></span> ****<link rel="icon" href="[http://example.com/favicon.ico](http://example.com/favicon.ico)" type="image/vnd.microsoft.icon**"</span>></span></span>
+在<head></head>间加入以下代码：
+
+```html
+<link rel="shortcuticon"href="[http://example.com/favicon.ico](http://example.com/favicon.ico)"type="image/vnd.microsoft.icon"></span> ****<link rel="icon" href="[http://example.com/favicon.ico](http://example.com/favicon.ico)" type="image/vnd.microsoft.icon**"</span>></span></span>
+```
 
 如果你将favicon.ico放在了网站根目录，则把加粗部分换成你的域名即可。
 

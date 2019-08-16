@@ -35,7 +35,7 @@ layout: posting
 
 ## file 为文件或者文件夹
 
-python3 3to2.py -w \[file\] </pre> 当时以为只需要简单的将文件操作转换为python2的即可，结果部署到GAE后发现，并不能写入，更别说读取了。
+python3 3to2.py -w [file] </pre> 当时以为只需要简单的将文件操作转换为python2的即可，结果部署到GAE后发现，并不能写入，更别说读取了。
 
 后面在GAE的控制台看错误信息，发现并没有相关错误提示。故Google之([google app engine python read file](https://www.google.com.hk/search?newwindow=1&amp;safe=strict&amp;q=google+app+engine+python+read+file&amp;oq=Google+App+Engine+&amp;gs_l=serp.3.0.35i39k1j0l9.199.3152.0.4575.12.12.0.0.0.0.344.1898.0j6j2j1.9.0....0...1c.1.64.serp..3.9.1898...0i20k1.cSDLSUneB4s))...
 

@@ -46,7 +46,7 @@ su wordpress
 cd ~
 ```
 
- 接着我们用以下命令下载WordPress，注意命令中给出的WordPress版本为_简中4.4.1_（更新时间2016-1-11）。 你们可以到这里找到最新版本的WordPress：\[https://cn.wordpress.org/\](https://cn.wordpress.org/)
+ 接着我们用以下命令下载WordPress，注意命令中给出的WordPress版本为_简中4.4.1_（更新时间2016-1-11）。 你们可以到这里找到最新版本的WordPress：[https://cn.wordpress.org/](https://cn.wordpress.org/)
 
 ```text
 wget https://cn.wordpress.org/wordpress-4.4.1-zh_CN.tar.gz
