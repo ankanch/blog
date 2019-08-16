@@ -1,4 +1,5 @@
 ---
+title: postings
 layout: global
 permalink: /posts
 ---

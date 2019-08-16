@@ -23,7 +23,10 @@ _最近我将我的博客从腾讯云迁移到了Github Pages,正在慢慢打理
 `Last Modified: Aug. 6 2019`
 
 ### Posts List
-　　　　{% for post in site.posts %}
+
+完整文章列表请访问：[/posts](/posts) , 下面显示了最近的5篇文章：
+
+　　　　{% for post in site.posts limit:5 %}
 　　　　　　[{{ post.date | date_to_string }} - {{ post.title }}]({{ site.baseurl }}{{ post.url }})
 
 　　　　{% endfor %}
