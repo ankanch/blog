@@ -27,7 +27,7 @@ layout: posting
 
 但在Python脚本端的send里面，我编码成了utf-8编码，而windows默认为UNICODE，结果导致了无论是中文还是英文，Python 服务器端接收正常但windows端却一直是乱码。
 
-解决方法主要是利用\[MultiByteToWideChar\]\([https://msdn.microsoft.com/en-us/library/windows/desktop/dd319072\(v=vs.85\).aspx\)（点击可跳转到MSDN）函数，将UTF-8转换成UNICODE](https://msdn.microsoft.com/en-us/library/windows/desktop/dd319072%28v=vs.85%29.aspx%29（点击可跳转到MSDN）函数，将UTF-8转换成UNICODE)
+解决方法主要是利用\[MultiByteToWideChar\]([https://msdn.microsoft.com/en-us/library/windows/desktop/dd319072(v=vs.85).aspx)（点击可跳转到MSDN）函数，将UTF-8转换成UNICODE](https://msdn.microsoft.com/en-us/library/windows/desktop/dd319072%28v=vs.85%29.aspx%29（点击可跳转到MSDN）函数，将UTF-8转换成UNICODE)
 
 封装后的函数如下：
 

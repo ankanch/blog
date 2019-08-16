@@ -22,7 +22,7 @@ layout: posting
 
 然后，就发现有些站点居然广告掺不忍睹。。。。
 
-[![screenshot\_20161009-202650](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202650-169x300.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202650.png)[![screenshot\_20161009-202659](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202659-169x300.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202659.png)
+[![screenshot_20161009-202650](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202650-169x300.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202650.png)[![screenshot_20161009-202659](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202659-169x300.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202659.png)
 
 所以，开始研究如何屏蔽广告，这样才可以让应用更加的美观。
 
@@ -40,7 +40,7 @@ Chrome浏览器中F12打开开发者工具，然后右键菜单，copy，copy se
 
 下面的代码将Java Script注入到webView中，然后，通过这个seletor去寻找相应的元素，并处理。
 
-wv.setWebViewClient\(new WebViewClient\(\){
+wv.setWebViewClient(new WebViewClient(){
 
 ```text
         @Override
@@ -61,7 +61,7 @@ wv.setWebViewClient\(new WebViewClient\(\){
 view.loadUrl("javascript:var con = document.getElementById('gamesliderwrap'); con.parentNode.removeChild(con); ");
 ```
 
-[![screenshot\_20161009-202817](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202817-169x300.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202817.png) [![screenshot\_20161009-202822](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202822-169x300.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202822.png)
+[![screenshot_20161009-202817](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202817-169x300.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202817.png) [![screenshot_20161009-202822](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202822-169x300.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-202822.png)
 
 ## 写在最后：
 
@@ -69,7 +69,7 @@ view.loadUrl("javascript:var con = document.getElementById('gamesliderwrap'); co
 
 这样，用户还是会先看到广告，所以，我建议在页面加载完成前，显示另外一个fregment提示正在加载，或者直接隐藏WebView，等到页面加载完成后再显示。如下图：
 
-[![screenshot\_20161009-210540](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-210540-169x300.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-210540.png)
+[![screenshot_20161009-210540](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-210540-169x300.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/10/Screenshot_20161009-210540.png)
 
 也可以在onPageStart中写While循环，来循环执行Java Script注入代码。这样HTML元素一显示，就会被处理掉。
 

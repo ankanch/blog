@@ -19,9 +19,9 @@ layout: posting
 
 示“_Avoid non-default constructors in fragments: use a default constructor plus_
 
-_Fragment\#setArguments\(Bundle\) instead_”的错误。
+_Fragment\#setArguments(Bundle) instead_”的错误。
 
-这时。需要在类的前面加上**@SuppressLint\("ValidFragment"\)**才能解决错误。
+这时。需要在类的前面加上**@SuppressLint("ValidFragment")**才能解决错误。
 
 ## SuppressLint说明
 

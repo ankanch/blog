@@ -21,7 +21,7 @@ layout: posting
 
 具体地说，运行后的界面会是下图这个样子：
 
-![CB\_TERMINAL\_PROBLEM \(4\)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-4.png)
+![CB_TERMINAL_PROBLEM (4)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-4.png)
 
 简单地说就是对中文支持不完整，看起来怪怪的
 
@@ -33,7 +33,7 @@ layout: posting
 
 如下图示：
 
-![CB\_TERMINAL\_PROBLEM \(3\)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-3.png)
+![CB_TERMINAL_PROBLEM (3)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-3.png)
 
 把默认的xterm -T $TITLE -e修改掉
 
@@ -41,13 +41,13 @@ layout: posting
 
 如下图所示：
 
-[![CB\_TERMINAL\_PROBLEM \(1\)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-1.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-1.png)
+[![CB_TERMINAL_PROBLEM (1)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-1.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-1.png)
 
 然后我们再次编译程序并运行
 
 现在可以正常显示了
 
-[![CB\_TERMINAL\_PROBLEM \(2\)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-2.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-2.png)
+[![CB_TERMINAL_PROBLEM (2)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-2.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/CB_TERMINAL_PROBLEM-2.png)
 
 另外，这个貌似只适用于Ubuntu12.04以上的版本
 

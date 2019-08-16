@@ -37,7 +37,7 @@ layout: posting
 
 ## 使用python3运行h.py
 
-py -3 k.py &lt;/pre&gt; 如果觉得这样太麻烦，可以通过在源代码文件第一行添加：
+py -3 k.py </pre> 如果觉得这样太麻烦，可以通过在源代码文件第一行添加：
 
 ```
 #! python3
@@ -56,7 +56,7 @@ py h.py
 
 py -2 -m pip install XXX
 
-py -3 -m pip install XXX&lt;/pre&gt;  
+py -3 -m pip install XXX</pre>  
 
 
 

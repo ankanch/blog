@@ -46,7 +46,7 @@ mkdir ~/shadowsocks cd shadowsocks
 genpac --proxy="SOCKS5 127.0.0.1:1080" --gfwlist-proxy="SOCKS5 127.0.0.1:1080" -o autoproxy.pac --gfwlist-url="https://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt" 
 ```
 
-[![pac\_set](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/pac_set.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/pac_set.png)
+[![pac_set](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/pac_set.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/pac_set.png)
 
 设置代理为自动，然后配置URL填入我们刚刚生成的那个pac文件的路径即可。
 

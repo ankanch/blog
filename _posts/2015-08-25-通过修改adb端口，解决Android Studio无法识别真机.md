@@ -26,11 +26,11 @@ layout: posting
 
 ## **方法如下：**
 
-新建一个环境变量，名字为_**ANDROID\_ADB\_SERVER\_PORT**_，然后它的值设为一个新的端口号码，比如说9999。
+新建一个环境变量，名字为_**ANDROID_ADB_SERVER_PORT**_，然后它的值设为一个新的端口号码，比如说9999。
 
 再次启动Android Studio调试程序，adb就可以识别真机了。
 
-[![adb\_set\_port](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/adb_set_port.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/adb_set_port.png)
+[![adb_set_port](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/adb_set_port.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/08/adb_set_port.png)
 
 如下图，现在可以识别真机了。
 

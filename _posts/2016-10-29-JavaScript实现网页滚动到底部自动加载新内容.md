@@ -22,7 +22,7 @@ JavaScript的实现逻辑非常简单，就是判断滚动条的滚动长度是�
 
 其JS代码如下：
 
-var p = 1; var page\_num = 2;
+var p = 1; var page_num = 2;
 
 ```text
                 function loadComments() {
@@ -42,7 +42,7 @@ var p = 1; var page\_num = 2;
                 }
                 $(document).ready(function() {
                     $(window).scroll(function() {
-                        if ($(document).scrollTop() &gt;= $(document).height() - $(window).height()) {
+                        if ($(document).scrollTop() >= $(document).height() - $(window).height()) {
                             var div1tem = $('#container').height()
 
                             loadComments()
@@ -51,9 +51,9 @@ var p = 1; var page\_num = 2;
                 })</pre>
 ```
 
-你们只需要自定义loadComments\(）函数即可实现，当网页滚动到底部的时候加载更多内容。
+你们只需要自定义loadComments(）函数即可实现，当网页滚动到底部的时候加载更多内容。
 
-即通过JavaScript获取新内容放到以个&lt;div&gt;&lt;/div&gt;里即可。
+即通过JavaScript获取新内容放到以个<div></div>里即可。
 
 已知bug：
 

@@ -63,9 +63,9 @@ vi /etc/ppp/options.pptpd ms-dns 8.8.8.8 ms-dns 8.8.4.4
 
 **5.设置拨号时候用的：用户名、拨号方式、用户密码、来源ip地址**
 
-用户名和密码可以随便设置，拨号方式只能填pptpd，来源ip用\*号代表不限制
+用户名和密码可以随便设置，拨号方式只能填pptpd，来源ip用*号代表不限制
 ```shell
-vi /etc/ppp/chap-secrets myusername pptpd mypassword \*
+vi /etc/ppp/chap-secrets myusername pptpd mypassword *
 ```
 
 **6.设置本地ip和远端ip**
@@ -78,7 +78,7 @@ vi /etc/pptpd.conf localip 192.168.8.1 remoteip 192.168.8.11-30
 
 和第9步的NAT转发有关
 ```shell
-vi /etc/sysctl.conf net.ipv4.ip\_forward = 1 /sbin/sysctl -p
+vi /etc/sysctl.conf net.ipv4.ip_forward = 1 /sbin/sysctl -p
 ```
 **8.启动pptpd服务，并且设置为开机启动**
 ```shell
@@ -88,7 +88,7 @@ vi /etc/sysctl.conf net.ipv4.ip\_forward = 1 /sbin/sysctl -p
 
 iptables本身就是开机启动的，不需要再用chkconfig iptables on了
 ```shell
-/sbin/service iptables restart /sbin/iptables -t nat -A POSTROUTING -s 192.168.8.0/24 -o venet0 -j MASQUERADE \(vps用venet0,否则用eth0\)
+/sbin/service iptables restart /sbin/iptables -t nat -A POSTROUTING -s 192.168.8.0/24 -o venet0 -j MASQUERADE (vps用venet0,否则用eth0)
 service iptables save 
 ```
 避免造成一些网页无法显示，MSN无法登陆的解决办法： 添加下面的iptables规则，设置 session MTU 为 1356，然后保存。
@@ -101,14 +101,14 @@ service iptables save
 /sbin/iptables -t nat -A POSTROUTING -s 192.168.8.0/24 -o venet0 -j MASQUERADE 
 ```
 
-命令， 如果返回iptables: Unknown error 4294967295，表明系统还不支持，需要联系客服开通iptables\_nat模块支持。 或者使用：
+命令， 如果返回iptables: Unknown error 4294967295，表明系统还不支持，需要联系客服开通iptables_nat模块支持。 或者使用：
 ```shell
 /sbin/iptables -t nat -A POSTROUTING -o venet0 -s 192.168.8.0/24 -j SNAT –to-source xxx.xxx.xxx.xxx
 ```
 
  1.检查PPP是否支持MPPE
 ```shell
-strings ‘/usr/sbin/pppd’ \|grep -i mppe \| wc –lines
+strings ‘/usr/sbin/pppd’ |grep -i mppe | wc –lines
 ```
 如果以上命令输出为“0”则表示不支持；输出为“30”或更大的数字就表示支持。 
 

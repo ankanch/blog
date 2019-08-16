@@ -44,7 +44,7 @@ CFileFind::FindNextFile
 
 继续以前的文件搜索调用 FindFile。
 
- &lt;/tr&gt;
+ </tr>
 
 CFileFind::GetFileName
 
@@ -58,14 +58,14 @@ CFileFind::IsDots
 
 确定找到的文件的名称是否具有名称“”。或者“。”，指示实际上是内容。
 
- &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; [（内容来源：MSDN：https://msdn.microsoft.com/library/9990068c-b023-4114-9580-a50182d15240.aspx\#cfilefind\_\_findfile）](https://msdn.microsoft.com/library/9990068c-b023-4114-9580-a50182d15240.aspx#cfilefind__findfile)
+ </tr> </tbody> </table> [（内容来源：MSDN：https://msdn.microsoft.com/library/9990068c-b023-4114-9580-a50182d15240.aspx\#cfilefind__findfile）](https://msdn.microsoft.com/library/9990068c-b023-4114-9580-a50182d15240.aspx#cfilefind__findfile)
 
 那么如何搜索呢？
 
 根据MSDN上的例子，我们在第一次查找的时候，首先需要给其传入一个路径，指明在哪里查找该文件。
 
 ```
-//下面的代码传入当前exe文件同目录下的plugins文件夹路径->kanch CFileFind finder; BOOL bWorking = finder.FindFile(_T(".\\plugins\\*.*"));
+//下面的代码传入当前exe文件同目录下的plugins文件夹路径->kanch CFileFind finder; BOOL bWorking = finder.FindFile(_T(".\\plugins\*.*"));
 ```
 
 代码像下面这样：
@@ -76,7 +76,7 @@ while (bWorking) { bWorking = finder.FindNextFile(); if (finder.IsDots()) contin
 
 以上代码在Visual Studio 2015中编译通过。
 
-参考：[MSDN CFileFind类：https://msdn.microsoft.com/library/9990068c-b023-4114-9580-a50182d15240.aspx\#cfilefind\_\_findfile](https://msdn.microsoft.com/library/9990068c-b023-4114-9580-a50182d15240.aspx#cfilefind__findfile)
+参考：[MSDN CFileFind类：https://msdn.microsoft.com/library/9990068c-b023-4114-9580-a50182d15240.aspx\#cfilefind__findfile](https://msdn.microsoft.com/library/9990068c-b023-4114-9580-a50182d15240.aspx#cfilefind__findfile)
 
 
 

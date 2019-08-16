@@ -23,7 +23,7 @@ layout: posting
 error: 'itoa' was not declared in this scope
 ```
 
- 后来无奈只有自己实现这个函数。数字转字符串之前在C语言课上我写过一个。不过，这次我想到了一个特别的方法。下面来详细说说这几个方法吧。 \* \* \*   \#\# 方法一 首先，先来谈谈我最早在C语言上的方法： 之前我都这样做，每次用这个数去除以小于它的10^n数，再利用C/C++ int类型取整的特性，来得到要转换数字的每个数位。 比如，对于4567这个数字，我先用1000去除，得到第一个数位4；再用100除它，得到的数字X减去之前得到的数字乘以10，就得到第二个数位5；同理，再继续将4567除以10，得到数再减去之前得到的中间数乘以10，就得到第三个数位6，再用同样的方法得到第4个数位。 最后，整个算法是这个样子的：
+ 后来无奈只有自己实现这个函数。数字转字符串之前在C语言课上我写过一个。不过，这次我想到了一个特别的方法。下面来详细说说这几个方法吧。 * * *   \#\# 方法一 首先，先来谈谈我最早在C语言上的方法： 之前我都这样做，每次用这个数去除以小于它的10^n数，再利用C/C++ int类型取整的特性，来得到要转换数字的每个数位。 比如，对于4567这个数字，我先用1000去除，得到第一个数位4；再用100除它，得到的数字X减去之前得到的数字乘以10，就得到第二个数位5；同理，再继续将4567除以10，得到数再减去之前得到的中间数乘以10，就得到第三个数位6，再用同样的方法得到第4个数位。 最后，整个算法是这个样子的：
 
 ```text
 void itoc(long n,char * num)
@@ -86,7 +86,7 @@ inline string inttostr(int num)
 
 再看看系统，不对，是某某库的itoa方法：
 
-[![itoa\_1](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/12/itoa_1.jpg)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/12/itoa_1.jpg)
+[![itoa_1](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/12/itoa_1.jpg)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/12/itoa_1.jpg)
 
 stdlib.h库里函数的方法用了和方法一原理上相同的方法，只不过，好吧，他这个可以判断正负。写得好简洁。
 

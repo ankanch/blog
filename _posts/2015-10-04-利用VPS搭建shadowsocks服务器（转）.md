@@ -42,7 +42,7 @@ _请选择对应系统的命令_
 
 **CentOS:**
 
-yum install python-setuptools && easy\_install pip pip install shadowsocks
+yum install python-setuptools && easy_install pip pip install shadowsocks
 
 命令输入后，稍作等待，shadowsocks就安装好了。
 
@@ -62,7 +62,7 @@ shadowsocks启动时的参数，如服务器端口，代理端口，登录密码
 
 vi /etc/shadowsocks.json 然后输入如下内容：
 
-{  "server":"my\_server\_ip",  "server\_port":25,  "local\_address": "127.0.0.1",  "local\_port":1080,  "password":"mypassword",  "timeout":300,  "method":"aes-256-cfb",  "fast\_open": false }
+{  "server":"my_server_ip",  "server_port":25,  "local_address": "127.0.0.1",  "local_port":1080,  "password":"mypassword",  "timeout":300,  "method":"aes-256-cfb",  "fast_open": false }
 
 server改成你VPS服务器的IP地址！ 使用 :wq命令保存退出。
 

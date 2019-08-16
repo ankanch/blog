@@ -32,25 +32,25 @@ layout: posting
 
   org.gradle.parallel=true
 
-  org.gradle.configureondemand=true&lt;/pre&gt;
+  org.gradle.configureondemand=true</pre>
 
-  ![speedup\_gradle\_3](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/09/speedup_gradle_3.png)
+  ![speedup_gradle_3](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/09/speedup_gradle_3.png)
 
 注意，因为这样配置是对于此计算机的Android Studio用户，所以对于所有项目都有效。
 
-不过最好把Android Studio的配置也改改，打开Android Studio，选择菜单项 File-&gt;Settings。
+不过最好把Android Studio的配置也改改，打开Android Studio，选择菜单项 File->Settings。
 
 切换到下面的视图：
 
 把 Offline Work打上勾。
 
-[![speedup\_gradle\_1](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/09/speedup_gradle_1.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/09/speedup_gradle_1.png)
+[![speedup_gradle_1](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/09/speedup_gradle_1.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/09/speedup_gradle_1.png)
 
 再切换到如下视图：
 
 把下图黄色箭头指出的选项弄成一样
 
-[![speedup\_gradle\_2](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/09/speedup_gradle_2.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/09/speedup_gradle_2.png)
+[![speedup_gradle_2](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/09/speedup_gradle_2.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/09/speedup_gradle_2.png)
 
 最后，保存，并重新打开Android Studio.
 

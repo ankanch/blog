@@ -36,7 +36,7 @@ layout: posting
 
 如果你是Windows8/8.1/10的话，在开始正式安装之前，我们首先要关闭快速启动
 
-控制面板-&gt;硬件和声音-&gt;电源选项 选择左边栏的【选择电源按钮功能】，然后关闭快速启动。
+控制面板->硬件和声音->电源选项 选择左边栏的【选择电源按钮功能】，然后关闭快速启动。
 
 [![Ubuntu-0](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-0.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-0.png)
 
@@ -118,7 +118,7 @@ sda0到sda11每个分区都挂了一遍，都不行。
 
 ![Ubuntu-38](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-38.png)
 
-接下来我们保存对BIOS的修改，然后重新启动系统，卧槽，看见什么了------&gt;
+接下来我们保存对BIOS的修改，然后重新启动系统，卧槽，看见什么了------>
 
 Grub引导，反正我觉得比Windows Boot Manager好看。我们选择第一项，Ubuntu，看看可不可以进入系统
 
@@ -134,7 +134,7 @@ Grub引导，反正我觉得比Windows Boot Manager好看。我们选择第一�
 
 双系统，在我看来，我现在还没有解决掉的**缺点**：在Ubuntu下，它把我Windows的所有分区，包括EFI分区，恢复分区都挂载上去了，目前我还没找到如何解决的方法。网上提到说，修改etc/fstab，我看别人的fstab里面的内容都有一大堆，我的fstab里面就3行，3行恰好包含完我给Ubuntu分的分区。。。。。
 
-**&lt;转载请注明来源&gt;**
+**<转载请注明来源>**
 
 
 

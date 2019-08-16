@@ -21,11 +21,11 @@ layout: posting
 
 然后，将你做好的favicon.ico**放入你web服务器的根目录**。（当然也可以使其他目录，我们需要记住路径）
 
-进入wordpress管理后台，打开 **外观-&gt;编辑**
+进入wordpress管理后台，打开 **外观->编辑**
 
 选择文件目录中的 **顶部（header.php）**，并打开它。
 
-在&lt;head&gt;&lt;/head&gt;间加入以下代码： \*\*&lt;link rel="shortcuticon"href="[http://example.com/favicon.ico](http://example.com/favicon.ico)"type="image/vnd.microsoft.icon"&gt;&lt;/span&gt; ****&lt;link rel="icon" href="[http://example.com/favicon.ico](http://example.com/favicon.ico)" type="image/vnd.microsoft.icon\*\*"&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+在<head></head>间加入以下代码： **<link rel="shortcuticon"href="[http://example.com/favicon.ico](http://example.com/favicon.ico)"type="image/vnd.microsoft.icon"></span> ****<link rel="icon" href="[http://example.com/favicon.ico](http://example.com/favicon.ico)" type="image/vnd.microsoft.icon**"</span>></span></span>
 
 如果你将favicon.ico放在了网站根目录，则把加粗部分换成你的域名即可。
 
