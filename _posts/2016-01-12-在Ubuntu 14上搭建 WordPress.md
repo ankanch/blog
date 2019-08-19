@@ -38,7 +38,7 @@ apt-get install php-pear php5-mysql php5-curl php5-gd php5-mcrypt php5-memcache
 apt-get install python make screen git wget zip unzip iftop vim curl htop iptraf nethogs
 ```
 
- 上面这些命令主要安装了以下软件包， Web 服务器，SMTP 服务器，类 MySQL 数据库以及PHP相关的东西。 \#\# 接下来安装WordPress 先新建一个普通用户，然后切换到该用户：
+ 上面这些命令主要安装了以下软件包， Web 服务器，SMTP 服务器，类 MySQL 数据库以及PHP相关的东西。 ## 接下来安装WordPress 先新建一个普通用户，然后切换到该用户：
 
 ```text
 adduser wordpress

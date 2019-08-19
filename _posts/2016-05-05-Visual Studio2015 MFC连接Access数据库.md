@@ -24,7 +24,7 @@ layout: posting
 
 首先我们需要在MFC对话框的stdafx.h头文件中包含afxdb.h文件，该文件提供了数据库操作
 
-//下面这句代码要加在\#include <afxcontrolbars.h> // 功能区和控件条的 MFC 支持之下 //添加数据库支持
+//下面这句代码要加在#include <afxcontrolbars.h> // 功能区和控件条的 MFC 支持之下 //添加数据库支持
 
 ## include <afxdb.h> //新加入头文件，用于CDatabase类</pre>
 

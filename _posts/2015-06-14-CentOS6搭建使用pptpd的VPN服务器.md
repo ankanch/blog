@@ -10,35 +10,37 @@ categories:
 date: '2015-06-14T18:55:01.000Z'
 ---
 
+# CentOS6搭建使用pptpd的VPN服务器
+
 我的安装环境: *CentOS 6*
 
 首先,检测是否可以安装pptp
 ```shell
- cat /dev/ppp 
- cat: /dev/ppp: No such device or address 
- cat /dev/net/tun 
+ cat /dev/ppp
+ cat: /dev/ppp: No such device or address
+ cat /dev/net/tun
  cat: /dev/net/tun: File descriptor in bad state
 ```
 以上输出表示不支持ppp
 
 centos7.x 如果使用iptables要先卸载firewalld：
 ```shell
-systemctl stop firewalld 
+systemctl stop firewalld
 systemctl disable firewalld
 yum -y remove firewalld
 ```
 **1.安装ppp服务及相关组件**
 ```shell
-yum install -y ppp iptables 
+yum install -y ppp iptables
 ```
 注：centos7.x 还需要 yum -y install iptables-services
 
-**2.下载pptpd最新版本的rpm包** 
+**2.下载pptpd最新版本的rpm包**
 
 pptpd最新安装包地址[http://poptop.sourceforge.net/yum/stable/packages/](http://poptop.sourceforge.net/yum/stable/packages/)
 
-**centos7.x** 
-x64: 
+**centos7.x**
+x64:
 ```shell
 http://dl.fedoraproject.org/pub/epel/7/x86_64/p/pptpd-1.4.0-2.el7.x86_64.rpm
 ```
@@ -48,7 +50,7 @@ http://dl.fedoraproject.org/pub/epel/7/x86_64/p/pptpd-1.4.0-2.el7.x86_64.rpm
   yum -y install pptpd
   ```
 
-**3.安装下载好的相应rpm包** 
+**3.安装下载好的相应rpm包**
 
 例如32bit的centos5.x：
 ```shell
@@ -88,16 +90,16 @@ vi /etc/sysctl.conf net.ipv4.ip_forward = 1 /sbin/sysctl -p
 iptables本身就是开机启动的，不需要再用chkconfig iptables on了
 ```shell
 /sbin/service iptables restart /sbin/iptables -t nat -A POSTROUTING -s 192.168.8.0/24 -o venet0 -j MASQUERADE (vps用venet0,否则用eth0)
-service iptables save 
+service iptables save
 ```
 避免造成一些网页无法显示，MSN无法登陆的解决办法： 添加下面的iptables规则，设置 session MTU 为 1356，然后保存。
 ```shell
 iptables -I FORWARD -p tcp –syn -s 192.168.8.0/24 -j TCPMSS –set-mss 1356
-service iptables save 
+service iptables save
 ```
-执行 
+执行
 ```shell
-/sbin/iptables -t nat -A POSTROUTING -s 192.168.8.0/24 -o venet0 -j MASQUERADE 
+/sbin/iptables -t nat -A POSTROUTING -s 192.168.8.0/24 -o venet0 -j MASQUERADE
 ```
 
 命令， 如果返回iptables: Unknown error 4294967295，表明系统还不支持，需要联系客服开通iptables_nat模块支持。 或者使用：
@@ -109,7 +111,7 @@ service iptables save
 ```shell
 strings ‘/usr/sbin/pppd’ |grep -i mppe | wc –lines
 ```
-如果以上命令输出为“0”则表示不支持；输出为“30”或更大的数字就表示支持。 
+如果以上命令输出为“0”则表示不支持；输出为“30”或更大的数字就表示支持。
 
 2.以下命令检查内核MPPE补丁是否安装成功，MPPE module可否载如：
 ```shell

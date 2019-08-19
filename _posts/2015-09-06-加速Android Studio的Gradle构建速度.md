@@ -22,17 +22,19 @@ layout: posting
 
 在以下Gradle目录创建gradle.properties文件
 
-*     `C:Users<username>.gradle` 
+> C:Users<username>.gradle
 
   并在文件中增加以下数据，然后保存。
 
-  org.gradle.daemon=true
+```gradle
+org.gradle.daemon=true
 
-  org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
+org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
 
-  org.gradle.parallel=true
+org.gradle.parallel=true
 
-  org.gradle.configureondemand=true</pre>
+org.gradle.configureondemand=true
+```
 
   ![speedup_gradle_3](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2015/09/speedup_gradle_3.png)
 

@@ -20,14 +20,16 @@ layout: posting
 
 首先，打开layout文件，在TextView标记中添加2个属性：
 
-```
-android:singleLine="false" //取消单行 android:scrollbars="vertical" //设置垂直滚动条
+```xml
+android:singleLine="false" //取消单行 
+android:scrollbars="vertical" //设置垂直滚动条
 ```
 
 利用TextView对象设置样式
 
-```
-TextView textview=(TextView)findViewById(R.id.textview); textview.setMovementMethod(ScrollingMovementMethod.getInstance());
+```java
+TextView textview=(TextView)findViewById(R.id.textview); 
+textview.setMovementMethod(ScrollingMovementMethod.getInstance());
 ```
 
 

@@ -114,7 +114,7 @@ sda0到sda11每个分区都挂了一遍，都不行。
 
 选择第二个，grubx64.efi，选择它后,BIOS应该会弹出个框框让你输入名字，你顺便输入个容易辨别的名字就行，比如grub
 
-[![Ubuntu-37](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-37.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-37.png)接着，我们需要做的就是，把刚刚添加进去的那个东西设置为第一启动项，也就是如下图所示，把Grub移动到Boot Option \#1即可
+[![Ubuntu-37](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-37.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-37.png)接着，我们需要做的就是，把刚刚添加进去的那个东西设置为第一启动项，也就是如下图所示，把Grub移动到Boot Option #1即可
 
 ![Ubuntu-38](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-38.png)
 

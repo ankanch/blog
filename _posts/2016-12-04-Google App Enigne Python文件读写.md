@@ -31,7 +31,7 @@ layout: posting
 
 通过以下命令，3to2可以将指定python3文件或路径里的所有python3文件转换为python2的语法：
 
-\#
+#
 
 ## file 为文件或者文件夹
 
@@ -51,7 +51,7 @@ python3 3to2.py -w [file] </pre> 当时以为只需要简单的将文件操作�
 
 接下来就简单了，直接pip安装，不过还要[结合之前那篇文章的方法](https://raw.githubusercontent.com/ankanch/blog/master/images/archives/634)，将那货安装到应用的lib目录，否则，部署到GAE后会提示找不到module！
 
-\#
+#
 
 ## 假设该命令运行目录为你应用的根目录（即可见lib文件夹的目录）
 
@@ -65,7 +65,7 @@ py -2 -m pip install GoogleAppEngineCloudStorageClient -t lib</pre> 到这里，
 
 首先import一些必要库：
 
-\#
+#
 
 import logging import os import cloudstorage as gcs import webapp2
 
@@ -73,7 +73,7 @@ from google.appengine.api import app_identity</pre> google在文档中说明，�
 
 所以，bucket这里我们直接使用默认的即可，通过以下代码获取默认bucket路径，所有的文件都会存放在这个路径下：
 
-\#
+#
 
 ## RetryParams是说明文件读写超时时间，这里直接使用了google默认的
 
@@ -87,11 +87,11 @@ bucket_name = os.environ.get('BUCKET_NAME',app_identity.get_default_gcs_bucket_n
 
 下面是一个写文件的例子：
 
-\#
+#
 
 ## 写文件操作主要在try块里面，google的代码没有try块，不过为了防止操作失败，建议还是加上
 
-def refreshCache(data,cachefilename): try: gcs_file = gcs.open(cachepath+cachefilename, \#文件名（要加上路径，否则会出错） 'w', \#要执行的操作类型，这里是写操作，默认为读操作 content_type='text/plain', \#指定要以何种方式写入文件（仅在操作类型为w的时候有效）
+def refreshCache(data,cachefilename): try: gcs_file = gcs.open(cachepath+cachefilename, #文件名（要加上路径，否则会出错） 'w', #要执行的操作类型，这里是写操作，默认为读操作 content_type='text/plain', #指定要以何种方式写入文件（仅在操作类型为w的时候有效）
 
 ```text
                                                      #默认是以二进制方式写入，这里我们使用纯文本
@@ -107,7 +107,7 @@ return "OK<hr/>"</pre>
 
 接下来是一个读取文件的例子：
 
-\#
+#
 
 ## 同样的读取文件的代码主要在try块里面
 

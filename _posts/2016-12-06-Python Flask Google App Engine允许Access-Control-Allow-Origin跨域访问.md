@@ -76,11 +76,11 @@ return decorator</pre>
 
 接着，我们只需要在我们要加入Access-Control-Allow-Origin头的位置添加下面这一句即可：
 
-\#
+#
 
-@crossdomain(origin='_') \# <-添加这句，可以把_改为想要允许的域名
+@crossdomain(origin='_') # <-添加这句，可以把_改为想要允许的域名
 
-@app.route('/my_service') @crossdomain(origin='*') \#这货的添加位置应该在路由之后 def my_service():
+@app.route('/my_service') @crossdomain(origin='*') #这货的添加位置应该在路由之后 def my_service():
 
 ```text
 #do something</pre>

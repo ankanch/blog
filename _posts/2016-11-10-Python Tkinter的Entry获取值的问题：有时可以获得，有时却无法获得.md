@@ -30,7 +30,7 @@ layout: posting
 
 如下：
 
-def btnclick(): root.update() word = data.get() \#获取Entry的值
+def btnclick(): root.update() word = data.get() #获取Entry的值
 
 data = StringVar(root) Label(root,text="请输入要分析的词语（仅一个）:",width=25,height=2).pack() Entry(root,text="请输入内容",width=25,textvariable=data).pack(ipadx=4,ipady=4) Button(root, text="获取edit内容", width=15,relief=GROOVE,command=btnclick).pack(pady=16,ipadx=8,ipady=8)</pre> 当时发现居然这么简单，然后赶紧就照着网上的代码做了。做了之后发现，这个代码，有些时候可以正确获得值，有些时候又不能正确获得，StringVar的get返回空字符串。
 
@@ -42,9 +42,9 @@ data = StringVar(root) Label(root,text="请输入要分析的词语（仅一个�
 
 如下：
 
-def btnclick(): root.update() word = wordentry.get() \#调用Entry的get方法获得数据
+def btnclick(): root.update() word = wordentry.get() #调用Entry的get方法获得数据
 
-Label(root,text="KCC数据分析模块 - 基本分析套件\n该模块用于显示指定词语的时间频率关系图",width=35,height=5).pack() Label(root,text="请输入要分析的词语（仅一个）:",width=25,height=2).pack() wordentry = Entry(root,text="请输入内容",width=25,textvariable=data) \#给entry来个名字 wordentry.pack(ipadx=4,ipady=4) Button(root, text="获取edit内容", width=15,relief=GROOVE,command=btnclick).pack(pady=16,ipadx=8,ipady=8)</pre> 通过调用Entry的get方法来获取变量，经过测试：这种方法每一次均可正确获得。
+Label(root,text="KCC数据分析模块 - 基本分析套件\n该模块用于显示指定词语的时间频率关系图",width=35,height=5).pack() Label(root,text="请输入要分析的词语（仅一个）:",width=25,height=2).pack() wordentry = Entry(root,text="请输入内容",width=25,textvariable=data) #给entry来个名字 wordentry.pack(ipadx=4,ipady=4) Button(root, text="获取edit内容", width=15,relief=GROOVE,command=btnclick).pack(pady=16,ipadx=8,ipady=8)</pre> 通过调用Entry的get方法来获取变量，经过测试：这种方法每一次均可正确获得。
 
 [参考资料：NMT Tkinter教程 http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/index.html](http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/index.html)
 

@@ -33,7 +33,7 @@ layout: posting
 
 下面的代码展示了分别用python2和python3运行脚本：
 
-\#使用python2运行h.py py -2 k.py
+#使用python2运行h.py py -2 k.py
 
 ## 使用python3运行h.py
 

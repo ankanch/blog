@@ -28,10 +28,10 @@ layout: posting
 在<head></head>间加入以下代码：
 
 ```html
-<link rel="shortcuticon"href="[http://example.com/favicon.ico](http://example.com/favicon.ico)"type="image/vnd.microsoft.icon"></span> ****<link rel="icon" href="[http://example.com/favicon.ico](http://example.com/favicon.ico)" type="image/vnd.microsoft.icon**"</span>></span></span>
+<link rel="shortcuticon"href="http://example.com/favicon.ico"type="image/vnd.microsoft.icon"></span> ****<link rel="icon" href="http://example.com/favicon.ico" type="image/vnd.microsoft.icon**"</span>></span></span>
 ```
 
-如果你将favicon.ico放在了网站根目录，则把加粗部分换成你的域名即可。
+如果你将favicon.ico放在了网站根目录，则把href属性设置为你的域名即可。
 
 
 
