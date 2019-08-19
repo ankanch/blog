@@ -36,7 +36,7 @@ layout: posting
 
 如果你是Windows8/8.1/10的话，在开始正式安装之前，我们首先要关闭快速启动
 
-控制面板->硬件和声音->电源选项 选择左边栏的【选择电源按钮功能】，然后关闭快速启动。
+`控制面板->硬件和声音->电源选项` 选择左边栏的【选择电源按钮功能】，然后关闭快速启动。
 
 [![Ubuntu-0](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-0.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/01/Ubuntu-0.png)
 

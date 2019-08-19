@@ -35,14 +35,14 @@ shadowsocks就不容我多介绍了吧，对于我这种重度google用户来说
 
 然后我们用下面这个命令安装Genepac：
 
-```
+```sh
 sudo pip install genpac
 mkdir ~/shadowsocks cd shadowsocks
 ```
 
 用以下命令生成pac文件
 
-```
+```sh
 genpac --proxy="SOCKS5 127.0.0.1:1080" --gfwlist-proxy="SOCKS5 127.0.0.1:1080" -o autoproxy.pac --gfwlist-url="https://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt" 
 ```
 
@@ -56,8 +56,10 @@ pip的安装
 
 对于Ubuntu12.10以上的版本，依次输出以下命令即可：
 
-```
-$ sudo apt-get install python-pip python-dev build-essential $ sudo pip install --upgrade pip $ sudo pip install --upgrade virtualenv
+```sh
+sudo apt-get install python-pip python-dev build-essential 
+sudo pip install --upgrade pip 
+sudo pip install --upgrade virtualenv
 ```
 
 
