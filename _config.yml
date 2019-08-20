@@ -2,4 +2,3 @@ permalink: /post/:year/:month/:day/:title:output_ext
 markdown: kramdown
 plugins:
   - jekyll-seo-tag
-theme: jekyll-theme-cayman
