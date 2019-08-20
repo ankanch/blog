@@ -22,11 +22,11 @@ layout: posting
 
 解决方法：
 
-编辑/etc/modprobe.d/iwlwifi.conf文件即可解决
+编辑`/etc/modprobe.d/iwlwifi.conf`文件即可解决
 
 首先要打开终端，然后输入：
 
-```
+```shell
 sudo vim /etc/modprobe.d/iwlwifi.conf
 options iwlwifi 11n_disable=1
 ```

@@ -24,7 +24,7 @@ layout: posting
 
 实现方法非常简单，只需要在网站的head标签部分加入如下代码即可实现：
 
-```
+```html
 <meta name="theme-color" content="#cc3333">
 ```
 

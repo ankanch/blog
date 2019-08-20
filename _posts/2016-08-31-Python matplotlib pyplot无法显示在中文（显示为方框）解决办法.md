@@ -21,17 +21,20 @@ layout: posting
 
 在网上搜索一番，提到的大多数解决方式都不可用，类似于下面这样：
 
-```
-pyplot.title(u"中文") pyplot.title(u'\u4e2d\u6587') # (unicode编码) pyplot.title('\xe4\xb8\xad\xe6\x96\x87') # (utf-8编码)
+```python
+pyplot.title(u"中文") pyplot.title(u'\u4e2d\u6587') # (unicode编码) 
+pyplot.title('\xe4\xb8\xad\xe6\x96\x87') # (utf-8编码)
 ```
 
 如下：
-
+```python
 from matplotlib import pyplot  
 from matplotlib.font_manager import FontProperties  
 font_set = FontProperties(fname=r"c:\windows\fonts\simsun.ttc", size=15)
 
-pyplot.title(u'中文', fontproperties=font_set)</pre> 然后就完美解决了无法显示中文的问题。
+pyplot.title(u'中文', fontproperties=font_set)
+```
+然后就完美解决了无法显示中文的问题。
 
 [![figure_1](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/08/figure_1-1-300x225.png)](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2016/08/figure_1-1.png)
 

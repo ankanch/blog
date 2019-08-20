@@ -28,7 +28,7 @@ layout: posting
 
 在网上查了一番后，发现可以通过注入Java Script代码，来实现对指定元素的过滤（隐藏或者删除，分别讲这两种，接下来）
 
-### 法1：通过seletor来隐藏标签。
+## 法1：通过seletor来隐藏标签。
 
 首先，我们需要获取指定元素的seletor，获取方法如下图（右键新窗口打开，查看大图）：
 
@@ -42,22 +42,22 @@ Chrome浏览器中F12打开开发者工具，然后右键菜单，copy，copy se
 
 wv.setWebViewClient(new WebViewClient(){
 
-```text
+```java
         @Override
         public void onPageFinished(WebView view, String url) {
                 //屏蔽百度嵌入广告
                 view.loadUrl("javascript:function setTop(){document.querySelector('#BAIDU_SSP__wrapper_u2578965_0').style.display=\"none\";}setTop();");
         }
-    });</pre>
+    });
 ```
 
 然后，我们再打开网页，就会发现，在网页加载完成后，广告就会自动去掉。
 
-### 法2：直接删除标签
+## 法2：直接删除标签
 
 通过以下代码，并传入HTML元素的ID值，即可实现直接删除标签：
 
-```
+```java
 view.loadUrl("javascript:var con = document.getElementById('gamesliderwrap'); con.parentNode.removeChild(con); ");
 ```
 

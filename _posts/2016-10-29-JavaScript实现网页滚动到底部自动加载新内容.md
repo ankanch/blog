@@ -21,39 +21,37 @@ layout: posting
 JavaScript的实现逻辑非常简单，就是判断滚动条的滚动长度是否和网页长度一样了。
 
 其JS代码如下：
-
+```JS
 var p = 1; var page_num = 2;
+function loadComments() {
+    var tid = document.getElementById("tid").innerHTML;
+    var commentsbaseurl = "/getcomments/"
+    commentsbaseurl = commentsbaseurl + tid + "/" + p + "/";
+    p += 5
+    $.get(commentsbaseurl, function(data) {
+        if (data != "NULL") {
+            document.getElementById("commentslist").innerHTML = document.getElementById("commentslist").innerHTML + data;
+        } else {
+            $.snackbar({
+                content: "评论已经全部拉取完毕！如果你刚刚提交了评论，请不要着急，评论刷新存在延迟。"
+            });
+        }
+    });
+}
+$(document).ready(function() {
+    $(window).scroll(function() {
+        if ($(document).scrollTop() >= $(document).height() - $(window).height()) {
+            var div1tem = $('#container').height()
 
-```text
-                function loadComments() {
-                    var tid = document.getElementById("tid").innerHTML;
-                    var commentsbaseurl = "/getcomments/"
-                    commentsbaseurl = commentsbaseurl + tid + "/" + p + "/";
-                    p += 5
-                    $.get(commentsbaseurl, function(data) {
-                        if (data != "NULL") {
-                            document.getElementById("commentslist").innerHTML = document.getElementById("commentslist").innerHTML + data;
-                        } else {
-                            $.snackbar({
-                                content: "评论已经全部拉取完毕！如果你刚刚提交了评论，请不要着急，评论刷新存在延迟。"
-                            });
-                        }
-                    });
-                }
-                $(document).ready(function() {
-                    $(window).scroll(function() {
-                        if ($(document).scrollTop() >= $(document).height() - $(window).height()) {
-                            var div1tem = $('#container').height()
-
-                            loadComments()
-                        }
-                    })
-                })</pre>
+            loadComments()
+        }
+    })
+})
 ```
 
 你们只需要自定义loadComments(）函数即可实现，当网页滚动到底部的时候加载更多内容。
 
-即通过JavaScript获取新内容放到以个<div></div>里即可。
+即通过JavaScript获取新内容放到以个`<div></div>`里即可。
 
 已知bug：
 

@@ -1,10 +1,13 @@
-<!doctype html>
-<html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <title>{{ page.title }} | akakanch - kanch.blog</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fff">
+    {% seo %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -15,38 +18,27 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-</head>
-
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">kanch.blog</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/posts">postings</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/projects">projects</a>
-        </li>
+    <link rel="stylesheet" href="/assets/css/style.css?v=642407e89c65ba8162b96b643f7ac4c64ad40707">
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      <h1><a href="http://akakanch.com/">kanch.blog</a></h1>
+      <ul style="list-style-type: none;margin: 0;padding: 0;overflow: hidden;">
+        <li style="float: left;"><a style="display: inline-block;text-align: center;padding: 14px 16px;text-decoration: none;" href="/">home</a></li>
+        <li style="float: left;"><a style="display: inline-block;text-align: center;padding: 14px 16px;text-decoration: none;" href="/posts">postings</a></li>
+        <li style="float: left;"><a style="display: inline-block;text-align: center;padding: 14px 16px;text-decoration: none;" href="/projects">projects</a></li>
       </ul>
-      <span class="navbar-text">
-        &copy; zl@kanchz.com
-      </span>
-    </div>
-  </nav>
-  <div class="container px-3 my-5">
-    {{ content }}
-  </div>
-
-  <div class="navbar "
+      <p style="font-weight: 500">posted at <span style="font-style:italic;color:coral">{{page.date}}</span></p>
+      {{ content }}
+      
+    </div> 
+    <div class="navbar "
     style="text-align:center;width: 100%;display: inline-block;background-color:#5555f6;color:seashell;text-shadow:1px 1px 0 #444">
     &copy; kanch <br />
     last updated on {{site.time}}
   </div>
-</body>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+    
+  </body>
 </html>

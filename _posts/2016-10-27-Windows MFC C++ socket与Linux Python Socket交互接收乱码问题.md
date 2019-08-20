@@ -31,19 +31,32 @@ layout: posting
 
 封装后的函数如下：
 
-```
-//这段代码在MFC环境中正常 wchar_t * UTF8ToUnicode( const char* str ) { int textlen = 0; wchar_t * result; textlen = MultiByteToWideChar( CP_UTF8, 0, str,-1, NULL,0 );  
-result = (wchar_t *)malloc((textlen+1)*sizeof(wchar_t));  
-memset(result,0,(textlen+1)*sizeof(wchar_t));  
-MultiByteToWideChar(CP_UTF8, 0,str,-1,(LPWSTR)result,textlen );  
-return result;  
+```c++
+//这段代码在MFC环境中正常 
+wchar_t * UTF8ToUnicode(const char * str) {
+  int textlen = 0;
+  wchar_t * result;
+  textlen = MultiByteToWideChar(CP_UTF8, 0, str, -1, NULL, 0);
+  result = (wchar_t * ) malloc((textlen + 1) * sizeof(wchar_t));
+  memset(result, 0, (textlen + 1) * sizeof(wchar_t));
+  MultiByteToWideChar(CP_UTF8, 0, str, -1, (LPWSTR) result, textlen);
+  return result;
 }
 ```
 
 同理，下面的函数实现了UNICODE到UTF-8的转换：
 
-```
-char * CKCCDlg::UnicodeToUTF8(const wchar_t *str) { char * result; int textlen = 0; // wide char to multi char textlen = WideCharToMultiByte(CP_UTF8, 0, str, -1, NULL, 0, NULL, NULL); result = (char *)malloc((textlen + 1) * sizeof(char)); memset(result, 0, sizeof(char) * (textlen + 1)); WideCharToMultiByte(CP_UTF8, 0, str, -1, result, textlen, NULL, NULL); return result; }
+```c++
+char * CKCCDlg::UnicodeToUTF8(const wchar_t * str) {
+  char * result;
+  int textlen = 0;
+  // wide char to multi char 
+  textlen = WideCharToMultiByte(CP_UTF8, 0, str, -1, NULL, 0, NULL, NULL);
+  result = (char * ) malloc((textlen + 1) * sizeof(char));
+  memset(result, 0, sizeof(char) * (textlen + 1));
+  WideCharToMultiByte(CP_UTF8, 0, str, -1, result, textlen, NULL, NULL);
+  return result;
+}
 ```
 
 

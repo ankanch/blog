@@ -23,35 +23,50 @@ layout: posting
 我们讨论的是连接到已经存在的Access 2013数据库。
 
 首先我们需要在MFC对话框的stdafx.h头文件中包含afxdb.h文件，该文件提供了数据库操作
+```c++
+//下面这句代码要加在
+#include <afxcontrolbars.h> // 功能区和控件条的 MFC 之下
+//添加数据库支持
+#include <afxdb.h> //新加入头文件，用于CDatabase类
+```
 
-//下面这句代码要加在#include <afxcontrolbars.h> // 功能区和控件条的 MFC 支持之下 //添加数据库支持
-
-## include <afxdb.h> //新加入头文件，用于CDatabase类</pre>
-
-然后，我们需要导入msado15.dll，该文件与数据库参数有关，未ADO组件，用于连接数据库
-
-//msado15.dll我是复制到了项目文件夹下 //它的默认路径应该是C:\Program Files\Common Files\System\ado
-
-## import "msado15.dll"  no_namespace  rename("EOF","adoEOF")</pre>
+然后，我们需要导入`msado15.dll`，该文件与数据库参数有关，为ADO组件，用于连接数据库
+```c++
+//msado15.dll我是复制到了项目文件夹下 
+//它的默认路径应该是C:\Program Files\Common Files\System\ado
+#import "msado15.dll"  no_namespace  rename("EOF","adoEOF")
+```
 
 接下来就是连接数据库了。
 
-我们先声明 2个变量，一个是_ConnectionPtr类型，另外一个是_RecordsetPtr类型。
+我们先声明 2个变量，一个是`ConnectionPtr`类型，另外一个是`RecordsetPtr`类型。
 
-_ConnectionPtr是用来connection对象，主要用于数据库的连接，SQL命令执行相关操作
+`ConnectionPtr`是用来connection对象，主要用于数据库的连接，SQL命令执行相关操作
 
-_RecordsetPtr是用来是用来对返回的记录集进行操作的
+`RecordsetPtr`是用来是用来对返回的记录集进行操作的
 
+```c++
+ConnectionPtr m_pConnection; //连接access数据库的链接对象 
+RecordsetPtr m_pRecordset; //记录集对象
+//连接数据库 
+try {
+  CoInitialize(NULL);
+  m_pConnection = _ConnectionPtr(__uuidof(Connection));
+  m_pConnection - > ConnectionString = _T("Provider=Microsoft.ACE.OLEDB.12.0;\ DataSource=X:\\MetroData\\StationData.accdb;"); //这里照着老版的书上写
+  //Provider = Microsoft.Jet.OLEDB .4 .0;
+  //DataSource= MyAccess.mdb是不对的，这样写只适合2007版以前的access，且路径里面的\必须改成 
+  m_pConnection - > Open("", "", "", adConnectUnspecified);
+} catch (_com_error e) {
+  AfxMessageBox(_T("数据库连接失败！"));
+  return FALSE;
+}
 ```
-_ConnectionPtr m_pConnection;//连接access数据库的链接对象 _RecordsetPtr m_pRecordset;//记录集对象
-//连接数据库 try { CoInitialize(NULL); m_pConnection = _ConnectionPtr(__uuidof(Connection)); m_pConnection->ConnectionString = _T("Provider=Microsoft.ACE.OLEDB.12.0;\ Data Source=X:\\MetroData\\StationData.accdb;");//这里照着老版的书上写Provider=Microsoft.Jet.OLEDB.4.0;Data //Source= MyAccess.mdb是不对的，这样写只适合2007版以前的access，且路径里面的\必须改成 m_pConnection->Open("", "", "", adConnectUnspecified); } catch (_com_error e) { AfxMessageBox(_T("数据库连接失败！")); return FALSE; }
-```
 
-### **注意：**
+## 注意
 
-如果提示 【_'Microsoft.ACE.OLEDB.12.0'提供者未注册】_ 错误，请[下载Microsoft Access Database Engine 2010 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=13255)
+如果提示 _Microsoft.ACE.OLEDB.12.0 提供者未注册_ 错误，请[下载Microsoft Access Database Engine 2010 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=13255)
 
-如果连接失败，你可能需要在MFC对话框的App类的构造函数CXXX::CXXXApp()中添加AfxOleInit();用于初始化。
+如果连接失败，你可能需要在MFC对话框的App类的构造函数`CXXX::CXXXApp()`中添加`AfxOleInit();`用于初始化。
 
 
 
