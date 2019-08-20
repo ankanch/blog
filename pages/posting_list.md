@@ -17,9 +17,7 @@ permalink: /posts
 <div class="cupcakes">
     {% for post in site.posts %}
       <div class="cupcake">
-        <h2>{{ cupcake.type }}</h2>
         <a href="{{ site.baseurl }}{{ post.url }}" target="_blank">{{ post.date | date_to_string }} - {{ post.title }}</a>
-        <p>{{ cupcake.description }}</p>
       </div>
     {% endfor %}
 </div>
