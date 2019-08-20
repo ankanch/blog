@@ -17,7 +17,7 @@ permalink: /posts
 <div class="cupcakes">
     {% for post in site.posts %}
       <div class="cupcake">
-        <a href="{{ site.baseurl }}{{ post.url }}" target="_blank">{{ post.date | date_to_string }} - {{ post.title }}</a>
+        <a href="{{ site.baseurl }}{{ post.url }}" target="_blank" style="margin-top:1px;">{{ post.date | date_to_string }} - {{ post.title }}</a>
       </div>
     {% endfor %}
 </div>

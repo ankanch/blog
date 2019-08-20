@@ -21,7 +21,7 @@ layout: posting
 JavaScript的实现逻辑非常简单，就是判断滚动条的滚动长度是否和网页长度一样了。
 
 其JS代码如下：
-```JS
+```javascript
 var p = 1; var page_num = 2;
 function loadComments() {
     var tid = document.getElementById("tid").innerHTML;
