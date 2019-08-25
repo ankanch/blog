@@ -19,7 +19,7 @@ layout: posting
 
 最近在使用Google App Engine，然后自己准备部署个python爬虫部署在GAE上面，然后开始跟着谷歌的教程创建hello world程序。完毕后，想到，自己只需要稍微修改下谷歌的代码，然后在默认的main.py里面添加路由，调用自己的函数即可。
 
-当然要修改代码，必须得先下载代码才行，但是谷歌给出的脚本为python2的脚本，并没有python3的脚本。虽然我们已经知道通过[3to2](https://wiki.python.org/moin/3to2)可以转换python3代码到python2。但是这是不得已才会使用的方法，所以最好的办法仍然是使用python2来运行。
+当然要修改代，必须得先下载代码才行，但是谷歌给出的脚本为python2的脚本，并没有python3的脚本。虽然我们已经知道通过[3to2](https://wiki.python.org/moin/3to2)可以转换python3代码到python2。但是这是不得已才会使用的方法，所以最好的办法仍然是使用python2来运行。
 
 那么，就需要python2和python3在windows上共存了。
 
@@ -33,31 +33,36 @@ layout: posting
 
 下面的代码展示了分别用python2和python3运行脚本：
 
-#使用python2运行h.py py -2 k.py
-
-## 使用python3运行h.py
-
-py -3 k.py </pre> 如果觉得这样太麻烦，可以通过在源代码文件第一行添加：
-
+使用python2运行h.py 
+```sh
+py -2 k.py
 ```
+
+使用python3运行h.py
+```sh
+py -3 k.py
+```
+如果觉得这样太麻烦，可以通过在源代码文件第一行添加：
+
+```python
 #! python3
 #! python2
 ```
 
 然后我们只需要：
 
-```
+```sh
 py h.py
 ```
 
 关于不同版本之间pip的使用：
 
 使用如下命令即可运行指定版本的pip：
-
+```sh
 py -2 -m pip install XXX
 
-py -3 -m pip install XXX</pre>  
-
+py -3 -m pip install XXX
+```
 
 
 {% include post_footer.md %}

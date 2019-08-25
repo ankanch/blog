@@ -27,19 +27,26 @@ layout: posting
 
 （[图片源地址：https://my.oschina.net/Kanonpy/blog/617535?p=1](https://my.oschina.net/Kanonpy/blog/617535?p=1)）
 
-之前使用matplotlib绘制其它类型的图片的时候也发现不能显示中文，最后的解决办法都是使用FontProperties() 来设置字体解决问题。
+之前使用matplotlib绘制其它类型的图片的时候也发现不能显示中文，最后的解决办法都是使用`FontProperties()` 来设置字体解决问题。
 
-然而发现饼状图貌似不不能简单的通过在plt.pie（）中传入FontProperties() 解决中文乱码的问题。
+然而发现饼状图貌似不不能简单的通过在`plt.pie()`中传入`FontProperties()` 解决中文乱码的问题。
 
 后面在[https://my.oschina.net/Kanonpy/blog/617535?p=1](https://my.oschina.net/Kanonpy/blog/617535?p=1)找到了解决办法，以及出现这个问题的原因。
 
-在调用pie()函数的时候，它会返回字体对象。而且返回的字体对象不支持中文字体。
+在调用`pie()`函数的时候，它会返回字体对象。而且返回的字体对象不支持中文字体。
 
-根据那篇文章里的说法，我们只需要修改pie（）返回的字体对象即可，即将它返回的对象修改为支持中文的字体。
+根据那篇文章里的说法，我们只需要修改`pie()`返回的字体对象即可，即将它返回的对象修改为支持中文的字体。
 
-```
-patches,l_text,p_text = plt.pie(ValueList, labels=Labels, colors=colors,autopct='%1.1f%%',explode=explode ,shadow=True, startangle=90) for font in l_text: font.set_fontproperties(FontProperties(fname=PATH_SUFFIX+'SIMLI.TTF')) plt.title(graphicTitle,fontproperties=font_set,y=1.05)
-#重要全局变量 PATH_SUFFIX = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, os.pardir)) PATH_SUFFIX+="\\userX\\" #插件根目录
+```python
+patches, l_text, p_text = plt.pie(ValueList, labels = Labels, colors = colors, autopct = '%1.1f%%', explode = explode, shadow = True, startangle = 90)
+for font in l_text:
+  font.set_fontproperties(FontProperties(fname = PATH_SUFFIX + 'SIMLI.TTF'))
+plt.title(graphicTitle, fontproperties = font_set, y = 1.05) 
+
+#重要全局变量
+PATH_SUFFIX = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, os.pardir)) 
+PATH_SUFFIX += "\\userX\\"#
+插件根目录
 ```
 
 这样，我们便可以正常显示中文字体了。
@@ -50,11 +57,11 @@ patches,l_text,p_text = plt.pie(ValueList, labels=Labels, colors=colors,autopct=
 
 windows下字体路径：
 
-**C:\Windows\Fonts**
+> C:\Windows\Fonts
 
 Ubuntu下字体路径：
 
-**/usr/share/fonts**
+> /usr/share/fonts
 
 
 

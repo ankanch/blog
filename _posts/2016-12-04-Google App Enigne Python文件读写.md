@@ -30,90 +30,99 @@ layout: posting
 当然python3写的程序，也可以方便的通过[**3to2**](https://pypi.python.org/pypi/3to2/1.1.1)转换得到相应的python2版本。
 
 通过以下命令，3to2可以将指定python3文件或路径里的所有python3文件转换为python2的语法：
-
-#
-
-## file 为文件或者文件夹
-
-python3 3to2.py -w [file] </pre> 当时以为只需要简单的将文件操作转换为python2的即可，结果部署到GAE后发现，并不能写入，更别说读取了。
+```sh
+# file 为文件或者文件夹
+python3 3to2.py -w [file] 
+```
+当时以为只需要简单的将文件操作转换为python2的即可，结果部署到GAE后发现，并不能写入，更别说读取了。
 
 后面在GAE的控制台看错误信息，发现并没有相关错误提示。故Google之([google app engine python read file](https://www.google.com.hk/search?newwindow=1&amp;safe=strict&amp;q=google+app+engine+python+read+file&amp;oq=Google+App+Engine+&amp;gs_l=serp.3.0.35i39k1j0l9.199.3152.0.4575.12.12.0.0.0.0.344.1898.0j6j2j1.9.0....0...1c.1.64.serp..3.9.1898...0i20k1.cSDLSUneB4s))...
 
 后面找到了这个：[Reading and Writing to Google Cloud Storage](https://cloud.google.com/appengine/docs/python/googlecloudstorageclient/read-write-to-cloud-storage)
 
-再搜索了一下Google Cloud Storage，发现GAE的应用如果要使用文件都需要在这个上面进行。 于是以为只需要简单的通过 pip install cloudstorage 即可，因为谷歌给出的示例代码是直接 import cloudstorage 的。
+再搜索了一下Google Cloud Storage，发现GAE的应用如果要使用文件都需要在这个上面进行。 于是以为只需要简单的通过 `pip install cloudstorage` 即可，因为谷歌给出的示例代码是直接 import cloudstorage 的。
 
 结果事实证明并不行。接下来当然又要借助万能的谷歌了，搜索how toinstall python google cloud storage 。最后得到了这个：[install python google cloud storage client on Ubuntu 14.04](http://stackoverflow.com/questions/25100031/install-python-google-cloud-storage-client-on-ubuntu-14-04)
 
 虽然是Ubuntu的，但还是凑合着用吧。通过那个网站我们知道Google Cloud Storage的正确的包名为：
 
-**GoogleAppEngineCloudStorageClient**
+> GoogleAppEngineCloudStorageClient
 
 接下来就简单了，直接pip安装，不过还要[结合之前那篇文章的方法](https://raw.githubusercontent.com/ankanch/blog/master/images/archives/634)，将那货安装到应用的lib目录，否则，部署到GAE后会提示找不到module！
 
-#
 
-## 假设该命令运行目录为你应用的根目录（即可见lib文件夹的目录）
-
+假设该命令运行目录为你应用的根目录（即可见lib文件夹的目录）
+```sh
 pip install GoogleAppEngineCloudStorageClient -t lib
-
-## 如果你同时安装了python2和python3，请使用以下命令：
-
-py -2 -m pip install GoogleAppEngineCloudStorageClient -t lib</pre> 到这里，我们已经完成了必要模块的安装，接下来开始敲代码了。
+```
+如果你同时安装了python2和python3，请使用以下命令：
+```sh
+py -2 -m pip install GoogleAppEngineCloudStorageClient -t lib
+```
+到这里，我们已经完成了必要模块的安装，接下来开始敲代码了。
 
 还是参考google的文档：[Reading and Writing to Google Cloud Storage](https://cloud.google.com/appengine/docs/python/googlecloudstorageclient/read-write-to-cloud-storage)
 
 首先import一些必要库：
-
-#
-
-import logging import os import cloudstorage as gcs import webapp2
-
-from google.appengine.api import app_identity</pre> google在文档中说明，所有的文件操作都在一个叫做bucket的东西里面进行的，bucket是可以扩充的，当然，免费版只有5GB而且是所有你账户下免费GAE应用共享的，不过对于部署GAE应用来说，足够了（毕竟google通过GAE赚不了什么钱。）
+```python
+import logging 
+import os 
+import cloudstorage as gcs 
+import webapp2
+from google.appengine.api import app_identity
+```
+google在文档中说明，所有的文件操作都在一个叫做bucket的东西里面进行的，bucket是可以扩充的，当然，免费版只有5GB而且是所有你账户下免费GAE应用共享的，不过对于部署GAE应用来说，足够了（毕竟google通过GAE赚不了什么钱。）
 
 所以，bucket这里我们直接使用默认的即可，通过以下代码获取默认bucket路径，所有的文件都会存放在这个路径下：
+```python
+#RetryParams是说明文件读写超时时间，这里直接使用了google默认的
+#cachepath即为我们要存放文件的路径，直接cachepath+filename即可
+bucket_name = os.environ.get('BUCKET_NAME',app_identity.get_default_gcs_bucket_name())
+write_retry_params = gcs.RetryParams(backoff_factor=1.1) 
+cachepath = '/' + bucket_name +'/'
+```
+接下来讲读写文件操作：
 
-#
-
-## RetryParams是说明文件读写超时时间，这里直接使用了google默认的
-
-## cachepath即为我们要存放文件的路径，直接cachepath+filename即可
-
-bucket_name = os.environ.get('BUCKET_NAME',app_identity.get_default_gcs_bucket_name()) write_retry_params = gcs.RetryParams(backoff_factor=1.1) cachepath = '/' + bucket_name +'/'</pre> 接下来讲读写文件操作：
-
-文件读写同样主要用到open(),read(),write(),不过，这些函数是cloudstorage里面的。
+文件读写同样主要用到`open()`,`read()`,`write()`,不过，这些函数是cloudstorage里面的。
 
 详细的函数说明可以参考google官方文档：[**Google Cloud Storage Client Library Functions**](https://cloud.google.com/appengine/docs/python/googlecloudstorageclient/functions#open)
 
 下面是一个写文件的例子：
+```python
+# 写文件操作主要在try块里面，google的代码没有try块，不过为了防止操作失败，建议还是加上
 
-#
-
-## 写文件操作主要在try块里面，google的代码没有try块，不过为了防止操作失败，建议还是加上
-
-def refreshCache(data,cachefilename): try: gcs_file = gcs.open(cachepath+cachefilename, #文件名（要加上路径，否则会出错） 'w', #要执行的操作类型，这里是写操作，默认为读操作 content_type='text/plain', #指定要以何种方式写入文件（仅在操作类型为w的时候有效）
-
-```text
-                                                     #默认是以二进制方式写入，这里我们使用纯文本
-                  retry_params=write_retry_params)   #超时设置
+def refreshCache(data,cachefilename): 
+  try: 
+    gcs_file = gcs.open(cachepath+cachefilename, #文件名（要加上路径，否则会出错） 'w', #要执行的操作类型，这里是写操作，默认为读操作 
+    content_type='text/plain', #指定要以何种方式写入文件（仅在操作类型为w的时候有效）,默认是以二进制方式写入，这里我们使用纯文本
+    retry_params=write_retry_params)   #超时设置
     gcs_file.write(data)
     gcs_file.close()
-except Exception as e:
+  except Exception as e:
     return "CACHE ERROR：refresh <br/>please contact kanch@akakanch.com<hr/>"
-return "OK<hr/>"</pre>
+  return "OK<hr/>"
 ```
 
 上面的注释已经简要的说明了各个必要参数的意思。
 
 接下来是一个读取文件的例子：
+```python
+#同样的读取文件的代码主要在try块里面
 
-#
+def checkNewNews(newsdata,cachefilename): 
+  sourcedata = "" 
+  newslist = newsdata 
+  try: 
+    gcs_file = gcs.open(cachepath+cachefilename, retry_params=write_retry_params) 
+    sourcedata = gcs_file.read() 
+    gcs_file.close() 
+  except Exception as e: 
+    return "CACHE ERROR：check <br/>please contact kanch@akakanch.com<hr/>" 
+  return newupdate
+```
+可以看到，我们没有指定打开模式，所以函数使用了默认打开方式，即读取文件模式。
 
-## 同样的读取文件的代码主要在try块里面
-
-def checkNewNews(newsdata,cachefilename): sourcedata = "" newslist = newsdata try: gcs_file = gcs.open(cachepath+cachefilename, retry_params=write_retry_params) sourcedata = gcs_file.read() gcs_file.close() except Exception as e: return "CACHE ERROR：check <br/>please contact kanch@akakanch.com<hr/>" return newupdate</pre> 可以看到，我们没有指定打开模式，所以函数使用了默认打开方式，即读取文件模式。
-
-最后就是简单的read()出来进行处理了。
+最后就是简单的`read()`出来进行处理了。
 
 再来简单的说下Google App Engine吧，每个google帐号可以有10个免费GAE资源。不过中文资料太难找，部署起来还是算比较麻烦的，不过免费的，大家都喜欢。。。
 

@@ -25,65 +25,73 @@ layout: posting
 
 最后在另外一台服务器上调用的时候，却无法正确获取数据，提示错误如下：
 
-**XMLHttpRequest cannot load '<some-url>'. No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin '<my-url>' is therefore not allowed access.**
+> XMLHttpRequest cannot load '\<some-url\>'. No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin '\<my-url\>' is therefore not allowed access.
 
 经过搜索发现是因为跨域调用问题（即从一个域名请求另外一个域名下的信息，至少在Chrome中是禁止的）
 
-解决该问题的方法如错误提示信息所示，在服务器端的response加入Access-Control-Allow-Origin即可。
+解决该问题的方法如错误提示信息所示，在服务器端的response加入`Access-Control-Allow-Origin`即可。
 
-网上查出来的很多方法都是通过在GAE的app.yaml文件里面添加来实现的，后面我尝试后发现不管用。
+网上查出来的很多方法都是通过在GAE的`app.yaml`文件里面添加来实现的，后面我尝试后发现不管用。
 
 于是经过一番搜索，搜索出了这个：[Decorator for the HTTP Access Control](http://flask.pocoo.org/snippets/56/)
 
-为Flask写一个访问修饰器，然后，通过在要控制Access-Control的路由函数前面添加@crossdomain(origin='*')来实现发送Access-Control-Allow-Origin头。
+为Flask写一个访问修饰器，然后，通过在要控制Access-Control的路由函数前面添加`@crossdomain(origin='*')`来实现发送Access-Control-Allow-Origin头。
 
 首先，我们定义一个如下函数（这个函数内部还有函数哦）：
+```python
+from datetime import timedelta 
+from flask import make_response, request, current_app 
+from functools import update_wrapper
 
-from datetime import timedelta from flask import make_response, request, current_app from functools import update_wrapper
+def crossdomain(origin=None, methods=None, 
+    headers=None, max_age=21600, attach_to_all=True, automatic_options=True): 
+    if methods is not None: 
+        methods = ', '.join(sorted(x.upper() for x in methods)) 
+    if headers is not None and not isinstance(headers, basestring): 
+        headers = ', '.join(x.upper() for x in headers) 
+    if not isinstance(origin, basestring): 
+        origin = ', '.join(origin) 
+    if isinstance(max_age, timedelta): 
+        max_age = max_age.total_seconds()
 
-def crossdomain(origin=None, methods=None, headers=None, max_age=21600, attach_to_all=True, automatic_options=True): if methods is not None: methods = ', '.join(sorted(x.upper() for x in methods)) if headers is not None and not isinstance(headers, basestring): headers = ', '.join(x.upper() for x in headers) if not isinstance(origin, basestring): origin = ', '.join(origin) if isinstance(max_age, timedelta): max_age = max_age.total_seconds()
+    def get_methods():
+        if methods is not None:
+            return methods
 
-```text
-def get_methods():
-    if methods is not None:
-        return methods
+        options_resp = current_app.make_default_options_response()
+        return options_resp.headers['allow']
 
-    options_resp = current_app.make_default_options_response()
-    return options_resp.headers['allow']
+    def decorator(f):
+        def wrapped_function(*args, **kwargs):
+            if automatic_options and request.method == 'OPTIONS':
+                resp = current_app.make_default_options_response()
+            else:
+                resp = make_response(f(*args, **kwargs))
+            if not attach_to_all and request.method != 'OPTIONS':
+                return resp
 
-def decorator(f):
-    def wrapped_function(*args, **kwargs):
-        if automatic_options and request.method == 'OPTIONS':
-            resp = current_app.make_default_options_response()
-        else:
-            resp = make_response(f(*args, **kwargs))
-        if not attach_to_all and request.method != 'OPTIONS':
+            h = resp.headers
+
+            h['Access-Control-Allow-Origin'] = origin
+            h['Access-Control-Allow-Methods'] = get_methods()
+            h['Access-Control-Max-Age'] = str(max_age)
+            if headers is not None:
+                h['Access-Control-Allow-Headers'] = headers
             return resp
 
-        h = resp.headers
-
-        h['Access-Control-Allow-Origin'] = origin
-        h['Access-Control-Allow-Methods'] = get_methods()
-        h['Access-Control-Max-Age'] = str(max_age)
-        if headers is not None:
-            h['Access-Control-Allow-Headers'] = headers
-        return resp
-
-    f.provide_automatic_options = False
-    return update_wrapper(wrapped_function, f)
-return decorator</pre>
+        f.provide_automatic_options = False
+        return update_wrapper(wrapped_function, f)
+    return decorator
 ```
 
 接着，我们只需要在我们要加入Access-Control-Allow-Origin头的位置添加下面这一句即可：
-
-#
-
+```python
 @crossdomain(origin='_') # <-添加这句，可以把_改为想要允许的域名
 
-@app.route('/my_service') @crossdomain(origin='*') #这货的添加位置应该在路由之后 def my_service():
-
-```text
-#do something</pre>
+@app.route('/my_service') 
+@crossdomain(origin='*') #这货的添加位置应该在路由之后 
+def my_service():
+    #do something
 ```
 
 然后，我们再次调用API，就会发现，没有报这个错误了。
