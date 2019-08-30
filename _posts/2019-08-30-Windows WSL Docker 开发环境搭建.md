@@ -8,7 +8,7 @@ tags:
   - Ubuntu
 categories:
   - Docker / WSL
-date: '2018-02-26T15:18:27.000Z'
+date: '2019-08-30 17:03:00'
 tags: null
 layout: posting
 ---
@@ -34,11 +34,11 @@ layout: posting
 
 把它们打勾，然后保存，重启电脑。  
 
-[启用容器服务](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2019/08/enable-containers.png)[启用WSL服务](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2019/08/enable-wsl.png)   
+![启用容器服务](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2019/08/enable-containers.png)![启用WSL服务](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2019/08/enable-wsl.png)   
 
 重启完毕后，打开windows应用商店，搜索ubuntu，选择ubuntu18.04进行下载。下载完成，就可以在开始菜单里找到它并启动，第一次启动它会让你设置用户名与密码。   
 
-[windows应用商店找到ubuntu18.04](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2019/08/ubuntu-wsl-install.png)
+![windows应用商店找到ubuntu18.04](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2019/08/ubuntu-wsl-install.png)
 
 ## 安装Docker
 
@@ -48,7 +48,7 @@ layout: posting
 docker安装完毕后，在任务栏托盘找到docker图标，右键菜单进入settings界面。  
 
 在Gneral页面，勾选暴露端口，如下图：   
-[暴露docker daemon](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2019/08/expose-docker-daemon.png)
+![暴露docker daemon](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2019/08/expose-docker-daemon.png)
 
 至此windows下docker部分我们已经设置完毕，接下来进行ubuntu里的docker设置。  
 
@@ -115,7 +115,7 @@ echo "export DOCKER_HOST=tcp://localhost:2375" >> ~/.bashrc && source ~/.bashrc
 docker info
 ```
 
-[成功显示dockersinfo截图](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2019/08/docker-info-success.png)
+![成功显示dockersinfo截图](https://raw.githubusercontent.com/ankanch/blog/master/images/wp-content/uploads/2019/08/docker-info-success.png)
 
 ### 配置WSL磁盘挂载
 
