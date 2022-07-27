@@ -1,6 +1,3 @@
----
-
-[最好的科学上网服务->西游：https://xiyou4you.com/r/?s=2219145](https://xiyou4you.com/r/?s=2219145)
 
 ---
 
