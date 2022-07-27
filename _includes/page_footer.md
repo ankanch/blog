@@ -10,6 +10,6 @@
 </script>
 
 ---
-`© kanch` → [zl AT kanchz DOT com](kanchisme@gmail.com)
+`© Long Z.` → [zl AT kanchz DOT com](kanchj@live.com)
 
 _last updated on {{site.time}}_
