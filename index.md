@@ -8,7 +8,7 @@ layout: global
 
 * Name: Long Zhang
 * Location: ~~Chengdu~~→Suzhou China
-* Email: [kanch is me AT gmail DOT com](kanchisme@gmail.com)
+* Email: [kanchj AT live DOT com](kanchj@live.co)
 * Github:[https://github.com/ankanch](https://github.com/ankanch)
 * [Resume Download](http://d.akakanch.com/BlogResourceShare/Resume%20of%20Long%20Zhang%20March%202018%20-formal-reversion%201.pdf)
 
