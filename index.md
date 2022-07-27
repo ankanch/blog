@@ -1,10 +1,10 @@
 ---
-title: Kanch.blog
+title: hcnak.blog
 date: '2018-03-12T17:12:39.000Z'
 layout: global
 ---
 
-# About Kanch.blog
+# About hcnak.blog
 
 * Name: Long Zhang
 * Location: ~~Chengdu~~→Suzhou China
@@ -31,4 +31,4 @@ _最近我将我的博客从腾讯云迁移到了Github Pages,正在慢慢打理
 {% endfor %}
 
 
-`© kanch`
+`© hcnak`
